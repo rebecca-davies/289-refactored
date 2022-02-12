@@ -1,0 +1,16 @@
+.*
+
+!.gitignore
+
+*.iml
+**/out/
+# Ignore Gradle project-specific cache directory
+.gradle
+
+
+*.class
+.idea
+out
+
+# Ignore Gradle build output directory
+build
