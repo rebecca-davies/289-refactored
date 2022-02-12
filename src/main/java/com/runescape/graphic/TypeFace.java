@@ -14,12 +14,12 @@ public class TypeFace extends Draw2D {
     public byte aByte1469;
     public int anInt1470;
     public boolean aBoolean1471;
-    public byte aByteArrayArray1472[][];
-    public int anIntArray1473[];
-    public int anIntArray1474[];
-    public int anIntArray1475[];
-    public int anIntArray1476[];
-    public int anIntArray1477[];
+    public byte[][] aByteArrayArray1472;
+    public int[] anIntArray1473;
+    public int[] anIntArray1474;
+    public int[] anIntArray1475;
+    public int[] anIntArray1476;
+    public int[] anIntArray1477;
     public int anInt1478;
     public Random aRandom1479;
     public boolean aBoolean1480;
@@ -41,13 +41,13 @@ public class TypeFace extends Draw2D {
         try {
             Buffer class44_sub3_sub2 = new Buffer(class47.method549(s + ".dat", null));
             Buffer class44_sub3_sub2_1 = new Buffer(class47.method549("index.dat", null));
-            class44_sub3_sub2_1.offset = class44_sub3_sub2.readUnsignedShort() + 4;
+            class44_sub3_sub2_1.position = class44_sub3_sub2.readUnsignedShort() + 4;
             if (i != 9) {
                 aBoolean1467 = !aBoolean1467;
             }
             int k = class44_sub3_sub2_1.readUnsignedByte();
             if (k > 0) {
-                class44_sub3_sub2_1.offset += 3 * (k - 1);
+                class44_sub3_sub2_1.position += 3 * (k - 1);
             }
             for (int l = 0; l < 256; l++) {
                 anIntArray1475[l] = class44_sub3_sub2_1.readUnsignedByte();
@@ -98,7 +98,7 @@ public class TypeFace extends Draw2D {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("36057, " + i + ", " + s + ", " + flag + ", " + class47 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -111,20 +111,20 @@ public class TypeFace extends Draw2D {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("89843, " + i + ", " + s + ", " + j + ", " + k + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public void method456(boolean flag, int i, byte byte0, int j, String s, int k) {
+    public void drawStringCenter(boolean flag, int i, byte byte0, int j, String s, int k) {
         try {
-            method463(i, 2, k, flag, j - method457(s, true) / 2, s);
+            drawStringTaggable(i, 2, k, flag, j - method457(s, true) / 2, s);
             if (byte0 != -85) {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("52266, " + flag + ", " + i + ", " + byte0 + ", " + j + ", " + s + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -147,7 +147,7 @@ public class TypeFace extends Draw2D {
             }
             return i;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("63390, " + s + ", " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("63390, " + s + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -166,7 +166,7 @@ public class TypeFace extends Draw2D {
             }
             return j;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("70316, " + s + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("70316, " + s + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -191,7 +191,7 @@ public class TypeFace extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("88673, " + byte0 + ", " + i + ", " + s + ", " + j + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -219,7 +219,7 @@ public class TypeFace extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("90881, " + i + ", " + j + ", " + byte0 + ", " + k + ", " + l + ", " + s + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -248,7 +248,7 @@ public class TypeFace extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("17099, " + i + ", " + s + ", " + byte0 + ", " + j + ", " + k + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -279,12 +279,12 @@ public class TypeFace extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("70626, " + s + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method463(int i, int j, int k, boolean flag, int l, String s) {
+    public void drawStringTaggable(int i, int j, int k, boolean flag, int l, String s) {
         try {
             aBoolean1480 = false;
             int i1 = l;
@@ -321,7 +321,7 @@ public class TypeFace extends Draw2D {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("34312, " + i + ", " + j + ", " + k + ", " + flag + ", " + l + ", " + s + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -364,7 +364,7 @@ public class TypeFace extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("64640, " + s + ", " + flag + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -433,12 +433,12 @@ public class TypeFace extends Draw2D {
             }
             return -1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97933, " + s + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("97933, " + s + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method466(byte abyte0[], int i, int j, int k, int l, int i1) {
+    public void method466(byte[] abyte0, int i, int j, int k, int l, int i1) {
         int j1 = i + j * Draw2D.anInt1370;
         int k1 = Draw2D.anInt1370 - k;
         int l1 = 0;
@@ -476,7 +476,7 @@ public class TypeFace extends Draw2D {
         }
     }
 
-    public void method467(int ai[], byte abyte0[], int i, int j, int k, int l, int i1, int j1, int k1) {
+    public void method467(int[] ai, byte[] abyte0, int i, int j, int k, int l, int i1, int j1, int k1) {
         int l1 = -(l >> 2);
         l = -(l & 3);
         for (int i2 = -i1; i2 < 0; i2++) {
@@ -514,7 +514,7 @@ public class TypeFace extends Draw2D {
         }
     }
 
-    public void method468(byte abyte0[], int i, int j, int k, int l, int i1, int j1, boolean flag) {
+    public void method468(byte[] abyte0, int i, int j, int k, int l, int i1, int j1, boolean flag) {
         try {
             if (flag) {
                 anInt1468 = 122;
@@ -556,12 +556,12 @@ public class TypeFace extends Draw2D {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("96459, " + abyte0 + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1
-                    + ", " + flag + ", " + runtimeexception.toString());
+                    + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method469(int i, int j, int k, byte abyte0[], boolean flag, int ai[], int l, int i1, int j1, int k1,
+    public void method469(int i, int j, int k, byte[] abyte0, boolean flag, int[] ai, int l, int i1, int j1, int k1,
                           int l1) {
         try {
             if (flag) {
@@ -585,7 +585,7 @@ public class TypeFace extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("17490, " + i + ", " + j + ", " + k + ", " + abyte0 + ", " + flag + ", " + ai + ", "
-                    + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + runtimeexception.toString());
+                    + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

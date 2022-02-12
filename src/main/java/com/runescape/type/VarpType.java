@@ -9,9 +9,9 @@ public class VarpType {
     public static boolean aBoolean671 = true;
     public static int anInt672 = 810;
     public static int anInt673;
-    public static VarpType cache[];
+    public static VarpType[] cache;
     public static int anInt675;
-    public static int anIntArray676[];
+    public static int[] anIntArray676;
     public int anInt670;
     public String aString677;
     public int anInt678;
@@ -54,12 +54,12 @@ public class VarpType {
                 }
                 VarpType.cache[i].method338(VarpType.anInt672, i, class44_sub3_sub2);
             }
-            if (class44_sub3_sub2.offset != class44_sub3_sub2.payload.length) {
+            if (class44_sub3_sub2.position != class44_sub3_sub2.payload.length) {
                 System.out.println("varptype load mismatch");
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("51793, " + flag + ", " + class47 + ", " + runtimeexception.toString());
+            SignLink.reporterror("51793, " + flag + ", " + class47 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -106,7 +106,7 @@ public class VarpType {
             } while (true);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("69668, " + i + ", " + j + ", " + class44_sub3_sub2 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

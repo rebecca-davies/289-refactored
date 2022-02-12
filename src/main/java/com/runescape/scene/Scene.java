@@ -28,34 +28,34 @@ public class Scene {
     public static int anInt629;
     public static int anInt630;
     public static int anInt631;
-    public static SceneSpawnRequest aClass30Array632[] = new SceneSpawnRequest[100];
-    public static int anIntArray633[] = {53, -53, -53, 53};
-    public static int anIntArray634[] = {-53, -53, 53, 53};
-    public static int anIntArray635[] = {-45, 45, 45, -45};
-    public static int anIntArray636[] = {45, 45, -45, -45};
+    public static SceneSpawnRequest[] aClass30Array632 = new SceneSpawnRequest[100];
+    public static int[] anIntArray633 = {53, -53, -53, 53};
+    public static int[] anIntArray634 = {-53, -53, 53, 53};
+    public static int[] anIntArray635 = {-45, 45, 45, -45};
+    public static int[] anIntArray636 = {45, 45, -45, -45};
     public static boolean aBoolean637;
     public static int anInt638;
     public static int anInt639;
     public static int anInt640 = -1;
     public static int anInt641 = -1;
     public static int anInt642;
-    public static int anIntArray643[];
-    public static SceneCluster aClass23ArrayArray644[][];
+    public static int[] anIntArray643;
+    public static SceneCluster[][] aClass23ArrayArray644;
     public static int anInt645;
-    public static SceneCluster aClass23Array646[] = new SceneCluster[500];
+    public static SceneCluster[] aClass23Array646 = new SceneCluster[500];
     public static LinkedList aClass28_647 = new LinkedList(-199);
-    public static int anIntArray648[] = {19, 55, 38, 155, 255, 110, 137, 205, 76};
-    public static int anIntArray649[] = {160, 192, 80, 96, 0, 144, 80, 48, 160};
-    public static int anIntArray650[] = {76, 8, 137, 4, 0, 1, 38, 2, 19};
-    public static int anIntArray651[] = {0, 0, 2, 0, 0, 2, 1, 1, 0};
-    public static int anIntArray652[] = {2, 0, 0, 2, 0, 0, 0, 4, 4};
-    public static int anIntArray653[] = {0, 4, 4, 8, 0, 0, 8, 0, 0};
-    public static int anIntArray654[] = {1, 1, 0, 0, 0, 8, 0, 0, 8};
-    public static int anIntArray655[] = {41, 39248, 41, 4643, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 43086, 41,
+    public static int[] anIntArray648 = {19, 55, 38, 155, 255, 110, 137, 205, 76};
+    public static int[] anIntArray649 = {160, 192, 80, 96, 0, 144, 80, 48, 160};
+    public static int[] anIntArray650 = {76, 8, 137, 4, 0, 1, 38, 2, 19};
+    public static int[] anIntArray651 = {0, 0, 2, 0, 0, 2, 1, 1, 0};
+    public static int[] anIntArray652 = {2, 0, 0, 2, 0, 0, 0, 4, 4};
+    public static int[] anIntArray653 = {0, 4, 4, 8, 0, 0, 8, 0, 0};
+    public static int[] anIntArray654 = {1, 1, 0, 0, 0, 8, 0, 0, 8};
+    public static int[] anIntArray655 = {41, 39248, 41, 4643, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 43086, 41,
             41, 41, 41, 41, 41, 41, 8602, 41, 28992, 41, 41, 41, 41, 41, 5056, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41,
             41, 41, 41, 41, 3131, 41, 41, 41};
-    public static boolean aBooleanArrayArrayArrayArray661[][][][] = new boolean[8][32][51][51];
-    public static boolean aBooleanArrayArray662[][];
+    public static boolean[][][][] aBooleanArrayArrayArrayArray661 = new boolean[8][32][51][51];
+    public static boolean[][] aBooleanArrayArray662;
     public static int anInt663;
     public static int anInt664;
     public static int anInt665;
@@ -79,28 +79,28 @@ public class Scene {
     public int anInt607;
     public int anInt608;
     public int anInt609;
-    public int anIntArrayArrayArray610[][][];
-    public SceneTile tiles[][][];
+    public int[][][] anIntArrayArrayArray610;
+    public SceneTile[][][] tiles;
     public int anInt612;
     public int anInt613;
-    public SceneSpawnRequest aClass30Array614[];
-    public int anIntArrayArrayArray615[][][];
-    public int anIntArray656[];
-    public int anIntArray657[];
+    public SceneSpawnRequest[] aClass30Array614;
+    public int[][][] anIntArrayArrayArray615;
+    public int[] anIntArray656;
+    public int[] anIntArray657;
     public int anInt658;
-    public int anIntArrayArray659[][] = {new int[16], {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+    public int[][] anIntArrayArray659 = {new int[16], {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0},
             {0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1}, {0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1}, {1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0}, {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1},
             {1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1}};
-    public int anIntArrayArray660[][] = {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
+    public int[][] anIntArrayArray660 = {{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
             {12, 8, 4, 0, 13, 9, 5, 1, 14, 10, 6, 2, 15, 11, 7, 3},
             {15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
             {3, 7, 11, 15, 2, 6, 10, 14, 1, 5, 9, 13, 0, 4, 8, 12}};
 
-    public Scene(int i, int j, int ai[][][], int k, int l) {
+    public Scene(int i, int j, int[][][] ai, int k, int l) {
         anInt598 = 195;
         anInt601 = 6;
         aByte602 = -90;
@@ -123,7 +123,7 @@ public class Scene {
             method278(true);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("88220, " + i + ", " + j + ", " + ai + ", " + k + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -168,12 +168,12 @@ public class Scene {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("53475, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1
-                    + ", " + l1 + ", " + i2 + ", " + runtimeexception.toString());
+                    + ", " + l1 + ", " + i2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method314(int ai[], int i, int j, int k, int l, int i1) {
+    public static void method314(int[] ai, int i, int j, int k, int l, int i1) {
         try {
             if (k != 3) {
                 return;
@@ -184,7 +184,7 @@ public class Scene {
             Scene.anInt668 = j;
             Scene.anInt663 = i1 / 2;
             Scene.anInt664 = j / 2;
-            boolean aflag[][][][] = new boolean[9][32][53][53];
+            boolean[][][][] aflag = new boolean[9][32][53][53];
             for (int j1 = 128; j1 <= 384; j1 += 32) {
                 for (int k1 = 0; k1 < 2048; k1 += 64) {
                     Scene.anInt628 = Model.SINE[j1];
@@ -241,7 +241,7 @@ public class Scene {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("75601, " + ai + ", " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -295,7 +295,7 @@ public class Scene {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97735, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("97735, " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -313,7 +313,7 @@ public class Scene {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("62223, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("62223, " + byte0 + ", " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -344,7 +344,7 @@ public class Scene {
             tiles[3][j][i] = null;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("90520, " + flag + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("90520, " + flag + ", " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -413,7 +413,7 @@ public class Scene {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("17484, " + byte0 + ", " + i + ", " + j + ", " + k + ", " + flag + ", " + l + ", "
-                    + class44_sub3_sub4 + ", " + i1 + ", " + runtimeexception.toString());
+                    + class44_sub3_sub4 + ", " + i1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -453,7 +453,7 @@ public class Scene {
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("37559, " + i + ", " + j + ", " + class44_sub3_sub4 + ", " + k + ", " + byte0 + ", "
                     + class44_sub3_sub4_1 + ", " + l + ", " + i1 + ", " + class44_sub3_sub4_2 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -487,7 +487,7 @@ public class Scene {
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("76425, " + byte0 + ", " + i + ", " + j + ", " + k + ", " + l + ", "
                     + class44_sub3_sub4 + ", " + i1 + ", " + j1 + ", " + class44_sub3_sub4_1 + ", " + k1 + ", " + l1
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -520,7 +520,7 @@ public class Scene {
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("5872, " + i + ", " + j + ", " + k + ", " + class44_sub3_sub4 + ", " + byte0 + ", "
                     + l + ", " + i1 + ", " + j1 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -540,7 +540,7 @@ public class Scene {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("61682, " + i + ", " + j + ", " + k + ", " + l + ", " + byte0 + ", " + i1 + ", " + j1
-                    + ", " + k1 + ", " + l1 + ", " + class44_sub3_sub4 + ", " + i2 + ", " + runtimeexception.toString());
+                    + ", " + k1 + ", " + l1 + ", " + class44_sub3_sub4 + ", " + i2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -578,7 +578,7 @@ public class Scene {
                     (byte) 0);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("35176, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + class44_sub3_sub4
-                    + ", " + j1 + ", " + flag + ", " + k1 + ", " + l1 + ", " + runtimeexception.toString());
+                    + ", " + j1 + ", " + flag + ", " + k1 + ", " + l1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -598,7 +598,7 @@ public class Scene {
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("59171, " + i + ", " + j + ", " + flag + ", " + k + ", " + l + ", " + i1 + ", " + j1
                     + ", " + class44_sub3_sub4 + ", " + k1 + ", " + l1 + ", " + i2 + ", " + j2 + ", " + k2 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -675,7 +675,7 @@ public class Scene {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("98891, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("98891, " + flag + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -709,7 +709,7 @@ public class Scene {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97599, " + i + ", " + class30 + ", " + runtimeexception.toString());
+            SignLink.reporterror("97599, " + i + ", " + class30 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -733,7 +733,7 @@ public class Scene {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("98774, " + i + ", " + j + ", " + byte0 + ", " + k + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -754,7 +754,7 @@ public class Scene {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("92449, " + i + ", " + j + ", " + byte0 + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -773,7 +773,7 @@ public class Scene {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("96930, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("96930, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -796,7 +796,7 @@ public class Scene {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("37282, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("37282, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -814,7 +814,7 @@ public class Scene {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("45213, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("45213, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -842,7 +842,7 @@ public class Scene {
                 return class44_sub2.aClass33_1342;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("53461, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("53461, " + i + ", " + flag + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -859,7 +859,7 @@ public class Scene {
                 return class44_sub2.aClass13_1343;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("75079, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("75079, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -882,7 +882,7 @@ public class Scene {
                 return null;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("4664, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("4664, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -900,7 +900,7 @@ public class Scene {
                 return class44_sub2.aClass17_1344;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("68888, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("68888, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -926,7 +926,7 @@ public class Scene {
                 return class44_sub2.aClass13_1343.anInt314;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("89186, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("89186, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1022,7 +1022,7 @@ public class Scene {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("99141, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -1067,7 +1067,7 @@ public class Scene {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("24584, " + i + ", " + flag + ", " + j + ", " + k + ", " + class44_sub3_sub4_sub4
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -1135,7 +1135,7 @@ public class Scene {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("36060, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
-                    + class44_sub3_sub4_sub4 + ", " + runtimeexception.toString());
+                    + class44_sub3_sub4_sub4 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1144,10 +1144,10 @@ public class Scene {
                           boolean flag) {
         anInt658++;
         int l = 0;
-        int ai[] = class44_sub3_sub4_sub4_1.anIntArray1536;
+        int[] ai = class44_sub3_sub4_sub4_1.anIntArray1536;
         int i1 = class44_sub3_sub4_sub4_1.anInt1535;
         for (int j1 = 0; j1 < class44_sub3_sub4_sub4.anInt1535; j1++) {
-            VertexNormal class25 = ((Renderable) (class44_sub3_sub4_sub4)).aClass25Array1411[j1];
+            VertexNormal class25 = class44_sub3_sub4_sub4.aClass25Array1411[j1];
             VertexNormal class25_1 = class44_sub3_sub4_sub4.aClass25Array1569[j1];
             if (class25_1.anInt503 != 0) {
                 int i2 = class44_sub3_sub4_sub4.anIntArray1537[j1] - j;
@@ -1157,7 +1157,7 @@ public class Scene {
                         int k2 = class44_sub3_sub4_sub4.anIntArray1538[j1] - k;
                         if (k2 >= class44_sub3_sub4_sub4_1.anInt1558 && k2 <= class44_sub3_sub4_sub4_1.anInt1557) {
                             for (int l2 = 0; l2 < i1; l2++) {
-                                VertexNormal class25_2 = ((Renderable) (class44_sub3_sub4_sub4_1)).aClass25Array1411[l2];
+                                VertexNormal class25_2 = class44_sub3_sub4_sub4_1.aClass25Array1411[l2];
                                 VertexNormal class25_3 = class44_sub3_sub4_sub4_1.aClass25Array1569[l2];
                                 if (j2 == ai[l2] && k2 == class44_sub3_sub4_sub4_1.anIntArray1538[l2]
                                         && i2 == class44_sub3_sub4_sub4_1.anIntArray1537[l2] && class25_3.anInt503 != 0) {
@@ -1198,7 +1198,7 @@ public class Scene {
         }
     }
 
-    public void method313(int ai[], int i, int j, int k, int l, int i1) {
+    public void method313(int[] ai, int i, int j, int k, int l, int i1) {
         SceneTile class44_sub2 = tiles[k][l][i1];
         if (class44_sub2 == null) {
             return;
@@ -1226,8 +1226,8 @@ public class Scene {
         int i2 = class15.anInt384;
         int j2 = class15.anInt385;
         int k2 = class15.anInt386;
-        int ai1[] = anIntArrayArray659[l1];
-        int ai2[] = anIntArrayArray660[i2];
+        int[] ai1 = anIntArrayArray659[l1];
+        int[] ai2 = anIntArrayArray660[i2];
         int l2 = 0;
         if (j2 != 0) {
             for (int i3 = 0; i3 < 4; i3++) {
@@ -1256,19 +1256,16 @@ public class Scene {
         }
     }
 
-    public void method316(int i, int j, int k) {
+    public void method316(int i, int k) {
         try {
             Scene.aBoolean637 = true;
             Scene.anInt638 = k;
-            if (j != 0) {
-                Scene.aBoolean599 = !Scene.aBoolean599;
-            }
             Scene.anInt639 = i;
             Scene.anInt640 = -1;
             Scene.anInt641 = -1;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("21782, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("21782, " + i + ", " + k + ", " + runtimeexception.toString());
         }
         throw new RuntimeException();
     }
@@ -1319,7 +1316,7 @@ public class Scene {
             method323(309);
             Scene.anInt616 = 0;
             for (int l1 = anInt612; l1 < anInt607; l1++) {
-                SceneTile aclass44_sub2[][] = tiles[l1];
+                SceneTile[][] aclass44_sub2 = tiles[l1];
                 for (int j2 = Scene.anInt619; j2 < Scene.anInt620; j2++) {
                     for (int l2 = Scene.anInt621; l2 < Scene.anInt622; l2++) {
                         SceneTile class44_sub2 = aclass44_sub2[j2][l2];
@@ -1333,11 +1330,7 @@ public class Scene {
                             } else {
                                 class44_sub2.aBoolean1351 = true;
                                 class44_sub2.aBoolean1352 = true;
-                                if (class44_sub2.anInt1346 > 0) {
-                                    class44_sub2.aBoolean1353 = true;
-                                } else {
-                                    class44_sub2.aBoolean1353 = false;
-                                }
+                                class44_sub2.aBoolean1353 = class44_sub2.anInt1346 > 0;
                                 Scene.anInt616++;
                             }
                         }
@@ -1345,7 +1338,7 @@ public class Scene {
                 }
             }
             for (int i2 = anInt612; i2 < anInt607; i2++) {
-                SceneTile aclass44_sub2_1[][] = tiles[i2];
+                SceneTile[][] aclass44_sub2_1 = tiles[i2];
                 for (int i3 = -25; i3 <= 0; i3++) {
                     int j3 = Scene.anInt623 + i3;
                     int l3 = Scene.anInt623 - i3;
@@ -1390,7 +1383,7 @@ public class Scene {
                 }
             }
             for (int k2 = anInt612; k2 < anInt607; k2++) {
-                SceneTile aclass44_sub2_2[][] = tiles[k2];
+                SceneTile[][] aclass44_sub2_2 = tiles[k2];
                 for (int k3 = -25; k3 <= 0; k3++) {
                     int i4 = Scene.anInt623 + k3;
                     int k4 = Scene.anInt623 - k3;
@@ -1438,7 +1431,7 @@ public class Scene {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("81634, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1457,7 +1450,7 @@ public class Scene {
             int j = class44_sub2_1.anInt1338;
             int k = class44_sub2_1.anInt1336;
             int l = class44_sub2_1.anInt1339;
-            SceneTile aclass44_sub2[][] = tiles[k];
+            SceneTile[][] aclass44_sub2 = tiles[k];
             if (class44_sub2_1.aBoolean1351) {
                 if (flag) {
                     if (k > 0) {
@@ -1996,11 +1989,8 @@ public class Scene {
         int l6 = Draw3D.anInt1424 + (k4 << 9) / j3;
         Draw3D.anInt1422 = 0;
         if ((i6 - k6) * (l5 - l6) - (j6 - l6) * (k5 - k6) > 0) {
-            Draw3D.aBoolean1419 = false;
-            if (i6 < 0 || k6 < 0 || k5 < 0 || i6 > Draw2D.anInt1376 || k6 > Draw2D.anInt1376
-                    || k5 > Draw2D.anInt1376) {
-                Draw3D.aBoolean1419 = true;
-            }
+            Draw3D.aBoolean1419 = i6 < 0 || k6 < 0 || k5 < 0 || i6 > Draw2D.anInt1376 || k6 > Draw2D.anInt1376
+                    || k5 > Draw2D.anInt1376;
             if (Scene.aBoolean637 && method322(Scene.anInt638, Scene.anInt639, j6, l6, l5, i6, k6, k5)) {
                 Scene.anInt640 = j1;
                 Scene.anInt641 = k1;
@@ -2025,11 +2015,8 @@ public class Scene {
             }
         }
         if ((i5 - k5) * (l6 - l5) - (j5 - l5) * (k6 - k5) > 0) {
-            Draw3D.aBoolean1419 = false;
-            if (i5 < 0 || k5 < 0 || k6 < 0 || i5 > Draw2D.anInt1376 || k5 > Draw2D.anInt1376
-                    || k6 > Draw2D.anInt1376) {
-                Draw3D.aBoolean1419 = true;
-            }
+            Draw3D.aBoolean1419 = i5 < 0 || k5 < 0 || k6 < 0 || i5 > Draw2D.anInt1376 || k5 > Draw2D.anInt1376
+                    || k6 > Draw2D.anInt1376;
             if (Scene.aBoolean637 && method322(Scene.anInt638, Scene.anInt639, j5, l5, l6, i5, k5, k6)) {
                 Scene.anInt640 = j1;
                 Scene.anInt641 = k1;
@@ -2093,11 +2080,8 @@ public class Scene {
                 int i5 = ComplexTile.anIntArray388[j3];
                 int j5 = ComplexTile.anIntArray388[l3];
                 if ((i4 - j4) * (j5 - i5) - (l4 - i5) * (k4 - j4) > 0) {
-                    Draw3D.aBoolean1419 = false;
-                    if (i4 < 0 || j4 < 0 || k4 < 0 || i4 > Draw2D.anInt1376 || j4 > Draw2D.anInt1376
-                            || k4 > Draw2D.anInt1376) {
-                        Draw3D.aBoolean1419 = true;
-                    }
+                    Draw3D.aBoolean1419 = i4 < 0 || j4 < 0 || k4 < 0 || i4 > Draw2D.anInt1376 || j4 > Draw2D.anInt1376
+                            || k4 > Draw2D.anInt1376;
                     if (Scene.aBoolean637 && method322(Scene.anInt638, Scene.anInt639, l4, i5, j5, i4, j4, k4)) {
                         Scene.anInt640 = i;
                         Scene.anInt641 = k;
@@ -2137,7 +2121,7 @@ public class Scene {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("98500, " + i + ", " + j + ", " + byte0 + ", " + k + ", " + l + ", " + class15 + ", "
-                    + i1 + ", " + j1 + ", " + runtimeexception.toString());
+                    + i1 + ", " + j1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -2185,7 +2169,7 @@ public class Scene {
         try {
             i = 89 / i;
             int j = Scene.anIntArray643[Scene.anInt617];
-            SceneCluster aclass23[] = Scene.aClass23ArrayArray644[Scene.anInt617];
+            SceneCluster[] aclass23 = Scene.aClass23ArrayArray644[Scene.anInt617];
             Scene.anInt645 = 0;
             for (int k = 0; k < j; k++) {
                 SceneCluster class23 = aclass23[k];
@@ -2312,7 +2296,7 @@ public class Scene {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("90061, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("90061, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

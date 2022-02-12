@@ -9,7 +9,7 @@ import java.awt.image.*;
 public class ProducingGraphicsBuffer implements ImageProducer, ImageObserver {
 
     public int anInt581;
-    public int anIntArray582[];
+    public int[] anIntArray582;
     public int anInt583;
     public int anInt584;
     public ColorModel aColorModel585;
@@ -33,23 +33,20 @@ public class ProducingGraphicsBuffer implements ImageProducer, ImageObserver {
             component.prepareImage(anImage587, this);
             method274();
             component.prepareImage(anImage587, this);
-            bind((byte) 5);
+            bind();
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("48102, " + component + ", " + i + ", " + j + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void bind(byte byte0) {
+    public void bind() {
         try {
             Draw2D.method406(-78, anIntArray582, anInt583, anInt584);
-            if (byte0 != 5) {
-                return;
-            }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("43640, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("43640, " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -64,7 +61,7 @@ public class ProducingGraphicsBuffer implements ImageProducer, ImageObserver {
             g.drawImage(anImage587, j, k, this);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("14457, " + i + ", " + j + ", " + k + ", " + g + ", " + runtimeexception.toString());
+            SignLink.reporterror("14457, " + i + ", " + j + ", " + k + ", " + g + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -8,8 +8,8 @@ public class SoundEnvelope {
     public static int anInt49;
     public boolean aBoolean37;
     public int anInt38;
-    public int anIntArray39[];
-    public int anIntArray40[];
+    public int[] anIntArray39;
+    public int[] anIntArray40;
     public int anInt41;
     public int anInt42;
     public int anInt43;
@@ -35,7 +35,7 @@ public class SoundEnvelope {
             method149(0, buffer);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("71989, " + flag + ", " + buffer + ", " + runtimeexception.toString());
+            SignLink.reporterror("71989, " + flag + ", " + buffer + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -54,7 +54,7 @@ public class SoundEnvelope {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("90209, " + i + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("90209, " + i + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -96,7 +96,7 @@ public class SoundEnvelope {
             }
             return anInt47 - anInt46 >> 15;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("76406, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("76406, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

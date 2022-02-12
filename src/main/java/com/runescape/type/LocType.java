@@ -11,11 +11,11 @@ import com.runescape.util.SignLink;
 public class LocType {
 
     public static int anInt209;
-    public static int anIntArray210[];
+    public static int[] anIntArray210;
     public static Buffer buffer;
-    public static LocType cache[];
+    public static LocType[] cache;
     public static int anInt213;
-    public static Model aClass44_Sub3_Sub4_Sub4Array214[] = new Model[4];
+    public static Model[] aClass44_Sub3_Sub4_Sub4Array214 = new Model[4];
     public static Cache aClass39_251 = new Cache((byte) 7, 500);
     public static Cache aClass39_252 = new Cache((byte) 7, 30);
     public boolean aBoolean203;
@@ -25,12 +25,12 @@ public class LocType {
     public int anInt207;
     public int anInt208;
     public int anInt215;
-    public int anIntArray216[];
-    public int anIntArray217[];
+    public int[] anIntArray216;
+    public int[] anIntArray217;
     public String aString218;
-    public byte aByteArray219[];
-    public int anIntArray220[];
-    public int anIntArray221[];
+    public byte[] aByteArray219;
+    public int[] anIntArray220;
+    public int[] anIntArray221;
     public int anInt222;
     public int anInt223;
     public boolean aBoolean224;
@@ -43,7 +43,7 @@ public class LocType {
     public int anInt231;
     public byte aByte232;
     public byte aByte233;
-    public String aStringArray234[];
+    public String[] aStringArray234;
     public int anInt235;
     public int anInt236;
     public boolean aBoolean237;
@@ -59,7 +59,7 @@ public class LocType {
     public boolean aBoolean247;
     public int anInt248;
     public int anInt249;
-    public int anIntArray250[];
+    public int[] anIntArray250;
 
     public LocType() {
         aBoolean203 = false;
@@ -109,7 +109,7 @@ public class LocType {
         }
         LocType.anInt213 = (LocType.anInt213 + 1) % 20;
         LocType class8 = LocType.cache[LocType.anInt213];
-        LocType.buffer.offset = LocType.anIntArray210[i];
+        LocType.buffer.position = LocType.anIntArray210[i];
         class8.anInt215 = i;
         class8.method200();
         class8.method201(false, LocType.buffer);
@@ -283,10 +283,7 @@ public class LocType {
                 }
             } while (true);
             if (i == -1) {
-                aBoolean226 = false;
-                if (anIntArray216 != null && (anIntArray217 == null || anIntArray217[0] == 10)) {
-                    aBoolean226 = true;
-                }
+                aBoolean226 = anIntArray216 != null && (anIntArray217 == null || anIntArray217[0] == 10);
                 if (aStringArray234 != null) {
                     aBoolean226 = true;
                 }
@@ -300,7 +297,7 @@ public class LocType {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("43978, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("43978, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -328,7 +325,7 @@ public class LocType {
             }
             return true;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("3902, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("3902, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -347,7 +344,7 @@ public class LocType {
             }
             return flag;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("61709, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("61709, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -368,7 +365,7 @@ public class LocType {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("2074, " + class43_sub1 + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("2074, " + class43_sub1 + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -475,17 +472,9 @@ public class LocType {
                 throw new NullPointerException();
             }
             boolean flag;
-            if (anInt239 != 128 || anInt240 != 128 || anInt241 != 128) {
-                flag = true;
-            } else {
-                flag = false;
-            }
+            flag = anInt239 != 128 || anInt240 != 128 || anInt241 != 128;
             boolean flag2;
-            if (anInt242 != 0 || anInt243 != 0 || anInt244 != 0) {
-                flag2 = true;
-            } else {
-                flag2 = false;
-            }
+            flag2 = anInt242 != 0 || anInt243 != 0 || anInt244 != 0;
             Model class44_sub3_sub4_sub4_3 = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(i, 0), j == 0
                     && i == -1 && !flag && !flag2, anInt206, anIntArray220 == null);
             if (i != -1) {
@@ -510,13 +499,13 @@ public class LocType {
             }
             class44_sub3_sub4_sub4_3.method523(64 + aByte232, 768 + aByte233 * 5, -50, -10, -50, !aBoolean228);
             if (anInt248 == 1) {
-                class44_sub3_sub4_sub4_3.anInt1563 = ((Renderable) (class44_sub3_sub4_sub4_3)).anInt1412;
+                class44_sub3_sub4_sub4_3.anInt1563 = class44_sub3_sub4_sub4_3.anInt1412;
             }
             LocType.aClass39_252.method340(l, (byte) 76, class44_sub3_sub4_sub4_3);
             return class44_sub3_sub4_sub4_3;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("13988, " + byte0 + ", " + i + ", " + j + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

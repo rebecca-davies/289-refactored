@@ -16,22 +16,22 @@ public class Draw3D extends Draw2D {
     public static int anInt1422;
     public static int anInt1423;
     public static int anInt1424;
-    public static int anIntArray1425[];
-    public static int anIntArray1426[];
-    public static int anIntArray1427[];
-    public static int anIntArray1428[];
-    public static int anIntArray1429[];
+    public static int[] anIntArray1425;
+    public static int[] anIntArray1426;
+    public static int[] anIntArray1427;
+    public static int[] anIntArray1428;
+    public static int[] anIntArray1429;
     public static int anInt1430;
-    public static Image8 aClass44_Sub3_Sub1_Sub3Array1431[] = new Image8[50];
-    public static boolean aBooleanArray1432[] = new boolean[50];
-    public static int anIntArray1433[] = new int[50];
+    public static Image8[] aClass44_Sub3_Sub1_Sub3Array1431 = new Image8[50];
+    public static boolean[] aBooleanArray1432 = new boolean[50];
+    public static int[] anIntArray1433 = new int[50];
     public static int anInt1434;
-    public static int anIntArrayArray1435[][];
-    public static int anIntArrayArray1436[][] = new int[50][];
-    public static int anIntArray1437[] = new int[50];
+    public static int[][] anIntArrayArray1435;
+    public static int[][] anIntArrayArray1436 = new int[50][];
+    public static int[] anIntArray1437 = new int[50];
     public static int anInt1438;
-    public static int anIntArray1439[] = new int[0x10000];
-    public static int anIntArrayArray1440[][] = new int[50][];
+    public static int[] anIntArray1439 = new int[0x10000];
+    public static int[][] anIntArrayArray1440 = new int[50][];
 
     static {
         Draw3D.anIntArray1425 = new int[512];
@@ -91,7 +91,7 @@ public class Draw3D extends Draw2D {
             Draw3D.anInt1424 = Draw2D.anInt1371 / 2;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("80083, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("80083, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -109,7 +109,7 @@ public class Draw3D extends Draw2D {
             Draw3D.anInt1424 = i / 2;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("87374, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("87374, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -125,7 +125,7 @@ public class Draw3D extends Draw2D {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("51784, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("51784, " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -148,7 +148,7 @@ public class Draw3D extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("73856, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("73856, " + i + ", " + j + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -203,7 +203,7 @@ public class Draw3D extends Draw2D {
             Draw3D.anIntArray1433[j] = l1;
             return l1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("39848, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("39848, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -221,7 +221,7 @@ public class Draw3D extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("83909, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("83909, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -231,7 +231,7 @@ public class Draw3D extends Draw2D {
         if (Draw3D.anIntArrayArray1436[i] != null) {
             return Draw3D.anIntArrayArray1436[i];
         }
-        int ai[];
+        int[] ai;
         if (Draw3D.anInt1434 > 0) {
             ai = Draw3D.anIntArrayArray1435[--Draw3D.anInt1434];
             Draw3D.anIntArrayArray1435[Draw3D.anInt1434] = null;
@@ -249,7 +249,7 @@ public class Draw3D extends Draw2D {
         }
         Draw3D.anIntArrayArray1436[i] = ai;
         Image8 class44_sub3_sub1_sub3 = Draw3D.aClass44_Sub3_Sub1_Sub3Array1431[i];
-        int ai1[] = Draw3D.anIntArrayArray1440[i];
+        int[] ai1 = Draw3D.anIntArrayArray1440[i];
         if (Draw3D.aBoolean1418) {
             Draw3D.aBooleanArray1432[i] = false;
             for (int i1 = 0; i1 < 4096; i1++) {
@@ -359,7 +359,7 @@ public class Draw3D extends Draw2D {
             }
             for (int i1 = 0; i1 < 50; i1++) {
                 if (Draw3D.aClass44_Sub3_Sub1_Sub3Array1431[i1] != null) {
-                    int ai[] = Draw3D.aClass44_Sub3_Sub1_Sub3Array1431[i1].anIntArray1459;
+                    int[] ai = Draw3D.aClass44_Sub3_Sub1_Sub3Array1431[i1].anIntArray1459;
                     Draw3D.anIntArrayArray1440[i1] = new int[ai.length];
                     for (int k1 = 0; k1 < ai.length; k1++) {
                         Draw3D.anIntArrayArray1440[i1][k1] = Draw3D.method428(ai[k1], d);
@@ -374,7 +374,7 @@ public class Draw3D extends Draw2D {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("64743, " + d + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("64743, " + d + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -774,7 +774,7 @@ public class Draw3D extends Draw2D {
         }
     }
 
-    public static void method430(int ai[], int i, int j, int k, int l, int i1, int j1, int k1) {
+    public static void method430(int[] ai, int i, int j, int k, int l, int i1, int j1, int k1) {
         if (Draw3D.aBoolean1421) {
             int l1;
             if (Draw3D.aBoolean1419) {
@@ -1180,7 +1180,7 @@ public class Draw3D extends Draw2D {
         }
     }
 
-    public static void method432(int ai[], int i, int j, int k, int l, int i1) {
+    public static void method432(int[] ai, int i, int j, int k, int l, int i1) {
         if (Draw3D.aBoolean1419) {
             if (i1 > Draw2D.anInt1376) {
                 i1 = Draw2D.anInt1376;
@@ -1222,7 +1222,7 @@ public class Draw3D extends Draw2D {
 
     public static void method433(int i, int j, int k, int l, int i1, int j1, int k1, int l1, int i2, int j2, int k2,
                                  int l2, int i3, int j3, int k3, int l3, int i4, int j4, int k4) {
-        int ai[] = Draw3D.method426(k4);
+        int[] ai = Draw3D.method426(k4);
         Draw3D.aBoolean1420 = !Draw3D.aBooleanArray1432[k4];
         k2 = j2 - k2;
         j3 = i3 - j3;
@@ -1763,7 +1763,7 @@ public class Draw3D extends Draw2D {
         }
     }
 
-    public static void method434(int ai[], int ai1[], int i, int j, int k, int l, int i1, int j1, int k1, int l1,
+    public static void method434(int[] ai, int[] ai1, int i, int j, int k, int l, int i1, int j1, int k1, int l1,
                                  int i2, int j2, int k2, int l2, int i3) {
         if (l >= i1) {
             return;

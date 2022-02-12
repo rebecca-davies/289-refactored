@@ -5,14 +5,14 @@ import com.runescape.util.SignLink;
 
 public class SoundTrack {
 
-    public static SoundTrack aClass4Array91[] = new SoundTrack[2000];
-    public static int anIntArray92[] = new int[2000];
-    public static byte aByteArray93[];
+    public static SoundTrack[] aClass4Array91 = new SoundTrack[2000];
+    public static int[] anIntArray92 = new int[2000];
+    public static byte[] aByteArray93;
     public static Buffer buffer;
     public boolean aBoolean88;
     public boolean aBoolean89;
     public boolean aBoolean90;
-    public SoundTone aClass6Array95[];
+    public SoundTone[] aClass6Array95;
     public int anInt96;
     public int anInt97;
 
@@ -51,7 +51,7 @@ public class SoundTrack {
                 SoundTrack.anIntArray92[i] = SoundTrack.aClass4Array91[i].method178(368);
             } while (true);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("47278, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("47278, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class SoundTrack {
                 return null;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("54696, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("54696, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -79,7 +79,7 @@ public class SoundTrack {
             for (int i = 0; i < 10; i++) {
                 int j = class44_sub3_sub2.readUnsignedByte();
                 if (j != 0) {
-                    class44_sub3_sub2.offset--;
+                    class44_sub3_sub2.position--;
                     aClass6Array95[i] = new SoundTone();
                     aClass6Array95[i].method190(false, class44_sub3_sub2);
                 }
@@ -91,7 +91,7 @@ public class SoundTrack {
             anInt97 = class44_sub3_sub2.readUnsignedShort();
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("59639, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("59639, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -124,7 +124,7 @@ public class SoundTrack {
             }
             return j;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("95859, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("95859, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -132,11 +132,11 @@ public class SoundTrack {
     public Buffer method179(int i, int j) {
         try {
             int k = method180(i);
-            SoundTrack.buffer.offset = 0;
-            SoundTrack.buffer.putInt(0x52494646);
+            SoundTrack.buffer.position = 0;
+            SoundTrack.buffer.writeInt(0x52494646);
             SoundTrack.buffer.putLEInt(26965, 36 + k);
-            SoundTrack.buffer.putInt(0x57415645);
-            SoundTrack.buffer.putInt(0x666d7420);
+            SoundTrack.buffer.writeInt(0x57415645);
+            SoundTrack.buffer.writeInt(0x666d7420);
             SoundTrack.buffer.putLEInt(26965, 16);
             SoundTrack.buffer.putLEShort(1, false);
             SoundTrack.buffer.putLEShort(1, false);
@@ -145,12 +145,12 @@ public class SoundTrack {
             j = 98 / j;
             SoundTrack.buffer.putLEShort(1, false);
             SoundTrack.buffer.putLEShort(8, false);
-            SoundTrack.buffer.putInt(0x64617461);
+            SoundTrack.buffer.writeInt(0x64617461);
             SoundTrack.buffer.putLEInt(26965, k);
-            SoundTrack.buffer.offset += k;
+            SoundTrack.buffer.position += k;
             return SoundTrack.buffer;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("32783, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("32783, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -179,7 +179,7 @@ public class SoundTrack {
             if (aClass6Array95[i2] != null) {
                 int j2 = (aClass6Array95[i2].anInt182 * 22050) / 1000;
                 int i3 = (aClass6Array95[i2].anInt183 * 22050) / 1000;
-                int ai[] = aClass6Array95[i2].method188(j2, aClass6Array95[i2].anInt182);
+                int[] ai = aClass6Array95[i2].method188(j2, aClass6Array95[i2].anInt182);
                 for (int l3 = 0; l3 < j2; l3++) {
                     SoundTrack.aByteArray93[l3 + i3 + 44] += (byte) (ai[l3] >> 8);
                 }

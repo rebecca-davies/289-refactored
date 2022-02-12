@@ -8,15 +8,15 @@ public class FileArchive {
 
     public int anInt789;
     public int anInt790;
-    public byte aByteArray791[];
+    public byte[] aByteArray791;
     public int anInt792;
-    public int anIntArray793[];
-    public int anIntArray794[];
-    public int anIntArray795[];
-    public int anIntArray796[];
+    public int[] anIntArray793;
+    public int[] anIntArray794;
+    public int[] anIntArray795;
+    public int[] anIntArray796;
     public boolean aBoolean797;
 
-    public FileArchive(byte abyte0[], int i) {
+    public FileArchive(byte[] abyte0, int i) {
         anInt789 = -550;
         anInt790 = 30967;
         try {
@@ -27,18 +27,18 @@ public class FileArchive {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("71105, " + abyte0 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("71105, " + abyte0 + ", " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public void method548(byte byte0, byte abyte0[]) {
+    public void method548(byte byte0, byte[] abyte0) {
         try {
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
             int i = class44_sub3_sub2.method486();
             int j = class44_sub3_sub2.method486();
             if (j != i) {
-                byte abyte1[] = new byte[i];
+                byte[] abyte1 = new byte[i];
                 BZip2Decompressor.method329(abyte1, i, abyte0, j, 6);
                 aByteArray791 = abyte1;
                 class44_sub3_sub2 = new Buffer(aByteArray791);
@@ -57,7 +57,7 @@ public class FileArchive {
             anIntArray794 = new int[anInt792];
             anIntArray795 = new int[anInt792];
             anIntArray796 = new int[anInt792];
-            int k = class44_sub3_sub2.offset + anInt792 * 10;
+            int k = class44_sub3_sub2.position + anInt792 * 10;
             for (int l = 0; l < anInt792; l++) {
                 anIntArray793[l] = class44_sub3_sub2.readInt();
                 anIntArray794[l] = class44_sub3_sub2.method486();
@@ -67,12 +67,12 @@ public class FileArchive {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("9624, " + byte0 + ", " + abyte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("9624, " + byte0 + ", " + abyte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public byte[] method549(String s, byte abyte0[]) {
+    public byte[] method549(String s, byte[] abyte0) {
         int i = 0;
         s = s.toUpperCase();
         for (int j = 0; j < s.length(); j++) {

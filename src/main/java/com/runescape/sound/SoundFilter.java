@@ -5,16 +5,16 @@ import com.runescape.util.SignLink;
 
 public class SoundFilter {
 
-    public static float aFloatArrayArray56[][] = new float[2][8];
-    public static int anIntArrayArray57[][] = new int[2][8];
+    public static float[][] aFloatArrayArray56 = new float[2][8];
+    public static int[][] anIntArrayArray57 = new int[2][8];
     public static float aFloat58;
     public static int anInt59;
     public boolean aBoolean50;
     public int anInt51;
-    public int anIntArray52[];
-    public int anIntArrayArrayArray53[][][];
-    public int anIntArrayArrayArray54[][][];
-    public int anIntArray55[];
+    public int[] anIntArray52;
+    public int[][][] anIntArrayArrayArray53;
+    public int[][][] anIntArrayArrayArray54;
+    public int[] anIntArray55;
 
     public SoundFilter() {
         aBoolean50 = false;
@@ -36,7 +36,7 @@ public class SoundFilter {
             }
             return 1.0F - (float) Math.pow(10D, -f1 / 20F);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("9156, " + i + ", " + flag + ", " + f + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("9156, " + i + ", " + flag + ", " + f + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -50,7 +50,7 @@ public class SoundFilter {
                 return (f1 * 3.141593F) / 11025F;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10683, " + i + ", " + f + ", " + runtimeexception.toString());
+            SignLink.reporterror("10683, " + i + ", " + f + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -66,7 +66,7 @@ public class SoundFilter {
             }
             return method153(anInt51, f1);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("38617, " + i + ", " + j + ", " + k + ", " + f + ", " + runtimeexception.toString());
+            SignLink.reporterror("38617, " + i + ", " + j + ", " + k + ", " + f + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -112,7 +112,7 @@ public class SoundFilter {
             }
             return anIntArray52[i] * 2;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("1468, " + i + ", " + j + ", " + f + ", " + runtimeexception.toString());
+            SignLink.reporterror("1468, " + i + ", " + j + ", " + f + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -157,7 +157,7 @@ public class SoundFilter {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("9723, " + i + ", " + class1 + ", " + class44_sub3_sub2 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -36,7 +36,7 @@ public class AnimableGameObject extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("81124, " + i + ", " + j + ", " + k + ", " + l + ", " + flag + ", " + i1 + ", " + j1
-                    + ", " + k1 + ", " + runtimeexception.toString());
+                    + ", " + k1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -57,7 +57,7 @@ public class AnimableGameObject extends Renderable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("93520, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("93520, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -101,7 +101,7 @@ public class AnimableGameObject extends Renderable {
             model.method523(64 + aClass32_1604.anInt569, 850 + aClass32_1604.anInt570, -30, -50, -30, true);
             return model;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("834, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("834, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

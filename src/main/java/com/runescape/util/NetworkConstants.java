@@ -1,4 +1,4 @@
-package com.runescape.net;
+package com.runescape.util;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.io.pem.PemObject;

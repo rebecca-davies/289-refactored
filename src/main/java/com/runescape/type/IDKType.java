@@ -9,15 +9,15 @@ public class IDKType {
 
     public static boolean aBoolean462;
     public static int anInt463;
-    public static IDKType cache[];
+    public static IDKType[] cache;
     public boolean aBoolean459;
     public byte aByte460;
     public int anInt461;
     public int anInt465;
-    public int anIntArray466[];
-    public int anIntArray467[];
-    public int anIntArray468[];
-    public int anIntArray469[] = {-1, -1, -1, -1, -1};
+    public int[] anIntArray466;
+    public int[] anIntArray467;
+    public int[] anIntArray468;
+    public int[] anIntArray469 = {-1, -1, -1, -1, -1};
     public boolean aBoolean470;
 
     public IDKType() {
@@ -47,7 +47,7 @@ public class IDKType {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("42475, " + flag + ", " + class47 + ", " + runtimeexception.toString());
+            SignLink.reporterror("42475, " + flag + ", " + class47 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -83,7 +83,7 @@ public class IDKType {
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("93901, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("93901, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -104,7 +104,7 @@ public class IDKType {
             }
             return flag;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("47258, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("47258, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -114,7 +114,7 @@ public class IDKType {
             if (anIntArray466 == null) {
                 return null;
             }
-            Model aclass44_sub3_sub4_sub4[] = new Model[anIntArray466.length];
+            Model[] aclass44_sub3_sub4_sub4 = new Model[anIntArray466.length];
             if (i != 0) {
                 anInt461 = 428;
             }
@@ -135,7 +135,7 @@ public class IDKType {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("95134, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("95134, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -153,14 +153,14 @@ public class IDKType {
             }
             return flag;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("34430, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("34430, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
     public Model method252(byte byte0) {
         try {
-            Model aclass44_sub3_sub4_sub4[] = new Model[5];
+            Model[] aclass44_sub3_sub4_sub4 = new Model[5];
             int i = 0;
             for (int j = 0; j < 5; j++) {
                 if (anIntArray469[j] != -1) {
@@ -180,7 +180,7 @@ public class IDKType {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("40216, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("40216, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

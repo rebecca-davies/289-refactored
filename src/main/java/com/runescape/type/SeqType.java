@@ -8,16 +8,16 @@ public class SeqType {
 
     public static boolean aBoolean506 = true;
     public static int anInt507;
-    public static SeqType cache[];
+    public static SeqType[] cache;
     public static int anInt524;
     public boolean aBoolean504;
     public byte aByte505;
     public int anInt509;
-    public int anIntArray510[];
-    public int anIntArray511[];
-    public int anIntArray512[];
+    public int[] anIntArray510;
+    public int[] anIntArray511;
+    public int[] anIntArray512;
     public int anInt513;
-    public int anIntArray514[];
+    public int[] anIntArray514;
     public boolean aBoolean515;
     public int anInt516;
     public int anInt517;
@@ -59,7 +59,7 @@ public class SeqType {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("90750, " + flag + ", " + class47 + ", " + runtimeexception.toString());
+            SignLink.reporterror("90750, " + flag + ", " + class47 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -82,7 +82,7 @@ public class SeqType {
             }
             return l;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("17518, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("17518, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -167,7 +167,7 @@ public class SeqType {
                 }
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("13368, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("13368, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

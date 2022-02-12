@@ -30,7 +30,7 @@ public class Cache {
             aClass42_695 = new HashTable(1024, (byte) 124);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("86782, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("86782, " + byte0 + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -68,7 +68,7 @@ public class Cache {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("63377, " + l + ", " + byte0 + ", " + class44_sub3 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

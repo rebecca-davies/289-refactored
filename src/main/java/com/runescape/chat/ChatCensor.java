@@ -1,7 +1,8 @@
-package com.runescape.util;
+package com.runescape.chat;
 
 import com.runescape.cache.FileArchive;
 import com.runescape.net.Buffer;
+import com.runescape.util.SignLink;
 
 public class ChatCensor {
 
@@ -16,13 +17,13 @@ public class ChatCensor {
     public static byte aByte753 = 121;
     public static byte aByte754 = 16;
     public static boolean aBoolean755 = true;
-    public static int anIntArray756[];
-    public static char aCharArrayArray757[][];
-    public static byte aByteArrayArrayArray758[][][];
-    public static char aCharArrayArray759[][];
-    public static char aCharArrayArray760[][];
-    public static int anIntArray761[];
-    public static String aStringArray762[] = {"cook", "cook's", "cooks", "seeks", "sheet", "woop", "woops", "faq",
+    public static int[] anIntArray756;
+    public static char[][] aCharArrayArray757;
+    public static byte[][][] aByteArrayArrayArray758;
+    public static char[][] aCharArrayArray759;
+    public static char[][] aCharArrayArray760;
+    public static int[] anIntArray761;
+    public static String[] aStringArray762 = {"cook", "cook's", "cooks", "seeks", "sheet", "woop", "woops", "faq",
             "noob", "noobs"};
     public static int anInt763;
 
@@ -52,7 +53,7 @@ public class ChatCensor {
             ChatCensor.anIntArray761 = new int[j];
             for (int k = 0; k < j; k++) {
                 ChatCensor.anIntArray761[k] = class44_sub3_sub2.readUnsignedByte();
-                char ac[] = new char[class44_sub3_sub2.readUnsignedByte()];
+                char[] ac = new char[class44_sub3_sub2.readUnsignedByte()];
                 for (int l = 0; l < ac.length; l++) {
                     ac[l] = (char) class44_sub3_sub2.readUnsignedByte();
                 }
@@ -60,7 +61,7 @@ public class ChatCensor {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("16414, " + i + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("16414, " + i + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -76,7 +77,7 @@ public class ChatCensor {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10589, " + class44_sub3_sub2 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("10589, " + class44_sub3_sub2 + ", " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -90,7 +91,7 @@ public class ChatCensor {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("39796, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("39796, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -107,23 +108,23 @@ public class ChatCensor {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97017, " + class44_sub3_sub2 + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("97017, " + class44_sub3_sub2 + ", " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public static void method348(char ac[][], byte abyte0[][][], Buffer class44_sub3_sub2, int i) {
+    public static void method348(char[][] ac, byte[][][] abyte0, Buffer class44_sub3_sub2, int i) {
         try {
             if (i < 4 || i > 4) {
                 ChatCensor.aBoolean748 = !ChatCensor.aBoolean748;
             }
             for (int j = 0; j < ac.length; j++) {
-                char ac1[] = new char[class44_sub3_sub2.readUnsignedByte()];
+                char[] ac1 = new char[class44_sub3_sub2.readUnsignedByte()];
                 for (int k = 0; k < ac1.length; k++) {
                     ac1[k] = (char) class44_sub3_sub2.readUnsignedByte();
                 }
                 ac[j] = ac1;
-                byte abyte1[][] = new byte[class44_sub3_sub2.readUnsignedByte()][2];
+                byte[][] abyte1 = new byte[class44_sub3_sub2.readUnsignedByte()][2];
                 for (int l = 0; l < abyte1.length; l++) {
                     abyte1[l][0] = (byte) class44_sub3_sub2.readUnsignedByte();
                     abyte1[l][1] = (byte) class44_sub3_sub2.readUnsignedByte();
@@ -135,16 +136,16 @@ public class ChatCensor {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("50706, " + ac.toString() + ", " + abyte0 + ", " + class44_sub3_sub2 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method349(Buffer class44_sub3_sub2, int i, char ac[][]) {
+    public static void method349(Buffer class44_sub3_sub2, int i, char[][] ac) {
         try {
             i = 75 / i;
             for (int j = 0; j < ac.length; j++) {
-                char ac1[] = new char[class44_sub3_sub2.readUnsignedByte()];
+                char[] ac1 = new char[class44_sub3_sub2.readUnsignedByte()];
                 for (int k = 0; k < ac1.length; k++) {
                     ac1[k] = (char) class44_sub3_sub2.readUnsignedByte();
                 }
@@ -153,12 +154,12 @@ public class ChatCensor {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("12171, " + class44_sub3_sub2 + ", " + i + ", " + ac.toString() + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method350(char ac[], int i) {
+    public static void method350(char[] ac, int i) {
         try {
             int j = 0;
             for (int k = 0; k < ac.length; k++) {
@@ -177,7 +178,7 @@ public class ChatCensor {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("15486, " + ac.toString() + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("15486, " + ac.toString() + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -187,7 +188,7 @@ public class ChatCensor {
             i = 56 / i;
             return c >= ' ' && c <= '\177' || c == ' ' || c == '\n' || c == '\t' || c == '\243' || c == '\u20AC';
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("93407, " + c + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("93407, " + c + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -195,7 +196,7 @@ public class ChatCensor {
     public static String method352(String s, int i) {
         try {
             System.currentTimeMillis();
-            char ac[] = s.toCharArray();
+            char[] ac = s.toCharArray();
             ChatCensor.method350(ac, 448);
             String s1 = (new String(ac)).trim();
             ac = s1.toLowerCase().toCharArray();
@@ -209,7 +210,7 @@ public class ChatCensor {
             ChatCensor.method369(ac, -17411);
             for (int j = 0; j < ChatCensor.aStringArray762.length; j++) {
                 for (int k = -1; (k = s2.indexOf(ChatCensor.aStringArray762[j], k + 1)) != -1; ) {
-                    char ac1[] = ChatCensor.aStringArray762[j].toCharArray();
+                    char[] ac1 = ChatCensor.aStringArray762[j].toCharArray();
                     for (int i1 = 0; i1 < ac1.length; i1++) {
                         ac[i1 + k] = ac1[i1];
                     }
@@ -220,12 +221,12 @@ public class ChatCensor {
             System.currentTimeMillis();
             return (new String(ac)).trim();
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("926, " + s + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("926, " + s + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method353(char ac[], char ac1[], boolean flag) {
+    public static void method353(char[] ac, char[] ac1, boolean flag) {
         try {
             for (int i = 0; i < ac.length; i++) {
                 if (ac1[i] != '*' && ChatCensor.method377(false, ac[i])) {
@@ -237,12 +238,12 @@ public class ChatCensor {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("96470, " + ac.toString() + ", " + ac1.toString() + ", " + flag + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public static void method354(char ac[], byte byte0) {
+    public static void method354(char[] ac, byte byte0) {
         try {
             if (byte0 != -47) {
                 ChatCensor.anInt745 = 240;
@@ -264,12 +265,12 @@ public class ChatCensor {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("60830, " + ac.toString() + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("60830, " + ac.toString() + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method355(byte byte0, char ac[]) {
+    public static void method355(byte byte0, char[] ac) {
         try {
             for (int i = 0; i < 2; i++) {
                 for (int j = ChatCensor.aCharArrayArray757.length - 1; j >= 0; j--) {
@@ -281,33 +282,33 @@ public class ChatCensor {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("661, " + byte0 + ", " + ac.toString() + ", " + runtimeexception.toString());
+            SignLink.reporterror("661, " + byte0 + ", " + ac.toString() + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public static void method356(int i, char ac[]) {
+    public static void method356(int i, char[] ac) {
         try {
-            char ac1[] = ac.clone();
+            char[] ac1 = ac.clone();
             if (i != 0) {
                 return;
             }
-            char ac2[] = {'(', 'a', ')'};
+            char[] ac2 = {'(', 'a', ')'};
             ChatCensor.method364(ac1, ac2, null, 4);
-            char ac3[] = ac.clone();
-            char ac4[] = {'d', 'o', 't'};
+            char[] ac3 = ac.clone();
+            char[] ac4 = {'d', 'o', 't'};
             ChatCensor.method364(ac3, ac4, null, 4);
             for (int j = ChatCensor.aCharArrayArray759.length - 1; j >= 0; j--) {
                 ChatCensor.method357(ac1, ac, ac3, (byte) 3, ChatCensor.aCharArrayArray759[j]);
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("89247, " + i + ", " + ac.toString() + ", " + runtimeexception.toString());
+            SignLink.reporterror("89247, " + i + ", " + ac.toString() + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method357(char ac[], char ac1[], char ac2[], byte byte0, char ac3[]) {
+    public static void method357(char[] ac, char[] ac1, char[] ac2, byte byte0, char[] ac3) {
         try {
             if (ac3.length > ac1.length) {
                 return;
@@ -366,12 +367,12 @@ public class ChatCensor {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("13466, " + ac.toString() + ", " + ac1.toString() + ", " + ac2.toString() + ", "
-                    + byte0 + ", " + ac3.toString() + ", " + runtimeexception.toString());
+                    + byte0 + ", " + ac3.toString() + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method358(int i, char ac[], int j, char ac1[]) {
+    public static int method358(int i, char[] ac, int j, char[] ac1) {
         try {
             if (j == 0) {
                 return 2;
@@ -402,12 +403,12 @@ public class ChatCensor {
             return !ChatCensor.method372(ac1[j - 1], 0) ? 0 : 1;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("36104, " + i + ", " + ac.toString() + ", " + j + ", " + ac1.toString() + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method359(char ac[], char ac1[], int i, int j) {
+    public static int method359(char[] ac, char[] ac1, int i, int j) {
         try {
             if (i != 0) {
                 return ChatCensor.anInt746;
@@ -438,34 +439,34 @@ public class ChatCensor {
             return !ChatCensor.method372(ac[j + 1], 0) ? 0 : 1;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("83310, " + ac.toString() + ", " + ac1.toString() + ", " + i + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method360(char ac[], int i) {
+    public static void method360(char[] ac, int i) {
         try {
-            char ac1[] = ac.clone();
+            char[] ac1 = ac.clone();
             if (i < 5 || i > 5) {
                 for (int j = 1; j > 0; j++) {
                 }
             }
-            char ac2[] = {'d', 'o', 't'};
+            char[] ac2 = {'d', 'o', 't'};
             ChatCensor.method364(ac1, ac2, null, 4);
-            char ac3[] = ac.clone();
-            char ac4[] = {'s', 'l', 'a', 's', 'h'};
+            char[] ac3 = ac.clone();
+            char[] ac4 = {'s', 'l', 'a', 's', 'h'};
             ChatCensor.method364(ac3, ac4, null, 4);
             for (int k = 0; k < ChatCensor.aCharArrayArray760.length; k++) {
                 ChatCensor.method361(ChatCensor.anIntArray761[k], 947, ac, ChatCensor.aCharArrayArray760[k], ac3, ac1);
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("75731, " + ac.toString() + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("75731, " + ac.toString() + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method361(int i, int j, char ac[], char ac1[], char ac2[], char ac3[]) {
+    public static void method361(int i, int j, char[] ac, char[] ac1, char[] ac2, char[] ac3) {
         try {
             if (ac1.length > ac.length) {
                 return;
@@ -584,12 +585,12 @@ public class ChatCensor {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("11090, " + i + ", " + j + ", " + ac.toString() + ", " + ac1.toString() + ", "
-                    + ac2.toString() + ", " + ac3.toString() + ", " + runtimeexception.toString());
+                    + ac2.toString() + ", " + ac3.toString() + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method362(int i, char ac[], boolean flag, char ac1[]) {
+    public static int method362(int i, char[] ac, boolean flag, char[] ac1) {
         try {
             if (i == 0) {
                 return 2;
@@ -620,12 +621,12 @@ public class ChatCensor {
             return !ChatCensor.method372(ac[i - 1], 0) ? 0 : 1;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("59837, " + i + ", " + ac.toString() + ", " + flag + ", " + ac1.toString() + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method363(char ac[], char ac1[], byte byte0, int i) {
+    public static int method363(char[] ac, char[] ac1, byte byte0, int i) {
         try {
             if (i + 1 == ac1.length) {
                 return 2;
@@ -656,12 +657,12 @@ public class ChatCensor {
             return !ChatCensor.method372(ac1[i + 1], 0) ? 0 : 1;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("32535, " + ac.toString() + ", " + ac1.toString() + ", " + byte0 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method364(char ac[], char ac1[], byte abyte0[][], int i) {
+    public static void method364(char[] ac, char[] ac1, byte[][] abyte0, int i) {
         try {
             if (ac1.length > ac.length) {
                 return;
@@ -750,7 +751,7 @@ public class ChatCensor {
                             }
                             for (; !flag7 && k2 < l; k2++) {
                                 if (k2 >= 0 && (!ChatCensor.method372(ac[k2], 0) || ac[k2] == '\'')) {
-                                    char ac2[] = new char[3];
+                                    char[] ac2 = new char[3];
                                     int j3;
                                     for (j3 = 0; j3 < 3; j3++) {
                                         if (k2 + j3 >= ac.length || ChatCensor.method372(ac[k2 + j3], 0)
@@ -759,10 +760,7 @@ public class ChatCensor {
                                         }
                                         ac2[j3] = ac[k2 + j3];
                                     }
-                                    boolean flag8 = true;
-                                    if (j3 == 0) {
-                                        flag8 = false;
-                                    }
+                                    boolean flag8 = j3 != 0;
                                     if (j3 < 3 && k2 - 1 >= 0
                                             && (!ChatCensor.method372(ac[k2 - 1], 0) || ac[k2 - 1] == '\'')) {
                                         flag8 = false;
@@ -808,12 +806,12 @@ public class ChatCensor {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("88077, " + ac.toString() + ", " + ac1.toString() + ", " + abyte0 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static boolean method365(byte byte0, byte byte1, byte byte2, byte abyte0[][]) {
+    public static boolean method365(byte byte0, byte byte1, byte byte2, byte[][] abyte0) {
         try {
             if (byte1 != 7) {
                 throw new NullPointerException();
@@ -840,7 +838,7 @@ public class ChatCensor {
             return false;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("46590, " + byte0 + ", " + byte1 + ", " + byte2 + ", " + abyte0 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1035,12 +1033,12 @@ public class ChatCensor {
                 return 27;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("80234, " + i + ", " + c + ", " + runtimeexception.toString());
+            SignLink.reporterror("80234, " + i + ", " + c + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method369(char ac[], int i) {
+    public static void method369(char[] ac, int i) {
         try {
             int j = 0;
             if (i != -17411) {
@@ -1081,12 +1079,12 @@ public class ChatCensor {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("48666, " + ac.toString() + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("48666, " + ac.toString() + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method370(int i, int j, char ac[]) {
+    public static int method370(int i, int j, char[] ac) {
         try {
             if (i >= 0) {
                 ChatCensor.aBoolean748 = !ChatCensor.aBoolean748;
@@ -1098,12 +1096,12 @@ public class ChatCensor {
             }
             return -1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("33082, " + i + ", " + j + ", " + ac.toString() + ", " + runtimeexception.toString());
+            SignLink.reporterror("33082, " + i + ", " + j + ", " + ac.toString() + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method371(char ac[], int i, boolean flag) {
+    public static int method371(char[] ac, int i, boolean flag) {
         try {
             for (int j = i; j < ac.length && j >= 0; j++) {
                 if (ac[j] < '0' || ac[j] > '9') {
@@ -1117,7 +1115,7 @@ public class ChatCensor {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("23776, " + ac.toString() + ", " + i + ", " + flag + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1129,7 +1127,7 @@ public class ChatCensor {
             }
             return !ChatCensor.method374(c, 8) && !ChatCensor.method375(0, c);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("61856, " + c + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("61856, " + c + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1144,7 +1142,7 @@ public class ChatCensor {
             }
             return c == 'v' || c == 'x' || c == 'j' || c == 'q' || c == 'z';
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("6880, " + c + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("6880, " + c + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1195,12 +1193,12 @@ public class ChatCensor {
             }
             return c >= 'A' && c <= 'Z';
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("60575, " + flag + ", " + c + ", " + runtimeexception.toString());
+            SignLink.reporterror("60575, " + flag + ", " + c + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static boolean method378(char ac[], int i) {
+    public static boolean method378(char[] ac, int i) {
         try {
             boolean flag = true;
             for (int j = 0; j < ac.length; j++) {
@@ -1234,12 +1232,12 @@ public class ChatCensor {
             } while (i1 != j1 && i1 + 1 != j1);
             return false;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("32549, " + ac.toString() + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("32549, " + ac.toString() + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static int method379(char ac[], byte byte0) {
+    public static int method379(char[] ac, byte byte0) {
         try {
             if (byte0 != 122) {
                 ChatCensor.aBoolean748 = !ChatCensor.aBoolean748;
@@ -1262,7 +1260,7 @@ public class ChatCensor {
             }
             return i;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("24004, " + ac.toString() + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("24004, " + ac.toString() + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

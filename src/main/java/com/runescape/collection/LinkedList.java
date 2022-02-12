@@ -51,7 +51,7 @@ public class LinkedList {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("22708, " + class44 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("22708, " + class44 + ", " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -90,7 +90,7 @@ public class LinkedList {
             }
             return class44;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("18269, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("18269, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -109,7 +109,7 @@ public class LinkedList {
                 return class44;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("49472, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("49472, " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -128,7 +128,7 @@ public class LinkedList {
                 return class44;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30725, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("30725, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

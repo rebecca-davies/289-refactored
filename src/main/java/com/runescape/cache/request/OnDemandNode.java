@@ -6,7 +6,7 @@ public class OnDemandNode extends CacheableNode {
 
     public int anInt1405;
     public int anInt1406;
-    public byte aByteArray1407[];
+    public byte[] aByteArray1407;
     public int anInt1408;
     public boolean aBoolean1409;
 

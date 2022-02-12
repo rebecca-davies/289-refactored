@@ -16,7 +16,7 @@ public class Connection implements Runnable {
     public Socket aSocket195;
     public boolean aBoolean196;
     public GameShell anApplet_Sub1_197;
-    public byte aByteArray198[];
+    public byte[] aByteArray198;
     public int anInt199;
     public int anInt200;
     public boolean aBoolean201;
@@ -39,7 +39,7 @@ public class Connection implements Runnable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("498, " + socket + ", " + i + ", " + applet_sub1 + ", " + runtimeexception.toString());
+            SignLink.reporterror("498, " + socket + ", " + i + ", " + applet_sub1 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -66,7 +66,7 @@ public class Connection implements Runnable {
         aByteArray198 = null;
     }
 
-    public int method192() throws IOException {
+    public int read() throws IOException {
         if (aBoolean196) {
             return 0;
         } else {
@@ -82,7 +82,7 @@ public class Connection implements Runnable {
         }
     }
 
-    public void method194(byte abyte0[], int i, int j) throws IOException {
+    public void read(byte[] abyte0, int i, int j) throws IOException {
         if (aBoolean196) {
             return;
         }
@@ -96,11 +96,8 @@ public class Connection implements Runnable {
         }
     }
 
-    public void method195(int i, byte abyte0[], int j, int k) throws IOException {
+    public void write(int i, byte[] abyte0, int k) throws IOException {
         try {
-            if (j < 2 || j > 2) {
-                return;
-            }
             if (aBoolean196) {
                 return;
             }
@@ -127,8 +124,8 @@ public class Connection implements Runnable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("22916, " + i + ", " + abyte0 + ", " + j + ", " + k + ", "
-                    + runtimeexception.toString());
+            SignLink.reporterror("22916, " + i + ", " + abyte0 + ", " + k + ", "
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -190,7 +187,7 @@ public class Connection implements Runnable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("6333, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("6333, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

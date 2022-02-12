@@ -21,17 +21,17 @@ public class OnDemandRequester extends Requester implements Runnable {
     public int anInt1281;
     public int anInt1282;
     public byte aByte1283;
-    public int anIntArrayArray1284[][];
-    public int anIntArrayArray1285[][];
-    public byte aByteArrayArray1286[][];
+    public int[][] anIntArrayArray1284;
+    public int[][] anIntArrayArray1285;
+    public byte[][] aByteArrayArray1286;
     public int anInt1287;
-    public byte aByteArray1288[];
-    public int anIntArray1289[];
-    public int anIntArray1290[];
-    public int anIntArray1291[];
-    public int anIntArray1292[];
-    public int anIntArray1293[];
-    public int anIntArray1294[];
+    public byte[] aByteArray1288;
+    public int[] anIntArray1289;
+    public int[] anIntArray1290;
+    public int[] anIntArray1291;
+    public int[] anIntArray1292;
+    public int[] anIntArray1293;
+    public int[] anIntArray1294;
     public boolean aBoolean1295;
     public Game aClient1296;
     public CRC32 aCRC32_1297;
@@ -44,7 +44,7 @@ public class OnDemandRequester extends Requester implements Runnable {
     public LinkedList aClass28_1304;
     public LinkedList aClass28_1305;
     public LinkedList aClass28_1306;
-    public String aString1307;
+    public String message;
     public int anInt1308;
     public int anInt1309;
     public Socket aSocket1310;
@@ -54,8 +54,8 @@ public class OnDemandRequester extends Requester implements Runnable {
     public OnDemandNode aClass44_Sub3_Sub3_1314;
     public int anInt1315;
     public int anInt1316;
-    public byte aByteArray1317[];
-    public byte aByteArray1318[];
+    public byte[] aByteArray1317;
+    public byte[] aByteArray1318;
     public int anInt1319;
     public int anInt1320;
     public long aLong1321;
@@ -77,15 +77,15 @@ public class OnDemandRequester extends Requester implements Runnable {
         aClass28_1304 = new LinkedList(-199);
         aClass28_1305 = new LinkedList(-199);
         aClass28_1306 = new LinkedList(-199);
-        aString1307 = "";
+        message = "";
         aByteArray1317 = new byte[500];
         aByteArray1318 = new byte[65000];
     }
 
     public void method383(FileArchive class47, Game client1) {
-        String as[] = {"model_version", "anim_version", "midi_version", "map_version"};
+        String[] as = {"model_version", "anim_version", "midi_version", "map_version"};
         for (int i = 0; i < 4; i++) {
-            byte abyte0[] = class47.method549(as[i], null);
+            byte[] abyte0 = class47.method549(as[i], null);
             int j = abyte0.length / 2;
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
             anIntArrayArray1284[i] = new int[j];
@@ -94,9 +94,9 @@ public class OnDemandRequester extends Requester implements Runnable {
                 anIntArrayArray1284[i][l] = class44_sub3_sub2.readUnsignedShort();
             }
         }
-        String as1[] = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
+        String[] as1 = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
         for (int k = 0; k < 4; k++) {
-            byte abyte1[] = class47.method549(as1[k], null);
+            byte[] abyte1 = class47.method549(as1[k], null);
             int i1 = abyte1.length / 4;
             Buffer class44_sub3_sub2_1 = new Buffer(abyte1);
             anIntArrayArray1285[k] = new int[i1];
@@ -104,7 +104,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 anIntArrayArray1285[k][l1] = class44_sub3_sub2_1.readInt();
             }
         }
-        byte abyte2[] = class47.method549("model_index", null);
+        byte[] abyte2 = class47.method549("model_index", null);
         int j1 = anIntArrayArray1284[0].length;
         aByteArray1288 = new byte[j1];
         for (int k1 = 0; k1 < j1; k1++) {
@@ -159,7 +159,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return anIntArrayArray1284[i].length;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("37225, " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("37225, " + i + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -172,7 +172,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 return anIntArray1293.length;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("62481, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("62481, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -194,7 +194,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return -1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("24222, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("24222, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -213,7 +213,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("78980, " + flag + ", " + flag1 + ", " + runtimeexception.toString());
+            SignLink.reporterror("78980, " + flag + ", " + flag1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -231,7 +231,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return false;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("68583, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("68583, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -243,7 +243,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return aByteArray1288[i] & 0xff;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30503, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("30503, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -253,7 +253,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             j = 93 / j;
             return anIntArray1294[i] == 1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97829, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("97829, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -341,7 +341,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             if (anIntArrayArray1284[j][k] == 0) {
                 return;
             }
-            byte abyte0[] = aClient1296.aClass45Array1208[j + 1].method541(false, k);
+            byte[] abyte0 = aClient1296.aClass45Array1208[j + 1].method541(false, k);
             if (method402(abyte0, anIntArrayArray1284[j][k], (byte) 64, anIntArrayArray1285[j][k])) {
                 return;
             }
@@ -356,7 +356,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("42758, " + i + ", " + j + ", " + byte0 + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -371,7 +371,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("65651, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("65651, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -402,7 +402,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("69676, " + i + ", " + j + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("69676, " + i + ", " + j + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -473,9 +473,9 @@ public class OnDemandRequester extends Requester implements Runnable {
                     }
                 } else {
                     anInt1319 = 0;
-                    aString1307 = "";
+                    message = "";
                 }
-                if (aClient1296.aBoolean863 && aSocket1310 != null && anOutputStream1312 != null
+                if (aClient1296.ingame && aSocket1310 != null && anOutputStream1312 != null
                         && (anInt1287 > 0 || aClient1296.aClass45Array1208[0] == null)) {
                     anInt1320++;
                     if (anInt1320 > 500) {
@@ -509,7 +509,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             while (class44_sub3_sub3 != null) {
                 aBoolean1298 = true;
-                byte abyte0[] = null;
+                byte[] abyte0 = null;
                 if (aClient1296.aClass45Array1208[0] != null) {
                     abyte0 = aClient1296.aClass45Array1208[class44_sub3_sub3.anInt1405 + 1].method541(false,
                             class44_sub3_sub3.anInt1406);
@@ -532,7 +532,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("28575, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("28575, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -568,7 +568,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10900, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("10900, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -603,7 +603,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                             if (anInt1308 < anInt1309) {
                                 anInt1308++;
                             }
-                            aString1307 = "Loading extra files - " + (anInt1308 * 100 / anInt1309) + "%";
+                            message = "Loading extra files - " + (anInt1308 * 100 / anInt1309) + "%";
                             anInt1300++;
                             if (anInt1300 == 10) {
                                 return;
@@ -629,7 +629,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                                 if (anInt1308 < anInt1309) {
                                     anInt1308++;
                                 }
-                                aString1307 = "Loading extra files - " + (anInt1308 * 100 / anInt1309) + "%";
+                                message = "Loading extra files - " + (anInt1308 * 100 / anInt1309) + "%";
                                 anInt1300++;
                                 if (anInt1300 == 10) {
                                     return;
@@ -640,7 +640,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                     anInt1287--;
                 }
             } catch (RuntimeException runtimeexception) {
-                SignLink.reporterror("38119, " + i + ", " + runtimeexception.toString());
+                SignLink.reporterror("38119, " + i + ", " + runtimeexception);
                 throw new RuntimeException();
             }
             break;
@@ -701,7 +701,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 }
                 if (anInt1316 > 0 && j >= anInt1316) {
                     aBoolean1298 = true;
-                    byte abyte0[] = aByteArray1317;
+                    byte[] abyte0 = aByteArray1317;
                     int i1 = 0;
                     if (aClass44_Sub3_Sub3_1314 != null) {
                         abyte0 = aClass44_Sub3_Sub3_1314.aByteArray1407;
@@ -741,12 +741,12 @@ public class OnDemandRequester extends Requester implements Runnable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("67743, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("67743, " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public boolean method402(byte abyte0[], int i, byte byte0, int j) {
+    public boolean method402(byte[] abyte0, int i, byte byte0, int j) {
         try {
             if (abyte0 == null || abyte0.length < 2) {
                 return false;
@@ -765,7 +765,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             return i1 == j;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("56096, " + abyte0 + ", " + i + ", " + byte0 + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -794,7 +794,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 aByteArray1317[2] = (byte) class44_sub3_sub3.anInt1406;
                 if (class44_sub3_sub3.aBoolean1409) {
                     aByteArray1317[3] = 2;
-                } else if (!aClient1296.aBoolean863) {
+                } else if (!aClient1296.ingame) {
                     aByteArray1317[3] = 1;
                 } else {
                     aByteArray1317[3] = 0;
@@ -816,7 +816,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             anInt1313++;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("57925, " + class44_sub3_sub3 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("57925, " + class44_sub3_sub3 + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

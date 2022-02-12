@@ -11,7 +11,7 @@ public class Draw2D extends CacheableNode {
     public static byte aByte1366 = 8;
     public static int anInt1367 = 1;
     public static byte aByte1368 = 35;
-    public static int anIntArray1369[];
+    public static int[] anIntArray1369;
     public static int anInt1370;
     public static int anInt1371;
     public static int anInt1372;
@@ -26,7 +26,7 @@ public class Draw2D extends CacheableNode {
     public Draw2D() {
     }
 
-    public static void method406(int i, int ai[], int j, int k) {
+    public static void method406(int i, int[] ai, int j, int k) {
         try {
             Draw2D.anIntArray1369 = ai;
             Draw2D.anInt1370 = j;
@@ -36,7 +36,7 @@ public class Draw2D extends CacheableNode {
             Draw2D.method408(Draw2D.aByte1366, k, j, 0, 0);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("83567, " + i + ", " + ai + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("83567, " + i + ", " + ai + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -104,7 +104,7 @@ public class Draw2D extends CacheableNode {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10068, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("10068, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -147,7 +147,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("68601, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + flag
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -180,7 +180,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("43392, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -197,7 +197,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("9711, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -216,7 +216,7 @@ public class Draw2D extends CacheableNode {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("90957, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1
-                    + ", " + runtimeexception.toString());
+                    + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -243,7 +243,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("26422, " + i + ", " + j + ", " + k + ", " + flag + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -279,7 +279,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("78053, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -306,7 +306,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("94910, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -340,7 +340,7 @@ public class Draw2D extends CacheableNode {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("35599, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

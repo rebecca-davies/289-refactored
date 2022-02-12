@@ -69,7 +69,7 @@ public class Queue {
                 return class44_sub3;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("43753, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("43753, " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

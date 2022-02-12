@@ -12,7 +12,7 @@ public class SignLink implements Runnable {
     public static int uid;
     public static int storeId = 32;
     public static RandomAccessFile cache_dat = null;
-    public static RandomAccessFile cache_idx[] = new RandomAccessFile[5];
+    public static RandomAccessFile[] cache_idx = new RandomAccessFile[5];
     public static boolean sunjava;
     public static Applet mainapp = null;
     public static boolean active;
@@ -28,7 +28,7 @@ public class SignLink implements Runnable {
     public static DataInputStream urlstream = null;
     public static int savelen;
     public static String savereq = null;
-    public static byte savebuf[] = null;
+    public static byte[] savebuf = null;
     public static boolean midiplay;
     public static int midipos;
     public static String midi = null;
@@ -150,7 +150,7 @@ public class SignLink implements Runnable {
         SignLink.threadreq = runnable;
     }
 
-    public static synchronized boolean wavesave(byte abyte0[], int i) {
+    public static synchronized boolean wavesave(byte[] abyte0, int i) {
         if (i > 0x1e8480) {
             return false;
         }
@@ -177,7 +177,7 @@ public class SignLink implements Runnable {
         }
     }
 
-    public static synchronized void midisave(byte abyte0[], int i) {
+    public static synchronized void midisave(byte[] abyte0, int i) {
         if (i > 0x1e8480) {
             return;
         }

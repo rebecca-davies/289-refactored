@@ -16,9 +16,9 @@ public class ObjType {
     public static byte aByte320 = 1;
     public static byte aByte321 = 8;
     public static int anInt323;
-    public static int anIntArray324[];
+    public static int[] anIntArray324;
     public static Buffer buffer;
-    public static ObjType cache[];
+    public static ObjType[] cache;
     public static int anInt327;
     public static boolean aBoolean328 = true;
     public static Cache aClass39_369 = new Cache((byte) 7, 50);
@@ -30,9 +30,9 @@ public class ObjType {
     public int anInt329;
     public int anInt330;
     public String aString331;
-    public byte aByteArray332[];
-    public int anIntArray333[];
-    public int anIntArray334[];
+    public byte[] aByteArray332;
+    public int[] anIntArray333;
+    public int[] anIntArray334;
     public int anInt335;
     public int anInt336;
     public int anInt337;
@@ -43,8 +43,8 @@ public class ObjType {
     public boolean aBoolean342;
     public int anInt343;
     public boolean aBoolean344;
-    public String aStringArray345[];
-    public String aStringArray346[];
+    public String[] aStringArray345;
+    public String[] aStringArray346;
     public int anInt347;
     public int anInt348;
     public byte aByte349;
@@ -57,8 +57,8 @@ public class ObjType {
     public int anInt356;
     public int anInt357;
     public int anInt358;
-    public int anIntArray359[];
-    public int anIntArray360[];
+    public int[] anIntArray359;
+    public int[] anIntArray360;
     public int anInt361;
     public int anInt362;
     public int anInt363;
@@ -117,7 +117,7 @@ public class ObjType {
         }
         ObjType.anInt327 = (ObjType.anInt327 + 1) % 10;
         ObjType class14 = ObjType.cache[ObjType.anInt327];
-        ObjType.buffer.offset = ObjType.anIntArray324[i];
+        ObjType.buffer.position = ObjType.anIntArray324[i];
         class14.anInt329 = i;
         class14.method221();
         class14.method222(false, ObjType.buffer);
@@ -175,8 +175,8 @@ public class ObjType {
             Image24 class44_sub3_sub1_sub2_1 = new Image24(32, 32);
             int k1 = Draw3D.anInt1423;
             int l1 = Draw3D.anInt1424;
-            int ai[] = Draw3D.anIntArray1429;
-            int ai1[] = Draw2D.anIntArray1369;
+            int[] ai = Draw3D.anIntArray1429;
+            int[] ai1 = Draw2D.anIntArray1369;
             int i2 = Draw2D.anInt1370;
             int j2 = Draw2D.anInt1371;
             int k2 = Draw2D.anInt1374;
@@ -197,7 +197,7 @@ public class ObjType {
             int l3 = Draw3D.anIntArray1427[class14.anInt336] * k3 >> 16;
             int i4 = Draw3D.anIntArray1428[class14.anInt336] * k3 >> 16;
             class44_sub3_sub4_sub4.method526(0, class14.anInt337, class14.anInt338, class14.anInt336, class14.anInt339,
-                    l3 + ((Renderable) (class44_sub3_sub4_sub4)).anInt1412 / 2 + class14.anInt340, i4
+                    l3 + class44_sub3_sub4_sub4.anInt1412 / 2 + class14.anInt340, i4
                             + class14.anInt340);
             for (int i5 = 31; i5 >= 0; i5--) {
                 for (int j4 = 31; j4 >= 0; j4--) {
@@ -270,7 +270,7 @@ public class ObjType {
             }
             return class44_sub3_sub1_sub2_1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("85079, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("85079, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -428,7 +428,7 @@ public class ObjType {
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("33855, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("33855, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -461,7 +461,7 @@ public class ObjType {
             aBoolean342 = true;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("48619, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("48619, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -527,7 +527,7 @@ public class ObjType {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("56792, " + flag + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("56792, " + flag + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -548,10 +548,7 @@ public class ObjType {
             if (j == -1) {
                 return true;
             }
-            boolean flag1 = true;
-            if (!Model.method507(j)) {
-                flag1 = false;
-            }
+            boolean flag1 = Model.method507(j);
             if (k != -1 && !Model.method507(k)) {
                 flag1 = false;
             }
@@ -560,7 +557,7 @@ public class ObjType {
             }
             return flag1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("20483, " + flag + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("20483, " + flag + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -586,12 +583,12 @@ public class ObjType {
                 if (i1 != -1) {
                     Model class44_sub3_sub4_sub4_1 = Model.method506(l, aByte318);
                     Model class44_sub3_sub4_sub4_3 = Model.method506(i1, aByte318);
-                    Model aclass44_sub3_sub4_sub4_1[] = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_1,
+                    Model[] aclass44_sub3_sub4_sub4_1 = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_1,
                             class44_sub3_sub4_sub4_3};
                     class44_sub3_sub4_sub4 = new Model(aclass44_sub3_sub4_sub4_1, 3, -33019);
                 } else {
                     Model class44_sub3_sub4_sub4_2 = Model.method506(l, aByte318);
-                    Model aclass44_sub3_sub4_sub4[] = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_2};
+                    Model[] aclass44_sub3_sub4_sub4 = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_2};
                     class44_sub3_sub4_sub4 = new Model(aclass44_sub3_sub4_sub4, 2, -33019);
                 }
             }
@@ -608,7 +605,7 @@ public class ObjType {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("48423, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("48423, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -627,16 +624,13 @@ public class ObjType {
             if (j == -1) {
                 return true;
             }
-            boolean flag1 = true;
-            if (!Model.method507(j)) {
-                flag1 = false;
-            }
+            boolean flag1 = Model.method507(j);
             if (k != -1 && !Model.method507(k)) {
                 flag1 = false;
             }
             return flag1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("33754, " + flag + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("33754, " + flag + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -656,7 +650,7 @@ public class ObjType {
             Model class44_sub3_sub4_sub4 = Model.method506(k, aByte318);
             if (l != -1) {
                 Model class44_sub3_sub4_sub4_1 = Model.method506(l, aByte318);
-                Model aclass44_sub3_sub4_sub4[] = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_1};
+                Model[] aclass44_sub3_sub4_sub4 = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_1};
                 class44_sub3_sub4_sub4 = new Model(aclass44_sub3_sub4_sub4, 2, -33019);
             }
             if (anIntArray333 != null) {
@@ -666,7 +660,7 @@ public class ObjType {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("35633, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("35633, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

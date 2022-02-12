@@ -8,7 +8,7 @@ public class FloType {
 
     public static boolean aBoolean428 = true;
     public static int anInt429;
-    public static FloType aClass20Array430[];
+    public static FloType[] aClass20Array430;
     public boolean aBoolean427;
     public String aString431;
     public int anInt432;
@@ -47,7 +47,7 @@ public class FloType {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30324, " + flag + ", " + class47 + ", " + runtimeexception.toString());
+            SignLink.reporterror("30324, " + flag + ", " + class47 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -79,7 +79,7 @@ public class FloType {
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("32967, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("32967, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -168,7 +168,7 @@ public class FloType {
             anInt441 = method246(j, k, l);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("3110, " + i + ", " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("3110, " + i + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

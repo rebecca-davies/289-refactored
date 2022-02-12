@@ -23,9 +23,9 @@ public class Actor extends Renderable {
     public int anInt1628;
     public int anInt1629;
     public int anInt1630;
-    public int anIntArray1631[];
-    public int anIntArray1632[];
-    public int anIntArray1633[];
+    public int[] anIntArray1631;
+    public int[] anIntArray1632;
+    public int[] anIntArray1633;
     public int anInt1634;
     public int anInt1635;
     public int anInt1636;
@@ -57,9 +57,9 @@ public class Actor extends Renderable {
     public int anInt1662;
     public int anInt1663;
     public int anInt1664;
-    public int pathTileX[];
-    public int pathTileZ[];
-    public boolean aBooleanArray1667[];
+    public int[] pathTileX;
+    public int[] pathTileZ;
+    public boolean[] aBooleanArray1667;
     public int anInt1668;
     public int anInt1669;
 
@@ -129,7 +129,7 @@ public class Actor extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("61882, " + i + ", " + flag + ", " + j + ", " + byte0 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -184,7 +184,7 @@ public class Actor extends Renderable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("37957, " + flag + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("37957, " + flag + ", " + i + ", " + j + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -211,7 +211,7 @@ public class Actor extends Renderable {
                 return false;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30413, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("30413, " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -231,7 +231,7 @@ public class Actor extends Renderable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("15311, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("15311, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

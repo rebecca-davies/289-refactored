@@ -7,28 +7,25 @@ public class ISAACCipher {
     public boolean aBoolean781;
     public byte aByte782;
     public int anInt783;
-    public int anIntArray784[];
-    public int anIntArray785[];
+    public int[] anIntArray784;
+    public int[] anIntArray785;
     public int anInt786;
     public int anInt787;
     public int anInt788;
 
-    public ISAACCipher(int ai[], byte byte0) {
+    public ISAACCipher(int[] ai) {
         aBoolean781 = false;
         aByte782 = -23;
         try {
             anIntArray785 = new int[256];
             anIntArray784 = new int[256];
-            if (byte0 != aByte782) {
-                aBoolean781 = !aBoolean781;
-            }
             for (int i = 0; i < ai.length; i++) {
                 anIntArray784[i] = ai[i];
             }
             method547();
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("69249, " + ai + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("69249, " + ai + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

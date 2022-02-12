@@ -2,7 +2,7 @@ package com.runescape.cache.bzip;
 
 public class BZip2Context {
 
-    public static int anIntArray730[];
+    public static int[] anIntArray730;
     public int anInt697 = 4096;
     public int anInt698 = 16;
     public int anInt699 = 258;
@@ -12,12 +12,12 @@ public class BZip2Context {
     public int anInt703 = 50;
     public int anInt704 = 4;
     public int anInt705 = 18002;
-    public byte aByteArray706[];
+    public byte[] aByteArray706;
     public int anInt707;
     public int anInt708;
     public int anInt709;
     public int anInt710;
-    public byte aByteArray711[];
+    public byte[] aByteArray711;
     public int anInt712;
     public int anInt713;
     public int anInt714;
@@ -32,23 +32,23 @@ public class BZip2Context {
     public int anInt723;
     public int anInt724;
     public int anInt725;
-    public int anIntArray726[];
+    public int[] anIntArray726;
     public int anInt727;
-    public int anIntArray728[];
-    public int anIntArray729[];
+    public int[] anIntArray728;
+    public int[] anIntArray729;
     public int anInt731;
-    public boolean aBooleanArray732[];
-    public boolean aBooleanArray733[];
-    public byte aByteArray734[];
-    public byte aByteArray735[];
-    public int anIntArray736[];
-    public byte aByteArray737[];
-    public byte aByteArray738[];
-    public byte aByteArrayArray739[][];
-    public int anIntArrayArray740[][];
-    public int anIntArrayArray741[][];
-    public int anIntArrayArray742[][];
-    public int anIntArray743[];
+    public boolean[] aBooleanArray732;
+    public boolean[] aBooleanArray733;
+    public byte[] aByteArray734;
+    public byte[] aByteArray735;
+    public int[] anIntArray736;
+    public byte[] aByteArray737;
+    public byte[] aByteArray738;
+    public byte[][] aByteArrayArray739;
+    public int[][] anIntArrayArray740;
+    public int[][] anIntArrayArray741;
+    public int[][] anIntArrayArray742;
+    public int[] anIntArray743;
     public int anInt744;
 
     public BZip2Context() {

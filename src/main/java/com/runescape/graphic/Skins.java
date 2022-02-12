@@ -6,8 +6,8 @@ import com.runescape.util.SignLink;
 public class Skins {
 
     public int anInt253;
-    public int anIntArray254[];
-    public int anIntArrayArray255[][];
+    public int[] anIntArray254;
+    public int[][] anIntArrayArray255;
 
     public Skins(Buffer buffer, int i) {
         try {
@@ -29,7 +29,7 @@ public class Skins {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("27585, " + buffer + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("27585, " + buffer + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -32,7 +32,7 @@ public class NPCEntity extends Actor {
             if (class44_sub3_sub4_sub4 == null) {
                 return null;
             }
-            super.anInt1661 = ((Renderable) (class44_sub3_sub4_sub4)).anInt1412;
+            super.anInt1661 = class44_sub3_sub4_sub4.anInt1412;
             if (super.anInt1648 != -1 && super.anInt1649 != -1) {
                 SpotAnimType class32 = SpotAnimType.cache[super.anInt1648];
                 Model class44_sub3_sub4_sub4_1 = class32.method271();
@@ -51,7 +51,7 @@ public class NPCEntity extends Actor {
                     }
                     class44_sub3_sub4_sub4_2.method523(64 + class32.anInt569, 850 + class32.anInt570, -30, -50, -30,
                             true);
-                    Model aclass44_sub3_sub4_sub4[] = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_2};
+                    Model[] aclass44_sub3_sub4_sub4 = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_2};
                     class44_sub3_sub4_sub4 = new Model(true, 0, aclass44_sub3_sub4_sub4, 2);
                 }
             }
@@ -60,7 +60,7 @@ public class NPCEntity extends Actor {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("15988, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("15988, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -84,7 +84,7 @@ public class NPCEntity extends Actor {
             }
             return aClass12_1700.method216(0, -1, j, null);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("99332, " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("99332, " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

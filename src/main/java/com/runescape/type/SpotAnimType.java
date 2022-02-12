@@ -9,7 +9,7 @@ import com.runescape.util.SignLink;
 public class SpotAnimType {
 
     public static int anInt558;
-    public static SpotAnimType cache[];
+    public static SpotAnimType[] cache;
     public static Cache aClass39_571 = new Cache((byte) 7, 30);
     public boolean aBoolean556;
     public byte aByte557;
@@ -17,8 +17,8 @@ public class SpotAnimType {
     public int anInt561;
     public int anInt562;
     public SeqType aClass26_563;
-    public int anIntArray564[];
-    public int anIntArray565[];
+    public int[] anIntArray564;
+    public int[] anIntArray565;
     public int anInt566;
     public int anInt567;
     public int anInt568;
@@ -54,7 +54,7 @@ public class SpotAnimType {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("58052, " + flag + ", " + class47 + ", " + runtimeexception.toString());
+            SignLink.reporterror("58052, " + flag + ", " + class47 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -95,7 +95,7 @@ public class SpotAnimType {
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("87905, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("87905, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

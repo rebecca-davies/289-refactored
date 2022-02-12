@@ -9,9 +9,9 @@ import com.runescape.util.SignLink;
 public class NpcType {
 
     public static int anInt276;
-    public static int anIntArray277[];
+    public static int[] anIntArray277;
     public static Buffer buffer;
-    public static NpcType cache[];
+    public static NpcType[] cache;
     public static int anInt280;
     public static Cache aClass39_307 = new Cache((byte) 7, 30);
     public boolean aBoolean273;
@@ -19,18 +19,18 @@ public class NpcType {
     public byte aByte275;
     public long uid;
     public String aString282;
-    public byte aByteArray283[];
+    public byte[] aByteArray283;
     public byte aByte284;
-    public int anIntArray285[];
-    public int anIntArray286[];
+    public int[] anIntArray285;
+    public int[] anIntArray286;
     public int anInt287;
     public int anInt288;
     public int anInt289;
     public int anInt290;
     public int anInt291;
-    public int anIntArray292[];
-    public int anIntArray293[];
-    public String aStringArray294[];
+    public int[] anIntArray292;
+    public int[] anIntArray293;
+    public String[] aStringArray294;
     public int anInt295;
     public int anInt296;
     public int anInt297;
@@ -108,7 +108,7 @@ public class NpcType {
         }
         NpcType.anInt280 = (NpcType.anInt280 + 1) % 20;
         NpcType class12 = NpcType.cache[NpcType.anInt280] = new NpcType();
-        NpcType.buffer.offset = NpcType.anIntArray277[i];
+        NpcType.buffer.position = NpcType.anIntArray277[i];
         class12.uid = i;
         class12.method215(false, NpcType.buffer);
         return class12;
@@ -195,12 +195,12 @@ public class NpcType {
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("19436, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("19436, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public Model method216(int i, int j, int k, int ai[]) {
+    public Model method216(int i, int j, int k, int[] ai) {
         try {
             Model class44_sub3_sub4_sub4 = (Model) NpcType.aClass39_307.method339(uid);
             if (i != 0) {
@@ -217,7 +217,7 @@ public class NpcType {
                 if (flag) {
                     return null;
                 }
-                Model aclass44_sub3_sub4_sub4[] = new Model[anIntArray285.length];
+                Model[] aclass44_sub3_sub4_sub4 = new Model[anIntArray285.length];
                 for (int j1 = 0; j1 < anIntArray285.length; j1++) {
                     aclass44_sub3_sub4_sub4[j1] = Model.method506(anIntArray285[j1], aByte275);
                 }
@@ -254,7 +254,7 @@ public class NpcType {
             }
             return class44_sub3_sub4_sub4_1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("77537, " + i + ", " + j + ", " + k + ", " + ai + ", " + runtimeexception.toString());
+            SignLink.reporterror("77537, " + i + ", " + j + ", " + k + ", " + ai + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -276,7 +276,7 @@ public class NpcType {
             if (flag) {
                 return null;
             }
-            Model aclass44_sub3_sub4_sub4[] = new Model[anIntArray286.length];
+            Model[] aclass44_sub3_sub4_sub4 = new Model[anIntArray286.length];
             for (int j = 0; j < anIntArray286.length; j++) {
                 aclass44_sub3_sub4_sub4[j] = Model.method506(anIntArray286[j], aByte275);
             }
@@ -293,7 +293,7 @@ public class NpcType {
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("20491, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("20491, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

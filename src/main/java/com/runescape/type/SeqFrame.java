@@ -8,15 +8,15 @@ public class SeqFrame {
 
     public static int anInt262;
     public static int anInt263 = 2;
-    public static SeqFrame aClass11Array264[];
-    public static boolean aBooleanArray272[];
+    public static SeqFrame[] aClass11Array264;
+    public static boolean[] aBooleanArray272;
     public int anInt265;
     public Skins aClass9_266;
     public int anInt267;
-    public int anIntArray268[];
-    public int anIntArray269[];
-    public int anIntArray270[];
-    public int anIntArray271[];
+    public int[] anIntArray268;
+    public int[] anIntArray269;
+    public int[] anIntArray270;
+    public int[] anIntArray271;
 
     public SeqFrame() {
     }
@@ -29,38 +29,38 @@ public class SeqFrame {
         }
     }
 
-    public static void method208(int i, byte abyte0[]) {
+    public static void method208(int i, byte[] abyte0) {
         try {
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
-            class44_sub3_sub2.offset = abyte0.length - 8;
+            class44_sub3_sub2.position = abyte0.length - 8;
             int j = class44_sub3_sub2.readUnsignedShort();
             int k = class44_sub3_sub2.readUnsignedShort();
             int l = class44_sub3_sub2.readUnsignedShort();
             int i1 = class44_sub3_sub2.readUnsignedShort();
             int j1 = 0;
             Buffer class44_sub3_sub2_1 = new Buffer(abyte0);
-            class44_sub3_sub2_1.offset = j1;
+            class44_sub3_sub2_1.position = j1;
             j1 += j + 2;
             Buffer class44_sub3_sub2_2 = new Buffer(abyte0);
-            class44_sub3_sub2_2.offset = j1;
+            class44_sub3_sub2_2.position = j1;
             j1 += k;
             Buffer class44_sub3_sub2_3 = new Buffer(abyte0);
-            class44_sub3_sub2_3.offset = j1;
+            class44_sub3_sub2_3.position = j1;
             j1 += l;
             Buffer class44_sub3_sub2_4 = new Buffer(abyte0);
-            class44_sub3_sub2_4.offset = j1;
+            class44_sub3_sub2_4.position = j1;
             j1 += i1;
             Buffer class44_sub3_sub2_5 = new Buffer(abyte0);
-            class44_sub3_sub2_5.offset = j1;
+            class44_sub3_sub2_5.position = j1;
             Skins class9 = new Skins(class44_sub3_sub2_5, SeqFrame.anInt262);
             int k1 = class44_sub3_sub2_1.readUnsignedShort();
             if (i != 2) {
                 return;
             }
-            int ai[] = new int[500];
-            int ai1[] = new int[500];
-            int ai2[] = new int[500];
-            int ai3[] = new int[500];
+            int[] ai = new int[500];
+            int[] ai1 = new int[500];
+            int[] ai2 = new int[500];
+            int[] ai3 = new int[500];
             for (int l1 = 0; l1 < k1; l1++) {
                 int i2 = class44_sub3_sub2_1.readUnsignedShort();
                 SeqFrame class11 = SeqFrame.aClass11Array264[i2] = new SeqFrame();
@@ -126,7 +126,7 @@ public class SeqFrame {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("77261, " + i + ", " + abyte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("77261, " + i + ", " + abyte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

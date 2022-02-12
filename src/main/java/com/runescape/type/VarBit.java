@@ -8,7 +8,7 @@ public class VarBit {
 
     public static int anInt588 = 810;
     public static int anInt589;
-    public static VarBit aClass35Array590[];
+    public static VarBit[] aClass35Array590;
     public String aString591;
     public int anInt592;
     public int anInt593;
@@ -41,12 +41,12 @@ public class VarBit {
                     VarpType.cache[VarBit.aClass35Array590[i].anInt592].aBoolean686 = true;
                 }
             }
-            if (class44_sub3_sub2.offset != class44_sub3_sub2.payload.length) {
+            if (class44_sub3_sub2.position != class44_sub3_sub2.payload.length) {
                 System.out.println("varbit load mismatch");
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10921, " + flag + ", " + class47 + ", " + runtimeexception.toString());
+            SignLink.reporterror("10921, " + flag + ", " + class47 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -77,7 +77,7 @@ public class VarBit {
             } while (true);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("19355, " + i + ", " + j + ", " + class44_sub3_sub2 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

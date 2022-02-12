@@ -8,7 +8,7 @@ public class HashTable {
     public boolean aBoolean765;
     public int anInt766;
     public int anInt767;
-    public Node aClass44Array768[];
+    public Node[] aClass44Array768;
 
     public HashTable(int i, byte byte0) {
         aBoolean764 = false;
@@ -28,7 +28,7 @@ public class HashTable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10752, " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("10752, " + i + ", " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -58,7 +58,7 @@ public class HashTable {
             class44.previousNode.nextNode = class44;
             class44.nodeId = l;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("44360, " + flag + ", " + class44 + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("44360, " + flag + ", " + class44 + ", " + l + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

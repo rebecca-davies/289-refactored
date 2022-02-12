@@ -9,11 +9,11 @@ public class TextUtils {
     public static int anInt802 = 783;
     public static boolean aBoolean803 = true;
     public static int anInt804 = -940;
-    public static char aCharArray805[] = {'_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
+    public static char[] aCharArray805 = {'_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
             'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8',
             '9'};
 
-    public static long method550(String s) {
+    public static long encodeBase37(String s) {
         long l = 0L;
         for (int i = 0; i < s.length() && i < 12; i++) {
             char c = s.charAt(i);
@@ -43,7 +43,7 @@ public class TextUtils {
                 return "invalid_name";
             }
             int i = 0;
-            char ac[] = new char[12];
+            char[] ac = new char[12];
             while (l != 0L) {
                 long l1 = l;
                 l /= 37L;
@@ -51,7 +51,7 @@ public class TextUtils {
             }
             return new String(ac, 12 - i, i);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("40622, " + l + ", " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("40622, " + l + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -69,7 +69,7 @@ public class TextUtils {
             }
             return l;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("8420, " + i + ", " + s + ", " + runtimeexception.toString());
+            SignLink.reporterror("8420, " + i + ", " + s + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -93,7 +93,7 @@ public class TextUtils {
                 TextUtils.anInt804 = -101;
             }
             if (s.length() > 0) {
-                char ac[] = s.toCharArray();
+                char[] ac = s.toCharArray();
                 for (int i = 0; i < ac.length; i++) {
                     if (ac[i] == '_') {
                         ac[i] = ' ';
@@ -110,23 +110,20 @@ public class TextUtils {
                 return s;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("42296, " + s + ", " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("42296, " + s + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static String method555(int i, String s) {
+    public static String toAsterisks(String s) {
         try {
-            if (i != 0) {
-                TextUtils.aBoolean801 = !TextUtils.aBoolean801;
-            }
             StringBuffer stringbuffer = new StringBuffer();
             for (int j = 0; j < s.length(); j++) {
                 stringbuffer.append("*");
             }
             return stringbuffer.toString();
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("15483, " + i + ", " + s + ", " + runtimeexception.toString());
+            SignLink.reporterror("15483, " + s + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

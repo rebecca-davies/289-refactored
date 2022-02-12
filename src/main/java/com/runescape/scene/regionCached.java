@@ -15,10 +15,10 @@ public class regionCached {
     public static int anInt61 = 30967;
     public static boolean aBoolean64 = true;
     public static int plane;
-    public static int anIntArray82[] = {1, 2, 4, 8};
-    public static int anIntArray83[] = {16, 32, 64, 128};
-    public static int anIntArray84[] = {1, 0, -1, 0};
-    public static int anIntArray85[] = {0, -1, 0, 1};
+    public static int[] anIntArray82 = {1, 2, 4, 8};
+    public static int[] anIntArray83 = {16, 32, 64, 128};
+    public static int[] anIntArray84 = {1, 0, -1, 0};
+    public static int[] anIntArray85 = {0, -1, 0, 1};
     public static int anInt86 = (int) (Math.random() * 17D) - 8;
     public static int anInt87 = (int) (Math.random() * 33D) - 16;
     public int anInt60;
@@ -26,22 +26,22 @@ public class regionCached {
     public boolean aBoolean63;
     public int anInt66;
     public int anInt67;
-    public int anIntArrayArrayArray68[][][];
-    public byte aByteArrayArrayArray69[][][];
-    public byte aByteArrayArrayArray70[][][];
-    public byte aByteArrayArrayArray71[][][];
-    public byte aByteArrayArrayArray72[][][];
-    public byte aByteArrayArrayArray73[][][];
-    public byte aByteArrayArrayArray74[][][];
-    public int anIntArrayArray75[][];
-    public int anIntArray76[];
-    public int anIntArray77[];
-    public int anIntArray78[];
-    public int anIntArray79[];
-    public int anIntArray80[];
-    public int anIntArrayArrayArray81[][][];
+    public int[][][] anIntArrayArrayArray68;
+    public byte[][][] aByteArrayArrayArray69;
+    public byte[][][] aByteArrayArrayArray70;
+    public byte[][][] aByteArrayArrayArray71;
+    public byte[][][] aByteArrayArrayArray72;
+    public byte[][][] aByteArrayArrayArray73;
+    public byte[][][] aByteArrayArrayArray74;
+    public int[][] anIntArrayArray75;
+    public int[] anIntArray76;
+    public int[] anIntArray77;
+    public int[] anIntArray78;
+    public int[] anIntArray79;
+    public int[] anIntArray80;
+    public int[][][] anIntArrayArrayArray81;
 
-    public regionCached(int ai[][][], int i, byte byte0, byte abyte0[][][], int j) {
+    public regionCached(int[][][] ai, int i, byte byte0, byte[][][] abyte0, int j) {
         anInt60 = 101;
         aBoolean62 = false;
         aBoolean63 = true;
@@ -68,7 +68,7 @@ public class regionCached {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("68666, " + ai + ", " + i + ", " + byte0 + ", " + abyte0 + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -120,7 +120,7 @@ public class regionCached {
             return flag;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("52153, " + i + ", " + j + ", " + k + ", " + abyte0 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -150,7 +150,7 @@ public class regionCached {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("6914, " + class43_sub1 + ", " + class44_sub3_sub2 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -230,12 +230,12 @@ public class regionCached {
             }
             return class8.method202(j, 658);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("35395, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("35395, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method174(int i, int j, int k, int l, int ai[][][], int i1, int j1, CollisionMap class18,
+    public static void method174(int i, int j, int k, int l, int[][][] ai, int i1, int j1, CollisionMap class18,
                                  Scene class36, int k1, int l1) {
         try {
             if (l1 != 0) {
@@ -458,7 +458,7 @@ public class regionCached {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("39236, " + i + ", " + j + ", " + k + ", " + l + ", " + ai + ", " + i1 + ", " + j1
-                    + ", " + class18 + ", " + class36 + ", " + k1 + ", " + l1 + ", " + runtimeexception.toString());
+                    + ", " + class18 + ", " + class36 + ", " + k1 + ", " + l1 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -489,12 +489,12 @@ public class regionCached {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("84774, " + i + ", " + j + ", " + k + ", " + flag + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public void method158(int i, int j, byte byte0, byte abyte0[], int k, int l) {
+    public void method158(int i, int j, byte byte0, byte[] abyte0, int k, int l) {
         try {
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
             for (int i1 = 0; i1 < 4; i1++) {
@@ -565,12 +565,12 @@ public class regionCached {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("95853, " + i + ", " + j + ", " + byte0 + ", " + abyte0 + ", " + k + ", " + l + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public void method161(int i, int j, byte abyte0[], Scene class36, byte byte0, CollisionMap aclass18[]) {
+    public void method161(int i, int j, byte[] abyte0, Scene class36, byte byte0, CollisionMap[] aclass18) {
         try {
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
             int k = -1;
@@ -615,7 +615,7 @@ public class regionCached {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("3868, " + i + ", " + j + ", " + abyte0 + ", " + class36 + ", " + byte0 + ", "
-                    + aclass18 + ", " + runtimeexception.toString());
+                    + aclass18 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -955,12 +955,12 @@ public class regionCached {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("66723, " + i + ", " + j + ", " + class36 + ", " + k + ", " + l + ", " + i1 + ", "
-                    + j1 + ", " + class18 + ", " + k1 + ", " + runtimeexception.toString());
+                    + j1 + ", " + class18 + ", " + k1 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public void method163(byte byte0, CollisionMap aclass18[], Scene class36) {
+    public void method163(byte byte0, CollisionMap[] aclass18, Scene class36) {
         try {
             if (byte0 != 76) {
                 aBoolean62 = !aBoolean62;
@@ -995,7 +995,7 @@ public class regionCached {
                 regionCached.anInt87 = 16;
             }
             for (int k = 0; k < 4; k++) {
-                byte abyte0[][] = aByteArrayArrayArray74[k];
+                byte[][] abyte0 = aByteArrayArrayArray74[k];
                 byte byte1 = 96;
                 char c = '\u0300';
                 byte byte2 = -50;
@@ -1106,10 +1106,7 @@ public class regionCached {
                                         j21 = method172(k21, i22, k22);
                                     }
                                     if (k > 0) {
-                                        boolean flag = true;
-                                        if (k18 == 0 && aByteArrayArrayArray72[k][k6][j17] != 0) {
-                                            flag = false;
-                                        }
+                                        boolean flag = k18 != 0 || aByteArrayArrayArray72[k][k6][j17] == 0;
                                         if (l18 > 0 && !FloType.aClass20Array430[l18 - 1].aBoolean435) {
                                             flag = false;
                                         }
@@ -1319,7 +1316,7 @@ public class regionCached {
                 return l;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30913, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("30913, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -4,7 +4,7 @@ public class BZip2Decompressor {
 
     public static BZip2Context aClass40_669 = new BZip2Context();
 
-    public static int method329(byte abyte0[], int i, byte abyte1[], int j, int k) {
+    public static int method329(byte[] abyte0, int i, byte[] abyte1, int j, int k) {
         synchronized (BZip2Decompressor.aClass40_669) {
             BZip2Decompressor.aClass40_669.aByteArray706 = abyte1;
             BZip2Decompressor.aClass40_669.anInt707 = k;
@@ -31,9 +31,9 @@ public class BZip2Decompressor {
         int i = class40.anInt717;
         int j = class40.anInt727;
         int k = class40.anInt725;
-        int ai[] = BZip2Context.anIntArray730;
+        int[] ai = BZip2Context.anIntArray730;
         int l = class40.anInt724;
-        byte abyte0[] = class40.aByteArray711;
+        byte[] abyte0 = class40.aByteArray711;
         int i1 = class40.anInt712;
         int j1 = class40.anInt713;
         int k1 = j1;
@@ -146,9 +146,9 @@ public class BZip2Decompressor {
 
     public static void method331(BZip2Context class40) {
         int k8 = 0;
-        int ai[] = null;
-        int ai1[] = null;
-        int ai2[] = null;
+        int[] ai = null;
+        int[] ai1 = null;
+        int[] ai2 = null;
         class40.anInt721 = 1;
         if (BZip2Context.anIntArray730 == null) {
             BZip2Context.anIntArray730 = new int[class40.anInt721 * 0x186a0];
@@ -170,11 +170,7 @@ public class BZip2Decompressor {
             byte0 = BZip2Decompressor.method332(class40);
             byte0 = BZip2Decompressor.method332(class40);
             byte0 = BZip2Decompressor.method333(class40);
-            if (byte0 != 0) {
-                class40.aBoolean718 = true;
-            } else {
-                class40.aBoolean718 = false;
-            }
+            class40.aBoolean718 = byte0 != 0;
             if (class40.aBoolean718) {
                 System.out.println("PANIC! RANDOMISED BLOCK!");
             }
@@ -187,11 +183,7 @@ public class BZip2Decompressor {
             class40.anInt723 = class40.anInt723 << 8 | byte0 & 0xff;
             for (int j = 0; j < 16; j++) {
                 byte byte1 = BZip2Decompressor.method333(class40);
-                if (byte1 == 1) {
-                    class40.aBooleanArray733[j] = true;
-                } else {
-                    class40.aBooleanArray733[j] = false;
-                }
+                class40.aBooleanArray733[j] = byte1 == 1;
             }
             for (int k = 0; k < 256; k++) {
                 class40.aBooleanArray732[k] = false;
@@ -222,7 +214,7 @@ public class BZip2Decompressor {
                 class40.aByteArray738[i1] = (byte) j3;
             }
 
-            byte abyte0[] = new byte[6];
+            byte[] abyte0 = new byte[6];
             for (byte byte16 = 0; byte16 < j4; byte16++) {
                 abyte0[byte16] = byte16;
             }
@@ -427,11 +419,7 @@ public class BZip2Decompressor {
             class40.anInt727++;
             class40.anInt744 = i6;
             BZip2Decompressor.method330(class40);
-            if (class40.anInt727 == class40.anInt744 + 1 && class40.anInt717 == 0) {
-                flag19 = true;
-            } else {
-                flag19 = false;
-            }
+            flag19 = class40.anInt727 == class40.anInt744 + 1 && class40.anInt717 == 0;
         }
     }
 
@@ -474,7 +462,7 @@ public class BZip2Decompressor {
         }
     }
 
-    public static void method336(int ai[], int ai1[], int ai2[], byte abyte0[], int i, int j, int k) {
+    public static void method336(int[] ai, int[] ai1, int[] ai2, byte[] abyte0, int i, int j, int k) {
         int l = 0;
         for (int i1 = i; i1 <= j; i1++) {
             for (int l2 = 0; l2 < k; l2++) {

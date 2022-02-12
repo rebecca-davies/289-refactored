@@ -12,30 +12,30 @@ public class Model extends Renderable {
     public static boolean aBoolean1528 = true;
     public static int anInt1529;
     public static Model aClass44_Sub3_Sub4_Sub4_1530 = new Model((byte) 91);
-    public static int anIntArray1531[] = new int[2000];
-    public static int anIntArray1532[] = new int[2000];
-    public static int anIntArray1533[] = new int[2000];
-    public static int anIntArray1534[] = new int[2000];
-    public static ModelHeader aClass21Array1570[];
+    public static int[] anIntArray1531 = new int[2000];
+    public static int[] anIntArray1532 = new int[2000];
+    public static int[] anIntArray1533 = new int[2000];
+    public static int[] anIntArray1534 = new int[2000];
+    public static ModelHeader[] aClass21Array1570;
     public static Requester aClass43_1571;
-    public static boolean aBooleanArray1572[] = new boolean[4096];
-    public static boolean aBooleanArray1573[] = new boolean[4096];
-    public static int anIntArray1574[] = new int[4096];
-    public static int anIntArray1575[] = new int[4096];
-    public static int anIntArray1576[] = new int[4096];
-    public static int anIntArray1577[] = new int[4096];
-    public static int anIntArray1578[] = new int[4096];
-    public static int anIntArray1579[] = new int[4096];
-    public static int anIntArray1580[] = new int[1500];
-    public static int anIntArrayArray1581[][] = new int[1500][512];
-    public static int anIntArray1582[] = new int[12];
-    public static int anIntArrayArray1583[][] = new int[12][2000];
-    public static int anIntArray1584[] = new int[2000];
-    public static int anIntArray1585[] = new int[2000];
-    public static int anIntArray1586[] = new int[12];
-    public static int anIntArray1587[] = new int[10];
-    public static int anIntArray1588[] = new int[10];
-    public static int anIntArray1589[] = new int[10];
+    public static boolean[] aBooleanArray1572 = new boolean[4096];
+    public static boolean[] aBooleanArray1573 = new boolean[4096];
+    public static int[] anIntArray1574 = new int[4096];
+    public static int[] anIntArray1575 = new int[4096];
+    public static int[] anIntArray1576 = new int[4096];
+    public static int[] anIntArray1577 = new int[4096];
+    public static int[] anIntArray1578 = new int[4096];
+    public static int[] anIntArray1579 = new int[4096];
+    public static int[] anIntArray1580 = new int[1500];
+    public static int[][] anIntArrayArray1581 = new int[1500][512];
+    public static int[] anIntArray1582 = new int[12];
+    public static int[][] anIntArrayArray1583 = new int[12][2000];
+    public static int[] anIntArray1584 = new int[2000];
+    public static int[] anIntArray1585 = new int[2000];
+    public static int[] anIntArray1586 = new int[12];
+    public static int[] anIntArray1587 = new int[10];
+    public static int[] anIntArray1588 = new int[10];
+    public static int[] anIntArray1589 = new int[10];
     public static int anInt1590;
     public static int anInt1591;
     public static int anInt1592;
@@ -43,11 +43,11 @@ public class Model extends Renderable {
     public static int anInt1594;
     public static int anInt1595;
     public static int anInt1596;
-    public static int anIntArray1597[] = new int[1000];
-    public static int SINE[];
-    public static int COSINE[];
-    public static int anIntArray1600[];
-    public static int anIntArray1601[];
+    public static int[] anIntArray1597 = new int[1000];
+    public static int[] SINE;
+    public static int[] COSINE;
+    public static int[] anIntArray1600;
+    public static int[] anIntArray1601;
 
     static {
         Model.SINE = Draw3D.anIntArray1427;
@@ -61,25 +61,25 @@ public class Model extends Renderable {
     public byte aByte1526;
     public int anInt1527;
     public int anInt1535;
-    public int anIntArray1536[];
-    public int anIntArray1537[];
-    public int anIntArray1538[];
+    public int[] anIntArray1536;
+    public int[] anIntArray1537;
+    public int[] anIntArray1538;
     public int anInt1539;
-    public int anIntArray1540[];
-    public int anIntArray1541[];
-    public int anIntArray1542[];
-    public int anIntArray1543[];
-    public int anIntArray1544[];
-    public int anIntArray1545[];
-    public int anIntArray1546[];
-    public int anIntArray1547[];
-    public int anIntArray1548[];
-    public int anIntArray1549[];
+    public int[] anIntArray1540;
+    public int[] anIntArray1541;
+    public int[] anIntArray1542;
+    public int[] anIntArray1543;
+    public int[] anIntArray1544;
+    public int[] anIntArray1545;
+    public int[] anIntArray1546;
+    public int[] anIntArray1547;
+    public int[] anIntArray1548;
+    public int[] anIntArray1549;
     public int anInt1550;
     public int anInt1551;
-    public int anIntArray1552[];
-    public int anIntArray1553[];
-    public int anIntArray1554[];
+    public int[] anIntArray1552;
+    public int[] anIntArray1553;
+    public int[] anIntArray1554;
     public int anInt1555;
     public int anInt1556;
     public int anInt1557;
@@ -89,12 +89,12 @@ public class Model extends Renderable {
     public int anInt1561;
     public int anInt1562;
     public int anInt1563;
-    public int anIntArray1564[];
-    public int anIntArray1565[];
-    public int anIntArrayArray1566[][];
-    public int anIntArrayArray1567[][];
+    public int[] anIntArray1564;
+    public int[] anIntArray1565;
+    public int[][] anIntArrayArray1566;
+    public int[][] anIntArrayArray1567;
     public boolean aBoolean1568;
-    public VertexNormal aClass25Array1569[];
+    public VertexNormal[] aClass25Array1569;
 
     public Model(byte byte0) {
         anInt1523 = 6;
@@ -107,7 +107,7 @@ public class Model extends Renderable {
                 throw new NullPointerException();
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97744, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("97744, " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -152,15 +152,15 @@ public class Model extends Renderable {
             }
             anIntArray1549 = new int[anInt1539];
             Buffer class44_sub3_sub2 = new Buffer(class21.aByteArray442);
-            class44_sub3_sub2.offset = class21.anInt446;
+            class44_sub3_sub2.position = class21.anInt446;
             Buffer class44_sub3_sub2_1 = new Buffer(class21.aByteArray442);
-            class44_sub3_sub2_1.offset = class21.anInt447;
+            class44_sub3_sub2_1.position = class21.anInt447;
             Buffer class44_sub3_sub2_2 = new Buffer(class21.aByteArray442);
-            class44_sub3_sub2_2.offset = class21.anInt448;
+            class44_sub3_sub2_2.position = class21.anInt448;
             Buffer class44_sub3_sub2_3 = new Buffer(class21.aByteArray442);
-            class44_sub3_sub2_3.offset = class21.anInt449;
+            class44_sub3_sub2_3.position = class21.anInt449;
             Buffer class44_sub3_sub2_4 = new Buffer(class21.aByteArray442);
-            class44_sub3_sub2_4.offset = class21.anInt450;
+            class44_sub3_sub2_4.position = class21.anInt450;
             int j = 0;
             int k = 0;
             int l = 0;
@@ -188,11 +188,11 @@ public class Model extends Renderable {
                     anIntArray1564[i1] = class44_sub3_sub2_4.readUnsignedByte();
                 }
             }
-            class44_sub3_sub2.offset = class21.anInt453;
-            class44_sub3_sub2_1.offset = class21.anInt454;
-            class44_sub3_sub2_2.offset = class21.anInt455;
-            class44_sub3_sub2_3.offset = class21.anInt456;
-            class44_sub3_sub2_4.offset = class21.anInt457;
+            class44_sub3_sub2.position = class21.anInt453;
+            class44_sub3_sub2_1.position = class21.anInt454;
+            class44_sub3_sub2_2.position = class21.anInt455;
+            class44_sub3_sub2_3.position = class21.anInt456;
+            class44_sub3_sub2_4.position = class21.anInt457;
             for (int k1 = 0; k1 < anInt1539; k1++) {
                 anIntArray1549[k1] = class44_sub3_sub2.readUnsignedShort();
                 if (anIntArray1546 != null) {
@@ -208,8 +208,8 @@ public class Model extends Renderable {
                     anIntArray1565[k1] = class44_sub3_sub2_4.readUnsignedByte();
                 }
             }
-            class44_sub3_sub2.offset = class21.anInt451;
-            class44_sub3_sub2_1.offset = class21.anInt452;
+            class44_sub3_sub2.position = class21.anInt451;
+            class44_sub3_sub2_1.position = class21.anInt452;
             int i2 = 0;
             int k2 = 0;
             int i3 = 0;
@@ -258,7 +258,7 @@ public class Model extends Renderable {
                     anIntArray1542[l3] = i3;
                 }
             }
-            class44_sub3_sub2.offset = class21.anInt458;
+            class44_sub3_sub2.position = class21.anInt458;
             for (int j4 = 0; j4 < anInt1551; j4++) {
                 anIntArray1552[j4] = class44_sub3_sub2.readUnsignedShort();
                 anIntArray1553[j4] = class44_sub3_sub2.readUnsignedShort();
@@ -266,12 +266,12 @@ public class Model extends Renderable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("1962, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("1962, " + byte0 + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public Model(Model aclass44_sub3_sub4_sub4[], int i, int j) {
+    public Model(Model[] aclass44_sub3_sub4_sub4, int i, int j) {
         anInt1523 = 6;
         aByte1525 = 4;
         aByte1526 = 91;
@@ -394,12 +394,12 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("74534, " + aclass44_sub3_sub4_sub4 + ", " + i + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public Model(boolean flag, int i, Model aclass44_sub3_sub4_sub4[], int j) {
+    public Model(boolean flag, int i, Model[] aclass44_sub3_sub4_sub4, int j) {
         anInt1523 = 6;
         aByte1525 = 4;
         aByte1526 = 91;
@@ -527,7 +527,7 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("44164, " + flag + ", " + i + ", " + aclass44_sub3_sub4_sub4 + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -597,7 +597,7 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("54490, " + class44_sub3_sub4_sub4 + ", " + flag + ", " + flag1 + ", " + i + ", "
-                    + flag2 + ", " + runtimeexception.toString());
+                    + flag2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -643,7 +643,7 @@ public class Model extends Renderable {
                 super.aClass25Array1411 = new VertexNormal[anInt1535];
                 for (int k1 = 0; k1 < anInt1535; k1++) {
                     VertexNormal class25 = super.aClass25Array1411[k1] = new VertexNormal();
-                    VertexNormal class25_1 = ((Renderable) (class44_sub3_sub4_sub4)).aClass25Array1411[k1];
+                    VertexNormal class25_1 = class44_sub3_sub4_sub4.aClass25Array1411[k1];
                     class25.anInt500 = class25_1.anInt500;
                     class25.anInt501 = class25_1.anInt501;
                     class25.anInt502 = class25_1.anInt502;
@@ -672,7 +672,7 @@ public class Model extends Renderable {
             anIntArray1552 = class44_sub3_sub4_sub4.anIntArray1552;
             anIntArray1553 = class44_sub3_sub4_sub4.anIntArray1553;
             anIntArray1554 = class44_sub3_sub4_sub4.anIntArray1554;
-            super.anInt1412 = ((Renderable) (class44_sub3_sub4_sub4)).anInt1412;
+            super.anInt1412 = class44_sub3_sub4_sub4.anInt1412;
             anInt1560 = class44_sub3_sub4_sub4.anInt1560;
             anInt1559 = class44_sub3_sub4_sub4.anInt1559;
             anInt1562 = class44_sub3_sub4_sub4.anInt1562;
@@ -684,7 +684,7 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("37258, " + flag + ", " + i + ", " + class44_sub3_sub4_sub4 + ", " + flag1 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -727,7 +727,7 @@ public class Model extends Renderable {
         Model.aClass43_1571 = class43;
     }
 
-    public static void method504(byte abyte0[], int i, byte byte0) {
+    public static void method504(byte[] abyte0, int i, byte byte0) {
         try {
             if (abyte0 == null) {
                 ModelHeader class21 = Model.aClass21Array1570[i] = new ModelHeader();
@@ -737,7 +737,7 @@ public class Model extends Renderable {
                 return;
             }
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
-            class44_sub3_sub2.offset = abyte0.length - 18;
+            class44_sub3_sub2.position = abyte0.length - 18;
             ModelHeader class21_1 = Model.aClass21Array1570[i] = new ModelHeader();
             class21_1.aByteArray442 = abyte0;
             class21_1.anInt443 = class44_sub3_sub2.readUnsignedShort();
@@ -804,7 +804,7 @@ public class Model extends Renderable {
             k2 += i2;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("15458, " + abyte0 + ", " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("15458, " + abyte0 + ", " + i + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -817,7 +817,7 @@ public class Model extends Renderable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("7068, " + byte0 + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("7068, " + byte0 + ", " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -840,7 +840,7 @@ public class Model extends Renderable {
                 return new Model((byte) 5, i);
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("95716, " + i + ", " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("95716, " + i + ", " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -934,7 +934,7 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("85838, " + flag + ", " + class44_sub3_sub4_sub4 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -992,7 +992,7 @@ public class Model extends Renderable {
                     + (int) (Math.sqrt(anInt1559 * anInt1559 + anInt1560 * anInt1560) + 0.98999999999999999D);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("36717, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("36717, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1017,7 +1017,7 @@ public class Model extends Renderable {
                     + (int) (Math.sqrt(anInt1559 * anInt1559 + anInt1560 * anInt1560) + 0.98999999999999999D);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("17256, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("17256, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1067,7 +1067,7 @@ public class Model extends Renderable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10133, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("10133, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1080,7 +1080,7 @@ public class Model extends Renderable {
                 Model.anInt1524 = -411;
             }
             if (anIntArray1564 != null) {
-                int ai[] = new int[256];
+                int[] ai = new int[256];
                 int i = 0;
                 for (int k = 0; k < anInt1535; k++) {
                     int i1 = anIntArray1564[k];
@@ -1101,7 +1101,7 @@ public class Model extends Renderable {
                 anIntArray1564 = null;
             }
             if (anIntArray1565 != null) {
-                int ai1[] = new int[256];
+                int[] ai1 = new int[256];
                 int j = 0;
                 for (int l = 0; l < anInt1539; l++) {
                     int k1 = anIntArray1565[l];
@@ -1123,7 +1123,7 @@ public class Model extends Renderable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("8794, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("8794, " + byte0 + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -1152,12 +1152,12 @@ public class Model extends Renderable {
             j = 30 / j;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("89296, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("89296, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method515(int i, boolean flag, int j, int ai[]) {
+    public void method515(int i, boolean flag, int j, int[] ai) {
         try {
             if (i == -1) {
                 return;
@@ -1210,12 +1210,12 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("48519, " + i + ", " + flag + ", " + j + ", " + ai + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method516(int i, int ai[], int j, int k, int l) {
+    public void method516(int i, int[] ai, int j, int k, int l) {
         int i1 = ai.length;
         if (i == 0) {
             int j1 = 0;
@@ -1225,7 +1225,7 @@ public class Model extends Renderable {
             for (int k2 = 0; k2 < i1; k2++) {
                 int l3 = ai[k2];
                 if (l3 < anIntArrayArray1566.length) {
-                    int ai5[] = anIntArrayArray1566[l3];
+                    int[] ai5 = anIntArrayArray1566[l3];
                     for (int i5 = 0; i5 < ai5.length; i5++) {
                         int j6 = ai5[i5];
                         Model.anInt1590 += anIntArray1536[j6];
@@ -1251,7 +1251,7 @@ public class Model extends Renderable {
             for (int k1 = 0; k1 < i1; k1++) {
                 int l2 = ai[k1];
                 if (l2 < anIntArrayArray1566.length) {
-                    int ai1[] = anIntArrayArray1566[l2];
+                    int[] ai1 = anIntArrayArray1566[l2];
                     for (int i4 = 0; i4 < ai1.length; i4++) {
                         int j5 = ai1[i4];
                         anIntArray1536[j5] += j;
@@ -1266,7 +1266,7 @@ public class Model extends Renderable {
             for (int l1 = 0; l1 < i1; l1++) {
                 int i3 = ai[l1];
                 if (i3 < anIntArrayArray1566.length) {
-                    int ai2[] = anIntArrayArray1566[i3];
+                    int[] ai2 = anIntArrayArray1566[i3];
                     for (int j4 = 0; j4 < ai2.length; j4++) {
                         int k5 = ai2[j4];
                         anIntArray1536[k5] -= Model.anInt1590;
@@ -1308,7 +1308,7 @@ public class Model extends Renderable {
             for (int i2 = 0; i2 < i1; i2++) {
                 int j3 = ai[i2];
                 if (j3 < anIntArrayArray1566.length) {
-                    int ai3[] = anIntArrayArray1566[j3];
+                    int[] ai3 = anIntArrayArray1566[j3];
                     for (int k4 = 0; k4 < ai3.length; k4++) {
                         int l5 = ai3[k4];
                         anIntArray1536[l5] -= Model.anInt1590;
@@ -1329,7 +1329,7 @@ public class Model extends Renderable {
             for (int j2 = 0; j2 < i1; j2++) {
                 int k3 = ai[j2];
                 if (k3 < anIntArrayArray1567.length) {
-                    int ai4[] = anIntArrayArray1567[k3];
+                    int[] ai4 = anIntArrayArray1567[k3];
                     for (int l4 = 0; l4 < ai4.length; l4++) {
                         int i6 = ai4[l4];
                         anIntArray1548[i6] += j * 8;
@@ -1358,7 +1358,7 @@ public class Model extends Renderable {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("55629, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("55629, " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -1377,7 +1377,7 @@ public class Model extends Renderable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("12713, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("12713, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1397,7 +1397,7 @@ public class Model extends Renderable {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("27484, " + i + ", " + j + ", " + byte0 + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1425,7 +1425,7 @@ public class Model extends Renderable {
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("2770, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("2770, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1443,7 +1443,7 @@ public class Model extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("76171, " + i + ", " + j + ", " + k + ", " + byte0 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -1661,10 +1661,7 @@ public class Model extends Renderable {
             return;
         }
         int j5 = l2 + (super.anInt1412 * j >> 16);
-        boolean flag = false;
-        if (k2 - j5 <= 50) {
-            flag = true;
-        }
+        boolean flag = k2 - j5 <= 50;
         boolean flag1 = false;
         if (i2 > 0 && Model.aBoolean1593) {
             int k5 = k2 - l2;
@@ -1770,12 +1767,8 @@ public class Model extends Renderable {
                     if ((i3 - l3) * (Model.anIntArray1575[j2] - Model.anIntArray1575[k1])
                             - (Model.anIntArray1575[l] - Model.anIntArray1575[k1]) * (k4 - l3) > 0) {
                         Model.aBooleanArray1573[k] = false;
-                        if (i3 < 0 || l3 < 0 || k4 < 0 || i3 > Draw2D.anInt1376 || l3 > Draw2D.anInt1376
-                                || k4 > Draw2D.anInt1376) {
-                            Model.aBooleanArray1572[k] = true;
-                        } else {
-                            Model.aBooleanArray1572[k] = false;
-                        }
+                        Model.aBooleanArray1572[k] = i3 < 0 || l3 < 0 || k4 < 0 || i3 > Draw2D.anInt1376 || l3 > Draw2D.anInt1376
+                                || k4 > Draw2D.anInt1376;
                         int k5 = (Model.anIntArray1576[l] + Model.anIntArray1576[k1] + Model.anIntArray1576[j2]) / 3
                                 + anInt1562;
                         Model.anIntArrayArray1581[k5][Model.anIntArray1580[k5]++] = k;
@@ -1787,7 +1780,7 @@ public class Model extends Renderable {
             for (int i1 = anInt1561 - 1; i1 >= 0; i1--) {
                 int l1 = Model.anIntArray1580[i1];
                 if (l1 > 0) {
-                    int ai[] = Model.anIntArrayArray1581[i1];
+                    int[] ai = Model.anIntArrayArray1581[i1];
                     for (int j3 = 0; j3 < l1; j3++) {
                         method528(ai[j3]);
                     }
@@ -1802,7 +1795,7 @@ public class Model extends Renderable {
         for (int i2 = anInt1561 - 1; i2 >= 0; i2--) {
             int k2 = Model.anIntArray1580[i2];
             if (k2 > 0) {
-                int ai1[] = Model.anIntArrayArray1581[i2];
+                int[] ai1 = Model.anIntArrayArray1581[i2];
                 for (int i4 = 0; i4 < k2; i4++) {
                     int l4 = ai1[i4];
                     int l5 = anIntArray1547[l4];
@@ -1835,8 +1828,8 @@ public class Model extends Renderable {
         }
         int i6 = 0;
         int k6 = Model.anIntArray1582[10];
-        int ai2[] = Model.anIntArrayArray1583[10];
-        int ai3[] = Model.anIntArray1584;
+        int[] ai2 = Model.anIntArrayArray1583[10];
+        int[] ai3 = Model.anIntArray1584;
         if (i6 == k6) {
             i6 = 0;
             k6 = Model.anIntArray1582[11];
@@ -1893,7 +1886,7 @@ public class Model extends Renderable {
                 }
             }
             int i7 = Model.anIntArray1582[l6];
-            int ai4[] = Model.anIntArrayArray1583[l6];
+            int[] ai4 = Model.anIntArrayArray1583[l6];
             for (int j7 = 0; j7 < i7; j7++) {
                 method528(ai4[j7]);
             }

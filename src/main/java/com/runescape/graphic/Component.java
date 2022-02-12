@@ -12,13 +12,13 @@ import com.runescape.util.TextUtils;
 
 public class Component {
 
-    public static Component instances[];
+    public static Component[] instances;
     public static Cache aClass39_162 = new Cache((byte) 7, 30);
     public static Cache spriteCache;
     public byte aByte98;
     public int anInt99;
-    public int containerItemId[];
-    public int containerItemAmount[];
+    public int[] containerItemId;
+    public int[] containerItemAmount;
     public int anInt103;
     public int anInt104;
     public int anInt105;
@@ -31,16 +31,16 @@ public class Component {
     public byte aByte112;
     public int anInt113;
     public int anInt114;
-    public int anIntArrayArray115[][];
-    public int anIntArray116[];
-    public int anIntArray117[];
+    public int[][] anIntArrayArray115;
+    public int[] anIntArray116;
+    public int[] anIntArray117;
     public int anInt118;
     public int anInt119;
     public int anInt120;
     public boolean aBoolean121;
-    public int anIntArray122[];
-    public int anIntArray123[];
-    public int anIntArray124[];
+    public int[] anIntArray122;
+    public int[] anIntArray123;
+    public int[] anIntArray124;
     public int anInt125;
     public boolean aBoolean126;
     public boolean aBoolean127;
@@ -49,10 +49,10 @@ public class Component {
     public boolean aBoolean130;
     public int anInt131;
     public int anInt132;
-    public Image24 aClass44_Sub3_Sub1_Sub2Array133[];
-    public int anIntArray134[];
-    public int anIntArray135[];
-    public String aStringArray136[];
+    public Image24[] aClass44_Sub3_Sub1_Sub2Array133;
+    public int[] anIntArray134;
+    public int[] anIntArray135;
+    public String[] aStringArray136;
     public boolean aBoolean137;
     public boolean aBoolean138;
     public boolean aBoolean139;
@@ -83,7 +83,7 @@ public class Component {
         aByte98 = 4;
     }
 
-    public static void method181(TypeFace aclass44_sub3_sub1_sub4[], FileArchive mediaArchive, int i, FileArchive widgetArchive) {
+    public static void method181(TypeFace[] aclass44_sub3_sub1_sub4, FileArchive mediaArchive, int i, FileArchive widgetArchive) {
         try {
             Component.spriteCache = new Cache((byte) 7, 50000);
             Buffer class44_sub3_sub2 = new Buffer(widgetArchive.method549("data", null));
@@ -93,7 +93,7 @@ public class Component {
                 return;
             }
             Component.instances = new Component[k];
-            while (class44_sub3_sub2.offset < class44_sub3_sub2.payload.length) {
+            while (class44_sub3_sub2.position < class44_sub3_sub2.payload.length) {
                 int l = class44_sub3_sub2.readUnsignedShort();
                 if (l == 65535) {
                     j = class44_sub3_sub2.readUnsignedShort();
@@ -296,7 +296,7 @@ public class Component {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("87101, " + aclass44_sub3_sub1_sub4 + ", " + mediaArchive + ", " + i + ", "
-                    + widgetArchive + ", " + runtimeexception.toString());
+                    + widgetArchive + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -314,7 +314,7 @@ public class Component {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("27428, " + i + ", " + class44_sub3_sub4_sub4 + ", " + j + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -338,7 +338,7 @@ public class Component {
             return class44_sub3_sub1_sub2;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("90047, " + flag + ", " + i + ", " + class47 + ", " + s + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -357,7 +357,7 @@ public class Component {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("35687, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("35687, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -394,7 +394,7 @@ public class Component {
             class44_sub3_sub4_sub4_1.method523(64, 768, -50, -10, -50, true);
             return class44_sub3_sub4_sub4_1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("4323, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception.toString());
+            SignLink.reporterror("4323, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -411,7 +411,7 @@ public class Component {
             class44_sub3_sub4_sub4 = NpcType.method214(j).method217((byte) 105);
         }
         if (i == 3) {
-            class44_sub3_sub4_sub4 = Game.player.method539(false);
+            class44_sub3_sub4_sub4 = Game.self.method539(false);
         }
         if (i == 4) {
             class44_sub3_sub4_sub4 = ObjType.method220(j).method225(true, 50);

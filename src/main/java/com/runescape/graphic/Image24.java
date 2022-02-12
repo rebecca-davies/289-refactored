@@ -17,7 +17,7 @@ public class Image24 extends Draw2D {
     public int anInt1445;
     public byte aByte1446;
     public boolean aBoolean1447;
-    public int anIntArray1448[];
+    public int[] anIntArray1448;
     public int anInt1449;
     public int anInt1450;
     public int anInt1451;
@@ -37,7 +37,7 @@ public class Image24 extends Draw2D {
         anInt1451 = anInt1452 = 0;
     }
 
-    public Image24(byte abyte0[], Component component) {
+    public Image24(byte[] abyte0, Component component) {
         aBoolean1442 = false;
         anInt1443 = 387;
         anInt1445 = 9;
@@ -72,11 +72,11 @@ public class Image24 extends Draw2D {
         aBoolean1447 = true;
         Buffer class44_sub3_sub2 = new Buffer(class47.method549(s + ".dat", null));
         Buffer class44_sub3_sub2_1 = new Buffer(class47.method549("index.dat", null));
-        class44_sub3_sub2_1.offset = class44_sub3_sub2.readUnsignedShort();
+        class44_sub3_sub2_1.position = class44_sub3_sub2.readUnsignedShort();
         anInt1453 = class44_sub3_sub2_1.readUnsignedShort();
         anInt1454 = class44_sub3_sub2_1.readUnsignedShort();
         int j = class44_sub3_sub2_1.readUnsignedByte();
-        int ai[] = new int[j];
+        int[] ai = new int[j];
         for (int k = 0; k < j - 1; k++) {
             ai[k + 1] = class44_sub3_sub2_1.method486();
             if (ai[k + 1] == 0) {
@@ -84,9 +84,9 @@ public class Image24 extends Draw2D {
             }
         }
         for (int l = 0; l < i; l++) {
-            class44_sub3_sub2_1.offset += 2;
-            class44_sub3_sub2.offset += class44_sub3_sub2_1.readUnsignedShort() * class44_sub3_sub2_1.readUnsignedShort();
-            class44_sub3_sub2_1.offset++;
+            class44_sub3_sub2_1.position += 2;
+            class44_sub3_sub2.position += class44_sub3_sub2_1.readUnsignedShort() * class44_sub3_sub2_1.readUnsignedShort();
+            class44_sub3_sub2_1.position++;
         }
         anInt1451 = class44_sub3_sub2_1.readUnsignedByte();
         anInt1452 = class44_sub3_sub2_1.readUnsignedByte();
@@ -121,7 +121,7 @@ public class Image24 extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("24805, " + byte0 + ", " + runtimeexception.toString());
+            SignLink.reporterror("24805, " + byte0 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -163,14 +163,14 @@ public class Image24 extends Draw2D {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("40145, " + i + ", " + byte0 + ", " + j + ", " + k + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
     public void method437(int i) {
         try {
-            int ai[] = new int[anInt1453 * anInt1454];
+            int[] ai = new int[anInt1453 * anInt1454];
             for (int j = 0; j < anInt1450; j++) {
                 for (int k = 0; k < anInt1449; k++) {
                     ai[(j + anInt1452) * anInt1453 + (k + anInt1451)] = anIntArray1448[j * anInt1449 + k];
@@ -186,7 +186,7 @@ public class Image24 extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30731, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("30731, " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -237,12 +237,12 @@ public class Image24 extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("29381, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("29381, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method439(int i, int ai[], int ai1[], int j, int k, int l, boolean flag, int i1, int j1) {
+    public void method439(int i, int[] ai, int[] ai1, int j, int k, int l, boolean flag, int i1, int j1) {
         try {
             int k1 = -(k >> 2);
             k = -(k & 3);
@@ -266,7 +266,7 @@ public class Image24 extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("72719, " + i + ", " + ai + ", " + ai1 + ", " + j + ", " + k + ", " + l + ", " + flag
-                    + ", " + i1 + ", " + j1 + ", " + runtimeexception.toString());
+                    + ", " + i1 + ", " + j1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -316,12 +316,12 @@ public class Image24 extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("37524, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("37524, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method441(int ai[], int ai1[], int i, int j, int k, int l, int i1, int j1, int k1) {
+    public void method441(int[] ai, int[] ai1, int i, int j, int k, int l, int i1, int j1, int k1) {
         int l1 = -(l >> 2);
         l = -(l & 3);
         for (int i2 = -i1; i2 < 0; i2++) {
@@ -407,12 +407,12 @@ public class Image24 extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("12746, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("12746, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method443(int i, int j, int k, int l, int ai[], int ai1[], int i1, int j1, int k1, int l1, boolean flag) {
+    public void method443(int i, int j, int k, int l, int[] ai, int[] ai1, int i1, int j1, int k1, int l1, boolean flag) {
         try {
             if (flag) {
                 return;
@@ -435,12 +435,12 @@ public class Image24 extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("94839, " + i + ", " + j + ", " + k + ", " + l + ", " + ai + ", " + ai1 + ", " + i1
-                    + ", " + j1 + ", " + k1 + ", " + l1 + ", " + flag + ", " + runtimeexception.toString());
+                    + ", " + j1 + ", " + k1 + ", " + l1 + ", " + flag + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method444(int ai[], int i, int j, int k, int l, int i1, int ai1[], int j1, int k1, int l1, int i2) {
+    public void method444(int[] ai, int i, int j, int k, int l, int i1, int[] ai1, int j1, int k1, int l1, int i2) {
         try {
             while (k1 >= 0) {
                 return;
@@ -573,13 +573,13 @@ public class Image24 extends Draw2D {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("46753, " + i + ", " + class44_sub3_sub1_sub3 + ", " + flag + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public void method447(int i, int j, int k, byte abyte0[], int l, int i1, int j1, int k1, int ai[], boolean flag,
-                          int ai1[]) {
+    public void method447(int i, int j, int k, byte[] abyte0, int l, int i1, int j1, int k1, int[] ai, boolean flag,
+                          int[] ai1) {
         try {
             if (!flag) {
                 anInt1445 = 207;
@@ -627,7 +627,7 @@ public class Image24 extends Draw2D {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("52031, " + i + ", " + j + ", " + k + ", " + abyte0 + ", " + l + ", " + i1 + ", " + j1
-                    + ", " + k1 + ", " + ai + ", " + flag + ", " + ai1 + ", " + runtimeexception.toString());
+                    + ", " + k1 + ", " + ai + ", " + flag + ", " + ai1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

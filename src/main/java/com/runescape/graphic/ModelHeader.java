@@ -2,7 +2,7 @@ package com.runescape.graphic;
 
 public class ModelHeader {
 
-    public byte aByteArray442[];
+    public byte[] aByteArray442;
     public int anInt443;
     public int anInt444;
     public int anInt445;

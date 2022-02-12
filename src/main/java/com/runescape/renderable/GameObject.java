@@ -21,7 +21,7 @@ public class GameObject extends Renderable {
     public int anInt1490;
     public int anInt1491;
     public int anInt1492;
-    public int anIntArray1493[];
+    public int[] anIntArray1493;
 
     public GameObject(int i, int j, int k, int l, int i1, boolean flag, int j1, int k1, boolean flag1, int l1) {
         try {
@@ -38,7 +38,7 @@ public class GameObject extends Renderable {
             if (k1 != -1) {
                 aClass26_1489 = SeqType.cache[k1];
                 anInt1490 = 0;
-                anInt1491 = Game.anInt1240;
+                anInt1491 = Game.loopCycle;
                 if (flag1 && aClass26_1489.anInt513 != -1) {
                     anInt1490 = (int) (Math.random() * aClass26_1489.anInt509);
                     anInt1491 -= (int) (Math.random() * aClass26_1489.method254(anInt1490, 24425));
@@ -50,7 +50,7 @@ public class GameObject extends Renderable {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("78557, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + flag + ", " + j1
-                    + ", " + k1 + ", " + flag1 + ", " + l1 + ", " + runtimeexception.toString());
+                    + ", " + k1 + ", " + flag1 + ", " + l1 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -64,7 +64,7 @@ public class GameObject extends Renderable {
             }
             int k = -1;
             if (aClass26_1489 != null) {
-                int l = Game.anInt1240 - anInt1491;
+                int l = Game.loopCycle - anInt1491;
                 if (l > 100 && aClass26_1489.anInt513 > 0) {
                     l = 100;
                 }
@@ -81,7 +81,7 @@ public class GameObject extends Renderable {
                     aClass26_1489 = null;
                     break;
                 }
-                anInt1491 = Game.anInt1240 - l;
+                anInt1491 = Game.loopCycle - l;
                 k = aClass26_1489.anIntArray510[anInt1490];
             }
             LocType class8;
@@ -90,7 +90,7 @@ public class GameObject extends Renderable {
                 int i1 = class35.anInt592;
                 int j1 = class35.anInt593;
                 int k1 = class35.anInt594;
-                int l1 = Game.anIntArray1088[k1 - j1];
+                int l1 = Game.BITMASK[k1 - j1];
                 int i2 = GameObject.aClient1481.anIntArray1214[i1] >> j1 & l1;
                 if (i2 < 0 || i2 >= anIntArray1493.length || anIntArray1493[i2] == -1) {
                     return null;
@@ -103,7 +103,7 @@ public class GameObject extends Renderable {
                     anInt1488, k);
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("27197, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("27197, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
 
 public class FileStore {
 
-    public static byte aByteArray776[] = new byte[520];
+    public static byte[] aByteArray776 = new byte[520];
     public boolean aBoolean773;
     public int anInt774;
     public int anInt775;
@@ -62,7 +62,7 @@ public class FileStore {
                 if (j1 <= 0 || j1 > aRandomAccessFile777.length() / 520L) {
                     return null;
                 }
-                byte abyte0[] = new byte[i1];
+                byte[] abyte0 = new byte[i1];
                 int k1 = 0;
                 for (int l1 = 0; k1 < i1; l1++) {
                     if (j1 == 0) {
@@ -102,12 +102,12 @@ public class FileStore {
                 return null;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("83435, " + flag + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("83435, " + flag + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public synchronized boolean method542(byte abyte0[], byte byte0, int i, int j) {
+    public synchronized boolean method542(byte[] abyte0, byte byte0, int i, int j) {
         try {
             if (byte0 != 4) {
                 anInt775 = 436;
@@ -119,12 +119,12 @@ public class FileStore {
             return flag;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("64351, " + abyte0 + ", " + byte0 + ", " + i + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public synchronized boolean method543(boolean flag, int i, int j, int k, byte abyte0[]) {
+    public synchronized boolean method543(boolean flag, int i, int j, int k, byte[] abyte0) {
         try {
             if (j != 0) {
                 aBoolean773 = !aBoolean773;
@@ -223,7 +223,7 @@ public class FileStore {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("7982, " + flag + ", " + i + ", " + j + ", " + k + ", " + abyte0 + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -245,7 +245,7 @@ public class FileStore {
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("78209, " + randomaccessfile + ", " + i + ", " + j + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }

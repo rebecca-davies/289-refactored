@@ -2,7 +2,7 @@ package com.runescape.util;
 
 public class PacketConstants {
 
-    public static int PACKET_SIZES[] =
+    public static int[] PACKET_SIZES =
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0
              0, 0, 2, 3, 0, 0, 0, 0, 6, 0, // 10
              0, -1, 0, 0, 0, 0, 0, 0, 2, 4, // 20

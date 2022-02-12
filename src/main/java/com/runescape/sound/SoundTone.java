@@ -5,14 +5,14 @@ import com.runescape.util.SignLink;
 
 public class SoundTone {
 
-    public static int anIntArray184[];
-    public static int anIntArray185[];
-    public static int anIntArray186[];
-    public static int anIntArray187[] = new int[5];
-    public static int anIntArray188[] = new int[5];
-    public static int anIntArray189[] = new int[5];
-    public static int anIntArray190[] = new int[5];
-    public static int anIntArray191[] = new int[5];
+    public static int[] anIntArray184;
+    public static int[] anIntArray185;
+    public static int[] anIntArray186;
+    public static int[] anIntArray187 = new int[5];
+    public static int[] anIntArray188 = new int[5];
+    public static int[] anIntArray189 = new int[5];
+    public static int[] anIntArray190 = new int[5];
+    public static int[] anIntArray191 = new int[5];
     public boolean aBoolean164;
     public int anInt165;
     public int anInt166;
@@ -24,9 +24,9 @@ public class SoundTone {
     public SoundEnvelope aClass1_172;
     public SoundEnvelope aClass1_173;
     public SoundEnvelope aClass1_174;
-    public int anIntArray175[];
-    public int anIntArray176[];
-    public int anIntArray177[];
+    public int[] anIntArray175;
+    public int[] anIntArray176;
+    public int[] anIntArray177;
     public int anInt178;
     public int anInt179;
     public SoundFilter aClass2_180;
@@ -256,7 +256,7 @@ public class SoundTone {
                 return 0;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("32871, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception.toString());
+            SignLink.reporterror("32871, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -272,7 +272,7 @@ public class SoundTone {
             aClass1_168.method148(false, class44_sub3_sub2);
             int i = class44_sub3_sub2.readUnsignedByte();
             if (i != 0) {
-                class44_sub3_sub2.offset--;
+                class44_sub3_sub2.position--;
                 aClass1_169 = new SoundEnvelope();
                 aClass1_169.method148(false, class44_sub3_sub2);
                 aClass1_170 = new SoundEnvelope();
@@ -280,7 +280,7 @@ public class SoundTone {
             }
             i = class44_sub3_sub2.readUnsignedByte();
             if (i != 0) {
-                class44_sub3_sub2.offset--;
+                class44_sub3_sub2.position--;
                 aClass1_171 = new SoundEnvelope();
                 aClass1_171.method148(false, class44_sub3_sub2);
                 aClass1_172 = new SoundEnvelope();
@@ -288,7 +288,7 @@ public class SoundTone {
             }
             i = class44_sub3_sub2.readUnsignedByte();
             if (i != 0) {
-                class44_sub3_sub2.offset--;
+                class44_sub3_sub2.position--;
                 aClass1_173 = new SoundEnvelope();
                 aClass1_173.method148(false, class44_sub3_sub2);
                 aClass1_174 = new SoundEnvelope();
@@ -312,7 +312,7 @@ public class SoundTone {
             aClass2_180.method156(anInt166, aClass1_181, class44_sub3_sub2);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("77565, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception.toString());
+            SignLink.reporterror("77565, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

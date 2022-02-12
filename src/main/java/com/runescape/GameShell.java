@@ -20,18 +20,18 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public int anInt5;
     public int anInt6;
     public int anInt7;
-    public long aLongArray8[];
+    public long[] aLongArray8;
     public int anInt9;
     public boolean aBoolean10;
     public int anInt11;
     public int anInt12;
     public Graphics graphics;
     public ProducingGraphicsBuffer aClass34_14;
-    public Image24 aClass44_Sub3_Sub1_Sub2Array15[];
+    public Image24[] aClass44_Sub3_Sub1_Sub2Array15;
     public GameFrame aFrame_Sub1_16;
     public boolean aBoolean17;
-    public boolean aBoolean18;
-    public int anInt19;
+    public boolean hasFocus;
+    public int idleTime;
     public int mouseButton;
     public int anInt21;
     public int anInt22;
@@ -40,11 +40,11 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public int anInt25;
     public long aLong26;
     public int clickType;
-    public int anInt28;
-    public int anInt29;
+    public int mousePressX;
+    public int mousePressY;
     public long aLong30;
-    public int anIntArray31[];
-    public int anIntArray32[];
+    public int[] anIntArray31;
+    public int[] anIntArray32;
     public int anInt33;
     public int anInt34;
 
@@ -59,7 +59,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         aBoolean10 = false;
         aClass44_Sub3_Sub1_Sub2Array15 = new Image24[6];
         aBoolean17 = true;
-        aBoolean18 = true;
+        hasFocus = true;
         anIntArray31 = new int[128];
         anIntArray32 = new int[128];
     }
@@ -77,7 +77,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             method12(this, 1);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("84735, " + i + ", " + j + ", " + k + ", " + runtimeexception.toString());
+            SignLink.reporterror("84735, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -94,7 +94,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             method12(this, 1);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("72806, " + flag + ", " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("72806, " + flag + ", " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -167,8 +167,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             }
             for (; i1 < 256; i1 += j) {
                 clickType = anInt23;
-                anInt28 = anInt24;
-                anInt29 = anInt25;
+                mousePressX = anInt24;
+                mousePressY = anInt25;
                 aLong30 = aLong26;
                 anInt23 = 0;
                 method7(9);
@@ -217,7 +217,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 }
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("66676, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("66676, " + i + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -231,7 +231,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("19917, " + i + ", " + j + ", " + runtimeexception.toString());
+            SignLink.reporterror("19917, " + i + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -288,7 +288,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             i -= 4;
             j -= 22;
         }
-        anInt19 = 0;
+        idleTime = 0;
         anInt24 = i;
         anInt25 = j;
         aLong26 = System.currentTimeMillis();
@@ -305,7 +305,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
     @Override
     public void mouseReleased(MouseEvent mouseevent) {
-        anInt19 = 0;
+        idleTime = 0;
         mouseButton = 0;
     }
 
@@ -319,7 +319,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
     @Override
     public void mouseExited(MouseEvent mouseevent) {
-        anInt19 = 0;
+        idleTime = 0;
         anInt21 = -1;
         anInt22 = -1;
     }
@@ -332,7 +332,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             i -= 4;
             j -= 22;
         }
-        anInt19 = 0;
+        idleTime = 0;
         anInt21 = i;
         anInt22 = j;
     }
@@ -345,14 +345,14 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             i -= 4;
             j -= 22;
         }
-        anInt19 = 0;
+        idleTime = 0;
         anInt21 = i;
         anInt22 = j;
     }
 
     @Override
     public void keyPressed(KeyEvent keyevent) {
-        anInt19 = 0;
+        idleTime = 0;
         int i = keyevent.getKeyCode();
         int j = keyevent.getKeyChar();
         if (j < 30) {
@@ -411,7 +411,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
     @Override
     public void keyReleased(KeyEvent keyevent) {
-        anInt19 = 0;
+        idleTime = 0;
         int i = keyevent.getKeyCode();
         char c = keyevent.getKeyChar();
         if (c < '\036') {
@@ -465,21 +465,21 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             }
             return j;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("9078, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("9078, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
     @Override
     public void focusGained(FocusEvent focusevent) {
-        aBoolean18 = true;
+        hasFocus = true;
         aBoolean17 = true;
         method10(false);
     }
 
     @Override
     public void focusLost(FocusEvent focusevent) {
-        aBoolean18 = false;
+        hasFocus = false;
         for (int i = 0; i < 128; i++) {
             anIntArray31[i] = 0;
         }
@@ -533,7 +533,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             i = 38 / i;
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("23302, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("23302, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -573,7 +573,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 return this;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("96176, " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("96176, " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -620,7 +620,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("88163, " + flag + ", " + i + ", " + s + ", " + runtimeexception.toString());
+            SignLink.reporterror("88163, " + flag + ", " + i + ", " + s + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

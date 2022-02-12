@@ -16,8 +16,8 @@ public class SceneTile extends Node {
     public FloorDecoration aClass17_1344;
     public CameraAngle aClass19_1345;
     public int anInt1346;
-    public SceneSpawnRequest aClass30Array1347[];
-    public int anIntArray1348[];
+    public SceneSpawnRequest[] aClass30Array1347;
+    public int[] anIntArray1348;
     public int anInt1349;
     public int anInt1350;
     public boolean aBoolean1351;

@@ -1,15 +1,16 @@
-package com.runescape.util;
+package com.runescape.chat;
 
 import com.runescape.net.Buffer;
+import com.runescape.util.SignLink;
 
 public class ChatCompression {
 
     public static int anInt806 = 991;
     public static int anInt807;
     public static int anInt808;
-    public static char aCharArray809[] = new char[100];
+    public static char[] aCharArray809 = new char[100];
     public static Buffer aClass44_Sub3_Sub2_810 = new Buffer(new byte[100]);
-    public static char aCharArray811[] = {' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 'd', 'l', 'u', 'm', 'w',
+    public static char[] aCharArray811 = {' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 'd', 'l', 'u', 'm', 'w',
             'c', 'y', 'f', 'g', 'p', 'b', 'v', 'k', 'x', 'j', 'q', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8',
             '9', ' ', '!', '?', '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\', '\'', '@', '#', '+', '=', '\243',
             '$', '%', '"', '[', ']'};
@@ -60,7 +61,7 @@ public class ChatCompression {
             return new String(ChatCompression.aCharArray809, 0, j);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("44303, " + byte0 + ", " + class44_sub3_sub2 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -108,24 +109,24 @@ public class ChatCompression {
             }
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("17960, " + s + ", " + class44_sub3_sub2 + ", " + i + ", "
-                    + runtimeexception.toString());
+                    + runtimeexception);
             throw new RuntimeException();
         }
     }
 
     public static String method558(String s, int i) {
         try {
-            ChatCompression.aClass44_Sub3_Sub2_810.offset = 0;
+            ChatCompression.aClass44_Sub3_Sub2_810.position = 0;
             ChatCompression.method557(s, ChatCompression.aClass44_Sub3_Sub2_810, 991);
-            int j = ChatCompression.aClass44_Sub3_Sub2_810.offset;
+            int j = ChatCompression.aClass44_Sub3_Sub2_810.position;
             if (i != 0) {
                 ChatCompression.anInt807 = -64;
             }
-            ChatCompression.aClass44_Sub3_Sub2_810.offset = 0;
+            ChatCompression.aClass44_Sub3_Sub2_810.position = 0;
             String s1 = ChatCompression.method556((byte) -94, ChatCompression.aClass44_Sub3_Sub2_810, j);
             return s1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("99118, " + s + ", " + i + ", " + runtimeexception.toString());
+            SignLink.reporterror("99118, " + s + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

@@ -4,18 +4,18 @@ import com.runescape.util.SignLink;
 
 public class ComplexTile {
 
-    public static int anIntArray387[] = new int[6];
-    public static int anIntArray388[] = new int[6];
-    public static int anIntArray389[] = new int[6];
-    public static int anIntArray390[] = new int[6];
-    public static int anIntArray391[] = new int[6];
-    public static int anIntArray392[] = {1, 0};
-    public static int anIntArray393[] = {2, 1};
-    public static int anIntArray394[] = {3, 3};
-    public static int anIntArrayArray395[][] = {{1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7, 6},
+    public static int[] anIntArray387 = new int[6];
+    public static int[] anIntArray388 = new int[6];
+    public static int[] anIntArray389 = new int[6];
+    public static int[] anIntArray390 = new int[6];
+    public static int[] anIntArray391 = new int[6];
+    public static int[] anIntArray392 = {1, 0};
+    public static int[] anIntArray393 = {2, 1};
+    public static int[] anIntArray394 = {3, 3};
+    public static int[][] anIntArrayArray395 = {{1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7, 6},
             {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 2, 6}, {1, 3, 5, 7, 2, 8},
             {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 13, 14}};
-    public static int anIntArrayArray396[][] = {{0, 1, 2, 3, 0, 0, 1, 3}, {1, 1, 2, 3, 1, 0, 1, 3},
+    public static int[][] anIntArrayArray396 = {{0, 1, 2, 3, 0, 0, 1, 3}, {1, 1, 2, 3, 1, 0, 1, 3},
             {0, 1, 2, 3, 1, 0, 1, 3}, {0, 0, 1, 2, 0, 0, 2, 4, 1, 0, 4, 3}, {0, 0, 1, 4, 0, 0, 4, 3, 1, 1, 2, 4},
             {0, 0, 4, 3, 1, 0, 1, 2, 1, 0, 2, 4}, {0, 1, 2, 4, 1, 0, 1, 4, 1, 0, 4, 3},
             {0, 4, 1, 2, 0, 4, 2, 5, 1, 0, 4, 5, 1, 0, 5, 3}, {0, 4, 1, 2, 0, 4, 2, 3, 0, 4, 3, 5, 1, 0, 4, 5},
@@ -24,16 +24,16 @@ public class ComplexTile {
             {1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3},
             {1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5}};
     public boolean aBoolean371;
-    public int anIntArray372[];
-    public int anIntArray373[];
-    public int anIntArray374[];
-    public int anIntArray375[];
-    public int anIntArray376[];
-    public int anIntArray377[];
-    public int anIntArray378[];
-    public int anIntArray379[];
-    public int anIntArray380[];
-    public int anIntArray381[];
+    public int[] anIntArray372;
+    public int[] anIntArray373;
+    public int[] anIntArray374;
+    public int[] anIntArray375;
+    public int[] anIntArray376;
+    public int[] anIntArray377;
+    public int[] anIntArray378;
+    public int[] anIntArray379;
+    public int[] anIntArray380;
+    public int[] anIntArray381;
     public boolean aBoolean382;
     public int anInt383;
     public int anInt384;
@@ -56,13 +56,13 @@ public class ComplexTile {
             int i5 = c / 2;
             int j5 = c / 4;
             int k5 = (c * 3) / 4;
-            int ai[] = ComplexTile.anIntArrayArray395[j4];
+            int[] ai = ComplexTile.anIntArrayArray395[j4];
             int l5 = ai.length;
             anIntArray372 = new int[l5];
             anIntArray373 = new int[l5];
             anIntArray374 = new int[l5];
-            int ai1[] = new int[l5];
-            int ai2[] = new int[l5];
+            int[] ai1 = new int[l5];
+            int[] ai2 = new int[l5];
             int i6 = k * c;
             int j6 = i4 * c;
             if (j3 <= 0) {
@@ -187,7 +187,7 @@ public class ComplexTile {
                 ai1[k6] = k8;
                 ai2[k6] = j9;
             }
-            int ai3[] = ComplexTile.anIntArrayArray396[j4];
+            int[] ai3 = ComplexTile.anIntArrayArray396[j4];
             int j7 = ai3.length / 4;
             anIntArray378 = new int[j7];
             anIntArray379 = new int[j7];
@@ -259,7 +259,7 @@ public class ComplexTile {
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("80362, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1
                     + ", " + l1 + ", " + i2 + ", " + j2 + ", " + k2 + ", " + l2 + ", " + i3 + ", " + j3 + ", " + k3
-                    + ", " + l3 + ", " + i4 + ", " + j4 + ", " + k4 + ", " + l4 + ", " + runtimeexception.toString());
+                    + ", " + l3 + ", " + i4 + ", " + j4 + ", " + k4 + ", " + l4 + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
