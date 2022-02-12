@@ -1989,8 +1989,8 @@ public class Scene {
         int l6 = Draw3D.anInt1424 + (k4 << 9) / j3;
         Draw3D.anInt1422 = 0;
         if ((i6 - k6) * (l5 - l6) - (j6 - l6) * (k5 - k6) > 0) {
-            Draw3D.aBoolean1419 = i6 < 0 || k6 < 0 || k5 < 0 || i6 > Draw2D.anInt1376 || k6 > Draw2D.anInt1376
-                    || k5 > Draw2D.anInt1376;
+            Draw3D.aBoolean1419 = i6 < 0 || k6 < 0 || k5 < 0 || i6 > Draw2D.boundX || k6 > Draw2D.boundX
+                    || k5 > Draw2D.boundX;
             if (Scene.aBoolean637 && method322(Scene.anInt638, Scene.anInt639, j6, l6, l5, i6, k6, k5)) {
                 Scene.anInt640 = j1;
                 Scene.anInt641 = k1;
@@ -2015,8 +2015,8 @@ public class Scene {
             }
         }
         if ((i5 - k5) * (l6 - l5) - (j5 - l5) * (k6 - k5) > 0) {
-            Draw3D.aBoolean1419 = i5 < 0 || k5 < 0 || k6 < 0 || i5 > Draw2D.anInt1376 || k5 > Draw2D.anInt1376
-                    || k6 > Draw2D.anInt1376;
+            Draw3D.aBoolean1419 = i5 < 0 || k5 < 0 || k6 < 0 || i5 > Draw2D.boundX || k5 > Draw2D.boundX
+                    || k6 > Draw2D.boundX;
             if (Scene.aBoolean637 && method322(Scene.anInt638, Scene.anInt639, j5, l5, l6, i5, k5, k6)) {
                 Scene.anInt640 = j1;
                 Scene.anInt641 = k1;
@@ -2080,8 +2080,8 @@ public class Scene {
                 int i5 = ComplexTile.anIntArray388[j3];
                 int j5 = ComplexTile.anIntArray388[l3];
                 if ((i4 - j4) * (j5 - i5) - (l4 - i5) * (k4 - j4) > 0) {
-                    Draw3D.aBoolean1419 = i4 < 0 || j4 < 0 || k4 < 0 || i4 > Draw2D.anInt1376 || j4 > Draw2D.anInt1376
-                            || k4 > Draw2D.anInt1376;
+                    Draw3D.aBoolean1419 = i4 < 0 || j4 < 0 || k4 < 0 || i4 > Draw2D.boundX || j4 > Draw2D.boundX
+                            || k4 > Draw2D.boundX;
                     if (Scene.aBoolean637 && method322(Scene.anInt638, Scene.anInt639, l4, i5, j5, i4, j4, k4)) {
                         Scene.anInt640 = i;
                         Scene.anInt641 = k;

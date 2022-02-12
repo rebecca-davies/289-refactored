@@ -9,7 +9,7 @@ public class GameFrame extends Frame {
 
     public GameFrame(int width, int height, GameShell gameShell) {
         this.gameShell = gameShell;
-        setTitle(Settings.NAME);
+        setTitle("289");
         setResizable(false);
         setVisible(true);
         toFront();

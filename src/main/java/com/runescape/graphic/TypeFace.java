@@ -439,31 +439,31 @@ public class TypeFace extends Draw2D {
     }
 
     public void method466(byte[] abyte0, int i, int j, int k, int l, int i1) {
-        int j1 = i + j * Draw2D.anInt1370;
-        int k1 = Draw2D.anInt1370 - k;
+        int j1 = i + j * Draw2D.width;
+        int k1 = Draw2D.width - k;
         int l1 = 0;
         int i2 = 0;
-        if (j < Draw2D.anInt1372) {
-            int j2 = Draw2D.anInt1372 - j;
+        if (j < Draw2D.top) {
+            int j2 = Draw2D.top - j;
             l -= j2;
-            j = Draw2D.anInt1372;
+            j = Draw2D.top;
             i2 += j2 * k;
-            j1 += j2 * Draw2D.anInt1370;
+            j1 += j2 * Draw2D.width;
         }
-        if (j + l >= Draw2D.anInt1373) {
-            l -= ((j + l) - Draw2D.anInt1373) + 1;
+        if (j + l >= Draw2D.bottom) {
+            l -= ((j + l) - Draw2D.bottom) + 1;
         }
-        if (i < Draw2D.anInt1374) {
-            int k2 = Draw2D.anInt1374 - i;
+        if (i < Draw2D.left) {
+            int k2 = Draw2D.left - i;
             k -= k2;
-            i = Draw2D.anInt1374;
+            i = Draw2D.left;
             i2 += k2;
             j1 += k2;
             l1 += k2;
             k1 += k2;
         }
-        if (i + k >= Draw2D.anInt1375) {
-            int l2 = ((i + k) - Draw2D.anInt1375) + 1;
+        if (i + k >= Draw2D.right) {
+            int l2 = ((i + k) - Draw2D.right) + 1;
             k -= l2;
             l1 += l2;
             k1 += l2;
@@ -471,7 +471,7 @@ public class TypeFace extends Draw2D {
         if (k <= 0 || l <= 0) {
             return;
         } else {
-            method467(Draw2D.anIntArray1369, abyte0, i1, i2, j1, k, l, k1, l1);
+            method467(Draw2D.pixels, abyte0, i1, i2, j1, k, l, k1, l1);
             return;
         }
     }
@@ -519,31 +519,31 @@ public class TypeFace extends Draw2D {
             if (flag) {
                 anInt1468 = 122;
             }
-            int k1 = i + k * Draw2D.anInt1370;
-            int l1 = Draw2D.anInt1370 - j1;
+            int k1 = i + k * Draw2D.width;
+            int l1 = Draw2D.width - j1;
             int i2 = 0;
             int j2 = 0;
-            if (k < Draw2D.anInt1372) {
-                int k2 = Draw2D.anInt1372 - k;
+            if (k < Draw2D.top) {
+                int k2 = Draw2D.top - k;
                 l -= k2;
-                k = Draw2D.anInt1372;
+                k = Draw2D.top;
                 j2 += k2 * j1;
-                k1 += k2 * Draw2D.anInt1370;
+                k1 += k2 * Draw2D.width;
             }
-            if (k + l >= Draw2D.anInt1373) {
-                l -= ((k + l) - Draw2D.anInt1373) + 1;
+            if (k + l >= Draw2D.bottom) {
+                l -= ((k + l) - Draw2D.bottom) + 1;
             }
-            if (i < Draw2D.anInt1374) {
-                int l2 = Draw2D.anInt1374 - i;
+            if (i < Draw2D.left) {
+                int l2 = Draw2D.left - i;
                 j1 -= l2;
-                i = Draw2D.anInt1374;
+                i = Draw2D.left;
                 j2 += l2;
                 k1 += l2;
                 i2 += l2;
                 l1 += l2;
             }
-            if (i + j1 >= Draw2D.anInt1375) {
-                int i3 = ((i + j1) - Draw2D.anInt1375) + 1;
+            if (i + j1 >= Draw2D.right) {
+                int i3 = ((i + j1) - Draw2D.right) + 1;
                 j1 -= i3;
                 i2 += i3;
                 l1 += i3;
@@ -551,7 +551,7 @@ public class TypeFace extends Draw2D {
             if (j1 <= 0 || l <= 0) {
                 return;
             } else {
-                method469(i2, j1, j, abyte0, false, Draw2D.anIntArray1369, k1, j2, l1, i1, l);
+                method469(i2, j1, j, abyte0, false, Draw2D.pixels, k1, j2, l1, i1, l);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

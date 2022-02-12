@@ -7,7 +7,6 @@ import com.runescape.graphic.Model;
 import com.runescape.graphic.Draw2D;
 import com.runescape.graphic.Draw3D;
 import com.runescape.net.Buffer;
-import com.runescape.renderable.Renderable;
 import com.runescape.util.SignLink;
 
 public class ObjType {
@@ -137,8 +136,8 @@ public class ObjType {
         try {
             if (k == 0) {
                 Image24 class44_sub3_sub1_sub2 = (Image24) ObjType.aClass39_370.method339(j);
-                if (class44_sub3_sub1_sub2 != null && class44_sub3_sub1_sub2.anInt1454 != l
-                        && class44_sub3_sub1_sub2.anInt1454 != -1) {
+                if (class44_sub3_sub1_sub2 != null && class44_sub3_sub1_sub2.cropHeight != l
+                        && class44_sub3_sub1_sub2.cropHeight != -1) {
                     class44_sub3_sub1_sub2.remove();
                     class44_sub3_sub1_sub2 = null;
                 }
@@ -176,15 +175,15 @@ public class ObjType {
             int k1 = Draw3D.anInt1423;
             int l1 = Draw3D.anInt1424;
             int[] ai = Draw3D.anIntArray1429;
-            int[] ai1 = Draw2D.anIntArray1369;
-            int i2 = Draw2D.anInt1370;
-            int j2 = Draw2D.anInt1371;
-            int k2 = Draw2D.anInt1374;
-            int l2 = Draw2D.anInt1375;
-            int i3 = Draw2D.anInt1372;
-            int j3 = Draw2D.anInt1373;
+            int[] ai1 = Draw2D.pixels;
+            int i2 = Draw2D.width;
+            int j2 = Draw2D.height;
+            int k2 = Draw2D.left;
+            int l2 = Draw2D.right;
+            int i3 = Draw2D.top;
+            int j3 = Draw2D.bottom;
             Draw3D.aBoolean1421 = false;
-            Draw2D.method406(-78, class44_sub3_sub1_sub2_1.anIntArray1448, 32, 32);
+            Draw2D.bind(class44_sub3_sub1_sub2_1.anIntArray1448, 32, 32);
             Draw2D.method411(0, 210, 0, 32, 0, 32);
             Draw3D.method419((byte) 3);
             int k3 = class14.anInt335;
@@ -241,29 +240,29 @@ public class ObjType {
                 }
             }
             if (class14.anInt362 != -1) {
-                int l5 = class44_sub3_sub1_sub2_2.anInt1453;
-                int j6 = class44_sub3_sub1_sub2_2.anInt1454;
-                class44_sub3_sub1_sub2_2.anInt1453 = 32;
-                class44_sub3_sub1_sub2_2.anInt1454 = 32;
+                int l5 = class44_sub3_sub1_sub2_2.cropWidth;
+                int j6 = class44_sub3_sub1_sub2_2.cropHeight;
+                class44_sub3_sub1_sub2_2.cropWidth = 32;
+                class44_sub3_sub1_sub2_2.cropHeight = 32;
                 class44_sub3_sub1_sub2_2.method440(0, ObjType.aByte320, 0);
-                class44_sub3_sub1_sub2_2.anInt1453 = l5;
-                class44_sub3_sub1_sub2_2.anInt1454 = j6;
+                class44_sub3_sub1_sub2_2.cropWidth = l5;
+                class44_sub3_sub1_sub2_2.cropHeight = j6;
             }
             if (k == 0) {
                 ObjType.aClass39_370.method340(j, (byte) 76, class44_sub3_sub1_sub2_1);
             }
-            Draw2D.method406(-78, ai1, i2, j2);
-            Draw2D.method408(ObjType.aByte321, j3, l2, i3, k2);
+            Draw2D.bind(ai1, i2, j2);
+            Draw2D.setBounds(l2, j3, i3, k2);
             Draw3D.anInt1423 = k1;
             Draw3D.anInt1424 = l1;
             Draw3D.anIntArray1429 = ai;
             Draw3D.aBoolean1421 = true;
             if (class14.aBoolean342) {
-                class44_sub3_sub1_sub2_1.anInt1453 = 33;
+                class44_sub3_sub1_sub2_1.cropWidth = 33;
             } else {
-                class44_sub3_sub1_sub2_1.anInt1453 = 32;
+                class44_sub3_sub1_sub2_1.cropWidth = 32;
             }
-            class44_sub3_sub1_sub2_1.anInt1454 = l;
+            class44_sub3_sub1_sub2_1.cropHeight = l;
             if (i <= 0) {
                 for (int i6 = 1; i6 > 0; i6++) {
                 }

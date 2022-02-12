@@ -197,33 +197,33 @@ public class Image8 extends Draw2D {
         try {
             j += anInt1462;
             i += anInt1463;
-            int k = j + i * Draw2D.anInt1370;
+            int k = j + i * Draw2D.width;
             int l = 0;
             int i1 = anInt1461;
             int j1 = anInt1460;
-            int k1 = Draw2D.anInt1370 - j1;
+            int k1 = Draw2D.width - j1;
             int l1 = 0;
-            if (i < Draw2D.anInt1372) {
-                int i2 = Draw2D.anInt1372 - i;
+            if (i < Draw2D.top) {
+                int i2 = Draw2D.top - i;
                 i1 -= i2;
-                i = Draw2D.anInt1372;
+                i = Draw2D.top;
                 l += i2 * j1;
-                k += i2 * Draw2D.anInt1370;
+                k += i2 * Draw2D.width;
             }
-            if (i + i1 > Draw2D.anInt1373) {
-                i1 -= (i + i1) - Draw2D.anInt1373;
+            if (i + i1 > Draw2D.bottom) {
+                i1 -= (i + i1) - Draw2D.bottom;
             }
-            if (j < Draw2D.anInt1374) {
-                int j2 = Draw2D.anInt1374 - j;
+            if (j < Draw2D.left) {
+                int j2 = Draw2D.left - j;
                 j1 -= j2;
-                j = Draw2D.anInt1374;
+                j = Draw2D.left;
                 l += j2;
                 k += j2;
                 l1 += j2;
                 k1 += j2;
             }
-            if (j + j1 > Draw2D.anInt1375) {
-                int k2 = (j + j1) - Draw2D.anInt1375;
+            if (j + j1 > Draw2D.right) {
+                int k2 = (j + j1) - Draw2D.right;
                 j1 -= k2;
                 l1 += k2;
                 k1 += k2;
@@ -231,7 +231,7 @@ public class Image8 extends Draw2D {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method454(i1, anIntArray1459, k, Draw2D.anIntArray1369, l1, k1, (byte) 34, aByteArray1458, j1, l);
+                method454(i1, anIntArray1459, k, Draw2D.pixels, l1, k1, (byte) 34, aByteArray1458, j1, l);
                 return;
             }
         } catch (RuntimeException runtimeexception) {

@@ -1642,11 +1642,11 @@ public class Model extends Renderable {
         }
         int j3 = l1 * l + j1 * i1 >> 16;
         int k3 = j3 - anInt1559 << 9;
-        if (k3 / i3 >= Draw2D.anInt1377) {
+        if (k3 / i3 >= Draw2D.centerX) {
             return;
         }
         int l3 = j3 + anInt1559 << 9;
-        if (l3 / i3 <= -Draw2D.anInt1377) {
+        if (l3 / i3 <= -Draw2D.centerX) {
             return;
         }
         int i4 = k1 * k - j2 * j >> 16;
@@ -1767,8 +1767,8 @@ public class Model extends Renderable {
                     if ((i3 - l3) * (Model.anIntArray1575[j2] - Model.anIntArray1575[k1])
                             - (Model.anIntArray1575[l] - Model.anIntArray1575[k1]) * (k4 - l3) > 0) {
                         Model.aBooleanArray1573[k] = false;
-                        Model.aBooleanArray1572[k] = i3 < 0 || l3 < 0 || k4 < 0 || i3 > Draw2D.anInt1376 || l3 > Draw2D.anInt1376
-                                || k4 > Draw2D.anInt1376;
+                        Model.aBooleanArray1572[k] = i3 < 0 || l3 < 0 || k4 < 0 || i3 > Draw2D.boundX || l3 > Draw2D.boundX
+                                || k4 > Draw2D.boundX;
                         int k5 = (Model.anIntArray1576[l] + Model.anIntArray1576[k1] + Model.anIntArray1576[j2]) / 3
                                 + anInt1562;
                         Model.anIntArrayArray1581[k5][Model.anIntArray1580[k5]++] = k;
@@ -2048,8 +2048,8 @@ public class Model extends Renderable {
         if ((j3 - j4) * (k7 - j7) - (i7 - j7) * (j5 - j4) > 0) {
             Draw3D.aBoolean1419 = false;
             if (l == 3) {
-                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Draw2D.anInt1376 || j4 > Draw2D.anInt1376
-                        || j5 > Draw2D.anInt1376) {
+                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Draw2D.boundX || j4 > Draw2D.boundX
+                        || j5 > Draw2D.boundX) {
                     Draw3D.aBoolean1419 = true;
                 }
                 int l7;
@@ -2086,9 +2086,9 @@ public class Model extends Renderable {
                 }
             }
             if (l == 4) {
-                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Draw2D.anInt1376 || j4 > Draw2D.anInt1376
-                        || j5 > Draw2D.anInt1376 || Model.anIntArray1587[3] < 0
-                        || Model.anIntArray1587[3] > Draw2D.anInt1376) {
+                if (j3 < 0 || j4 < 0 || j5 < 0 || j3 > Draw2D.boundX || j4 > Draw2D.boundX
+                        || j5 > Draw2D.boundX || Model.anIntArray1587[3] < 0
+                        || Model.anIntArray1587[3] > Draw2D.boundX) {
                     Draw3D.aBoolean1419 = true;
                 }
                 int i8;

@@ -1,7 +1,7 @@
 package com.runescape;
 
 import com.runescape.graphic.Image24;
-import com.runescape.graphic.ProducingGraphicsBuffer;
+import com.runescape.graphic.DrawArea;
 import com.runescape.util.SignLink;
 
 import java.applet.Applet;
@@ -23,10 +23,10 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public long[] aLongArray8;
     public int anInt9;
     public boolean aBoolean10;
-    public int anInt11;
-    public int anInt12;
+    public int width;
+    public int height;
     public Graphics graphics;
-    public ProducingGraphicsBuffer aClass34_14;
+    public DrawArea aClass34_14;
     public Image24[] aClass44_Sub3_Sub1_Sub2Array15;
     public GameFrame aFrame_Sub1_16;
     public boolean aBoolean17;
@@ -66,14 +66,14 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
     public void method1(int i, int j, int k) {
         try {
-            anInt11 = j;
-            anInt12 = i;
-            aFrame_Sub1_16 = new GameFrame(anInt11, anInt12, this);
+            width = j;
+            height = i;
+            aFrame_Sub1_16 = new GameFrame(width, height, this);
             graphics = method11(7).getGraphics();
             if (k != 0) {
                 anInt4 = -480;
             }
-            aClass34_14 = new ProducingGraphicsBuffer(method11(7), anInt11, anInt12, 2);
+            aClass34_14 = new DrawArea(width, height);
             method12(this, 1);
             return;
         } catch (RuntimeException runtimeexception) {
@@ -84,13 +84,13 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
     public void method2(boolean flag, int i, int j) {
         try {
-            anInt11 = i;
+            width = i;
             if (!flag) {
                 anInt3 = 4;
             }
-            anInt12 = j;
+            height = j;
             graphics = method11(7).getGraphics();
-            aClass34_14 = new ProducingGraphicsBuffer(method11(7), anInt11, anInt12, 2);
+            aClass34_14 = new DrawArea(width, height);
             method12(this, 1);
             return;
         } catch (RuntimeException runtimeexception) {
@@ -603,19 +603,19 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             method11(7).getFontMetrics(font1);
             if (aBoolean17) {
                 graphics.setColor(Color.black);
-                graphics.fillRect(0, 0, anInt11, anInt12);
+                graphics.fillRect(0, 0, width, height);
                 aBoolean17 = false;
             }
             Color color = new Color(140, 17, 17);
-            int j = anInt12 / 2 - 18;
+            int j = height / 2 - 18;
             graphics.setColor(color);
-            graphics.drawRect(anInt11 / 2 - 152, j, 304, 34);
-            graphics.fillRect(anInt11 / 2 - 150, j + 2, i * 3, 30);
+            graphics.drawRect(width / 2 - 152, j, 304, 34);
+            graphics.fillRect(width / 2 - 150, j + 2, i * 3, 30);
             graphics.setColor(Color.black);
-            graphics.fillRect((anInt11 / 2 - 150) + i * 3, j + 2, 300 - i * 3, 30);
+            graphics.fillRect((width / 2 - 150) + i * 3, j + 2, 300 - i * 3, 30);
             graphics.setFont(font);
             graphics.setColor(Color.white);
-            graphics.drawString(s, (anInt11 - fontmetrics.stringWidth(s)) / 2, j + 22);
+            graphics.drawString(s, (width - fontmetrics.stringWidth(s)) / 2, j + 22);
             if (flag) {
                 return;
             }
