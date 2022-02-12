@@ -288,7 +288,7 @@ public class Game extends GameShell {
     public int anInt1015 = 100;
     public int[] anIntArray1016;
     public int anInt1017;
-    public int[] anIntArray1018;
+    public int[] flameLineOffset;
     public int anInt1019;
     public int[] anIntArray1020;
     public int[] anIntArray1021;
@@ -470,10 +470,10 @@ public class Game extends GameShell {
     public int cameraRandomizationV;
     public int anInt1216;
     public int anInt1217;
-    public int[] anIntArray1218;
-    public int[] anIntArray1219;
-    public int[] anIntArray1220;
-    public int[] anIntArray1221;
+    public int[] flameGradient;
+    public int[] flameGradient0;
+    public int[] flameGradient1;
+    public int[] flameGradient2;
     public boolean aBoolean1222;
     public static int MAX_PLAYER_COUNT;
     public int anInt1224;
@@ -504,25 +504,25 @@ public class Game extends GameShell {
     public TypeFace plainFont;
     public TypeFace fontBold;
     public TypeFace aClass44_Sub3_Sub1_Sub4_1258;
-    public int anInt1259;
-    public int anInt1260;
+    public int flameGradientCycle0;
+    public int flameGradientCycle1;
     public Image24 aClass44_Sub3_Sub1_Sub2_1261;
     public boolean aBoolean1262;
     public DrawArea title2;
     public DrawArea title3;
     public DrawArea title4;
-    public DrawArea aClass34_1266;
-    public DrawArea aClass34_1267;
+    public DrawArea title0;
+    public DrawArea title1;
     public DrawArea title5;
     public DrawArea title6;
     public DrawArea title7;
     public DrawArea title8;
-    public int[] anIntArray1272;
+    public int[] flameBuffer3;
     public int[] anIntArray1273;
     public boolean loadingMap;
     public Image8[] aClass44_Sub3_Sub1_Sub3Array1276;
-    public Image24 aClass44_Sub3_Sub1_Sub2_1277;
-    public Image24 aClass44_Sub3_Sub1_Sub2_1278;
+    public Image24 flamesLeft;
+    public Image24 flameRight;
 
     public Game() {
         aBoolean812 = false;
@@ -607,7 +607,7 @@ public class Game extends GameShell {
         anInt1012 = 2;
         anInt1015 = 100;
         anIntArray1016 = new int[100];
-        anIntArray1018 = new int[256];
+        flameLineOffset = new int[256];
         anInt1019 = 661;
         anIntArray1020 = new int[4000];
         anIntArray1021 = new int[4000];
@@ -1426,19 +1426,19 @@ public class Game extends GameShell {
             for (int j = 10; j < 117; j++) {
                 int k = (int) (Math.random() * 100D);
                 if (k < 50) {
-                    anIntArray1272[j + (c - 2 << 7)] = 255;
+                    flameBuffer3[j + (c - 2 << 7)] = 255;
                 }
             }
             for (int l = 0; l < 100; l++) {
                 int i1 = (int) (Math.random() * 124D) + 2;
                 int k1 = (int) (Math.random() * 128D) + 128;
                 int k2 = i1 + (k1 << 7);
-                anIntArray1272[k2] = 192;
+                flameBuffer3[k2] = 192;
             }
             for (int j1 = 1; j1 < c - 1; j1++) {
                 for (int l1 = 1; l1 < 127; l1++) {
                     int l2 = l1 + (j1 << 7);
-                    anIntArray1273[l2] = (anIntArray1272[l2 - 1] + anIntArray1272[l2 + 1] + anIntArray1272[l2 - 128] + anIntArray1272[l2 + 128]) / 4;
+                    anIntArray1273[l2] = (flameBuffer3[l2 - 1] + flameBuffer3[l2 + 1] + flameBuffer3[l2 - 128] + flameBuffer3[l2 + 128]) / 4;
                 }
             }
             anInt890 += 128;
@@ -1455,27 +1455,27 @@ public class Game extends GameShell {
                     if (i4 < 0) {
                         i4 = 0;
                     }
-                    anIntArray1272[k3] = i4;
+                    flameBuffer3[k3] = i4;
                 }
             }
             for (int j3 = 0; j3 < c - 1; j3++) {
-                anIntArray1018[j3] = anIntArray1018[j3 + 1];
+                flameLineOffset[j3] = flameLineOffset[j3 + 1];
             }
-            anIntArray1018[c - 1] = (int) (Math.sin(Game.loopCycle / 14D) * 16D + Math.sin(Game.loopCycle / 15D)
+            flameLineOffset[c - 1] = (int) (Math.sin(Game.loopCycle / 14D) * 16D + Math.sin(Game.loopCycle / 15D)
                     * 14D + Math.sin(Game.loopCycle / 16D) * 12D);
-            if (anInt1259 > 0) {
-                anInt1259 -= 4;
+            if (flameGradientCycle0 > 0) {
+                flameGradientCycle0 -= 4;
             }
-            if (anInt1260 > 0) {
-                anInt1260 -= 4;
+            if (flameGradientCycle1 > 0) {
+                flameGradientCycle1 -= 4;
             }
-            if (anInt1259 == 0 && anInt1260 == 0) {
+            if (flameGradientCycle0 == 0 && flameGradientCycle1 == 0) {
                 int l3 = (int) (Math.random() * 2000D);
                 if (l3 == 0) {
-                    anInt1259 = 1024;
+                    flameGradientCycle0 = 1024;
                 }
                 if (l3 == 1) {
-                    anInt1260 = 1024;
+                    flameGradientCycle1 = 1024;
                     return;
                 }
             }
@@ -3346,7 +3346,7 @@ public class Game extends GameShell {
                     anInt945++;
                     method25(699);
                     method25(699);
-                    method84(0);
+                    drawFlames();
                     if (++i > 10) {
                         long l1 = System.currentTimeMillis();
                         int k = (int) (l1 - l) / 10 - j;
@@ -3889,7 +3889,7 @@ public class Game extends GameShell {
 
     public void method40(byte byte0, int i) {
         try {
-            int[] ai = aClass44_Sub3_Sub1_Sub2_913.anIntArray1448;
+            int[] ai = aClass44_Sub3_Sub1_Sub2_913.pixels;
             int j = ai.length;
             for (int k = 0; k < j; k++) {
                 ai[k] = 0;
@@ -4344,8 +4344,8 @@ public class Game extends GameShell {
             if (redrawTitleBackground) {
                 redrawTitleBackground = false;
                 if (!aBoolean1174) {
-                    aClass34_1266.draw(super.graphics, 0, 0);
-                    aClass34_1267.draw(super.graphics, 637, 0);
+                    title0.draw(super.graphics, 0, 0);
+                    title1.draw(super.graphics, 637, 0);
                 }
                 title2.draw(super.graphics, 128, 0);
                 title3.draw(super.graphics, 202, 371);
@@ -4864,61 +4864,61 @@ public class Game extends GameShell {
                     aClass44_Sub3_Sub1_Sub3Array864[l] = new Image8(aClass47_1117, "runes", 12 + (l & 3));
                 }
             }
-            aClass44_Sub3_Sub1_Sub2_1277 = new Image24(128, 265);
+            flamesLeft = new Image24(128, 265);
             if (i >= 0) {
                 return;
             }
-            aClass44_Sub3_Sub1_Sub2_1278 = new Image24(128, 265);
+            flameRight = new Image24(128, 265);
             for (int i1 = 0; i1 < 33920; i1++) {
-                aClass44_Sub3_Sub1_Sub2_1277.anIntArray1448[i1] = aClass34_1266.pixels[i1];
+                flamesLeft.pixels[i1] = title0.pixels[i1];
             }
             for (int j1 = 0; j1 < 33920; j1++) {
-                aClass44_Sub3_Sub1_Sub2_1278.anIntArray1448[j1] = aClass34_1267.pixels[j1];
+                flameRight.pixels[j1] = title1.pixels[j1];
             }
-            anIntArray1219 = new int[256];
+            flameGradient0 = new int[256];
             for (int k1 = 0; k1 < 64; k1++) {
-                anIntArray1219[k1] = k1 * 0x40000;
+                flameGradient0[k1] = k1 * 0x40000;
             }
             for (int l1 = 0; l1 < 64; l1++) {
-                anIntArray1219[l1 + 64] = 0xff0000 + 1024 * l1;
+                flameGradient0[l1 + 64] = 0xff0000 + 1024 * l1;
             }
             for (int i2 = 0; i2 < 64; i2++) {
-                anIntArray1219[i2 + 128] = 0xffff00 + 4 * i2;
+                flameGradient0[i2 + 128] = 0xffff00 + 4 * i2;
             }
             for (int j2 = 0; j2 < 64; j2++) {
-                anIntArray1219[j2 + 192] = 0xffffff;
+                flameGradient0[j2 + 192] = 0xffffff;
             }
-            anIntArray1220 = new int[256];
+            flameGradient1 = new int[256];
             for (int k2 = 0; k2 < 64; k2++) {
-                anIntArray1220[k2] = k2 * 1024;
+                flameGradient1[k2] = k2 * 1024;
             }
             for (int l2 = 0; l2 < 64; l2++) {
-                anIntArray1220[l2 + 64] = 65280 + 4 * l2;
+                flameGradient1[l2 + 64] = 65280 + 4 * l2;
             }
             for (int i3 = 0; i3 < 64; i3++) {
-                anIntArray1220[i3 + 128] = 65535 + 0x40000 * i3;
+                flameGradient1[i3 + 128] = 65535 + 0x40000 * i3;
             }
             for (int j3 = 0; j3 < 64; j3++) {
-                anIntArray1220[j3 + 192] = 0xffffff;
+                flameGradient1[j3 + 192] = 0xffffff;
             }
-            anIntArray1221 = new int[256];
+            flameGradient2 = new int[256];
             for (int k3 = 0; k3 < 64; k3++) {
-                anIntArray1221[k3] = k3 * 4;
+                flameGradient2[k3] = k3 * 4;
             }
             for (int l3 = 0; l3 < 64; l3++) {
-                anIntArray1221[l3 + 64] = 255 + 0x40000 * l3;
+                flameGradient2[l3 + 64] = 255 + 0x40000 * l3;
             }
             for (int i4 = 0; i4 < 64; i4++) {
-                anIntArray1221[i4 + 128] = 0xff00ff + 1024 * i4;
+                flameGradient2[i4 + 128] = 0xff00ff + 1024 * i4;
             }
             for (int j4 = 0; j4 < 64; j4++) {
-                anIntArray1221[j4 + 192] = 0xffffff;
+                flameGradient2[j4 + 192] = 0xffffff;
             }
-            anIntArray1218 = new int[256];
+            flameGradient = new int[256];
             anIntArray1133 = new int[32768];
             anIntArray1134 = new int[32768];
             method109(null, 34809);
-            anIntArray1272 = new int[32768];
+            flameBuffer3 = new int[32768];
             anIntArray1273 = new int[32768];
             method13(false, 10, "Connecting to fileserver");
             if (!aBoolean1174) {
@@ -5791,8 +5791,8 @@ public class Game extends GameShell {
             title2 = null;
             title3 = null;
             title4 = null;
-            aClass34_1266 = null;
-            aClass34_1267 = null;
+            title0 = null;
+            title1 = null;
             title5 = null;
             title6 = null;
             title7 = null;
@@ -6613,9 +6613,9 @@ public class Game extends GameShell {
         try {
             byte[] abyte0 = aClass47_1117.method549("title.dat", null);
             Image24 class44_sub3_sub1_sub2 = new Image24(abyte0, this);
-            aClass34_1266.bind();
+            title0.bind();
             class44_sub3_sub1_sub2.blitOpaque(0, 0);
-            aClass34_1267.bind();
+            title1.bind();
             class44_sub3_sub1_sub2.blitOpaque(-637, 0);
             title2.bind();
             class44_sub3_sub1_sub2.blitOpaque(-128, 0);
@@ -6634,16 +6634,16 @@ public class Game extends GameShell {
             int[] ai = new int[class44_sub3_sub1_sub2.width];
             for (int j = 0; j < class44_sub3_sub1_sub2.height; j++) {
                 for (int k = 0; k < class44_sub3_sub1_sub2.width; k++) {
-                    ai[k] = class44_sub3_sub1_sub2.anIntArray1448[(class44_sub3_sub1_sub2.width - k - 1)
+                    ai[k] = class44_sub3_sub1_sub2.pixels[(class44_sub3_sub1_sub2.width - k - 1)
                             + class44_sub3_sub1_sub2.width * j];
                 }
                 for (int l = 0; l < class44_sub3_sub1_sub2.width; l++) {
-                    class44_sub3_sub1_sub2.anIntArray1448[l + class44_sub3_sub1_sub2.width * j] = ai[l];
+                    class44_sub3_sub1_sub2.pixels[l + class44_sub3_sub1_sub2.width * j] = ai[l];
                 }
             }
-            aClass34_1266.bind();
+            title0.bind();
             class44_sub3_sub1_sub2.blitOpaque(382, 0);
-            aClass34_1267.bind();
+            title1.bind();
             class44_sub3_sub1_sub2.blitOpaque(-255, 0);
             title2.bind();
             if (i != 0) {
@@ -7194,96 +7194,86 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method84(int i) {
-        try {
-            char c = '\u0100';
-            if (i != 0) {
-                out.writeByte(28);
-            }
-            if (anInt1259 > 0) {
-                for (int j = 0; j < 256; j++) {
-                    if (anInt1259 > 768) {
-                        anIntArray1218[j] = method91(anIntArray1219[j], anIntArray1220[j], 1024 - anInt1259, 35);
-                    } else if (anInt1259 > 256) {
-                        anIntArray1218[j] = anIntArray1220[j];
+    public void drawFlames() {
+            int height = 256;
+            if (flameGradientCycle0 > 0) {
+                for (int index = 0; index < 256; index++) {
+                    if (flameGradientCycle0 > 768) {
+                        flameGradient[index] = mix(flameGradient0[index], flameGradient1[index], 1024 - flameGradientCycle0);
+                    } else if (flameGradientCycle0 > 256) {
+                        flameGradient[index] = flameGradient1[index];
                     } else {
-                        anIntArray1218[j] = method91(anIntArray1220[j], anIntArray1219[j], 256 - anInt1259, 35);
+                        flameGradient[index] = mix(flameGradient1[index], flameGradient0[index], 256 - flameGradientCycle0);
                     }
                 }
-            } else if (anInt1260 > 0) {
-                for (int k = 0; k < 256; k++) {
-                    if (anInt1260 > 768) {
-                        anIntArray1218[k] = method91(anIntArray1219[k], anIntArray1221[k], 1024 - anInt1260, 35);
-                    } else if (anInt1260 > 256) {
-                        anIntArray1218[k] = anIntArray1221[k];
+            } else if (flameGradientCycle1 > 0) {
+                for (int index = 0; index < 256; index++) {
+                    if (flameGradientCycle1 > 768) {
+                        flameGradient[index] = mix(flameGradient0[index], flameGradient2[index], 1024 - flameGradientCycle1);
+                    } else if (flameGradientCycle1 > 256) {
+                        flameGradient[index] = flameGradient2[index];
                     } else {
-                        anIntArray1218[k] = method91(anIntArray1221[k], anIntArray1219[k], 256 - anInt1260, 35);
+                        flameGradient[index] = mix(flameGradient2[index], flameGradient0[index], 256 - flameGradientCycle1);
                     }
                 }
             } else {
-                for (int l = 0; l < 256; l++) {
-                    anIntArray1218[l] = anIntArray1219[l];
-                }
+                System.arraycopy(flameGradient0, 0, flameGradient, 0, 256);
             }
-            for (int i1 = 0; i1 < 33920; i1++) {
-                aClass34_1266.pixels[i1] = aClass44_Sub3_Sub1_Sub2_1277.anIntArray1448[i1];
-            }
-            int j1 = 0;
-            int k1 = 1152;
-            for (int l1 = 1; l1 < c - 1; l1++) {
-                int i2 = (anIntArray1018[l1] * (c - l1)) / c;
-                int k2 = 22 + i2;
-                if (k2 < 0) {
-                    k2 = 0;
+            System.arraycopy(flamesLeft.pixels, 0, title0.pixels, 0, 33920);
+
+            int srcOffset = 0;
+            int dstOffset = 1152;
+
+            for (int y = 1; y < height - 1; y++) {
+                int offset = (flameLineOffset[y] * (height - y)) / height;
+                int step = 22 + offset;
+                if (step < 0) {
+                    step = 0;
                 }
-                j1 += k2;
-                for (int i3 = k2; i3 < 128; i3++) {
-                    int k3 = anIntArray1272[j1++];
-                    if (k3 != 0) {
-                        int i4 = k3;
-                        int k4 = 256 - k3;
-                        k3 = anIntArray1218[k3];
-                        int i5 = aClass34_1266.pixels[k1];
-                        aClass34_1266.pixels[k1++] = ((k3 & 0xff00ff) * i4 + (i5 & 0xff00ff) * k4 & 0xff00ff00)
-                                + ((k3 & 0xff00) * i4 + (i5 & 0xff00) * k4 & 0xff0000) >> 8;
+                srcOffset += step;
+                for (int x = step; x < 128; x++) {
+                    int value = flameBuffer3[srcOffset++];
+                    if (value != 0) {
+                        int alpha = value;
+                        int invAlpha = 256 - value;
+                        value = flameGradient[value];
+                        int background = title0.pixels[dstOffset];
+                        title0.pixels[dstOffset++] = ((value & 0xff00ff) * alpha + (background & 0xff00ff) * invAlpha & 0xff00ff00)
+                                + ((value & 0xff00) * alpha + (background & 0xff00) * invAlpha & 0xff0000) >> 8;
                     } else {
-                        k1++;
+                        dstOffset++;
                     }
                 }
-                k1 += k2;
+                dstOffset += step;
             }
-            aClass34_1266.draw(super.graphics, 0, 0);
-            for (int j2 = 0; j2 < 33920; j2++) {
-                aClass34_1267.pixels[j2] = aClass44_Sub3_Sub1_Sub2_1278.anIntArray1448[j2];
-            }
-            j1 = 0;
-            k1 = 1176;
-            for (int l2 = 1; l2 < c - 1; l2++) {
-                int j3 = (anIntArray1018[l2] * (c - l2)) / c;
-                int l3 = 103 - j3;
-                k1 += j3;
-                for (int j4 = 0; j4 < l3; j4++) {
-                    int l4 = anIntArray1272[j1++];
-                    if (l4 != 0) {
-                        int j5 = l4;
-                        int k5 = 256 - l4;
-                        l4 = anIntArray1218[l4];
-                        int l5 = aClass34_1267.pixels[k1];
-                        aClass34_1267.pixels[k1++] = ((l4 & 0xff00ff) * j5 + (l5 & 0xff00ff) * k5 & 0xff00ff00)
-                                + ((l4 & 0xff00) * j5 + (l5 & 0xff00) * k5 & 0xff0000) >> 8;
+            title0.draw(super.graphics, 0, 0);
+
+            System.arraycopy(flameRight.pixels, 0, title1.pixels, 0, 33920);
+
+            srcOffset = 0;
+            dstOffset = 1176;
+            for (int y = 1; y < height - 1; y++) {
+                int offset = (flameLineOffset[y] * (height - y)) / height;
+                int step = 103 - offset;
+                dstOffset += offset;
+                for (int x = 0; x < step; x++) {
+                    int value = flameBuffer3[srcOffset++];
+                    if (value != 0) {
+                        int alpha = value;
+                        int invAlpha = 256 - value;
+                        value = flameGradient[value];
+                        int background = title1.pixels[dstOffset];
+                        title1.pixels[dstOffset++] = ((value & 0xff00ff) * alpha + (background & 0xff00ff) * invAlpha & 0xff00ff00)
+                                + ((value & 0xff00) * alpha + (background & 0xff00) * invAlpha & 0xff0000) >> 8;
                     } else {
-                        k1++;
+                        dstOffset++;
                     }
                 }
-                j1 += 128 - l3;
-                k1 += 128 - l3 - j3;
+                srcOffset += 128 - step;
+                dstOffset += 128 - step - offset;
             }
-            aClass34_1267.draw(super.graphics, 637, 0);
+            title1.draw(super.graphics, 637, 0);
             return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("27482, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     @Override
@@ -7324,7 +7314,7 @@ public class Game extends GameShell {
                 if (j1 > 0) {
                     j3 = i1;
                 }
-                int[] ai = aClass44_Sub3_Sub1_Sub2_913.anIntArray1448;
+                int[] ai = aClass44_Sub3_Sub1_Sub2_913.pixels;
                 int j4 = 24624 + i * 4 + (103 - j) * 512 * 4;
                 int l4 = j1 >> 14 & 0x7fff;
                 LocType class8_2 = LocType.method199(l4);
@@ -7416,7 +7406,7 @@ public class Game extends GameShell {
                     if (j1 > 0) {
                         k4 = 0xee0000;
                     }
-                    int[] ai1 = aClass44_Sub3_Sub1_Sub2_913.anIntArray1448;
+                    int[] ai1 = aClass44_Sub3_Sub1_Sub2_913.pixels;
                     int k5 = 24624 + i * 4 + (103 - j) * 512 * 4;
                     if (k2 == 0 || k2 == 2) {
                         ai1[k5 + 1536] = k4;
@@ -7471,9 +7461,9 @@ public class Game extends GameShell {
             aClass34_858 = null;
             aClass34_859 = null;
             aClass34_860 = null;
-            aClass34_1266 = new DrawArea(128, 265);
+            title0 = new DrawArea(128, 265);
             Draw2D.method409((byte) 127);
-            aClass34_1267 = new DrawArea(128, 265);
+            title1 = new DrawArea(128, 265);
             Draw2D.method409((byte) 127);
             title2 = new DrawArea(509, 171);
             Draw2D.method409((byte) 127);
@@ -7666,14 +7656,13 @@ public class Game extends GameShell {
         }
     }
 
-    public int method91(int i, int j, int k, int l) {
+    public int mix(int i, int j, int k) {
         try {
-            l = 95 / l;
             int i1 = 256 - k;
             return ((i & 0xff00ff) * i1 + (j & 0xff00ff) * k & 0xff00ff00)
                     + ((i & 0xff00) * i1 + (j & 0xff00) * k & 0xff0000) >> 8;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("66303, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
+            SignLink.reporterror("66303, " + i + ", " + j + ", " + k + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -10250,19 +10239,19 @@ public class Game extends GameShell {
             titleBox = null;
             titleButton = null;
             aClass44_Sub3_Sub1_Sub3Array864 = null;
-            anIntArray1218 = null;
-            anIntArray1219 = null;
-            anIntArray1220 = null;
-            anIntArray1221 = null;
+            flameGradient = null;
+            flameGradient0 = null;
+            flameGradient1 = null;
+            flameGradient2 = null;
             anIntArray1133 = null;
             anIntArray1134 = null;
-            anIntArray1272 = null;
+            flameBuffer3 = null;
             if (flag) {
                 out.writeByte(203);
             }
             anIntArray1273 = null;
-            aClass44_Sub3_Sub1_Sub2_1277 = null;
-            aClass44_Sub3_Sub1_Sub2_1278 = null;
+            flamesLeft = null;
+            flameRight = null;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("94958, " + flag + ", " + runtimeexception);
@@ -12107,8 +12096,8 @@ public class Game extends GameShell {
             aStringArray1044 = null;
             aLongArray979 = null;
             anIntArray894 = null;
-            aClass34_1266 = null;
-            aClass34_1267 = null;
+            title0 = null;
+            title1 = null;
             title2 = null;
             title3 = null;
             title4 = null;

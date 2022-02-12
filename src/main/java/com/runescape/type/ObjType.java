@@ -183,7 +183,7 @@ public class ObjType {
             int i3 = Draw2D.top;
             int j3 = Draw2D.bottom;
             Draw3D.aBoolean1421 = false;
-            Draw2D.bind(class44_sub3_sub1_sub2_1.anIntArray1448, 32, 32);
+            Draw2D.bind(class44_sub3_sub1_sub2_1.pixels, 32, 32);
             Draw2D.method411(0, 210, 0, 32, 0, 32);
             Draw3D.method419((byte) 3);
             int k3 = class14.anInt335;
@@ -200,15 +200,15 @@ public class ObjType {
                             + class14.anInt340);
             for (int i5 = 31; i5 >= 0; i5--) {
                 for (int j4 = 31; j4 >= 0; j4--) {
-                    if (class44_sub3_sub1_sub2_1.anIntArray1448[i5 + j4 * 32] == 0) {
-                        if (i5 > 0 && class44_sub3_sub1_sub2_1.anIntArray1448[(i5 - 1) + j4 * 32] > 1) {
-                            class44_sub3_sub1_sub2_1.anIntArray1448[i5 + j4 * 32] = 1;
-                        } else if (j4 > 0 && class44_sub3_sub1_sub2_1.anIntArray1448[i5 + (j4 - 1) * 32] > 1) {
-                            class44_sub3_sub1_sub2_1.anIntArray1448[i5 + j4 * 32] = 1;
-                        } else if (i5 < 31 && class44_sub3_sub1_sub2_1.anIntArray1448[i5 + 1 + j4 * 32] > 1) {
-                            class44_sub3_sub1_sub2_1.anIntArray1448[i5 + j4 * 32] = 1;
-                        } else if (j4 < 31 && class44_sub3_sub1_sub2_1.anIntArray1448[i5 + (j4 + 1) * 32] > 1) {
-                            class44_sub3_sub1_sub2_1.anIntArray1448[i5 + j4 * 32] = 1;
+                    if (class44_sub3_sub1_sub2_1.pixels[i5 + j4 * 32] == 0) {
+                        if (i5 > 0 && class44_sub3_sub1_sub2_1.pixels[(i5 - 1) + j4 * 32] > 1) {
+                            class44_sub3_sub1_sub2_1.pixels[i5 + j4 * 32] = 1;
+                        } else if (j4 > 0 && class44_sub3_sub1_sub2_1.pixels[i5 + (j4 - 1) * 32] > 1) {
+                            class44_sub3_sub1_sub2_1.pixels[i5 + j4 * 32] = 1;
+                        } else if (i5 < 31 && class44_sub3_sub1_sub2_1.pixels[i5 + 1 + j4 * 32] > 1) {
+                            class44_sub3_sub1_sub2_1.pixels[i5 + j4 * 32] = 1;
+                        } else if (j4 < 31 && class44_sub3_sub1_sub2_1.pixels[i5 + (j4 + 1) * 32] > 1) {
+                            class44_sub3_sub1_sub2_1.pixels[i5 + j4 * 32] = 1;
                         }
                     }
                 }
@@ -216,15 +216,15 @@ public class ObjType {
             if (k > 0) {
                 for (int j5 = 31; j5 >= 0; j5--) {
                     for (int k4 = 31; k4 >= 0; k4--) {
-                        if (class44_sub3_sub1_sub2_1.anIntArray1448[j5 + k4 * 32] == 0) {
-                            if (j5 > 0 && class44_sub3_sub1_sub2_1.anIntArray1448[(j5 - 1) + k4 * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.anIntArray1448[j5 + k4 * 32] = k;
-                            } else if (k4 > 0 && class44_sub3_sub1_sub2_1.anIntArray1448[j5 + (k4 - 1) * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.anIntArray1448[j5 + k4 * 32] = k;
-                            } else if (j5 < 31 && class44_sub3_sub1_sub2_1.anIntArray1448[j5 + 1 + k4 * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.anIntArray1448[j5 + k4 * 32] = k;
-                            } else if (k4 < 31 && class44_sub3_sub1_sub2_1.anIntArray1448[j5 + (k4 + 1) * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.anIntArray1448[j5 + k4 * 32] = k;
+                        if (class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] == 0) {
+                            if (j5 > 0 && class44_sub3_sub1_sub2_1.pixels[(j5 - 1) + k4 * 32] == 1) {
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                            } else if (k4 > 0 && class44_sub3_sub1_sub2_1.pixels[j5 + (k4 - 1) * 32] == 1) {
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                            } else if (j5 < 31 && class44_sub3_sub1_sub2_1.pixels[j5 + 1 + k4 * 32] == 1) {
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                            } else if (k4 < 31 && class44_sub3_sub1_sub2_1.pixels[j5 + (k4 + 1) * 32] == 1) {
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
                             }
                         }
                     }
@@ -232,9 +232,9 @@ public class ObjType {
             } else if (k == 0) {
                 for (int k5 = 31; k5 >= 0; k5--) {
                     for (int l4 = 31; l4 >= 0; l4--) {
-                        if (class44_sub3_sub1_sub2_1.anIntArray1448[k5 + l4 * 32] == 0 && k5 > 0 && l4 > 0
-                                && class44_sub3_sub1_sub2_1.anIntArray1448[(k5 - 1) + (l4 - 1) * 32] > 0) {
-                            class44_sub3_sub1_sub2_1.anIntArray1448[k5 + l4 * 32] = 0x302020;
+                        if (class44_sub3_sub1_sub2_1.pixels[k5 + l4 * 32] == 0 && k5 > 0 && l4 > 0
+                                && class44_sub3_sub1_sub2_1.pixels[(k5 - 1) + (l4 - 1) * 32] > 0) {
+                            class44_sub3_sub1_sub2_1.pixels[k5 + l4 * 32] = 0x302020;
                         }
                     }
                 }
