@@ -110,20 +110,8 @@ public class Image24 extends Draw2D {
         }
     }
 
-    public void method435(byte byte0) {
-        try {
+    public void bind() {
             Draw2D.bind(pixels, width, height);
-            if (byte0 == 5) {
-                byte0 = 0;
-                return;
-            } else {
-                anInt1441 = 4;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("24805, " + byte0 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method436(int i, byte byte0, int j, int k) {

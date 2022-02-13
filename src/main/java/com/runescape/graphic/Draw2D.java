@@ -71,7 +71,7 @@ public class Draw2D extends CacheableNode {
         throw new RuntimeException();
     }
 
-    public static void method409(byte byte0) {
+    public static void clear(byte byte0) {
         try {
             if (byte0 != 127) {
                 return;

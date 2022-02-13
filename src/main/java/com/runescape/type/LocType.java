@@ -5,7 +5,6 @@ import com.runescape.cache.request.OnDemandRequester;
 import com.runescape.collection.Cache;
 import com.runescape.graphic.Model;
 import com.runescape.net.Buffer;
-import com.runescape.renderable.Renderable;
 import com.runescape.util.SignLink;
 
 public class LocType {
@@ -31,8 +30,8 @@ public class LocType {
     public byte[] aByteArray219;
     public int[] anIntArray220;
     public int[] anIntArray221;
-    public int anInt222;
-    public int anInt223;
+    public int sizeX;
+    public int sizeZ;
     public boolean aBoolean224;
     public boolean aBoolean225;
     public boolean aBoolean226;
@@ -44,8 +43,8 @@ public class LocType {
     public byte aByte232;
     public byte aByte233;
     public String[] aStringArray234;
-    public int anInt235;
-    public int anInt236;
+    public int mapFunctionIcon;
+    public int mapscene;
     public boolean aBoolean237;
     public boolean aBoolean238;
     public int anInt239;
@@ -101,7 +100,7 @@ public class LocType {
         }
     }
 
-    public static LocType method199(int i) {
+    public static LocType lookup(int i) {
         for (int j = 0; j < 20; j++) {
             if (LocType.cache[j].anInt215 == i) {
                 return LocType.cache[j];
@@ -123,8 +122,8 @@ public class LocType {
         aByteArray219 = null;
         anIntArray220 = null;
         anIntArray221 = null;
-        anInt222 = 1;
-        anInt223 = 1;
+        sizeX = 1;
+        sizeZ = 1;
         aBoolean224 = true;
         aBoolean225 = true;
         aBoolean226 = false;
@@ -136,8 +135,8 @@ public class LocType {
         aByte232 = 0;
         aByte233 = 0;
         aStringArray234 = null;
-        anInt235 = -1;
-        anInt236 = -1;
+        mapFunctionIcon = -1;
+        mapscene = -1;
         aBoolean237 = false;
         aBoolean238 = true;
         anInt239 = 128;
@@ -192,9 +191,9 @@ public class LocType {
                             }
                         }
                     } else if (j == 14) {
-                        anInt222 = class44_sub3_sub2.readUnsignedByte();
+                        sizeX = class44_sub3_sub2.readUnsignedByte();
                     } else if (j == 15) {
-                        anInt223 = class44_sub3_sub2.readUnsignedByte();
+                        sizeZ = class44_sub3_sub2.readUnsignedByte();
                     } else if (j == 17) {
                         aBoolean224 = false;
                     } else if (j == 18) {
@@ -238,7 +237,7 @@ public class LocType {
                             anIntArray221[i2] = class44_sub3_sub2.readUnsignedShort();
                         }
                     } else if (j == 60) {
-                        anInt235 = class44_sub3_sub2.readUnsignedShort();
+                        mapFunctionIcon = class44_sub3_sub2.readUnsignedShort();
                     } else if (j == 62) {
                         aBoolean237 = true;
                     } else if (j == 64) {
@@ -250,7 +249,7 @@ public class LocType {
                     } else if (j == 67) {
                         anInt241 = class44_sub3_sub2.readUnsignedShort();
                     } else if (j == 68) {
-                        anInt236 = class44_sub3_sub2.readUnsignedShort();
+                        mapscene = class44_sub3_sub2.readUnsignedShort();
                     } else if (j == 69) {
                         anInt245 = class44_sub3_sub2.readUnsignedByte();
                     } else if (j == 70) {

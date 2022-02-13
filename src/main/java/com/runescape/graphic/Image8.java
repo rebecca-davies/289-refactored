@@ -11,8 +11,8 @@ public class Image8 extends Draw2D {
     public int anInt1457;
     public byte[] aByteArray1458;
     public int[] anIntArray1459;
-    public int anInt1460;
-    public int anInt1461;
+    public int width;
+    public int height;
     public int anInt1462;
     public int anInt1463;
     public int anInt1464;
@@ -39,10 +39,10 @@ public class Image8 extends Draw2D {
         }
         anInt1462 = class44_sub3_sub2_1.readUnsignedByte();
         anInt1463 = class44_sub3_sub2_1.readUnsignedByte();
-        anInt1460 = class44_sub3_sub2_1.readUnsignedShort();
-        anInt1461 = class44_sub3_sub2_1.readUnsignedShort();
+        width = class44_sub3_sub2_1.readUnsignedShort();
+        height = class44_sub3_sub2_1.readUnsignedShort();
         int i1 = class44_sub3_sub2_1.readUnsignedByte();
-        int j1 = anInt1460 * anInt1461;
+        int j1 = width * height;
         aByteArray1458 = new byte[j1];
         if (i1 == 0) {
             for (int k1 = 0; k1 < j1; k1++) {
@@ -51,9 +51,9 @@ public class Image8 extends Draw2D {
             return;
         }
         if (i1 == 1) {
-            for (int l1 = 0; l1 < anInt1460; l1++) {
-                for (int i2 = 0; i2 < anInt1461; i2++) {
-                    aByteArray1458[l1 + i2 * anInt1460] = class44_sub3_sub2.readByte();
+            for (int l1 = 0; l1 < width; l1++) {
+                for (int i2 = 0; i2 < height; i2++) {
+                    aByteArray1458[l1 + i2 * width] = class44_sub3_sub2.readByte();
                 }
             }
         }
@@ -65,17 +65,17 @@ public class Image8 extends Draw2D {
             anInt1465 /= 2;
             byte[] abyte0 = new byte[anInt1464 * anInt1465];
             int j = 0;
-            for (int k = 0; k < anInt1461; k++) {
-                for (int l = 0; l < anInt1460; l++) {
+            for (int k = 0; k < height; k++) {
+                for (int l = 0; l < width; l++) {
                     abyte0[(l + anInt1462 >> 1) + (k + anInt1463 >> 1) * anInt1464] = aByteArray1458[j++];
                 }
             }
             aByteArray1458 = abyte0;
-            anInt1460 = anInt1464;
+            width = anInt1464;
             if (i != 0) {
                 aBoolean1455 = !aBoolean1455;
             }
-            anInt1461 = anInt1465;
+            height = anInt1465;
             anInt1462 = 0;
             anInt1463 = 0;
             return;
@@ -87,19 +87,19 @@ public class Image8 extends Draw2D {
 
     public void method449(int i) {
         try {
-            if (anInt1460 == anInt1464 && anInt1461 == anInt1465) {
+            if (width == anInt1464 && height == anInt1465) {
                 return;
             }
             byte[] abyte0 = new byte[anInt1464 * anInt1465];
             int j = 0;
-            for (int k = 0; k < anInt1461; k++) {
-                for (int l = 0; l < anInt1460; l++) {
+            for (int k = 0; k < height; k++) {
+                for (int l = 0; l < width; l++) {
                     abyte0[l + anInt1462 + (k + anInt1463) * anInt1464] = aByteArray1458[j++];
                 }
             }
             aByteArray1458 = abyte0;
-            anInt1460 = anInt1464;
-            anInt1461 = anInt1465;
+            width = anInt1464;
+            height = anInt1465;
             anInt1462 = 0;
             anInt1463 = 0;
             if (i < 9 || i > 9) {
@@ -114,18 +114,18 @@ public class Image8 extends Draw2D {
 
     public void method450(int i) {
         try {
-            byte[] abyte0 = new byte[anInt1460 * anInt1461];
+            byte[] abyte0 = new byte[width * height];
             int j = 0;
-            for (int k = 0; k < anInt1461; k++) {
-                for (int l = anInt1460 - 1; l >= 0; l--) {
-                    abyte0[j++] = aByteArray1458[l + k * anInt1460];
+            for (int k = 0; k < height; k++) {
+                for (int l = width - 1; l >= 0; l--) {
+                    abyte0[j++] = aByteArray1458[l + k * width];
                 }
             }
             aByteArray1458 = abyte0;
             if (i != 6) {
                 anInt1457 = 352;
             }
-            anInt1462 = anInt1464 - anInt1460 - anInt1462;
+            anInt1462 = anInt1464 - width - anInt1462;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("28636, " + i + ", " + runtimeexception);
@@ -135,18 +135,18 @@ public class Image8 extends Draw2D {
 
     public void method451(int i) {
         try {
-            byte[] abyte0 = new byte[anInt1460 * anInt1461];
+            byte[] abyte0 = new byte[width * height];
             int j = 0;
-            for (int k = anInt1461 - 1; k >= 0; k--) {
-                for (int l = 0; l < anInt1460; l++) {
-                    abyte0[j++] = aByteArray1458[l + k * anInt1460];
+            for (int k = height - 1; k >= 0; k--) {
+                for (int l = 0; l < width; l++) {
+                    abyte0[j++] = aByteArray1458[l + k * width];
                 }
             }
             if (i != 35509) {
                 return;
             } else {
                 aByteArray1458 = abyte0;
-                anInt1463 = anInt1465 - anInt1461 - anInt1463;
+                anInt1463 = anInt1465 - height - anInt1463;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -199,8 +199,8 @@ public class Image8 extends Draw2D {
             i += anInt1463;
             int k = j + i * Draw2D.width;
             int l = 0;
-            int i1 = anInt1461;
-            int j1 = anInt1460;
+            int i1 = height;
+            int j1 = width;
             int k1 = Draw2D.width - j1;
             int l1 = 0;
             if (i < Draw2D.top) {

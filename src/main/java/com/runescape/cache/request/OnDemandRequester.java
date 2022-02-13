@@ -335,13 +335,13 @@ public class OnDemandRequester extends Requester implements Runnable {
 
     public void method395(int i, int j, byte byte0, int k) {
         try {
-            if (aClient1296.aClass45Array1208[0] == null) {
+            if (aClient1296.filestores[0] == null) {
                 return;
             }
             if (anIntArrayArray1284[j][k] == 0) {
                 return;
             }
-            byte[] abyte0 = aClient1296.aClass45Array1208[j + 1].method541(false, k);
+            byte[] abyte0 = aClient1296.filestores[j + 1].method541(false, k);
             if (method402(abyte0, anIntArrayArray1284[j][k], (byte) 64, anIntArrayArray1285[j][k])) {
                 return;
             }
@@ -378,7 +378,7 @@ public class OnDemandRequester extends Requester implements Runnable {
 
     public void method397(int i, int j, byte byte0) {
         try {
-            if (aClient1296.aClass45Array1208[0] == null) {
+            if (aClient1296.filestores[0] == null) {
                 return;
             }
             if (anIntArrayArray1284[j][i] == 0) {
@@ -413,7 +413,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             while (aBoolean1295) {
                 anInt1322++;
                 int i = 20;
-                if (anInt1287 == 0 && aClient1296.aClass45Array1208[0] != null) {
+                if (anInt1287 == 0 && aClient1296.filestores[0] != null) {
                     i = 50;
                 }
                 try {
@@ -476,7 +476,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                     message = "";
                 }
                 if (aClient1296.ingame && aSocket1310 != null && anOutputStream1312 != null
-                        && (anInt1287 > 0 || aClient1296.aClass45Array1208[0] == null)) {
+                        && (anInt1287 > 0 || aClient1296.filestores[0] == null)) {
                     anInt1320++;
                     if (anInt1320 > 500) {
                         anInt1320 = 0;
@@ -510,8 +510,8 @@ public class OnDemandRequester extends Requester implements Runnable {
             while (class44_sub3_sub3 != null) {
                 aBoolean1298 = true;
                 byte[] abyte0 = null;
-                if (aClient1296.aClass45Array1208[0] != null) {
-                    abyte0 = aClient1296.aClass45Array1208[class44_sub3_sub3.anInt1405 + 1].method541(false,
+                if (aClient1296.filestores[0] != null) {
+                    abyte0 = aClient1296.filestores[class44_sub3_sub3.anInt1405 + 1].method541(false,
                             class44_sub3_sub3.anInt1406);
                 }
                 if (!method402(abyte0, anIntArrayArray1284[class44_sub3_sub3.anInt1405][class44_sub3_sub3.anInt1406],
@@ -710,8 +710,8 @@ public class OnDemandRequester extends Requester implements Runnable {
                     for (int k1 = 0; k1 < anInt1316; k1 += anInputStream1311.read(abyte0, k1 + i1, anInt1316 - k1)) {
                     }
                     if (anInt1316 + anInt1315 >= abyte0.length && aClass44_Sub3_Sub3_1314 != null) {
-                        if (aClient1296.aClass45Array1208[0] != null) {
-                            aClient1296.aClass45Array1208[aClass44_Sub3_Sub3_1314.anInt1405 + 1].method542(abyte0,
+                        if (aClient1296.filestores[0] != null) {
+                            aClient1296.filestores[aClass44_Sub3_Sub3_1314.anInt1405 + 1].method542(abyte0,
                                     (byte) 4, abyte0.length, aClass44_Sub3_Sub3_1314.anInt1406);
                         }
                         if (!aClass44_Sub3_Sub3_1314.aBoolean1409 && aClass44_Sub3_Sub3_1314.anInt1405 == 3) {

@@ -363,11 +363,6 @@ public class Component {
     }
 
     public Model getModel(int j, int k, boolean flag) {
-        try {
-            if (i != 0) {
-                for (int l = 1; l > 0; l++) {
-                }
-            }
             Model class44_sub3_sub4_sub4;
             if (flag) {
                 class44_sub3_sub4_sub4 = method184(anInt151, anInt152);
@@ -393,10 +388,6 @@ public class Component {
             }
             class44_sub3_sub4_sub4_1.method523(64, 768, -50, -10, -50, true);
             return class44_sub3_sub4_sub4_1;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("4323, " + i + ", " + j + ", " + k + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public Model method184(int i, int j) {

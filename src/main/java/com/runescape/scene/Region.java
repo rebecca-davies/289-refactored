@@ -10,7 +10,7 @@ import com.runescape.renderable.GameObject;
 import com.runescape.renderable.Renderable;
 import com.runescape.util.SignLink;
 
-public class regionCached {
+public class Region {
 
     public static int anInt61 = 30967;
     public static boolean aBoolean64 = true;
@@ -41,7 +41,7 @@ public class regionCached {
     public int[] anIntArray80;
     public int[][][] anIntArrayArrayArray81;
 
-    public regionCached(int[][][] ai, int i, byte byte0, byte[][][] abyte0, int j) {
+    public Region(int[][][] ai, int i, byte byte0, byte[][][] abyte0, int j) {
         anInt60 = 101;
         aBoolean62 = false;
         aBoolean63 = true;
@@ -108,8 +108,8 @@ public class regionCached {
                         int l2 = j2 + k;
                         int i3 = i2 + j;
                         if (l2 > 0 && i3 > 0 && l2 < 103 && i3 < 103) {
-                            LocType class8 = LocType.method199(l);
-                            if (k2 != 22 || !regionCached.aBoolean64 || class8.aBoolean226 || class8.aBoolean246) {
+                            LocType class8 = LocType.lookup(l);
+                            if (k2 != 22 || !Region.aBoolean64 || class8.aBoolean226 || class8.aBoolean246) {
                                 flag &= class8.method203(-593);
                                 flag1 = true;
                             }
@@ -137,7 +137,7 @@ public class regionCached {
                     break;
                 }
                 j += k;
-                LocType class8 = LocType.method199(j);
+                LocType class8 = LocType.lookup(j);
                 class8.method204(class43_sub1, (byte) 2);
                 do {
                     int l = class44_sub3_sub2.method496();
@@ -156,8 +156,8 @@ public class regionCached {
     }
 
     public static int method165(int i, int j) {
-        int k = (regionCached.method166(i + 45365, j + 0x16713, 4) - 128)
-                + (regionCached.method166(i + 10294, j + 37821, 2) - 128 >> 1) + (regionCached.method166(i, j, 1) - 128 >> 2);
+        int k = (Region.method166(i + 45365, j + 0x16713, 4) - 128)
+                + (Region.method166(i + 10294, j + 37821, 2) - 128 >> 1) + (Region.method166(i, j, 1) - 128 >> 2);
         k = (int) (k * 0.29999999999999999D) + 35;
         if (k < 10) {
             k = 10;
@@ -172,13 +172,13 @@ public class regionCached {
         int i1 = i & k - 1;
         int j1 = j / k;
         int k1 = j & k - 1;
-        int l1 = regionCached.method168(l, j1);
-        int i2 = regionCached.method168(l + 1, j1);
-        int j2 = regionCached.method168(l, j1 + 1);
-        int k2 = regionCached.method168(l + 1, j1 + 1);
-        int l2 = regionCached.method167(l1, i2, i1, k);
-        int i3 = regionCached.method167(j2, k2, i1, k);
-        return regionCached.method167(l2, i3, k1, k);
+        int l1 = Region.method168(l, j1);
+        int i2 = Region.method168(l + 1, j1);
+        int j2 = Region.method168(l, j1 + 1);
+        int k2 = Region.method168(l + 1, j1 + 1);
+        int l2 = Region.method167(l1, i2, i1, k);
+        int i3 = Region.method167(j2, k2, i1, k);
+        return Region.method167(l2, i3, k1, k);
     }
 
     public static int method167(int i, int j, int k, int l) {
@@ -187,11 +187,11 @@ public class regionCached {
     }
 
     public static int method168(int i, int j) {
-        int k = regionCached.method169(i - 1, j - 1) + regionCached.method169(i + 1, j - 1) + regionCached.method169(i - 1, j + 1)
-                + regionCached.method169(i + 1, j + 1);
-        int l = regionCached.method169(i - 1, j) + regionCached.method169(i + 1, j) + regionCached.method169(i, j - 1)
-                + regionCached.method169(i, j + 1);
-        int i1 = regionCached.method169(i, j);
+        int k = Region.method169(i - 1, j - 1) + Region.method169(i + 1, j - 1) + Region.method169(i - 1, j + 1)
+                + Region.method169(i + 1, j + 1);
+        int l = Region.method169(i - 1, j) + Region.method169(i + 1, j) + Region.method169(i, j - 1)
+                + Region.method169(i, j + 1);
+        int i1 = Region.method169(i, j);
         return k / 16 + l / 8 + i1 / 4;
     }
 
@@ -221,7 +221,7 @@ public class regionCached {
                 for (int l = 1; l > 0; l++) {
                 }
             }
-            LocType class8 = LocType.method199(i);
+            LocType class8 = LocType.lookup(i);
             if (j == 11) {
                 j = 10;
             }
@@ -247,7 +247,7 @@ public class regionCached {
             int l2 = ai[i1][j1 + 1][k + 1];
             int i3 = ai[i1][j1][k + 1];
             int j3 = j2 + k2 + l2 + i3 >> 2;
-            LocType class8 = LocType.method199(k1);
+            LocType class8 = LocType.lookup(k1);
             int k3 = j1 + (k << 7) + (k1 << 14) + 0x40000000;
             if (!class8.aBoolean226) {
                 k3 += 0x80000000;
@@ -281,16 +281,16 @@ public class regionCached {
                     int i5;
                     int k5;
                     if (i == 1 || i == 3) {
-                        i5 = class8.anInt223;
-                        k5 = class8.anInt222;
+                        i5 = class8.sizeZ;
+                        k5 = class8.sizeX;
                     } else {
-                        i5 = class8.anInt222;
-                        k5 = class8.anInt223;
+                        i5 = class8.sizeX;
+                        k5 = class8.sizeZ;
                     }
                     class36.method288(0, k, j1, j3, byte0, k3, l5, i5, j, ((Renderable) (obj1)), k5);
                 }
                 if (class8.aBoolean224) {
-                    class18.method233(k, class8.anInt222, class8.aBoolean225, -24520, j1, class8.anInt223, i);
+                    class18.method233(k, class8.sizeX, class8.aBoolean225, -24520, j1, class8.sizeZ, i);
                 }
                 return;
             }
@@ -303,7 +303,7 @@ public class regionCached {
                 }
                 class36.method288(0, k, j1, j3, byte0, k3, 0, 1, j, ((Renderable) (obj2)), 1);
                 if (class8.aBoolean224) {
-                    class18.method233(k, class8.anInt222, class8.aBoolean225, -24520, j1, class8.anInt223, i);
+                    class18.method233(k, class8.sizeX, class8.aBoolean225, -24520, j1, class8.sizeZ, i);
                 }
                 return;
             }
@@ -314,7 +314,7 @@ public class regionCached {
                 } else {
                     obj3 = new GameObject(i, k1, 0, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method286(byte0, regionCached.anIntArray82[i], j3, k3, j1, ((Renderable) (obj3)), -927, 0, null, j, k);
+                class36.method286(byte0, Region.anIntArray82[i], j3, k3, j1, ((Renderable) (obj3)), -927, 0, null, j, k);
                 if (class8.aBoolean224) {
                     class18.method232(true, i, class8.aBoolean225, l, j1, k);
                 }
@@ -327,7 +327,7 @@ public class regionCached {
                 } else {
                     obj4 = new GameObject(i, k1, 1, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method286(byte0, regionCached.anIntArray83[i], j3, k3, j1, ((Renderable) (obj4)), -927, 0, null, j, k);
+                class36.method286(byte0, Region.anIntArray83[i], j3, k3, j1, ((Renderable) (obj4)), -927, 0, null, j, k);
                 if (class8.aBoolean224) {
                     class18.method232(true, i, class8.aBoolean225, l, j1, k);
                 }
@@ -344,8 +344,8 @@ public class regionCached {
                     obj11 = new GameObject(4 + i, k1, 2, i3, l2, false, j2, class8.anInt230, true, k2);
                     obj12 = new GameObject(l3, k1, 2, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method286(byte0, regionCached.anIntArray82[i], j3, k3, j1, ((Renderable) (obj11)), -927,
-                        regionCached.anIntArray82[l3], ((Renderable) (obj12)), j, k);
+                class36.method286(byte0, Region.anIntArray82[i], j3, k3, j1, ((Renderable) (obj11)), -927,
+                        Region.anIntArray82[l3], ((Renderable) (obj12)), j, k);
                 if (class8.aBoolean224) {
                     class18.method232(true, i, class8.aBoolean225, l, j1, k);
                 }
@@ -358,7 +358,7 @@ public class regionCached {
                 } else {
                     obj5 = new GameObject(i, k1, 3, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method286(byte0, regionCached.anIntArray83[i], j3, k3, j1, ((Renderable) (obj5)), -927, 0, null, j, k);
+                class36.method286(byte0, Region.anIntArray83[i], j3, k3, j1, ((Renderable) (obj5)), -927, 0, null, j, k);
                 if (class8.aBoolean224) {
                     class18.method232(true, i, class8.aBoolean225, l, j1, k);
                 }
@@ -373,7 +373,7 @@ public class regionCached {
                 }
                 class36.method288(0, k, j1, j3, byte0, k3, 0, 1, j, ((Renderable) (obj6)), 1);
                 if (class8.aBoolean224) {
-                    class18.method233(k, class8.anInt222, class8.aBoolean225, -24520, j1, class8.anInt223, i);
+                    class18.method233(k, class8.sizeX, class8.aBoolean225, -24520, j1, class8.sizeZ, i);
                 }
                 return;
             }
@@ -406,15 +406,15 @@ public class regionCached {
                 } else {
                     obj7 = new GameObject(0, k1, 4, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method287(k, j, j3, ((Renderable) (obj7)), byte0, regionCached.anIntArray82[i], i * 512, k3, 0,
-                        regionCached.anInt61, j1, 0);
+                class36.method287(k, j, j3, ((Renderable) (obj7)), byte0, Region.anIntArray82[i], i * 512, k3, 0,
+                        Region.anInt61, j1, 0);
                 return;
             }
             if (l == 5) {
                 int l4 = 16;
-                int j5 = class36.method304(j, j1, k);
+                int j5 = class36.getWallBitset(j, j1, k);
                 if (j5 > 0) {
-                    l4 = LocType.method199(j5 >> 14 & 0x7fff).anInt231;
+                    l4 = LocType.lookup(j5 >> 14 & 0x7fff).anInt231;
                 }
                 Object obj13;
                 if (class8.anInt230 == -1 && class8.anIntArray250 == null) {
@@ -422,8 +422,8 @@ public class regionCached {
                 } else {
                     obj13 = new GameObject(0, k1, 4, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method287(k, j, j3, ((Renderable) (obj13)), byte0, regionCached.anIntArray82[i], i * 512, k3,
-                        regionCached.anIntArray84[i] * l4, regionCached.anInt61, j1, regionCached.anIntArray85[i] * l4);
+                class36.method287(k, j, j3, ((Renderable) (obj13)), byte0, Region.anIntArray82[i], i * 512, k3,
+                        Region.anIntArray84[i] * l4, Region.anInt61, j1, Region.anIntArray85[i] * l4);
                 return;
             }
             if (l == 6) {
@@ -433,7 +433,7 @@ public class regionCached {
                 } else {
                     obj8 = new GameObject(0, k1, 4, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method287(k, j, j3, ((Renderable) (obj8)), byte0, 256, i, k3, 0, regionCached.anInt61, j1, 0);
+                class36.method287(k, j, j3, ((Renderable) (obj8)), byte0, 256, i, k3, 0, Region.anInt61, j1, 0);
                 return;
             }
             if (l == 7) {
@@ -443,7 +443,7 @@ public class regionCached {
                 } else {
                     obj9 = new GameObject(0, k1, 4, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method287(k, j, j3, ((Renderable) (obj9)), byte0, 512, i, k3, 0, regionCached.anInt61, j1, 0);
+                class36.method287(k, j, j3, ((Renderable) (obj9)), byte0, 512, i, k3, 0, Region.anInt61, j1, 0);
                 return;
             }
             if (l == 8) {
@@ -453,7 +453,7 @@ public class regionCached {
                 } else {
                     obj10 = new GameObject(0, k1, 4, i3, l2, false, j2, class8.anInt230, true, k2);
                 }
-                class36.method287(k, j, j3, ((Renderable) (obj10)), byte0, 768, i, k3, 0, regionCached.anInt61, j1, 0);
+                class36.method287(k, j, j3, ((Renderable) (obj10)), byte0, 768, i, k3, 0, Region.anInt61, j1, 0);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -508,7 +508,7 @@ public class regionCached {
                                 int k2 = class44_sub3_sub2.readUnsignedByte();
                                 if (k2 == 0) {
                                     if (i1 == 0) {
-                                        anIntArrayArrayArray68[0][i2][j2] = -regionCached.method165(0xe3b7b + i2 + j, 0x87cce
+                                        anIntArrayArrayArray68[0][i2][j2] = -Region.method165(0xe3b7b + i2 + j, 0x87cce
                                                 + j2 + i) * 8;
                                     } else {
                                         anIntArrayArrayArray68[i1][i2][j2] = anIntArrayArrayArray68[i1 - 1][i2][j2] - 240;
@@ -622,11 +622,11 @@ public class regionCached {
 
     public void method162(int i, int j, Scene class36, int k, int l, int i1, int j1, CollisionMap class18, int k1) {
         try {
-            if (regionCached.aBoolean64) {
+            if (Region.aBoolean64) {
                 if ((aByteArrayArrayArray69[i1][j][j1] & 0x10) != 0) {
                     return;
                 }
-                if (method164(j1, j, 0, i1) != regionCached.plane) {
+                if (method164(j1, j, 0, i1) != Region.plane) {
                     return;
                 }
             }
@@ -638,14 +638,14 @@ public class regionCached {
                 anInt60 = 410;
             }
             int l2 = l1 + i2 + j2 + k2 >> 2;
-            LocType class8 = LocType.method199(k1);
+            LocType class8 = LocType.lookup(k1);
             int i3 = j + (j1 << 7) + (k1 << 14) + 0x40000000;
             if (!class8.aBoolean226) {
                 i3 += 0x80000000;
             }
             byte byte0 = (byte) ((l << 6) + i);
             if (i == 22) {
-                if (regionCached.aBoolean64 && !class8.aBoolean226 && !class8.aBoolean246) {
+                if (Region.aBoolean64 && !class8.aBoolean226 && !class8.aBoolean246) {
                     return;
                 }
                 Object obj;
@@ -675,11 +675,11 @@ public class regionCached {
                     int k4;
                     int i5;
                     if (l == 1 || l == 3) {
-                        k4 = class8.anInt223;
-                        i5 = class8.anInt222;
+                        k4 = class8.sizeZ;
+                        i5 = class8.sizeX;
                     } else {
-                        k4 = class8.anInt222;
-                        i5 = class8.anInt223;
+                        k4 = class8.sizeX;
+                        i5 = class8.sizeZ;
                     }
                     if (class36.method288(0, j1, j, l2, byte0, i3, j5, k4, i1, ((Renderable) (obj1)), i5)
                             && class8.aBoolean238) {
@@ -705,7 +705,7 @@ public class regionCached {
                     }
                 }
                 if (class8.aBoolean224 && class18 != null) {
-                    class18.method233(j1, class8.anInt222, class8.aBoolean225, -24520, j, class8.anInt223, l);
+                    class18.method233(j1, class8.sizeX, class8.aBoolean225, -24520, j, class8.sizeZ, l);
                 }
                 return;
             }
@@ -721,7 +721,7 @@ public class regionCached {
                     anIntArrayArrayArray81[i1][j][j1] |= 0x924;
                 }
                 if (class8.aBoolean224 && class18 != null) {
-                    class18.method233(j1, class8.anInt222, class8.aBoolean225, -24520, j, class8.anInt223, l);
+                    class18.method233(j1, class8.sizeX, class8.aBoolean225, -24520, j, class8.sizeZ, l);
                 }
                 return;
             }
@@ -732,7 +732,7 @@ public class regionCached {
                 } else {
                     obj3 = new GameObject(l, k1, 0, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method286(byte0, regionCached.anIntArray82[l], l2, i3, j, ((Renderable) (obj3)), -927, 0, null, i1,
+                class36.method286(byte0, Region.anIntArray82[l], l2, i3, j, ((Renderable) (obj3)), -927, 0, null, i1,
                         j1);
                 if (l == 0) {
                     if (class8.aBoolean238) {
@@ -782,7 +782,7 @@ public class regionCached {
                 } else {
                     obj4 = new GameObject(l, k1, 1, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method286(byte0, regionCached.anIntArray83[l], l2, i3, j, ((Renderable) (obj4)), -927, 0, null, i1,
+                class36.method286(byte0, Region.anIntArray83[l], l2, i3, j, ((Renderable) (obj4)), -927, 0, null, i1,
                         j1);
                 if (class8.aBoolean238) {
                     if (l == 0) {
@@ -811,8 +811,8 @@ public class regionCached {
                     obj11 = new GameObject(4 + l, k1, 2, k2, j2, false, l1, class8.anInt230, true, i2);
                     obj12 = new GameObject(j3, k1, 2, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method286(byte0, regionCached.anIntArray82[l], l2, i3, j, ((Renderable) (obj11)), -927,
-                        regionCached.anIntArray82[j3], ((Renderable) (obj12)), i1, j1);
+                class36.method286(byte0, Region.anIntArray82[l], l2, i3, j, ((Renderable) (obj11)), -927,
+                        Region.anIntArray82[j3], ((Renderable) (obj12)), i1, j1);
                 if (class8.aBoolean229) {
                     if (l == 0) {
                         anIntArrayArrayArray81[i1][j][j1] |= 0x249;
@@ -843,7 +843,7 @@ public class regionCached {
                 } else {
                     obj5 = new GameObject(l, k1, 3, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method286(byte0, regionCached.anIntArray83[l], l2, i3, j, ((Renderable) (obj5)), -927, 0, null, i1,
+                class36.method286(byte0, Region.anIntArray83[l], l2, i3, j, ((Renderable) (obj5)), -927, 0, null, i1,
                         j1);
                 if (class8.aBoolean238) {
                     if (l == 0) {
@@ -870,7 +870,7 @@ public class regionCached {
                 }
                 class36.method288(0, j1, j, l2, byte0, i3, 0, 1, i1, ((Renderable) (obj6)), 1);
                 if (class8.aBoolean224 && class18 != null) {
-                    class18.method233(j1, class8.anInt222, class8.aBoolean225, -24520, j, class8.anInt223, l);
+                    class18.method233(j1, class8.sizeX, class8.aBoolean225, -24520, j, class8.sizeZ, l);
                 }
                 return;
             }
@@ -903,15 +903,15 @@ public class regionCached {
                 } else {
                     obj7 = new GameObject(0, k1, 4, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method287(j1, i1, l2, ((Renderable) (obj7)), byte0, regionCached.anIntArray82[l], l * 512, i3, 0,
-                        regionCached.anInt61, j, 0);
+                class36.method287(j1, i1, l2, ((Renderable) (obj7)), byte0, Region.anIntArray82[l], l * 512, i3, 0,
+                        Region.anInt61, j, 0);
                 return;
             }
             if (i == 5) {
                 int j4 = 16;
-                int l4 = class36.method304(i1, j, j1);
+                int l4 = class36.getWallBitset(i1, j, j1);
                 if (l4 > 0) {
-                    j4 = LocType.method199(l4 >> 14 & 0x7fff).anInt231;
+                    j4 = LocType.lookup(l4 >> 14 & 0x7fff).anInt231;
                 }
                 Object obj13;
                 if (class8.anInt230 == -1 && class8.anIntArray250 == null) {
@@ -919,8 +919,8 @@ public class regionCached {
                 } else {
                     obj13 = new GameObject(0, k1, 4, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method287(j1, i1, l2, ((Renderable) (obj13)), byte0, regionCached.anIntArray82[l], l * 512, i3,
-                        regionCached.anIntArray84[l] * j4, regionCached.anInt61, j, regionCached.anIntArray85[l] * j4);
+                class36.method287(j1, i1, l2, ((Renderable) (obj13)), byte0, Region.anIntArray82[l], l * 512, i3,
+                        Region.anIntArray84[l] * j4, Region.anInt61, j, Region.anIntArray85[l] * j4);
                 return;
             }
             if (i == 6) {
@@ -930,7 +930,7 @@ public class regionCached {
                 } else {
                     obj8 = new GameObject(0, k1, 4, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method287(j1, i1, l2, ((Renderable) (obj8)), byte0, 256, l, i3, 0, regionCached.anInt61, j, 0);
+                class36.method287(j1, i1, l2, ((Renderable) (obj8)), byte0, 256, l, i3, 0, Region.anInt61, j, 0);
                 return;
             }
             if (i == 7) {
@@ -940,7 +940,7 @@ public class regionCached {
                 } else {
                     obj9 = new GameObject(0, k1, 4, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method287(j1, i1, l2, ((Renderable) (obj9)), byte0, 512, l, i3, 0, regionCached.anInt61, j, 0);
+                class36.method287(j1, i1, l2, ((Renderable) (obj9)), byte0, 512, l, i3, 0, Region.anInt61, j, 0);
                 return;
             }
             if (i == 8) {
@@ -950,7 +950,7 @@ public class regionCached {
                 } else {
                     obj10 = new GameObject(0, k1, 4, k2, j2, false, l1, class8.anInt230, true, i2);
                 }
-                class36.method287(j1, i1, l2, ((Renderable) (obj10)), byte0, 768, l, i3, 0, regionCached.anInt61, j, 0);
+                class36.method287(j1, i1, l2, ((Renderable) (obj10)), byte0, 768, l, i3, 0, Region.anInt61, j, 0);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -980,19 +980,19 @@ public class regionCached {
                     }
                 }
             }
-            regionCached.anInt86 += (int) (Math.random() * 5D) - 2;
-            if (regionCached.anInt86 < -8) {
-                regionCached.anInt86 = -8;
+            Region.anInt86 += (int) (Math.random() * 5D) - 2;
+            if (Region.anInt86 < -8) {
+                Region.anInt86 = -8;
             }
-            if (regionCached.anInt86 > 8) {
-                regionCached.anInt86 = 8;
+            if (Region.anInt86 > 8) {
+                Region.anInt86 = 8;
             }
-            regionCached.anInt87 += (int) (Math.random() * 5D) - 2;
-            if (regionCached.anInt87 < -16) {
-                regionCached.anInt87 = -16;
+            Region.anInt87 += (int) (Math.random() * 5D) - 2;
+            if (Region.anInt87 < -16) {
+                Region.anInt87 = -16;
             }
-            if (regionCached.anInt87 > 16) {
-                regionCached.anInt87 = 16;
+            if (Region.anInt87 > 16) {
+                Region.anInt87 = 16;
             }
             for (int k = 0; k < 4; k++) {
                 byte[][] abyte0 = aByteArrayArrayArray74[k];
@@ -1076,8 +1076,8 @@ public class regionCached {
                             }
                             if (j17 >= 1
                                     && j17 < anInt67 - 1
-                                    && (!regionCached.aBoolean64 || (aByteArrayArrayArray69[k][k6][j17] & 0x10) == 0
-                                    && method164(j17, k6, 0, k) == regionCached.plane)) {
+                                    && (!Region.aBoolean64 || (aByteArrayArrayArray69[k][k6][j17] & 0x10) == 0
+                                    && method164(j17, k6, 0, k) == Region.plane)) {
                                 int k18 = aByteArrayArrayArray70[k][k6][j17] & 0xff;
                                 int l18 = aByteArrayArrayArray71[k][k6][j17] & 0xff;
                                 if (k18 > 0 || l18 > 0) {
@@ -1096,8 +1096,8 @@ public class regionCached {
                                         int i22 = i13 / j16;
                                         int k22 = i14 / j16;
                                         i21 = method172(k21, i22, k22);
-                                        k21 = k21 + regionCached.anInt86 & 0xff;
-                                        k22 += regionCached.anInt87;
+                                        k21 = k21 + Region.anInt86 & 0xff;
+                                        k22 += Region.anInt87;
                                         if (k22 < 0) {
                                             k22 = 0;
                                         } else if (k22 > 255) {
@@ -1116,12 +1116,12 @@ public class regionCached {
                                     }
                                     int l21 = 0;
                                     if (i21 != -1) {
-                                        l21 = Draw3D.anIntArray1439[regionCached.method170(j21, 96)];
+                                        l21 = Draw3D.anIntArray1439[Region.method170(j21, 96)];
                                     }
                                     if (l18 == 0) {
                                         class36.method283(k, k6, j17, 0, 0, -1, i19, j19, k19, l19,
-                                                regionCached.method170(i21, i20), regionCached.method170(i21, j20),
-                                                regionCached.method170(i21, k20), regionCached.method170(i21, l20), 0, 0, 0, 0,
+                                                Region.method170(i21, i20), Region.method170(i21, j20),
+                                                Region.method170(i21, k20), Region.method170(i21, l20), 0, 0, 0, 0,
                                                 l21, 0);
                                     } else {
                                         int j22 = aByteArrayArrayArray72[k][k6][j17] + 1;
@@ -1142,8 +1142,8 @@ public class regionCached {
                                             j23 = Draw3D.anIntArray1439[method171(class20_2.anInt441, 96)];
                                         }
                                         class36.method283(k, k6, j17, j22, byte5, l22, i19, j19, k19, l19,
-                                                regionCached.method170(i21, i20), regionCached.method170(i21, j20),
-                                                regionCached.method170(i21, k20), regionCached.method170(i21, l20),
+                                                Region.method170(i21, i20), Region.method170(i21, j20),
+                                                Region.method170(i21, k20), Region.method170(i21, l20),
                                                 method171(i23, i20), method171(i23, j20), method171(i23, k20),
                                                 method171(i23, l20), l21, j23);
                                     }

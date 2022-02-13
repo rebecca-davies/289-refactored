@@ -905,7 +905,7 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public int method304(int i, int j, int k) {
+    public int getWallBitset(int i, int j, int k) {
         SceneTile class44_sub2 = tiles[i][j][k];
         if (class44_sub2 == null || class44_sub2.aClass33_1342 == null) {
             return 0;
@@ -931,7 +931,7 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public int method306(int i, int j, int k) {
+    public int getInteractableBitset(int i, int j, int k) {
         SceneTile class44_sub2 = tiles[i][j][k];
         if (class44_sub2 == null) {
             return 0;
@@ -945,7 +945,7 @@ public class Scene {
         return 0;
     }
 
-    public int method307(int i, int j, int k) {
+    public int getGroundDecorationBitset(int i, int j, int k) {
         SceneTile class44_sub2 = tiles[i][j][k];
         if (class44_sub2 == null || class44_sub2.aClass17_1344 == null) {
             return 0;
@@ -954,7 +954,7 @@ public class Scene {
         }
     }
 
-    public int method308(int i, int j, int k, int l) {
+    public int getConfig(int i, int j, int k, int l) {
         SceneTile class44_sub2 = tiles[i][j][k];
         if (class44_sub2 == null) {
             return -1;
@@ -1198,7 +1198,7 @@ public class Scene {
         }
     }
 
-    public void method313(int[] ai, int i, int j, int k, int l, int i1) {
+    public void drawMinimapTile(int[] ai, int i, int j, int k, int l, int i1) {
         SceneTile class44_sub2 = tiles[k][l][i1];
         if (class44_sub2 == null) {
             return;

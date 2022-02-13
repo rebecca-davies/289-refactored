@@ -262,7 +262,7 @@ public class Draw3D extends Draw2D {
                 ai[12288 + i1] = i2 - (i2 >>> 2) - (i2 >>> 3) & 0xf8f8ff;
             }
         } else {
-            if (class44_sub3_sub1_sub3.anInt1460 == 64) {
+            if (class44_sub3_sub1_sub3.width == 64) {
                 for (int j1 = 0; j1 < 128; j1++) {
                     for (int j2 = 0; j2 < 128; j2++) {
                         ai[j2 + (j1 << 7)] = ai1[class44_sub3_sub1_sub3.aByteArray1458[(j2 >> 1) + ((j1 >> 1) << 6)]];

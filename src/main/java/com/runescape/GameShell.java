@@ -19,7 +19,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public int anInt4;
     public int anInt5;
     public int anInt6;
-    public int anInt7;
+    public int mindel;
     public long[] aLongArray8;
     public int anInt9;
     public boolean aBoolean10;
@@ -54,7 +54,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         anInt3 = 37395;
         anInt4 = -6002;
         anInt6 = 20;
-        anInt7 = 1;
+        mindel = 1;
         aLongArray8 = new long[10];
         aBoolean10 = false;
         aClass44_Sub3_Sub1_Sub2Array15 = new Image24[6];
@@ -108,7 +108,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         if (aFrame_Sub1_16 != null) {
             aFrame_Sub1_16.addWindowListener(this);
         }
-        method13(false, 0, "Loading...");
+        showProgress(0, "Loading...");
         method6();
         int i = 0;
         int j = 256;
@@ -157,8 +157,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                     }
                 }
             }
-            if (k < anInt7) {
-                k = anInt7;
+            if (k < mindel) {
+                k = mindel;
             }
             try {
                 Thread.sleep(k);
@@ -186,7 +186,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                     System.out.println("otim" + i3 + ":" + aLongArray8[i3]);
                 }
                 System.out.println("fps:" + anInt9 + " ratio:" + j + " count:" + i1);
-                System.out.println("del:" + k + " deltime:" + anInt6 + " mindel:" + anInt7);
+                System.out.println("del:" + k + " deltime:" + anInt6 + " mindel:" + mindel);
                 System.out.println("intex:" + j1 + " opos:" + i);
                 aBoolean10 = false;
                 j1 = 0;
@@ -584,7 +584,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         thread.setPriority(i);
     }
 
-    public void method13(boolean flag, int i, String s) {
+    public void showProgress(int i, String s) {
         try {
             while (graphics == null) {
                 graphics = method11(7).getGraphics();
@@ -616,11 +616,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             graphics.setFont(font);
             graphics.setColor(Color.white);
             graphics.drawString(s, (width - fontmetrics.stringWidth(s)) / 2, j + 22);
-            if (flag) {
-                return;
-            }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("88163, " + flag + ", " + i + ", " + s + ", " + runtimeexception);
+            SignLink.reporterror("88163, " + i + ", " + s + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

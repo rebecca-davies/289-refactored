@@ -17,7 +17,7 @@ public class CollisionMap {
     public int anInt415;
     public int anInt416;
     public int anInt417;
-    public int[][] anIntArrayArray418;
+    public int[][] flags;
 
     public CollisionMap(int i, int j, int k) {
         anInt405 = -550;
@@ -33,7 +33,7 @@ public class CollisionMap {
             anInt415 = 0;
             anInt416 = k;
             anInt417 = j;
-            anIntArrayArray418 = new int[anInt416][anInt417];
+            flags = new int[anInt416][anInt417];
             i = 13 / i;
             method231(3);
         } catch (RuntimeException runtimeexception) {
@@ -47,9 +47,9 @@ public class CollisionMap {
             for (int j = 0; j < anInt416; j++) {
                 for (int k = 0; k < anInt417; k++) {
                     if (j == 0 || k == 0 || j == anInt416 - 1 || k == anInt417 - 1) {
-                        anIntArrayArray418[j][k] = 0xffffff;
+                        flags[j][k] = 0xffffff;
                     } else {
-                        anIntArrayArray418[j][k] = 0;
+                        flags[j][k] = 0;
                     }
                 }
             }
@@ -236,7 +236,7 @@ public class CollisionMap {
                 return;
             } else {
                 j -= anInt415;
-                anIntArrayArray418[i][j] |= 0x200000;
+                flags[i][j] |= 0x200000;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -246,7 +246,7 @@ public class CollisionMap {
     }
 
     public void method235(int i, int j, int k) {
-        anIntArrayArray418[i][j] |= k;
+        flags[i][j] |= k;
     }
 
     public void method236(int i, int j, int k, int l, boolean flag, byte byte0) {
@@ -418,7 +418,7 @@ public class CollisionMap {
 
     public void method238(int i, int j, int k, int l) {
         try {
-            anIntArrayArray418[i][j] &= 0xffffff - l;
+            flags[i][j] &= 0xffffff - l;
             if (k != 0) {
                 aBoolean406 = !aBoolean406;
                 return;
@@ -436,7 +436,7 @@ public class CollisionMap {
             } else {
                 j -= anInt414;
                 i -= anInt415;
-                anIntArrayArray418[j][i] &= 0xdfffff;
+                flags[j][i] &= 0xdfffff;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -462,40 +462,40 @@ public class CollisionMap {
                     if (j1 == l - 1 && i1 == i) {
                         return true;
                     }
-                    if (j1 == l && i1 == i + 1 && (anIntArrayArray418[j1][i1] & 0x280120) == 0) {
+                    if (j1 == l && i1 == i + 1 && (flags[j1][i1] & 0x280120) == 0) {
                         return true;
                     }
-                    if (j1 == l && i1 == i - 1 && (anIntArrayArray418[j1][i1] & 0x280102) == 0) {
+                    if (j1 == l && i1 == i - 1 && (flags[j1][i1] & 0x280102) == 0) {
                         return true;
                     }
                 } else if (j == 1) {
                     if (j1 == l && i1 == i + 1) {
                         return true;
                     }
-                    if (j1 == l - 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280108) == 0) {
+                    if (j1 == l - 1 && i1 == i && (flags[j1][i1] & 0x280108) == 0) {
                         return true;
                     }
-                    if (j1 == l + 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280180) == 0) {
+                    if (j1 == l + 1 && i1 == i && (flags[j1][i1] & 0x280180) == 0) {
                         return true;
                     }
                 } else if (j == 2) {
                     if (j1 == l + 1 && i1 == i) {
                         return true;
                     }
-                    if (j1 == l && i1 == i + 1 && (anIntArrayArray418[j1][i1] & 0x280120) == 0) {
+                    if (j1 == l && i1 == i + 1 && (flags[j1][i1] & 0x280120) == 0) {
                         return true;
                     }
-                    if (j1 == l && i1 == i - 1 && (anIntArrayArray418[j1][i1] & 0x280102) == 0) {
+                    if (j1 == l && i1 == i - 1 && (flags[j1][i1] & 0x280102) == 0) {
                         return true;
                     }
                 } else if (j == 3) {
                     if (j1 == l && i1 == i - 1) {
                         return true;
                     }
-                    if (j1 == l - 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280108) == 0) {
+                    if (j1 == l - 1 && i1 == i && (flags[j1][i1] & 0x280108) == 0) {
                         return true;
                     }
-                    if (j1 == l + 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280180) == 0) {
+                    if (j1 == l + 1 && i1 == i && (flags[j1][i1] & 0x280180) == 0) {
                         return true;
                     }
                 }
@@ -508,14 +508,14 @@ public class CollisionMap {
                     if (j1 == l && i1 == i + 1) {
                         return true;
                     }
-                    if (j1 == l + 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280180) == 0) {
+                    if (j1 == l + 1 && i1 == i && (flags[j1][i1] & 0x280180) == 0) {
                         return true;
                     }
-                    if (j1 == l && i1 == i - 1 && (anIntArrayArray418[j1][i1] & 0x280102) == 0) {
+                    if (j1 == l && i1 == i - 1 && (flags[j1][i1] & 0x280102) == 0) {
                         return true;
                     }
                 } else if (j == 1) {
-                    if (j1 == l - 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280108) == 0) {
+                    if (j1 == l - 1 && i1 == i && (flags[j1][i1] & 0x280108) == 0) {
                         return true;
                     }
                     if (j1 == l && i1 == i + 1) {
@@ -524,14 +524,14 @@ public class CollisionMap {
                     if (j1 == l + 1 && i1 == i) {
                         return true;
                     }
-                    if (j1 == l && i1 == i - 1 && (anIntArrayArray418[j1][i1] & 0x280102) == 0) {
+                    if (j1 == l && i1 == i - 1 && (flags[j1][i1] & 0x280102) == 0) {
                         return true;
                     }
                 } else if (j == 2) {
-                    if (j1 == l - 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280108) == 0) {
+                    if (j1 == l - 1 && i1 == i && (flags[j1][i1] & 0x280108) == 0) {
                         return true;
                     }
-                    if (j1 == l && i1 == i + 1 && (anIntArrayArray418[j1][i1] & 0x280120) == 0) {
+                    if (j1 == l && i1 == i + 1 && (flags[j1][i1] & 0x280120) == 0) {
                         return true;
                     }
                     if (j1 == l + 1 && i1 == i) {
@@ -544,10 +544,10 @@ public class CollisionMap {
                     if (j1 == l - 1 && i1 == i) {
                         return true;
                     }
-                    if (j1 == l && i1 == i + 1 && (anIntArrayArray418[j1][i1] & 0x280120) == 0) {
+                    if (j1 == l && i1 == i + 1 && (flags[j1][i1] & 0x280120) == 0) {
                         return true;
                     }
-                    if (j1 == l + 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x280180) == 0) {
+                    if (j1 == l + 1 && i1 == i && (flags[j1][i1] & 0x280180) == 0) {
                         return true;
                     }
                     if (j1 == l && i1 == i - 1) {
@@ -556,16 +556,16 @@ public class CollisionMap {
                 }
             }
             if (k == 9) {
-                if (j1 == l && i1 == i + 1 && (anIntArrayArray418[j1][i1] & 0x20) == 0) {
+                if (j1 == l && i1 == i + 1 && (flags[j1][i1] & 0x20) == 0) {
                     return true;
                 }
-                if (j1 == l && i1 == i - 1 && (anIntArrayArray418[j1][i1] & 2) == 0) {
+                if (j1 == l && i1 == i - 1 && (flags[j1][i1] & 2) == 0) {
                     return true;
                 }
-                if (j1 == l - 1 && i1 == i && (anIntArrayArray418[j1][i1] & 8) == 0) {
+                if (j1 == l - 1 && i1 == i && (flags[j1][i1] & 8) == 0) {
                     return true;
                 }
-                return j1 == l + 1 && i1 == i && (anIntArrayArray418[j1][i1] & 0x80) == 0;
+                return j1 == l + 1 && i1 == i && (flags[j1][i1] & 0x80) == 0;
             }
             return false;
         } catch (RuntimeException runtimeexception) {
@@ -592,46 +592,46 @@ public class CollisionMap {
                     i1 = i1 + 2 & 3;
                 }
                 if (i1 == 0) {
-                    if (j1 == i + 1 && j == k && (anIntArrayArray418[j1][j] & 0x80) == 0) {
+                    if (j1 == i + 1 && j == k && (flags[j1][j] & 0x80) == 0) {
                         return true;
                     }
-                    if (j1 == i && j == k - 1 && (anIntArrayArray418[j1][j] & 2) == 0) {
+                    if (j1 == i && j == k - 1 && (flags[j1][j] & 2) == 0) {
                         return true;
                     }
                 } else if (i1 == 1) {
-                    if (j1 == i - 1 && j == k && (anIntArrayArray418[j1][j] & 8) == 0) {
+                    if (j1 == i - 1 && j == k && (flags[j1][j] & 8) == 0) {
                         return true;
                     }
-                    if (j1 == i && j == k - 1 && (anIntArrayArray418[j1][j] & 2) == 0) {
+                    if (j1 == i && j == k - 1 && (flags[j1][j] & 2) == 0) {
                         return true;
                     }
                 } else if (i1 == 2) {
-                    if (j1 == i - 1 && j == k && (anIntArrayArray418[j1][j] & 8) == 0) {
+                    if (j1 == i - 1 && j == k && (flags[j1][j] & 8) == 0) {
                         return true;
                     }
-                    if (j1 == i && j == k + 1 && (anIntArrayArray418[j1][j] & 0x20) == 0) {
+                    if (j1 == i && j == k + 1 && (flags[j1][j] & 0x20) == 0) {
                         return true;
                     }
                 } else if (i1 == 3) {
-                    if (j1 == i + 1 && j == k && (anIntArrayArray418[j1][j] & 0x80) == 0) {
+                    if (j1 == i + 1 && j == k && (flags[j1][j] & 0x80) == 0) {
                         return true;
                     }
-                    if (j1 == i && j == k + 1 && (anIntArrayArray418[j1][j] & 0x20) == 0) {
+                    if (j1 == i && j == k + 1 && (flags[j1][j] & 0x20) == 0) {
                         return true;
                     }
                 }
             }
             if (l == 8) {
-                if (j1 == i && j == k + 1 && (anIntArrayArray418[j1][j] & 0x20) == 0) {
+                if (j1 == i && j == k + 1 && (flags[j1][j] & 0x20) == 0) {
                     return true;
                 }
-                if (j1 == i && j == k - 1 && (anIntArrayArray418[j1][j] & 2) == 0) {
+                if (j1 == i && j == k - 1 && (flags[j1][j] & 2) == 0) {
                     return true;
                 }
-                if (j1 == i - 1 && j == k && (anIntArrayArray418[j1][j] & 8) == 0) {
+                if (j1 == i - 1 && j == k && (flags[j1][j] & 8) == 0) {
                     return true;
                 }
-                return j1 == i + 1 && j == k && (anIntArrayArray418[j1][j] & 0x80) == 0;
+                return j1 == i + 1 && j == k && (flags[j1][j] & 0x80) == 0;
             }
             return false;
         } catch (RuntimeException runtimeexception) {
@@ -651,19 +651,19 @@ public class CollisionMap {
             if (j1 >= l1 && j1 <= i2 && k >= j && k <= j2) {
                 return true;
             }
-            if (j1 == l1 - 1 && k >= j && k <= j2 && (anIntArrayArray418[j1 - anInt414][k - anInt415] & 8) == 0
+            if (j1 == l1 - 1 && k >= j && k <= j2 && (flags[j1 - anInt414][k - anInt415] & 8) == 0
                     && (k1 & 8) == 0) {
                 return true;
             }
-            if (j1 == i2 + 1 && k >= j && k <= j2 && (anIntArrayArray418[j1 - anInt414][k - anInt415] & 0x80) == 0
+            if (j1 == i2 + 1 && k >= j && k <= j2 && (flags[j1 - anInt414][k - anInt415] & 0x80) == 0
                     && (k1 & 2) == 0) {
                 return true;
             }
-            if (k == j - 1 && j1 >= l1 && j1 <= i2 && (anIntArrayArray418[j1 - anInt414][k - anInt415] & 2) == 0
+            if (k == j - 1 && j1 >= l1 && j1 <= i2 && (flags[j1 - anInt414][k - anInt415] & 2) == 0
                     && (k1 & 4) == 0) {
                 return true;
             }
-            return k == j2 + 1 && j1 >= l1 && j1 <= i2 && (anIntArrayArray418[j1 - anInt414][k - anInt415] & 0x20) == 0
+            return k == j2 + 1 && j1 >= l1 && j1 <= i2 && (flags[j1 - anInt414][k - anInt415] & 0x20) == 0
                     && (k1 & 1) == 0;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("55272, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", " + k1

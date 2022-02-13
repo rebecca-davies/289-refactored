@@ -44,7 +44,7 @@ public class GameObject extends Renderable {
                     anInt1491 -= (int) (Math.random() * aClass26_1489.method254(anInt1490, 24425));
                 }
             }
-            LocType class8 = LocType.method199(anInt1482);
+            LocType class8 = LocType.lookup(anInt1482);
             anInt1492 = class8.anInt249;
             anIntArray1493 = class8.anIntArray250;
             return;
@@ -95,9 +95,9 @@ public class GameObject extends Renderable {
                 if (i2 < 0 || i2 >= anIntArray1493.length || anIntArray1493[i2] == -1) {
                     return null;
                 }
-                class8 = LocType.method199(anIntArray1493[i2]);
+                class8 = LocType.lookup(anIntArray1493[i2]);
             } else {
-                class8 = LocType.method199(anInt1482);
+                class8 = LocType.lookup(anInt1482);
             }
             Model class44_sub3_sub4_sub4 = class8.method205(anInt1483, anInt1484, anInt1485, anInt1486, anInt1487,
                     anInt1488, k);

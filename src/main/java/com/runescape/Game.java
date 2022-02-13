@@ -29,6 +29,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.zip.CRC32;
 
 @SuppressWarnings("serial")
@@ -38,7 +39,7 @@ public class Game extends GameShell {
     public static int anInt845;
     public static int anInt870;
     public static int anInt873;
-    public static boolean aBoolean896;
+    public static boolean started;
     public static int anInt923;
     public static boolean flagged;
     public static int anInt944;
@@ -108,9 +109,9 @@ public class Game extends GameShell {
     public String clickToContinueString;
     public int delta;
     public int anInt825;
-    public int anInt826;
-    public int[] anIntArray827;
-    public int[] anIntArray828;
+    public int activeMapfunctionCount;
+    public int[] activeMapfunctionsX;
+    public int[] activeMapfunctionsZ;
     public boolean cutsceneActive;
     public byte aByte830;
     public int loginInputLine;
@@ -152,7 +153,7 @@ public class Game extends GameShell {
     public int[] anIntArray868;
     public int anInt869;
     public byte[][][] planeTileFlags;
-    public Image24[] aClass44_Sub3_Sub1_Sub2Array872;
+    public Image24[] activeMapfunctions;
     public int anInt874;
     public int cameraPositionX;
     public int cameraPositionY;
@@ -191,7 +192,7 @@ public class Game extends GameShell {
     public int[] anIntArray910;
     public int flagSceneTileX;
     public int flagSceneTileZ;
-    public Image24 aClass44_Sub3_Sub1_Sub2_913;
+    public Image24 minimap;
     public int[] anIntArray914;
     public int[] anIntArray915;
     public int[] anIntArray916;
@@ -203,7 +204,7 @@ public class Game extends GameShell {
     public boolean aBoolean922;
     public int viewportOverlayComponentId;
     public byte aByte925;
-    public String aString926;
+    public String message;
     public ISAACCipher encryption;
     public int anInt928;
     public int cameraVertical;
@@ -292,7 +293,7 @@ public class Game extends GameShell {
     public int anInt1019;
     public int[] anIntArray1020;
     public int[] anIntArray1021;
-    public CollisionMap[] aClass18Array1022;
+    public CollisionMap[] collisions;
     public int anInt1023;
     public int[] anIntArray1024;
     public Image24 aClass44_Sub3_Sub1_Sub2_1025;
@@ -317,7 +318,7 @@ public class Game extends GameShell {
     public boolean redrawChatback;
     public boolean aBoolean1050;
     public int[] archiveCRCs;
-    public Image24[] aClass44_Sub3_Sub1_Sub2Array1052;
+    public Image24[] mapfunctions;
     public byte aByte1053;
     public LinkedList aClass28_1054;
     public boolean aBoolean1055;
@@ -376,7 +377,7 @@ public class Game extends GameShell {
     public int[][] anIntArrayArray1113;
     public int localPlayerIndex;
     public LinkedList listTemporaryLocs;
-    public FileArchive aClass47_1117;
+    public FileArchive archiveTitle;
     public int anInt1118;
     public int anInt1119;
     public int anInt1120;
@@ -432,7 +433,7 @@ public class Game extends GameShell {
     public int anInt1172;
     public int idleLogout;
     public boolean aBoolean1174;
-    public int anInt1176;
+    public int percent;
     public int anInt1177;
     public boolean aBoolean1178;
     public boolean aBoolean1179;
@@ -460,7 +461,7 @@ public class Game extends GameShell {
     public int[] anIntArray1203 = {0xffff00, 0xff0000, 65280, 65535, 0xff00ff, 0xffffff};
     public int weightCarried;
     public int[] cameraAmplitude;
-    public FileStore[] aClass45Array1208;
+    public FileStore[] filestores;
     public boolean[] aBooleanArray1209;
     public Image24 aClass44_Sub3_Sub1_Sub2_1210;
     public Image24 aClass44_Sub3_Sub1_Sub2_1211;
@@ -484,10 +485,10 @@ public class Game extends GameShell {
     public int[] anIntArray1229;
     public Buffer[] aClass44_Sub3_Sub2Array1230;
     public int anInt1231;
-    public boolean aBoolean1236;
+    public boolean errorStarted;
     public boolean aBoolean1237;
     public int secondaryCameraVertical;
-    public Image8[] aClass44_Sub3_Sub1_Sub3Array1241;
+    public Image8[] mapscenes;
     public int anInt1242;
     public int anInt1243;
     public int anInt1244;
@@ -528,8 +529,8 @@ public class Game extends GameShell {
         aBoolean812 = false;
         aBoolean820 = false;
         loginBuffer = Buffer.method470(-929, 1);
-        anIntArray827 = new int[1000];
-        anIntArray828 = new int[1000];
+        activeMapfunctionsX = new int[1000];
+        activeMapfunctionsZ = new int[1000];
         cutsceneActive = false;
         aByte830 = -83;
         anInt833 = -1;
@@ -547,7 +548,7 @@ public class Game extends GameShell {
         ingame = false;
         crosses = new Image24[8];
         anIntArray868 = new int[151];
-        aClass44_Sub3_Sub1_Sub2Array872 = new Image24[1000];
+        activeMapfunctions = new Image24[1000];
         anInt874 = 78;
         anIntArray881 = new int[151];
         aByte883 = -127;
@@ -611,7 +612,7 @@ public class Game extends GameShell {
         anInt1019 = 661;
         anIntArray1020 = new int[4000];
         anIntArray1021 = new int[4000];
-        aClass18Array1022 = new CollisionMap[4];
+        collisions = new CollisionMap[4];
         anIntArray1024 = new int[2000];
         currentTab = 3;
         anIntArray1035 = new int[SkillConstants.skillCount];
@@ -621,7 +622,7 @@ public class Game extends GameShell {
         redrawChatback = false;
         aBoolean1050 = true;
         archiveCRCs = new int[9];
-        aClass44_Sub3_Sub1_Sub2Array1052 = new Image24[100];
+        mapfunctions = new Image24[100];
         aByte1053 = 29;
         aClass28_1054 = new LinkedList(-199);
         aBoolean1055 = false;
@@ -681,7 +682,7 @@ public class Game extends GameShell {
         aClass5_1201 = new Component();
         anInt1202 = 9;
         cameraAmplitude = new int[5];
-        aClass45Array1208 = new FileStore[5];
+        filestores = new FileStore[5];
         aBooleanArray1209 = new boolean[5];
         aByte1213 = 1;
         anIntArray1214 = new int[2000];
@@ -694,9 +695,9 @@ public class Game extends GameShell {
         anIntArray1227 = new int[MAX_PLAYER_COUNT];
         anIntArray1229 = new int[MAX_PLAYER_COUNT];
         aClass44_Sub3_Sub2Array1230 = new Buffer[MAX_PLAYER_COUNT];
-        aBoolean1236 = false;
+        errorStarted = false;
         aBoolean1237 = false;
-        aClass44_Sub3_Sub1_Sub3Array1241 = new Image8[100];
+        mapscenes = new Image8[100];
         anInt1243 = 831;
         anInt1244 = 393;
         anInt1247 = -282;
@@ -731,7 +732,7 @@ public class Game extends GameShell {
             if (!flag) {
                 Game.anInt1029 = -15;
             }
-            regionCached.aBoolean64 = false;
+            Region.aBoolean64 = false;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("78522, " + flag + ", " + runtimeexception.toString());
@@ -772,7 +773,7 @@ public class Game extends GameShell {
             }
             Draw3D.aBoolean1418 = true;
             Game.lowMemory = true;
-            regionCached.aBoolean64 = true;
+            Region.aBoolean64 = true;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("41041, " + byte0 + ", " + runtimeexception.toString());
@@ -839,7 +840,7 @@ public class Game extends GameShell {
             if (i != 9) {
                 packetType = in.readUnsignedByte();
             }
-            if (aBoolean1236 || aBoolean1055 || aBoolean820) {
+            if (errorStarted || aBoolean1055 || aBoolean820) {
                 return;
             }
             Game.loopCycle++;
@@ -1291,7 +1292,7 @@ public class Game extends GameShell {
                 packetType = -1;
             }
             for (int i = 0; i < 4; i++) {
-                aClass18Array1022[i].method231(3);
+                collisions[i].method231(3);
             }
             System.gc();
             method18(0);
@@ -1318,7 +1319,7 @@ public class Game extends GameShell {
                     }
                     if (class44_sub1.anInt1334 == 0) {
                         if (class44_sub1.anInt1327 < 0
-                                || regionCached.method173(class44_sub1.anInt1327, class44_sub1.anInt1329, 677)) {
+                                || Region.method173(class44_sub1.anInt1327, class44_sub1.anInt1329, 677)) {
                             method73(class44_sub1.anInt1328, 0, class44_sub1.anInt1329, class44_sub1.anInt1323,
                                     class44_sub1.anInt1327, class44_sub1.sceneTileX, class44_sub1.anInt1324,
                                     class44_sub1.sceneTileZ);
@@ -1333,7 +1334,7 @@ public class Game extends GameShell {
                                 && class44_sub1.sceneTileZ >= 1
                                 && class44_sub1.sceneTileX <= 102
                                 && class44_sub1.sceneTileZ <= 102
-                                && (class44_sub1.anInt1330 < 0 || regionCached.method173(class44_sub1.anInt1330,
+                                && (class44_sub1.anInt1330 < 0 || Region.method173(class44_sub1.anInt1330,
                                 class44_sub1.anInt1332, 677))) {
                             method73(class44_sub1.anInt1331, 0, class44_sub1.anInt1332, class44_sub1.anInt1323,
                                     class44_sub1.anInt1330, class44_sub1.sceneTileX, class44_sub1.anInt1324,
@@ -1456,84 +1457,65 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method27(byte byte0) {
-        try {
-            int i = 5;
-            archiveCRCs[8] = 0;
-            if (byte0 != -48) {
-                packetType
-                        = in.readUnsignedByte();
-            }
-            int j = 0;
-            while (archiveCRCs[8] == 0) {
-                String s = "Unknown problem";
-                method13(false, 20, "Connecting to web server");
-                try {
-                    DataInputStream datainputstream = method77("crc" +
-                            (int) (Math.random() * 99999999D) + "-" + 289);
-                    Buffer
-                            class44_sub3_sub2 = new Buffer(new byte[40]);
-                    datainputstream.readFully(class44_sub3_sub2.payload, 0, 40);
-                    datainputstream.close();
-                    for (int l = 0; l < 9; l++) {
-                        archiveCRCs[l] = class44_sub3_sub2.readInt();
-                    }
-                    int i1 =
-                            class44_sub3_sub2.readInt();
-                    int j1 = 1234;
-                    for (int k1 = 0; k1 < 9;
-                         k1++) {
-                        j1 = (j1 << 1) + archiveCRCs[k1];
-                    }
-                    if (i1 != j1) {
-                        s =
-                                "checksum problem";
-                        archiveCRCs[8] = 0;
-                    }
-                } catch (EOFException
-                        _ex) {
-                    s = "EOF problem";
-                    archiveCRCs[8] = 0;
-                } catch (IOException
-                        _ex) {
-                    s = "connection problem";
-                    archiveCRCs[8] = 0;
-                } catch (Exception _ex) {
-                    _ex.printStackTrace();
-                    s = "logic problem";
-                    archiveCRCs[8] = 0;
-                    if (!SignLink.reporterror) {
-                        return;
-                    }
+    public void loadArchiveChecksums() {
+        int i = 2;
+        archiveCRCs[8] = 0;
+        int j = 0;
+        while (archiveCRCs[8] == 0) {
+            String s = "Unknown problem";
+            showProgress(20, "Connecting to web server");
+            try {
+                DataInputStream datainputstream = method77("crc" + (int) (Math.random() * 99999999D) + "-" + 289);
+                Buffer class44_sub3_sub2 = new Buffer(new byte[40]);
+                datainputstream.readFully(class44_sub3_sub2.payload, 0, 40);
+                datainputstream.close();
+                for (int l = 0; l < 9; l++) {
+                    archiveCRCs[l] = class44_sub3_sub2.readInt();
                 }
-                if (archiveCRCs[8] == 0) {
-                    j++;
-                    for (int k = i; k > 0; k--) {
-                        if (j >= 10) {
-                            method13(false, 10,
-                                    "Game updated - please reload page");
-                            k = 10;
-                        } else {
-                            method13(false, 10, s + " - Will retry in " + k + " secs.");
-                        }
-                        try {
-                            Thread.sleep(1000L);
-                        } catch (Exception _ex) {
-                        }
-                    }
-                    i *= 2;
-                    if (i > 60) {
-                        i = 60;
-                    }
-                    aBoolean922 = !aBoolean922;
+                int i1 = class44_sub3_sub2.readInt();
+                int j1 = 1234;
+                for (int k1 = 0; k1 < 9;
+                     k1++) {
+                    j1 = (j1 << 1) + archiveCRCs[k1];
+                }
+                if (i1 != j1) {
+                    s = "Checksum problem";
+                    archiveCRCs[8] = 0;
+                }
+            } catch (EOFException _ex) {
+                s = "EOF problem";
+                archiveCRCs[8] = 0;
+            } catch (IOException _ex) {
+                s = "Connection problem";
+                archiveCRCs[8] = 0;
+            } catch (Exception _ex) {
+                _ex.printStackTrace();
+                s = "Logic problem";
+                archiveCRCs[8] = 0;
+                if (!SignLink.reporterror) {
+                    return;
                 }
             }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("95813, " + byte0 + ", " +
-                    runtimeexception);
+            if (archiveCRCs[8] == 0) {
+                j++;
+                for (int k = i; k > 0; k--) {
+                    if (j >= 10) {
+                        showProgress(10,"Game updated - please reload page");
+                        k = 10;
+                    } else {
+                        showProgress(10, s + " - Retrying...");
+                    }
+                    try {
+                        Thread.sleep(1000L);
+                    } catch (Exception _ex) {
+                    }
+                }
+                if (i > 60) {
+                    i = 60;
+                }
+                aBoolean922 = !aBoolean922;
+            }
         }
-        throw new RuntimeException();
     }
 
     public void method28(int i) {
@@ -2876,65 +2858,31 @@ public class Game extends GameShell {
 
     @Override
     public void method6() {
-        method13(false, 20, "Starting up");
+        showProgress(20, "Starting up");
         if (SignLink.sunjava) {
-            super.anInt7 = 5;
+            super.mindel = 5;
         }
-        if (Game.aBoolean896) {
-            aBoolean1236 = true;
+        if (Game.started) {
+            errorStarted = true;
             return;
         }
-        Game.aBoolean896 = true;
+        Game.started = true;
         boolean flag = false;
-        String s = "127.0.0.1";
-        if (s.endsWith("jagex.com")) {
-            flag = true;
-        }
-        if (s.endsWith("runescape.com")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.2")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.246")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.247")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.249")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.253")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.254")) {
-            flag = true;
-        }
-        if (s.endsWith("192.168.1.242")) {
-            flag = true;
-        }
-        if (s.endsWith("127.0.0.1")) {
-            flag = true;
-        }
-        if (!flag) {
-            aBoolean820 = true;
-            return;
-        }
+        String address = "127.0.0.1";
         if (SignLink.cache_dat != null) {
-            for (int i = 0; i < 5; i++) {
-                aClass45Array1208[i] = new FileStore(SignLink.cache_dat, 0x7a120, SignLink.cache_idx[i], i + 1, (byte) 4);
+            for (int indexes = 0; indexes < 5; indexes++) {
+                filestores[indexes] = new FileStore(SignLink.cache_dat, 0x7a120, SignLink.cache_idx[indexes], indexes + 1, (byte) 4);
             }
         }
         try {
-            method27(Game.aByte949);
-            aClass47_1117 = method125((byte) -9, "title screen", 1, "title", 25, archiveCRCs[1]);
-            fontPlain = new BitmapFont(9, "p11_full", false, aClass47_1117);
-            plainFont = new BitmapFont(9, "p12_full", false, aClass47_1117);
-            fontBold = new BitmapFont(9, "b12_full", false, aClass47_1117);
-            aClass44_Sub3_Sub1_Sub4_1258 = new BitmapFont(9, "q8_full", true, aClass47_1117);
-            method68(0);
-            method48(-532);
+            loadArchiveChecksums();
+            archiveTitle = method125((byte) -9, "title screen", 1, "title", 25, archiveCRCs[1]);
+            fontPlain = new BitmapFont(9, "p11_full", false, archiveTitle);
+            plainFont = new BitmapFont(9, "p12_full", false, archiveTitle);
+            fontBold = new BitmapFont(9, "b12_full", false, archiveTitle);
+            aClass44_Sub3_Sub1_Sub4_1258 = new BitmapFont(9, "q8_full", true, archiveTitle);
+            createTitleBackground();
+            createTitleImages();
             FileArchive class47 = method125((byte) -9, "config", 2, "config", 30, archiveCRCs[2]);
             FileArchive class47_1 = method125((byte) -9, "interface", 3, "interface", 35, archiveCRCs[3]);
             FileArchive class47_2 = method125((byte) -9, "2d graphics", 4, "media", 40, archiveCRCs[4]);
@@ -2945,11 +2893,11 @@ public class Game extends GameShell {
             anIntArrayArrayArray865 = new int[4][105][105];
             scene = new Scene(104, 4, anIntArrayArrayArray865, 104, Game.anInt1246);
             for (int j = 0; j < 4; j++) {
-                aClass18Array1022[j] = new CollisionMap(99, 104, 104);
+                collisions[j] = new CollisionMap(99, 104, 104);
             }
-            aClass44_Sub3_Sub1_Sub2_913 = new Image24(512, 512);
+            minimap = new Image24(512, 512);
             FileArchive class47_6 = method125((byte) -9, "update list", 5, "versionlist", 60, archiveCRCs[5]);
-            method13(false, 60, "Connecting to update server");
+            showProgress(60, "Connecting to update server");
             ondemand = new OnDemandRequester();
             ondemand.method383(class47_6, this);
             SeqFrame.method207(ondemand.method386(7));
@@ -2974,7 +2922,7 @@ public class Game extends GameShell {
                     }
                 }
             }
-            method13(false, 65, "Requesting animations");
+            showProgress(65, "Requesting animations");
             int k = ondemand.method385(1, (byte) 7);
             for (int i1 = 0; i1 < k; i1++) {
                 ondemand.request(1, i1);
@@ -2982,7 +2930,7 @@ public class Game extends GameShell {
             while (ondemand.method393() > 0) {
                 int j1 = k - ondemand.method393();
                 if (j1 > 0) {
-                    method13(false, 65, "Loading animations - " + (j1 * 100) / k + "%");
+                    showProgress(65, "Loading animations - " + (j1 * 100) / k + "%");
                 }
                 method93(false);
                 try {
@@ -2994,7 +2942,7 @@ public class Game extends GameShell {
                     return;
                 }
             }
-            method13(false, 70, "Requesting models");
+            showProgress(70, "Requesting models");
             k = ondemand.method385(0, (byte) 7);
             for (int k1 = 0; k1 < k; k1++) {
                 int l1 = ondemand.method390(k1, -600);
@@ -3006,7 +2954,7 @@ public class Game extends GameShell {
             while (ondemand.method393() > 0) {
                 int i2 = k - ondemand.method393();
                 if (i2 > 0) {
-                    method13(false, 70, "Loading models - " + (i2 * 100) / k + "%");
+                    showProgress(70, "Loading models - " + (i2 * 100) / k + "%");
                 }
                 method93(false);
                 try {
@@ -3014,8 +2962,8 @@ public class Game extends GameShell {
                 } catch (Exception _ex) {
                 }
             }
-            if (aClass45Array1208[0] != null) {
-                method13(false, 75, "Requesting maps");
+            if (filestores[0] != null) {
+                showProgress(75, "Requesting maps");
                 ondemand.request(3, ondemand.getMapFile(48, -942, 47, 0));
                 ondemand.request(3, ondemand.getMapFile(48, -942, 47, 1));
                 ondemand.request(3, ondemand.getMapFile(48, -942, 48, 0));
@@ -3032,7 +2980,7 @@ public class Game extends GameShell {
                 while (ondemand.method393() > 0) {
                     int j2 = k - ondemand.method393();
                     if (j2 > 0) {
-                        method13(false, 75, "Loading maps - " + (j2 * 100) / k + "%");
+                        showProgress(75, "Loading maps - " + (j2 * 100) / k + "%");
                     }
                     method93(false);
                     try {
@@ -3076,7 +3024,7 @@ public class Game extends GameShell {
                     }
                 }
             }
-            method13(false, 80, "Unpacking media");
+            showProgress(80, "Unpacking media");
             aClass44_Sub3_Sub1_Sub3_1143 = new Image8(class47_2, "invback", 0);
             aClass44_Sub3_Sub1_Sub3_1145 = new Image8(class47_2, "chatback", 0);
             aClass44_Sub3_Sub1_Sub3_1144 = new Image8(class47_2, "mapback", 0);
@@ -3090,13 +3038,13 @@ public class Game extends GameShell {
             aClass44_Sub3_Sub1_Sub2_1261 = new Image24(class47_2, "mapedge", 0);
             try {
                 for (int k3 = 0; k3 < 100; k3++) {
-                    aClass44_Sub3_Sub1_Sub3Array1241[k3] = new Image8(class47_2, "mapscene", k3);
+                    mapscenes[k3] = new Image8(class47_2, "mapscene", k3);
                 }
             } catch (Exception _ex) {
             }
             try {
                 for (int l3 = 0; l3 < 100; l3++) {
-                    aClass44_Sub3_Sub1_Sub2Array1052[l3] = new Image24(class47_2, "mapfunction", l3);
+                    mapfunctions[l3] = new Image24(class47_2, "mapfunction", l3);
                 }
             } catch (Exception _ex) {
             }
@@ -3186,18 +3134,18 @@ public class Game extends GameShell {
             int k5 = (int) (Math.random() * 21D) - 10;
             int l5 = (int) (Math.random() * 41D) - 20;
             for (int i6 = 0; i6 < 100; i6++) {
-                if (aClass44_Sub3_Sub1_Sub2Array1052[i6] != null) {
-                    aClass44_Sub3_Sub1_Sub2Array1052[i6].method436(i5 + l5, (byte) 3, j5 + l5, k5 + l5);
+                if (mapfunctions[i6] != null) {
+                    mapfunctions[i6].method436(i5 + l5, (byte) 3, j5 + l5, k5 + l5);
                 }
-                if (aClass44_Sub3_Sub1_Sub3Array1241[i6] != null) {
-                    aClass44_Sub3_Sub1_Sub3Array1241[i6].method452(i5 + l5, (byte) 3, j5 + l5, k5 + l5);
+                if (mapscenes[i6] != null) {
+                    mapscenes[i6].method452(i5 + l5, (byte) 3, j5 + l5, k5 + l5);
                 }
             }
-            method13(false, 83, "Unpacking textures");
+            showProgress(83, "Unpacking textures");
             Draw3D.method423(class47_3, Game.aBoolean1061);
             Draw3D.method427(0.80000000000000004D, 0);
             Draw3D.method422(1, 20);
-            method13(false, 86, "Unpacking config");
+            showProgress(86, "Unpacking config");
             SeqType.method253(true, class47);
             LocType.method197(class47);
             FloType.method243(true, class47);
@@ -3210,7 +3158,7 @@ public class Game extends GameShell {
             ObjType.aBoolean328 = Game.membersWorld;
             if (!Game.lowMemory) {
                 try {
-                    method13(false, 90, "Unpacking sounds");
+                    showProgress(90, "Unpacking sounds");
                     byte[] abyte0 = class47_5.method549("sounds.dat", null);
                     Buffer class44_sub3_sub2 = new Buffer(abyte0);
                     SoundTrack.method175(true, class44_sub3_sub2);
@@ -3218,16 +3166,16 @@ public class Game extends GameShell {
                     e.printStackTrace();
                 }
             }
-            method13(false, 95, "Unpacking interfaces");
+            showProgress(95, "Unpacking interfaces");
             BitmapFont[] aclass44_sub3_sub1_sub4 = {fontPlain, plainFont,
                     fontBold, aClass44_Sub3_Sub1_Sub4_1258};
             Component.method181(aclass44_sub3_sub1_sub4, class47_2, 0, class47_1);
-            method13(false, 100, "Preparing game engine");
+            showProgress(100, "Preparing game engine");
             for (int j6 = 0; j6 < 33; j6++) {
                 int k6 = 999;
                 int i7 = 0;
                 for (int k7 = 0; k7 < 34; k7++) {
-                    if (aClass44_Sub3_Sub1_Sub3_1144.aByteArray1458[k7 + j6 * aClass44_Sub3_Sub1_Sub3_1144.anInt1460] == 0) {
+                    if (aClass44_Sub3_Sub1_Sub3_1144.aByteArray1458[k7 + j6 * aClass44_Sub3_Sub1_Sub3_1144.width] == 0) {
                         if (k6 == 999) {
                             k6 = k7;
                         }
@@ -3246,7 +3194,7 @@ public class Game extends GameShell {
                 int j7 = 999;
                 int l7 = 0;
                 for (int j8 = 25; j8 < 172; j8++) {
-                    if (aClass44_Sub3_Sub1_Sub3_1144.aByteArray1458[j8 + l6 * aClass44_Sub3_Sub1_Sub3_1144.anInt1460] == 0
+                    if (aClass44_Sub3_Sub1_Sub3_1144.aByteArray1458[j8 + l6 * aClass44_Sub3_Sub1_Sub3_1144.width] == 0
                             && (j8 > 34 || l6 > 34)) {
                         if (j7 == 999) {
                             j7 = j8;
@@ -3282,7 +3230,7 @@ public class Game extends GameShell {
             GameObject.aClient1481 = this;
             return;
         } catch (Exception exception) {
-            SignLink.reporterror("loaderror " + aString926 + " " + anInt1176);
+            SignLink.reporterror("loaderror " + message + " " + percent);
         }
         aBoolean1055 = true;
     }
@@ -3346,16 +3294,16 @@ public class Game extends GameShell {
             int j = cameraHorizontal + anInt959 & 0x7ff;
             int k = 48 + Game.self.x / 32;
             int i3 = 464 - Game.self.z / 32;
-            aClass44_Sub3_Sub1_Sub2_913.method444(anIntArray881, 5, i3, 256 + anInt1075, j, 151, anIntArray868, 146,
+            minimap.method444(anIntArray881, 5, i3, 256 + anInt1075, j, 151, anIntArray868, 146,
                     -687, k, 25);
             aClass44_Sub3_Sub1_Sub2_988.method444(anIntArray961, 0, 25, 256, cameraHorizontal, 33, anIntArray910, 33, -687, 25,
                     0);
-            for (int k5 = 0; k5 < anInt826; k5++) {
-                int l = (anIntArray827[k5] * 4 + 2) - Game.self.x
+            for (int k5 = 0; k5 < activeMapfunctionCount; k5++) {
+                int l = (activeMapfunctionsX[k5] * 4 + 2) - Game.self.x
                         / 32;
-                int j3 = (anIntArray828[k5] * 4 + 2) - Game.self.z
+                int j3 = (activeMapfunctionsZ[k5] * 4 + 2) - Game.self.z
                         / 32;
-                method141(l, aClass44_Sub3_Sub1_Sub2Array872[k5], 139, j3);
+                method141(l, activeMapfunctions[k5], 139, j3);
             }
             for (int l5 = 0; l5 < 104; l5++) {
                 for (int i6 = 0; i6 < 104; i6++) {
@@ -3646,24 +3594,21 @@ public class Game extends GameShell {
                                     if (opcode == -1) {
                                         break;
                                     }
-                                    text = text.substring(0, opcode) + getIntString(executeClientScript(child, 2))
-                                            + text.substring(opcode + 2);
+                                    text = text.substring(0, opcode) + getIntString(executeClientScript(child, 2)) + text.substring(opcode + 2);
                                 } while (true);
                                 do {
                                     int opcode = text.indexOf("%4");
                                     if (opcode == -1) {
                                         break;
                                     }
-                                    text = text.substring(0, opcode) + getIntString(executeClientScript(child, 3))
-                                            + text.substring(opcode + 2);
+                                    text = text.substring(0, opcode) + getIntString(executeClientScript(child, 3)) + text.substring(opcode + 2);
                                 } while (true);
                                 do {
                                     int opcode = text.indexOf("%5");
                                     if (opcode == -1) {
                                         break;
                                     }
-                                    text = text.substring(0, opcode) + getIntString(executeClientScript(child, 4))
-                                            + text.substring(opcode + 2);
+                                    text = text.substring(0, opcode) + getIntString(executeClientScript(child, 4)) + text.substring(opcode + 2);
                                 } while (true);
                             }
                             int newLine = text.indexOf("\\n");
@@ -3732,14 +3677,12 @@ public class Game extends GameShell {
                                     if (obj.stackable || child.containerItemAmount[slot] != 1) {
                                         name = name + " x" + Game.getAmountToText(child.containerItemAmount[slot]);
                                     }
-                                    int i9 = x + dx * (115 + child.invMarginX);
-                                    int k9 = y + dy * (12 + child.invMarginY);
+                                    int _x = x + dx * (115 + child.invMarginX);
+                                    int _y = y + dy * (12 + child.invMarginY);
                                     if (child.center) {
-                                        font.drawStringTaggableCenter(name, i9 + child.width / 2, k9, child.colour, child.shadow
-                                        );
+                                        font.drawStringTaggableCenter(name, _x + child.width / 2, _y, child.colour, child.shadow);
                                     } else {
-                                        font.drawStringTaggable(name, i9, k9, child.colour,
-                                                child.shadow);
+                                        font.drawStringTaggable(name, _x, _y, child.colour, child.shadow);
                                     }
                                 }
                                 slot++;
@@ -3753,8 +3696,7 @@ public class Game extends GameShell {
     }
 
     public void loadingStages() {
-        try {
-            if (Game.lowMemory && sceneState == 2 && regionCached.plane != plane) {
+            if (Game.lowMemory && sceneState == 2 && Region.plane != plane) {
                 areaViewport.bind();
                 plainFont.drawStringCenter(257, "Loading - please wait.", -31546, 0, 151);
                 plainFont.drawStringCenter(256, "Loading - please wait.", -31546, 0xffffff, 150);
@@ -3764,22 +3706,12 @@ public class Game extends GameShell {
             }
             if (sceneState == 1) {
                 int successful = initializeRegionLoading(aByte1182);
-                if (successful != 0 && System.currentTimeMillis() - sceneLoadStartTime > 0x57e40L) {
-                    SignLink.reporterror(username + " glcfb " + serverSeed + "," + successful + "," + Game.lowMemory + ","
-                            + aClass45Array1208[0] + "," + ondemand.method393() + "," + plane + ","
-                            + sceneCenterZoneX + "," + sceneCenterZoneZ);
-                    sceneLoadStartTime = System.currentTimeMillis();
-                }
             }
             if (sceneState == 2 && plane != lastRegionId) {
                 lastRegionId = plane;
-                method40((byte) -89, plane);
+                createMinimap(plane);
                 return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("64388, " + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public int initializeRegionLoading(byte byte0) {
@@ -3798,7 +3730,7 @@ public class Game extends GameShell {
                 if (locs != null) {
                     int blockX = (sceneMapIndex[j] >> 8) * 64 - sceneBaseTileX;
                     int blockZ = (sceneMapIndex[j] & 0xff) * 64 - sceneBaseTileZ;
-                    regionsCached &= regionCached.method159(576, blockZ, blockX, locs);
+                    regionsCached &= Region.method159(576, blockZ, blockX, locs);
                 }
             }
             if (!regionsCached) {
@@ -3808,7 +3740,7 @@ public class Game extends GameShell {
                 return -4;
             }
             sceneState = 2;
-            regionCached.plane = plane;
+            Region.plane = plane;
             method129(-17416);
             out.writePacket(214);
             if (byte0 == 2) {
@@ -3823,91 +3755,74 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method40(byte byte0, int i) {
-        try {
-            int[] ai = aClass44_Sub3_Sub1_Sub2_913.pixels;
-            int j = ai.length;
-            for (int k = 0; k < j; k++) {
-                ai[k] = 0;
+    public void createMinimap(int plane) {
+        int[] pixels = minimap.pixels;
+        Arrays.fill(pixels, 0);
+        for (int z = 1; z < 103; z++) {
+            int offset = 24628 + (103 - z) * 512 * 4;
+            for (int x = 1; x < 103; x++) {
+                if ((planeTileFlags[plane][x][z] & 0x18) == 0) {
+                    scene.drawMinimapTile(pixels, offset, 512, plane, x, z);
+                }
+                if (plane < 3 && (planeTileFlags[plane + 1][x][z] & 8) != 0) {
+                    scene.drawMinimapTile(pixels, offset, 512, plane + 1, x, z);
+                }
+                offset += 4;
             }
-            for (int l = 1; l < 103; l++) {
-                int i1 = 24628 + (103 - l) * 512 * 4;
-                for (int k1 = 1; k1 < 103; k1++) {
-                    if ((planeTileFlags[i][k1][l] & 0x18) == 0) {
-                        scene.method313(ai, i1, 512, i, k1, l);
-                    }
-                    if (i < 3 && (planeTileFlags[i + 1][k1][l] & 8) != 0) {
-                        scene.method313(ai, i1, 512, i + 1, k1, l);
-                    }
-                    i1 += 4;
+        }
+        int wall = 0xEEEEEE;
+        int door = 0xEE0000;
+
+        minimap.bind();
+
+        for (int z = 1; z < 103; z++) {
+            for (int x = 1; x < 103; x++) {
+                if ((planeTileFlags[plane][x][z] & 0x18) == 0) {
+                    drawMinimapLoc(x, z, wall, plane, door);
+                }
+                if (plane < 3 && (planeTileFlags[plane + 1][x][z] & 8) != 0) {
+                    drawMinimapLoc(x, z, wall, plane + 1, door);
                 }
             }
-            int j1 = ((238 + (int) (Math.random() * 20D)) - 10 << 16) + ((238 + (int) (Math.random() * 20D)) - 10 << 8)
-                    + ((238 + (int) (Math.random() * 20D)) - 10);
-            int l1 = (238 + (int) (Math.random() * 20D)) - 10 << 16;
-            aClass44_Sub3_Sub1_Sub2_913.method435((byte) 5);
-            for (int i2 = 1; i2 < 103; i2++) {
-                for (int j2 = 1; j2 < 103; j2++) {
-                    if ((planeTileFlags[i][j2][i2] & 0x18) == 0) {
-                        method86(j2, i2, j1, (byte) 5, i, l1);
-                    }
-                    if (i < 3 && (planeTileFlags[i + 1][j2][i2] & 8) != 0) {
-                        method86(j2, i2, j1, (byte) 5, i + 1, l1);
-                    }
-                }
-            }
-            areaViewport.bind();
-            anInt826 = 0;
-            if (byte0 != -89) {
-                Game.anInt1029 = encryption.method545();
-            }
-            for (int k2 = 0; k2 < 104; k2++) {
-                for (int l2 = 0; l2 < 104; l2++) {
-                    int i3 = scene.method307(plane, k2, l2);
-                    if (i3 != 0) {
-                        i3 = i3 >> 14 & 0x7fff;
-                        int j3 = LocType.method199(i3).anInt235;
-                        if (j3 >= 0) {
-                            int k3 = k2;
-                            int l3 = l2;
-                            if (j3 != 22 && j3 != 29 && j3 != 34 && j3 != 36 && j3 != 46 && j3 != 47 && j3 != 48) {
-                                byte byte1 = 104;
-                                byte byte2 = 104;
-                                int[][] ai1 = aClass18Array1022[plane].anIntArrayArray418;
-                                for (int i4 = 0; i4 < 10; i4++) {
-                                    int j4 = (int) (Math.random() * 4D);
-                                    if (j4 == 0 && k3 > 0 && k3 > k2 - 3 && (ai1[k3 - 1][l3] & 0x280108) == 0) {
-                                        k3--;
-                                    }
-                                    if (j4 == 1 && k3 < byte1 - 1 && k3 < k2 + 3 && (ai1[k3 + 1][l3] & 0x280180) == 0) {
-                                        k3++;
-                                    }
-                                    if (j4 == 2 && l3 > 0 && l3 > l2 - 3 && (ai1[k3][l3 - 1] & 0x280102) == 0) {
-                                        l3--;
-                                    }
-                                    if (j4 == 3 && l3 < byte2 - 1 && l3 < l2 + 3 && (ai1[k3][l3 + 1] & 0x280120) == 0) {
-                                        l3++;
-                                    }
+        }
+        areaViewport.bind();
+        activeMapfunctionCount = 0;
+        for (int x = 0; x < 104; x++) {
+            for (int z = 0; z < 104; z++) {
+                int bitset = scene.getGroundDecorationBitset(plane, x, z);
+                if (bitset != 0) {
+                    bitset = bitset >> 14 & 0x7fff;
+                    int func = LocType.lookup(bitset).mapFunctionIcon;
+                    if (func >= 0) {
+                        int _x = x;
+                        int _z = z;
+                        if (func != 22 && func != 29 && func != 34 && func != 36 && func != 46 && func != 47 && func != 48) {
+                            byte regionWidth = 104;
+                            byte regionHeight = 104;
+                            int[][] flags = collisions[plane].flags;
+                            for (int off = 0; off < 10; off++) {
+                                int randomDirection = (int) (Math.random() * 4D);
+                                if (randomDirection == 0 && _x > 0 && _x > x - 3 && (flags[_x - 1][_z] & 0x280108) == 0) {
+                                    _x--;
+                                }
+                                if (randomDirection == 1 && _x < regionWidth - 1 && _x < x + 3 && (flags[_x + 1][_z] & 0x280180) == 0) {
+                                    _x++;
+                                }
+                                if (randomDirection == 2 && _z > 0 && _z > z - 3 && (flags[_x][_z - 1] & 0x280102) == 0) {
+                                    _z--;
+                                }
+                                if (randomDirection == 3 && _z < regionHeight - 1 && _z < z + 3 && (flags[_x][_z + 1] & 0x280120) == 0) {
+                                    _z++;
                                 }
                             }
-                            aClass44_Sub3_Sub1_Sub2Array872[anInt826] = aClass44_Sub3_Sub1_Sub2Array1052[j3];
-                            anIntArray827[anInt826] = k3;
-                            anIntArray828[anInt826] = l3;
-                            anInt826++;
                         }
+                        activeMapfunctions[activeMapfunctionCount] = mapfunctions[func];
+                        activeMapfunctionsX[activeMapfunctionCount] = _x;
+                        activeMapfunctionsZ[activeMapfunctionCount] = _z;
+                        activeMapfunctionCount++;
                     }
                 }
             }
-            Game.anInt1204++;
-            if (Game.anInt1204 > 112) {
-                Game.anInt1204 = 0;
-                out.writePacket(125);
-                out.writeByte(50);
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("89876, " + byte0 + ", " + i + ", " + runtimeexception);
-            throw new RuntimeException();
         }
     }
 
@@ -4249,16 +4164,12 @@ public class Game extends GameShell {
     }
 
     @Override
-    public void method13(boolean flag, int i, String s) {
-        try {
-            anInt1176 = i;
-            aString926 = s;
+    public void showProgress(int percent, String message) {
+            this.percent = percent;
+            this.message = message;
             resetTitleScreen();
-            if (flag) {
-                Game.aBoolean1061 = !Game.aBoolean1061;
-            }
-            if (aClass47_1117 == null) {
-                super.method13(false, i, s);
+            if (archiveTitle == null) {
+                super.showProgress(percent, message);
                 return;
             }
             title4.bind();
@@ -4270,9 +4181,9 @@ public class Game extends GameShell {
             int j = c1 / 2 - 18 - byte0;
             Draw2D.drawRect(c / 2 - 152, j, 304, 34, 0x8c1111, 1);
             Draw2D.drawRect(c / 2 - 151, j + 1, 302, 32, 0, 1);
-            Draw2D.fillRect(c / 2 - 150, j + 2, i * 3, 30, 0x8c1111, 210);
-            Draw2D.fillRect((c / 2 - 150) + i * 3, j + 2, 300 - i * 3, 30, 0, 210);
-            fontBold.drawStringCenter(c / 2, s, -31546, 0xffffff, (c1 / 2 + 5) - byte0);
+            Draw2D.fillRect(c / 2 - 150, j + 2, percent * 3, 30, 0x8c1111, 210);
+            Draw2D.fillRect((c / 2 - 150) + percent * 3, j + 2, 300 - percent * 3, 30, 0, 210);
+            fontBold.drawStringCenter(c / 2, message, -31546, 0xffffff, (c1 / 2 + 5) - byte0);
             title4.draw(super.graphics, 202, 171);
             if (redrawTitleBackground) {
                 redrawTitleBackground = false;
@@ -4288,10 +4199,6 @@ public class Game extends GameShell {
                 title8.draw(super.graphics, 562, 171);
                 return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10134, " + flag + ", " + i + ", " + s + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public void renderGameView(int i) {
@@ -4360,7 +4267,7 @@ public class Game extends GameShell {
             } else {
                 Model.anInt1594 = super.mouseX - 4;
                 Model.anInt1595 = super.mouseY - 4;
-                Draw2D.method409((byte) 127);
+                Draw2D.clear((byte) 127);
                 scene.method317(cameraPositionX, 7, cameraVerticalRotation, cameraPositionZ, k, cameraPositionY, anInt879);
                 scene.method292(true);
                 method61(1);
@@ -4778,10 +4685,9 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method48(int i) {
-        try {
-            titleBox = new Image8(aClass47_1117, "titlebox", 0);
-            titleButton = new Image8(aClass47_1117, "titlebutton", 0);
+    public void createTitleImages() {
+            titleBox = new Image8(archiveTitle, "titlebox", 0);
+            titleButton = new Image8(archiveTitle, "titlebutton", 0);
             aClass44_Sub3_Sub1_Sub3Array864 = new Image8[12];
             int j = 0;
             try {
@@ -4790,17 +4696,14 @@ public class Game extends GameShell {
             }
             if (j == 0) {
                 for (int k = 0; k < 12; k++) {
-                    aClass44_Sub3_Sub1_Sub3Array864[k] = new Image8(aClass47_1117, "runes", k);
+                    aClass44_Sub3_Sub1_Sub3Array864[k] = new Image8(archiveTitle, "runes", k);
                 }
             } else {
                 for (int l = 0; l < 12; l++) {
-                    aClass44_Sub3_Sub1_Sub3Array864[l] = new Image8(aClass47_1117, "runes", 12 + (l & 3));
+                    aClass44_Sub3_Sub1_Sub3Array864[l] = new Image8(archiveTitle, "runes", 12 + (l & 3));
                 }
             }
             flamesLeft = new Image24(128, 265);
-            if (i >= 0) {
-                return;
-            }
             flameRight = new Image24(128, 265);
             for (int i1 = 0; i1 < 33920; i1++) {
                 flamesLeft.pixels[i1] = title0.pixels[i1];
@@ -4853,16 +4756,11 @@ public class Game extends GameShell {
             method109(null, 34809);
             flameBuffer3 = new int[32768];
             anIntArray1273 = new int[32768];
-            method13(false, 10, "Connecting to fileserver");
+            showProgress(10, "Connecting to fileserver");
             if (!aBoolean1174) {
                 aBoolean886 = true;
                 aBoolean1174 = true;
                 method12(this, 2);
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("92179, " + i + ", " + runtimeexception);
-            throw new RuntimeException();
         }
     }
 
@@ -5083,7 +4981,7 @@ public class Game extends GameShell {
                 g.drawString("To play RuneScape make sure you play from", 50, 100);
                 g.drawString("http://www.runescape.com", 50, 150);
             }
-            if (aBoolean1236) {
+            if (errorStarted) {
                 aBoolean1174 = false;
                 g.setColor(Color.yellow);
                 int l = 35;
@@ -5723,11 +5621,11 @@ public class Game extends GameShell {
             title8 = null;
             aClass34_1198 = new DrawArea(479, 96);
             aClass34_1196 = new DrawArea(172, 156);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             aClass44_Sub3_Sub1_Sub3_1144.blit(0, 0);
             aClass34_1195 = new DrawArea(190, 261);
             areaViewport = new DrawArea(512, 334);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             aClass34_858 = new DrawArea(496, 50);
             aClass34_859 = new DrawArea(269, 37);
             aClass34_860 = new DrawArea(249, 45);
@@ -5985,8 +5883,8 @@ public class Game extends GameShell {
             if (!Game.lowMemory) {
                 if (Draw3D.anIntArray1437[17] >= i) {
                     Image8 class44_sub3_sub1_sub3 = Draw3D.aClass44_Sub3_Sub1_Sub3Array1431[17];
-                    int j = class44_sub3_sub1_sub3.anInt1460 * class44_sub3_sub1_sub3.anInt1461 - 1;
-                    int l = class44_sub3_sub1_sub3.anInt1460 * delta * 2;
+                    int j = class44_sub3_sub1_sub3.width * class44_sub3_sub1_sub3.height - 1;
+                    int l = class44_sub3_sub1_sub3.width * delta * 2;
                     byte[] abyte0 = class44_sub3_sub1_sub3.aByteArray1458;
                     byte[] abyte2 = aByteArray1109;
                     for (int j1 = 0; j1 <= j; j1++) {
@@ -5998,8 +5896,8 @@ public class Game extends GameShell {
                 }
                 if (Draw3D.anIntArray1437[24] >= i) {
                     Image8 class44_sub3_sub1_sub3_1 = Draw3D.aClass44_Sub3_Sub1_Sub3Array1431[24];
-                    int k = class44_sub3_sub1_sub3_1.anInt1460 * class44_sub3_sub1_sub3_1.anInt1461 - 1;
-                    int i1 = class44_sub3_sub1_sub3_1.anInt1460 * delta * 2;
+                    int k = class44_sub3_sub1_sub3_1.width * class44_sub3_sub1_sub3_1.height - 1;
+                    int i1 = class44_sub3_sub1_sub3_1.width * delta * 2;
                     byte[] abyte1 = class44_sub3_sub1_sub3_1.aByteArray1458;
                     byte[] abyte3 = aByteArray1109;
                     for (int k1 = 0; k1 <= k; k1++) {
@@ -6438,7 +6336,7 @@ public class Game extends GameShell {
                     class44_sub3_sub4_sub6_sub1 = players[j19];
                 }
                 if (class44_sub3_sub4_sub6_sub1 != null) {
-                    LocType class8 = LocType.method199(i17);
+                    LocType class8 = LocType.lookup(i17);
                     int k20 = anIntArrayArrayArray865[plane][i5][k7];
                     int l20 = anIntArrayArrayArray865[plane][i5 + 1][k7];
                     int i21 = anIntArrayArrayArray865[plane][i5 + 1][k7 + 1];
@@ -6449,11 +6347,11 @@ public class Game extends GameShell {
                         class44_sub3_sub4_sub6_sub1.anInt1682 = l17 + Game.loopCycle;
                         class44_sub3_sub4_sub6_sub1.anInt1683 = k18 + Game.loopCycle;
                         class44_sub3_sub4_sub6_sub1.aClass44_Sub3_Sub4_Sub4_1687 = class44_sub3_sub4_sub4;
-                        int k21 = class8.anInt222;
-                        int l21 = class8.anInt223;
+                        int k21 = class8.sizeX;
+                        int l21 = class8.sizeZ;
                         if (j14 == 1 || j14 == 3) {
-                            k21 = class8.anInt223;
-                            l21 = class8.anInt222;
+                            k21 = class8.sizeZ;
+                            l21 = class8.sizeX;
                         }
                         class44_sub3_sub4_sub6_sub1.anInt1684 = i5 * 128 + k21 * 64;
                         class44_sub3_sub4_sub6_sub1.anInt1686 = k7 * 128 + l21 * 64;
@@ -6527,9 +6425,8 @@ public class Game extends GameShell {
         }
     }
 
-    public void method68(int i) {
-        try {
-            byte[] abyte0 = aClass47_1117.method549("title.dat", null);
+    public void createTitleBackground() {
+            byte[] abyte0 = archiveTitle.method549("title.dat", null);
             Image24 class44_sub3_sub1_sub2 = new Image24(abyte0, this);
             title0.bind();
             class44_sub3_sub1_sub2.blitOpaque(0, 0);
@@ -6564,34 +6461,25 @@ public class Game extends GameShell {
             title1.bind();
             class44_sub3_sub1_sub2.blitOpaque(-255, 0);
             title2.bind();
-            if (i != 0) {
-                return;
-            } else {
-                class44_sub3_sub1_sub2.blitOpaque(254, 0);
-                title3.bind();
-                class44_sub3_sub1_sub2.blitOpaque(180, -371);
-                title4.bind();
-                class44_sub3_sub1_sub2.blitOpaque(180, -171);
-                title5.bind();
-                class44_sub3_sub1_sub2.blitOpaque(382, -265);
-                title6.bind();
-                class44_sub3_sub1_sub2.blitOpaque(-180, -265);
-                title7.bind();
-                class44_sub3_sub1_sub2.blitOpaque(254, -171);
-                title8.bind();
-                class44_sub3_sub1_sub2.blitOpaque(-180, -171);
-                class44_sub3_sub1_sub2 = new Image24(aClass47_1117, "logo", 0);
-                title2.bind();
-                class44_sub3_sub1_sub2.draw(382 - class44_sub3_sub1_sub2.width / 2 - 128, 18);
-                class44_sub3_sub1_sub2 = null;
-                System.gc();
-                return;
+            class44_sub3_sub1_sub2.blitOpaque(254, 0);
+            title3.bind();
+            class44_sub3_sub1_sub2.blitOpaque(180, -371);
+            title4.bind();
+            class44_sub3_sub1_sub2.blitOpaque(180, -171);
+            title5.bind();
+            class44_sub3_sub1_sub2.blitOpaque(382, -265);
+            title6.bind();
+            class44_sub3_sub1_sub2.blitOpaque(-180, -265);
+            title7.bind();
+            class44_sub3_sub1_sub2.blitOpaque(254, -171);
+            title8.bind();
+            class44_sub3_sub1_sub2.blitOpaque(-180, -171);
+            class44_sub3_sub1_sub2 = new Image24(archiveTitle, "logo", 0);
+            title2.bind();
+            class44_sub3_sub1_sub2.draw(382 - class44_sub3_sub1_sub2.width / 2 - 128, 18);
+            class44_sub3_sub1_sub2 = null;
+            System.gc();
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("12680, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
-    }
 
     public void renderProjectiles(byte byte0) {
         try {
@@ -6720,27 +6608,27 @@ public class Game extends GameShell {
                 }
                 int i2 = 0;
                 if (k1 == 0) {
-                    i2 = scene.method304(l, j1, l1);
+                    i2 = scene.getWallBitset(l, j1, l1);
                 }
                 if (k1 == 1) {
                     i2 = scene.method305(l1, 7, l, j1);
                 }
                 if (k1 == 2) {
-                    i2 = scene.method306(l, j1, l1);
+                    i2 = scene.getInteractableBitset(l, j1, l1);
                 }
                 if (k1 == 3) {
-                    i2 = scene.method307(l, j1, l1);
+                    i2 = scene.getGroundDecorationBitset(l, j1, l1);
                 }
                 if (i2 != 0) {
-                    int i3 = scene.method308(l, j1, l1, i2);
+                    int i3 = scene.getConfig(l, j1, l1, i2);
                     int j2 = i2 >> 14 & 0x7fff;
                     int k2 = i3 & 0x1f;
                     int l2 = i3 >> 6;
                     if (k1 == 0) {
                         scene.method295(l1, j1, (byte) 7, l);
-                        LocType class8 = LocType.method199(j2);
+                        LocType class8 = LocType.lookup(j2);
                         if (class8.aBoolean224) {
-                            aClass18Array1022[l].method236(l2, k2, l1, j1, class8.aBoolean225, (byte) 3);
+                            collisions[l].method236(l2, k2, l1, j1, class8.aBoolean225, (byte) 3);
                         }
                     }
                     if (k1 == 1) {
@@ -6748,21 +6636,21 @@ public class Game extends GameShell {
                     }
                     if (k1 == 2) {
                         scene.method297(2, l, l1, j1);
-                        LocType class8_1 = LocType.method199(j2);
-                        if (j1 + class8_1.anInt222 > 103 || l1 + class8_1.anInt222 > 103
-                                || j1 + class8_1.anInt223 > 103 || l1 + class8_1.anInt223 > 103) {
+                        LocType class8_1 = LocType.lookup(j2);
+                        if (j1 + class8_1.sizeX > 103 || l1 + class8_1.sizeX > 103
+                                || j1 + class8_1.sizeZ > 103 || l1 + class8_1.sizeZ > 103) {
                             return;
                         }
                         if (class8_1.aBoolean224) {
-                            aClass18Array1022[l].method237(class8_1.anInt223, l1, j1, class8_1.aBoolean225, 8, l2,
-                                    class8_1.anInt222);
+                            collisions[l].method237(class8_1.sizeZ, l1, j1, class8_1.aBoolean225, 8, l2,
+                                    class8_1.sizeX);
                         }
                     }
                     if (k1 == 3) {
                         scene.method298(j1, l1, 3, l);
-                        LocType class8_2 = LocType.method199(j2);
+                        LocType class8_2 = LocType.lookup(j2);
                         if (class8_2.aBoolean224 && class8_2.aBoolean226) {
-                            aClass18Array1022[l].method239(l1, true, j1);
+                            collisions[l].method239(l1, true, j1);
                         }
                     }
                 }
@@ -6771,7 +6659,7 @@ public class Game extends GameShell {
                     if (j3 < 3 && (planeTileFlags[1][j1][l1] & 2) == 2) {
                         j3++;
                     }
-                    regionCached.method174(i, l, l1, k, anIntArrayArrayArray865, j3, j1, aClass18Array1022[l], scene,
+                    Region.method174(i, l, l1, k, anIntArrayArrayArray865, j3, j1, collisions[l], scene,
                             i1, 0);
                     return;
                 }
@@ -6882,7 +6770,7 @@ public class Game extends GameShell {
     public boolean method78(int i, int j, boolean flag, int k, int l) {
         try {
             int i1 = i >> 14 & 0x7fff;
-            int j1 = scene.method308(plane, l, k, i);
+            int j1 = scene.getConfig(plane, l, k, i);
             if (j1 == -1) {
                 return false;
             }
@@ -6911,15 +6799,15 @@ public class Game extends GameShell {
                 out.method481(out.position - i2, anInt1152);
             }
             if (k1 == 10 || k1 == 11 || k1 == 22) {
-                LocType class8 = LocType.method199(i1);
+                LocType class8 = LocType.lookup(i1);
                 int j2;
                 int k2;
                 if (l1 == 0 || l1 == 2) {
-                    j2 = class8.anInt222;
-                    k2 = class8.anInt223;
+                    j2 = class8.sizeX;
+                    k2 = class8.sizeZ;
                 } else {
-                    j2 = class8.anInt223;
-                    k2 = class8.anInt222;
+                    j2 = class8.sizeZ;
+                    k2 = class8.sizeX;
                 }
                 int l2 = class8.anInt245;
                 if (l1 != 0) {
@@ -7203,153 +7091,137 @@ public class Game extends GameShell {
             SignLink.waveVolume = volume;
     }
 
-    public void method86(int i, int j, int k, byte byte0, int l, int i1) {
-        try {
-            int j1 = scene.method304(l, i, j);
-            if (j1 != 0) {
-                int k1 = scene.method308(l, i, j, j1);
-                int j2 = k1 >> 6 & 3;
-                int l2 = k1 & 0x1f;
-                int j3 = k;
-                if (j1 > 0) {
-                    j3 = i1;
-                }
-                int[] ai = aClass44_Sub3_Sub1_Sub2_913.pixels;
-                int j4 = 24624 + i * 4 + (103 - j) * 512 * 4;
-                int l4 = j1 >> 14 & 0x7fff;
-                LocType class8_2 = LocType.method199(l4);
-                if (class8_2.anInt236 != -1) {
-                    Image8 class44_sub3_sub1_sub3_2 = aClass44_Sub3_Sub1_Sub3Array1241[class8_2.anInt236];
-                    if (class44_sub3_sub1_sub3_2 != null) {
-                        int l5 = (class8_2.anInt222 * 4 - class44_sub3_sub1_sub3_2.anInt1460) / 2;
-                        int i6 = (class8_2.anInt223 * 4 - class44_sub3_sub1_sub3_2.anInt1461) / 2;
-                        class44_sub3_sub1_sub3_2.blit(48 + (104 - j - class8_2.anInt223) * 4 + i6, 48
-                                + i * 4 + l5);
-                    }
-                } else {
-                    if (l2 == 0 || l2 == 2) {
-                        if (j2 == 0) {
-                            ai[j4] = j3;
-                            ai[j4 + 512] = j3;
-                            ai[j4 + 1024] = j3;
-                            ai[j4 + 1536] = j3;
-                        } else if (j2 == 1) {
-                            ai[j4] = j3;
-                            ai[j4 + 1] = j3;
-                            ai[j4 + 2] = j3;
-                            ai[j4 + 3] = j3;
-                        } else if (j2 == 2) {
-                            ai[j4 + 3] = j3;
-                            ai[j4 + 3 + 512] = j3;
-                            ai[j4 + 3 + 1024] = j3;
-                            ai[j4 + 3 + 1536] = j3;
-                        } else if (j2 == 3) {
-                            ai[j4 + 1536] = j3;
-                            ai[j4 + 1536 + 1] = j3;
-                            ai[j4 + 1536 + 2] = j3;
-                            ai[j4 + 1536 + 3] = j3;
-                        }
-                    }
-                    if (l2 == 3) {
-                        if (j2 == 0) {
-                            ai[j4] = j3;
-                        } else if (j2 == 1) {
-                            ai[j4 + 3] = j3;
-                        } else if (j2 == 2) {
-                            ai[j4 + 3 + 1536] = j3;
-                        } else if (j2 == 3) {
-                            ai[j4 + 1536] = j3;
-                        }
-                    }
-                    if (l2 == 2) {
-                        if (j2 == 3) {
-                            ai[j4] = j3;
-                            ai[j4 + 512] = j3;
-                            ai[j4 + 1024] = j3;
-                            ai[j4 + 1536] = j3;
-                        } else if (j2 == 0) {
-                            ai[j4] = j3;
-                            ai[j4 + 1] = j3;
-                            ai[j4 + 2] = j3;
-                            ai[j4 + 3] = j3;
-                        } else if (j2 == 1) {
-                            ai[j4 + 3] = j3;
-                            ai[j4 + 3 + 512] = j3;
-                            ai[j4 + 3 + 1024] = j3;
-                            ai[j4 + 3 + 1536] = j3;
-                        } else if (j2 == 2) {
-                            ai[j4 + 1536] = j3;
-                            ai[j4 + 1536 + 1] = j3;
-                            ai[j4 + 1536 + 2] = j3;
-                            ai[j4 + 1536 + 3] = j3;
-                        }
-                    }
-                }
+    public void drawMinimapLoc(int i, int j, int lineColour, int l, int interactiveColour) {
+        int uid = scene.getWallBitset(l, i, j);
+        if (uid != 0) {
+            int config = scene.getConfig(l, i, j, uid);
+            int direction = config >> 6 & 3;
+            int type = config & 0x1f;
+            int colour = lineColour;
+            if (uid > 0) {
+                colour = interactiveColour;
             }
-            j1 = scene.method306(l, i, j);
-            if (j1 != 0) {
-                int l1 = scene.method308(l, i, j, j1);
-                int k2 = l1 >> 6 & 3;
-                int i3 = l1 & 0x1f;
-                int k3 = j1 >> 14 & 0x7fff;
-                LocType class8_1 = LocType.method199(k3);
-                if (class8_1.anInt236 != -1) {
-                    Image8 class44_sub3_sub1_sub3_1 = aClass44_Sub3_Sub1_Sub3Array1241[class8_1.anInt236];
-                    if (class44_sub3_sub1_sub3_1 != null) {
-                        int i5 = (class8_1.anInt222 * 4 - class44_sub3_sub1_sub3_1.anInt1460) / 2;
-                        int j5 = (class8_1.anInt223 * 4 - class44_sub3_sub1_sub3_1.anInt1461) / 2;
-                        class44_sub3_sub1_sub3_1.blit(48 + (104 - j - class8_1.anInt223) * 4 + j5, 48
-                                + i * 4 + i5);
-                    }
-                } else if (i3 == 9) {
-                    int k4 = 0xeeeeee;
-                    if (j1 > 0) {
-                        k4 = 0xee0000;
-                    }
-                    int[] ai1 = aClass44_Sub3_Sub1_Sub2_913.pixels;
-                    int k5 = 24624 + i * 4 + (103 - j) * 512 * 4;
-                    if (k2 == 0 || k2 == 2) {
-                        ai1[k5 + 1536] = k4;
-                        ai1[k5 + 1024 + 1] = k4;
-                        ai1[k5 + 512 + 2] = k4;
-                        ai1[k5 + 3] = k4;
-                    } else {
-                        ai1[k5] = k4;
-                        ai1[k5 + 512 + 1] = k4;
-                        ai1[k5 + 1024 + 2] = k4;
-                        ai1[k5 + 1536 + 3] = k4;
-                    }
+            int[] pixels = minimap.pixels;
+            int pixel = 24624 + i * 4 + (103 - j) * 512 * 4;
+            int locId = uid >> 14 & 0x7fff;
+            LocType loc = LocType.lookup(locId);
+            if (loc.mapscene != -1) {
+                Image8 mapscene = mapscenes[loc.mapscene];
+                if (mapscene != null) {
+                    int _x = (loc.sizeX * 4 - mapscene.width) / 2;
+                    int _z = (loc.sizeZ * 4 - mapscene.height) / 2;
+                    mapscene.blit(48 + (104 - j - loc.sizeZ) * 4 + _z, 48 + i * 4 + _x);
                 }
-            }
-            j1 = scene.method307(l, i, j);
-            if (byte0 == 5) {
-                byte0 = 0;
             } else {
-                aBoolean1262 = !aBoolean1262;
-            }
-            if (j1 != 0) {
-                int i2 = j1 >> 14 & 0x7fff;
-                LocType class8 = LocType.method199(i2);
-                if (class8.anInt236 != -1) {
-                    Image8 class44_sub3_sub1_sub3 = aClass44_Sub3_Sub1_Sub3Array1241[class8.anInt236];
-                    if (class44_sub3_sub1_sub3 != null) {
-                        int l3 = (class8.anInt222 * 4 - class44_sub3_sub1_sub3.anInt1460) / 2;
-                        int i4 = (class8.anInt223 * 4 - class44_sub3_sub1_sub3.anInt1461) / 2;
-                        class44_sub3_sub1_sub3.blit(48 + (104 - j - class8.anInt223) * 4 + i4, 48 + i
-                                * 4 + l3);
-                        return;
+                if (type == 0 || type == 2) {
+                    if (direction == 0) {
+                        pixels[pixel] = colour;
+                        pixels[pixel + 512] = colour;
+                        pixels[pixel + 1024] = colour;
+                        pixels[pixel + 1536] = colour;
+                    } else if (direction == 1) {
+                        pixels[pixel] = colour;
+                        pixels[pixel + 1] = colour;
+                        pixels[pixel + 2] = colour;
+                        pixels[pixel + 3] = colour;
+                    } else if (direction == 2) {
+                        pixels[pixel + 3] = colour;
+                        pixels[pixel + 3 + 512] = colour;
+                        pixels[pixel + 3 + 1024] = colour;
+                        pixels[pixel + 3 + 1536] = colour;
+                    } else if (direction == 3) {
+                        pixels[pixel + 1536] = colour;
+                        pixels[pixel + 1536 + 1] = colour;
+                        pixels[pixel + 1536 + 2] = colour;
+                        pixels[pixel + 1536 + 3] = colour;
+                    }
+                }
+                if (type == 3) {
+                    if (direction == 0) {
+                        pixels[pixel] = colour;
+                    } else if (direction == 1) {
+                        pixels[pixel + 3] = colour;
+                    } else if (direction == 2) {
+                        pixels[pixel + 3 + 1536] = colour;
+                    } else if (direction == 3) {
+                        pixels[pixel + 1536] = colour;
+                    }
+                }
+                if (type == 2) {
+                    if (direction == 3) {
+                        pixels[pixel] = colour;
+                        pixels[pixel + 512] = colour;
+                        pixels[pixel + 1024] = colour;
+                        pixels[pixel + 1536] = colour;
+                    } else if (direction == 0) {
+                        pixels[pixel] = colour;
+                        pixels[pixel + 1] = colour;
+                        pixels[pixel + 2] = colour;
+                        pixels[pixel + 3] = colour;
+                    } else if (direction == 1) {
+                        pixels[pixel + 3] = colour;
+                        pixels[pixel + 3 + 512] = colour;
+                        pixels[pixel + 3 + 1024] = colour;
+                        pixels[pixel + 3 + 1536] = colour;
+                    } else if (direction == 2) {
+                        pixels[pixel + 1536] = colour;
+                        pixels[pixel + 1536 + 1] = colour;
+                        pixels[pixel + 1536 + 2] = colour;
+                        pixels[pixel + 1536 + 3] = colour;
                     }
                 }
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97581, " + i + ", " + j + ", " + k + ", " + byte0 + ", " + l + ", " + i1 + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
+        }
+        uid = scene.getInteractableBitset(l, i, j); //TODO rethink this name
+        if (uid != 0) {
+            int config = scene.getConfig(l, i, j, uid);
+            int direction = config >> 6 & 3;
+            int type = config & 0x1f;
+            int locId = uid >> 14 & 0x7fff;
+            LocType loc = LocType.lookup(locId);
+            if (loc.mapscene != -1) {
+                Image8 mapscene = mapscenes[loc.mapscene];
+                if (mapscene != null) {
+                    int _x = (loc.sizeX * 4 - mapscene.width) / 2;
+                    int _z = (loc.sizeZ * 4 - mapscene.height) / 2;
+                    mapscene.blit(48 + (104 - j - loc.sizeZ) * 4 + _z, 48 + i * 4 + _x);
+                }
+            } else if (type == 9) {
+                int colour = 0xeeeeee;
+                if (uid > 0) {
+                    colour = 0xee0000;
+                }
+                int[] pixels = minimap.pixels;
+                int pixel = 24624 + i * 4 + (103 - j) * 512 * 4;
+                if (direction == 0 || direction == 2) {
+                    pixels[pixel + 1536] = colour;
+                    pixels[pixel + 1024 + 1] = colour;
+                    pixels[pixel + 512 + 2] = colour;
+                    pixels[pixel + 3] = colour;
+                } else {
+                    pixels[pixel] = colour;
+                    pixels[pixel + 512 + 1] = colour;
+                    pixels[pixel + 1024 + 2] = colour;
+                    pixels[pixel + 1536 + 3] = colour;
+                }
+            }
+        }
+        uid = scene.getGroundDecorationBitset(l, i, j);
+        if (uid != 0) {
+            int locId = uid >> 14 & 0x7fff;
+            LocType loc = LocType.lookup(locId);
+            if (loc.mapscene != -1) {
+                Image8 mapscene = mapscenes[loc.mapscene];
+                if (mapscene != null) {
+                    int _x = (loc.sizeX * 4 - mapscene.width) / 2;
+                    int _z = (loc.sizeZ * 4 - mapscene.height) / 2;
+                    mapscene.blit(48 + (104 - j - loc.sizeZ) * 4 + _z, 48 + i * 4 + _x);
+                }
+            }
         }
     }
 
     public void resetTitleScreen() {
-        try {
             if (title2 != null) {
                 return;
             }
@@ -7362,33 +7234,28 @@ public class Game extends GameShell {
             aClass34_859 = null;
             aClass34_860 = null;
             title0 = new DrawArea(128, 265);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title1 = new DrawArea(128, 265);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title2 = new DrawArea(509, 171);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title3 = new DrawArea(360, 132);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title4 = new DrawArea(360, 200);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title5 = new DrawArea(202, 238);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title6 = new DrawArea(203, 238);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title7 = new DrawArea(74, 94);
-            Draw2D.method409((byte) 127);
+            Draw2D.clear((byte) 127);
             title8 = new DrawArea(75, 94);
-            Draw2D.method409((byte) 127);
-            if (aClass47_1117 != null) {
-                method68(0);
-                method48(-532);
+            Draw2D.clear((byte) 127);
+            if (archiveTitle != null) {
+                createTitleBackground();
+                createTitleImages();
             }
             redrawTitleBackground = true;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("94767, " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public boolean getComponentScriptState(Component component) {
@@ -7637,7 +7504,7 @@ public class Game extends GameShell {
                     }
                 } while (class44_sub3_sub3.anInt1405 != 93
                         || !ondemand.method389(class44_sub3_sub3.anInt1406, anInt857));
-                regionCached.method160(ondemand, new Buffer(class44_sub3_sub3.aByteArray1407), anInt1247);
+                Region.method160(ondemand, new Buffer(class44_sub3_sub3.aByteArray1407), anInt1247);
             } while (true);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("44515, " + flag + ", " + runtimeexception);
@@ -8639,8 +8506,8 @@ public class Game extends GameShell {
             }
             if (class44_sub3_sub1_sub3 != null) {
                 int l1 = 0;
-                for (int j2 = 0; j2 < class44_sub3_sub1_sub3.anInt1461; j2++) {
-                    for (int l2 = 0; l2 < class44_sub3_sub1_sub3.anInt1460; l2++) {
+                for (int j2 = 0; j2 < class44_sub3_sub1_sub3.height; j2++) {
+                    for (int l2 = 0; l2 < class44_sub3_sub1_sub3.width; l2++) {
                         if (class44_sub3_sub1_sub3.aByteArray1458[l1++] != 0) {
                             int i3 = l2 + 16 + class44_sub3_sub1_sub3.anInt1462;
                             int j3 = j2 + 16 + class44_sub3_sub1_sub3.anInt1463;
@@ -9676,7 +9543,7 @@ public class Game extends GameShell {
                 anInt1091 = 304;
             }
             int j4 = anIntArray1020.length;
-            int[][] ai = aClass18Array1022[plane].anIntArrayArray418;
+            int[][] ai = collisions[plane].flags;
             while (i4 != l3) {
                 j3 = anIntArray1020[i4];
                 k3 = anIntArray1021[i4];
@@ -9686,17 +9553,17 @@ public class Game extends GameShell {
                     break;
                 }
                 if (j1 != 0) {
-                    if ((j1 < 5 || j1 == 10) && aClass18Array1022[plane].method240(l, k, j1 - 1, j2, k3, j3, -628)) {
+                    if ((j1 < 5 || j1 == 10) && collisions[plane].method240(l, k, j1 - 1, j2, k3, j3, -628)) {
                         flag1 = true;
                         break;
                     }
-                    if (j1 < 10 && aClass18Array1022[plane].method241((byte) -58, j2, k3, l, j1 - 1, k, j3)) {
+                    if (j1 < 10 && collisions[plane].method241((byte) -58, j2, k3, l, j1 - 1, k, j3)) {
                         flag1 = true;
                         break;
                     }
                 }
                 if (i != 0 && i2 != 0
-                        && aClass18Array1022[plane].method242(i, l, k3, Game.anInt958, i2, j3, i1, j2)) {
+                        && collisions[plane].method242(i, l, k3, Game.anInt958, i2, j3, i1, j2)) {
                     flag1 = true;
                     break;
                 }
@@ -9864,8 +9731,8 @@ public class Game extends GameShell {
             }
             int l = 5;
             try {
-                if (aClass45Array1208[0] != null) {
-                    abyte0 = aClass45Array1208[0].method541(false, i);
+                if (filestores[0] != null) {
+                    abyte0 = filestores[0].method541(false, i);
                 }
             } catch (Exception _ex) {
             }
@@ -9884,7 +9751,7 @@ public class Game extends GameShell {
             int j1 = 0;
             while (abyte0 == null) {
                 String s2 = "Unknown error";
-                method13(false, j, "Requesting " + s);
+                showProgress(j, "Requesting " + s);
                 try {
                     int k1 = 0;
                     DataInputStream datainputstream = method77(s1 + k);
@@ -9911,17 +9778,17 @@ public class Game extends GameShell {
                         j2 += j3;
                         int k3 = (j2 * 100) / i2;
                         if (k3 != k1) {
-                            method13(false, j, "Loading " + s + " - " + k3 + "%");
+                            showProgress(j, "Loading " + s + " - " + k3 + "%");
                         }
                         k1 = k3;
                     }
                     datainputstream.close();
                     try {
-                        if (aClass45Array1208[0] != null) {
-                            aClass45Array1208[0].method542(abyte0, (byte) 4, abyte0.length, i);
+                        if (filestores[0] != null) {
+                            filestores[0].method542(abyte0, (byte) 4, abyte0.length, i);
                         }
                     } catch (Exception _ex) {
-                        aClass45Array1208[0] = null;
+                        filestores[0] = null;
                     }
                     if (abyte0 != null) {
                         aCRC32_951.reset();
@@ -9961,10 +9828,10 @@ public class Game extends GameShell {
                 if (abyte0 == null) {
                     for (int l1 = l; l1 > 0; l1--) {
                         if (j1 >= 3) {
-                            method13(false, j, "Game updated - please reload page");
+                            showProgress(j, "Game updated - please reload page");
                             l1 = 10;
                         } else {
-                            method13(false, j, s2 + " - Retrying in " + l1);
+                            showProgress(j, s2 + " - Retrying in " + l1);
                         }
                         try {
                             Thread.sleep(1000L);
@@ -10146,20 +10013,20 @@ public class Game extends GameShell {
                 method76(aByte1042);
                 scene.method278(true);
                 for (int j = 0; j < 4; j++) {
-                    aClass18Array1022[j].method231(3);
+                    collisions[j].method231(3);
                 }
                 System.gc();
-                regionCached class3 = new regionCached(anIntArrayArrayArray865, 104, (byte) 9, planeTileFlags, 104);
+                Region class3 = new Region(anIntArrayArrayArray865, 104, (byte) 9, planeTileFlags, 104);
                 int k1 = sceneMapLandData.length;
-                regionCached.aBoolean64 = Scene.aBoolean606;
+                Region.aBoolean64 = Scene.aBoolean606;
                 for (int j2 = 0; j2 < k1; j2++) {
                     int l2 = sceneMapIndex[j2] >> 8;
                     int k3 = sceneMapIndex[j2] & 0xff;
                     if (l2 == 33 && k3 >= 71 && k3 <= 73) {
-                        regionCached.aBoolean64 = false;
+                        Region.aBoolean64 = false;
                     }
                 }
-                if (regionCached.aBoolean64) {
+                if (Region.aBoolean64) {
                     scene.method279((byte) 7, plane);
                 } else {
                     scene.method279((byte) 7, 0);
@@ -10186,11 +10053,11 @@ public class Game extends GameShell {
                     if (abyte1 != null) {
                         int j6 = (sceneMapIndex[i5] >> 8) * 64 - sceneBaseTileX;
                         int l6 = (sceneMapIndex[i5] & 0xff) * 64 - sceneBaseTileZ;
-                        class3.method161(l6, j6, abyte1, scene, (byte) 4, aClass18Array1022);
+                        class3.method161(l6, j6, abyte1, scene, (byte) 4, collisions);
                     }
                 }
                 //aClass44_Sub3_Sub2_850.writePacket(181);
-                class3.method163((byte) 76, aClass18Array1022, scene);
+                class3.method163((byte) 76, collisions, scene);
                 areaViewport.bind();
                // aClass44_Sub3_Sub2_850.writePacket(181);
                 for (int l5 = 0; l5 < 104; l5++) {
@@ -10628,7 +10495,7 @@ public class Game extends GameShell {
     @Override
     public void method9(byte byte0) {
         try {
-            if (aBoolean1236 || aBoolean1055 || aBoolean820) {
+            if (errorStarted || aBoolean1055 || aBoolean820) {
                 method53(9);
                 return;
             }
@@ -11084,7 +10951,7 @@ public class Game extends GameShell {
             }
             if (action == 1381) {
                 int k1 = c >> 14 & 0x7fff;
-                LocType class8 = LocType.method199(k1);
+                LocType class8 = LocType.lookup(k1);
                 String s10;
                 if (class8.aByteArray219 != null) {
                     s10 = new String(class8.aByteArray219);
@@ -11298,8 +11165,8 @@ public class Game extends GameShell {
                     continue;
                 }
                 i = k;
-                if (j1 == 2 && scene.method308(plane, l, i1, k) >= 0) {
-                    LocType class8 = LocType.method199(k1);
+                if (j1 == 2 && scene.getConfig(plane, l, i1, k) >= 0) {
+                    LocType class8 = LocType.lookup(k1);
                     if (class8.anIntArray250 != null) {
                         VarBit class35 = VarBit.aClass35Array590[class8.anInt249];
                         int k2 = class35.anInt592;
@@ -11310,7 +11177,7 @@ public class Game extends GameShell {
                         if (j4 < 0 || j4 >= class8.anIntArray250.length || class8.anIntArray250[j4] == -1) {
                             continue;
                         }
-                        class8 = LocType.method199(class8.anIntArray250[j4]);
+                        class8 = LocType.lookup(class8.anIntArray250[j4]);
                     }
                     if (itemSelected == 1) {
                         menuActionName[menuSize] = "Use " + aString956 + " with @cya@" + class8.aString218;
@@ -11553,19 +11420,19 @@ public class Game extends GameShell {
                 }
             }
             if (class44_sub1.anInt1324 == 0) {
-                i = scene.method304(class44_sub1.anInt1323, class44_sub1.sceneTileX, class44_sub1.sceneTileZ);
+                i = scene.getWallBitset(class44_sub1.anInt1323, class44_sub1.sceneTileX, class44_sub1.sceneTileZ);
             }
             if (class44_sub1.anInt1324 == 1) {
                 i = scene.method305(class44_sub1.sceneTileZ, 7, class44_sub1.anInt1323, class44_sub1.sceneTileX);
             }
             if (class44_sub1.anInt1324 == 2) {
-                i = scene.method306(class44_sub1.anInt1323, class44_sub1.sceneTileX, class44_sub1.sceneTileZ);
+                i = scene.getInteractableBitset(class44_sub1.anInt1323, class44_sub1.sceneTileX, class44_sub1.sceneTileZ);
             }
             if (class44_sub1.anInt1324 == 3) {
-                i = scene.method307(class44_sub1.anInt1323, class44_sub1.sceneTileX, class44_sub1.sceneTileZ);
+                i = scene.getGroundDecorationBitset(class44_sub1.anInt1323, class44_sub1.sceneTileX, class44_sub1.sceneTileZ);
             }
             if (i != 0) {
-                int j1 = scene.method308(class44_sub1.anInt1323, class44_sub1.sceneTileX,
+                int j1 = scene.getConfig(class44_sub1.anInt1323, class44_sub1.sceneTileX,
                         class44_sub1.sceneTileZ, i);
                 j = i >> 14 & 0x7fff;
                 k = j1 & 0x1f;
@@ -11885,7 +11752,7 @@ public class Game extends GameShell {
             anIntArrayArrayArray865 = null;
             planeTileFlags = null;
             scene = null;
-            aClass18Array1022 = null;
+            collisions = null;
             anIntArrayArray1113 = null;
             anIntArrayArray975 = null;
             anIntArray1020 = null;
@@ -11932,8 +11799,8 @@ public class Game extends GameShell {
             aClass44_Sub3_Sub1_Sub2_1078 = null;
             aClass44_Sub3_Sub1_Sub2_1079 = null;
             aClass44_Sub3_Sub1_Sub2_1080 = null;
-            aClass44_Sub3_Sub1_Sub3Array1241 = null;
-            aClass44_Sub3_Sub1_Sub2Array1052 = null;
+            mapscenes = null;
+            mapfunctions = null;
             anIntArrayArray885 = null;
             players = null;
             anIntArray1227 = null;
@@ -11952,13 +11819,13 @@ public class Game extends GameShell {
             menuParamC = null;
             menuActionName = null;
             anIntArray1214 = null;
-            anIntArray827 = null;
-            anIntArray828 = null;
-            aClass44_Sub3_Sub1_Sub2Array872 = null;
+            activeMapfunctionsX = null;
+            activeMapfunctionsZ = null;
+            activeMapfunctions = null;
             if (i <= 0) {
                 planeObjStacks = null;
             }
-            aClass44_Sub3_Sub1_Sub2_913 = null;
+            minimap = null;
             aStringArray1044 = null;
             aLongArray979 = null;
             anIntArray894 = null;
