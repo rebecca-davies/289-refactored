@@ -53,7 +53,7 @@ public class LocType {
     public int anInt242;
     public int anInt243;
     public int anInt244;
-    public int anInt245;
+    public int face;
     public boolean aBoolean246;
     public boolean aBoolean247;
     public int anInt248;
@@ -142,7 +142,7 @@ public class LocType {
         anInt239 = 128;
         anInt240 = 128;
         anInt241 = 128;
-        anInt245 = 0;
+        face = 0;
         anInt242 = 0;
         anInt243 = 0;
         anInt244 = 0;
@@ -251,7 +251,7 @@ public class LocType {
                     } else if (j == 68) {
                         mapscene = class44_sub3_sub2.readUnsignedShort();
                     } else if (j == 69) {
-                        anInt245 = class44_sub3_sub2.readUnsignedByte();
+                        face = class44_sub3_sub2.readUnsignedByte();
                     } else if (j == 70) {
                         anInt242 = class44_sub3_sub2.method485();
                     } else if (j == 71) {

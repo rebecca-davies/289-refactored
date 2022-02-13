@@ -722,7 +722,7 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public static void method503(int i, Requester class43) {
+    public static void init(int i, Requester class43) {
         Model.aClass21Array1570 = new ModelHeader[i];
         Model.aClass43_1571 = class43;
     }

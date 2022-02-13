@@ -32,9 +32,9 @@ public class Component {
     public int x;
     public int y;
     public int[][] anIntArrayArray115;
-    public int[] anIntArray116;
+    public int[] scriptComparator;
     public int[] anIntArray117;
-    public int anInt118;
+    public int delegateHover;
     public int scrollHeight;
     public int scrollY;
     public boolean hidden;
@@ -44,15 +44,15 @@ public class Component {
     public int anInt125;
     public boolean aBoolean126;
     public boolean aBoolean127;
-    public boolean aBoolean128;
-    public boolean aBoolean129;
+    public boolean container;
+    public boolean usableContainer;
     public boolean aBoolean130;
     public int invMarginX;
     public int invMarginY;
     public Image24[] invSlotImage;
     public int[] invSlotX;
     public int[] invSlotY;
-    public String[] aStringArray136;
+    public String[] actions;
     public boolean fill;
     public boolean center;
     public boolean shadow;
@@ -74,10 +74,10 @@ public class Component {
     public int modelZoom;
     public int modelEyePitch;
     public int modelYaw;
-    public String aString158;
-    public String aString159;
+    public String spellAction;
+    public String spellName;
     public int anInt160;
-    public String aString161;
+    public String option;
 
     public Component() {
         aByte98 = 4;
@@ -108,18 +108,18 @@ public class Component {
                 class5.width = class44_sub3_sub2.readUnsignedShort();
                 class5.height = class44_sub3_sub2.readUnsignedShort();
                 class5.transparency = (byte) class44_sub3_sub2.readUnsignedByte();
-                class5.anInt118 = class44_sub3_sub2.readUnsignedByte();
-                if (class5.anInt118 != 0) {
-                    class5.anInt118 = (class5.anInt118 - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
+                class5.delegateHover = class44_sub3_sub2.readUnsignedByte();
+                if (class5.delegateHover != 0) {
+                    class5.delegateHover = (class5.delegateHover - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
                 } else {
-                    class5.anInt118 = -1;
+                    class5.delegateHover = -1;
                 }
                 int j1 = class44_sub3_sub2.readUnsignedByte();
                 if (j1 > 0) {
-                    class5.anIntArray116 = new int[j1];
+                    class5.scriptComparator = new int[j1];
                     class5.anIntArray117 = new int[j1];
                     for (int k1 = 0; k1 < j1; k1++) {
-                        class5.anIntArray116[k1] = class44_sub3_sub2.readUnsignedByte();
+                        class5.scriptComparator[k1] = class44_sub3_sub2.readUnsignedByte();
                         class5.anIntArray117[k1] = class44_sub3_sub2.readUnsignedShort();
                     }
                 }
@@ -155,8 +155,8 @@ public class Component {
                     class5.containerObjId = new int[class5.width * class5.height];
                     class5.containerItemAmount = new int[class5.width * class5.height];
                     class5.aBoolean127 = class44_sub3_sub2.readUnsignedByte() == 1;
-                    class5.aBoolean128 = class44_sub3_sub2.readUnsignedByte() == 1;
-                    class5.aBoolean129 = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.container = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.usableContainer = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.aBoolean130 = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.invMarginX = class44_sub3_sub2.readUnsignedByte();
                     class5.invMarginY = class44_sub3_sub2.readUnsignedByte();
@@ -176,11 +176,11 @@ public class Component {
                             }
                         }
                     }
-                    class5.aStringArray136 = new String[5];
+                    class5.actions = new String[5];
                     for (int i4 = 0; i4 < 5; i4++) {
-                        class5.aStringArray136[i4] = class44_sub3_sub2.readString();
-                        if (class5.aStringArray136[i4].length() == 0) {
-                            class5.aStringArray136[i4] = null;
+                        class5.actions[i4] = class44_sub3_sub2.readString();
+                        if (class5.actions[i4].length() == 0) {
+                            class5.actions[i4] = null;
                         }
                     }
                 }
@@ -260,34 +260,34 @@ public class Component {
                     class5.colour = class44_sub3_sub2.readInt();
                     class5.invMarginX = class44_sub3_sub2.method485();
                     class5.invMarginY = class44_sub3_sub2.method485();
-                    class5.aBoolean128 = class44_sub3_sub2.readUnsignedByte() == 1;
-                    class5.aStringArray136 = new String[5];
+                    class5.container = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.actions = new String[5];
                     for (int l4 = 0; l4 < 5; l4++) {
-                        class5.aStringArray136[l4] = class44_sub3_sub2.readString();
-                        if (class5.aStringArray136[l4].length() == 0) {
-                            class5.aStringArray136[l4] = null;
+                        class5.actions[l4] = class44_sub3_sub2.readString();
+                        if (class5.actions[l4].length() == 0) {
+                            class5.actions[l4] = null;
                         }
                     }
                 }
                 if (class5.optionType == 2 || class5.type == 2) {
-                    class5.aString158 = class44_sub3_sub2.readString();
-                    class5.aString159 = class44_sub3_sub2.readString();
+                    class5.spellAction = class44_sub3_sub2.readString();
+                    class5.spellName = class44_sub3_sub2.readString();
                     class5.anInt160 = class44_sub3_sub2.readUnsignedShort();
                 }
                 if (class5.optionType == 1 || class5.optionType == 4 || class5.optionType == 5 || class5.optionType == 6) {
-                    class5.aString161 = class44_sub3_sub2.readString();
-                    if (class5.aString161.length() == 0) {
+                    class5.option = class44_sub3_sub2.readString();
+                    if (class5.option.length() == 0) {
                         if (class5.optionType == 1) {
-                            class5.aString161 = "Ok";
+                            class5.option = "Ok";
                         }
                         if (class5.optionType == 4) {
-                            class5.aString161 = "Select";
+                            class5.option = "Select";
                         }
                         if (class5.optionType == 5) {
-                            class5.aString161 = "Select";
+                            class5.option = "Select";
                         }
                         if (class5.optionType == 6) {
-                            class5.aString161 = "Continue";
+                            class5.option = "Continue";
                         }
                     }
                 }
@@ -399,7 +399,7 @@ public class Component {
             class44_sub3_sub4_sub4 = Model.method506(j, aByte98);
         }
         if (i == 2) {
-            class44_sub3_sub4_sub4 = NpcType.method214(j).method217((byte) 105);
+            class44_sub3_sub4_sub4 = NpcType.lookup(j).method217((byte) 105);
         }
         if (i == 3) {
             class44_sub3_sub4_sub4 = Game.self.method539(false);

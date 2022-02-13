@@ -114,8 +114,7 @@ public class Image24 extends Draw2D {
             Draw2D.bind(pixels, width, height);
     }
 
-    public void method436(int i, byte byte0, int j, int k) {
-        try {
+    public void translate(int i, int j, int k) {
             for (int l = 0; l < pixels.length; l++) {
                 int i1 = pixels[l];
                 if (i1 != 0) {
@@ -143,18 +142,7 @@ public class Image24 extends Draw2D {
                     pixels[l] = (j1 << 16) + (k1 << 8) + l1;
                 }
             }
-            if (byte0 == 3) {
-                byte0 = 0;
-                return;
-            } else {
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("40145, " + i + ", " + byte0 + ", " + j + ", " + k + ", "
-                    + runtimeexception);
         }
-        throw new RuntimeException();
-    }
 
     public void method437(int i) {
         try {

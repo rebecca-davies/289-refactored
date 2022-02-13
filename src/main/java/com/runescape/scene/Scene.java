@@ -100,7 +100,7 @@ public class Scene {
             {15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0},
             {3, 7, 11, 15, 2, 6, 10, 14, 1, 5, 9, 13, 0, 4, 8, 12}};
 
-    public Scene(int i, int j, int[][][] ai, int k, int l) {
+    public Scene(int i, int k, int j, int[][][] ai) {
         anInt598 = 195;
         anInt601 = 6;
         aByte602 = -90;
@@ -110,41 +110,22 @@ public class Scene {
         aClass30Array614 = new SceneSpawnRequest[5000];
         anIntArray656 = new int[10000];
         anIntArray657 = new int[10000];
-        try {
             anInt607 = j;
             anInt608 = i;
             anInt609 = k;
             tiles = new SceneTile[j][i][k];
             anIntArrayArrayArray615 = new int[j][i + 1][k + 1];
             anIntArrayArrayArray610 = ai;
-            if (l <= 0) {
-                anInt598 = 181;
-            }
             method278(true);
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("88220, " + i + ", " + j + ", " + ai + ", " + k + ", " + l + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
-    public static void method277(byte byte0) {
-        try {
-            if (byte0 != 42) {
-                return;
-            } else {
+    public static void method277() {
                 Scene.aClass30Array632 = null;
                 Scene.anIntArray643 = null;
                 Scene.aClass23ArrayArray644 = null;
                 Scene.aClass28_647 = null;
                 Scene.aBooleanArrayArrayArrayArray661 = null;
                 Scene.aBooleanArrayArray662 = null;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("68391, " + byte0 + ", " + runtimeexception.toString());
-        }
-        throw new RuntimeException();
     }
 
     public static void method281(int i, int j, int k, int l, int i1, int j1, int k1, int l1, int i2) {

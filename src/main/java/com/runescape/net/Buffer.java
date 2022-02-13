@@ -52,7 +52,7 @@ public class Buffer extends CacheableNode {
     public boolean aBoolean1389;
     public byte[] payload;
     public int position;
-    public int anInt1393;
+    public int bitPosition;
     public ISAACCipher random;
 
     public Buffer(byte byte0) {
@@ -287,18 +287,10 @@ public class Buffer extends CacheableNode {
                 + ((payload[position - 2] & 0xff) << 8) + (payload[position - 1] & 0xff);
     }
 
-    public long readLong(boolean flag) {
-        try {
-            if (!flag) {
-                anInt1380 = 183;
-            }
+    public long readLong() {
             long l = readInt() & 0xffffffffL;
             long l1 = readInt() & 0xffffffffL;
             return (l << 32) + l1;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("82572, " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public String readString() {
@@ -327,20 +319,10 @@ public class Buffer extends CacheableNode {
         throw new RuntimeException();
     }
 
-    public void method491(byte byte0, byte[] abyte0, int i, int j) {
-        try {
-            if (byte0 != aByte1381) {
-                anInt1387 = -447;
+    public void readBytes(byte[] dst, int off, int len) {
+            for (int i = off; i < off + len; i++) {
+                dst[i] = payload[position++];
             }
-            for (int k = i; k < i + j; k++) {
-                abyte0[k] = payload[position++];
-            }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("99457, " + byte0 + ", " + abyte0 + ", " + i + ", " + j + ", "
-                    + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method492(byte byte0) {
@@ -348,7 +330,7 @@ public class Buffer extends CacheableNode {
             if (byte0 != -51) {
                 aBoolean1389 = !aBoolean1389;
             }
-            anInt1393 = position * 8;
+            bitPosition = position * 8;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("96920, " + byte0 + ", " + runtimeexception.toString());
@@ -356,15 +338,11 @@ public class Buffer extends CacheableNode {
         throw new RuntimeException();
     }
 
-    public int method493(int i, boolean flag) {
-        try {
-            if (flag) {
-                aBoolean1389 = !aBoolean1389;
-            }
-            int j = anInt1393 >> 3;
-            int k = 8 - (anInt1393 & 7);
+    public int getBits(int i) {
+            int j = bitPosition >> 3;
+            int k = 8 - (bitPosition & 7);
             int l = 0;
-            anInt1393 += i;
+            bitPosition += i;
             for (; i > k; k = 8) {
                 l += (payload[j++] & Buffer.anIntArray1395[k]) << i - k;
                 i -= k;
@@ -375,15 +353,11 @@ public class Buffer extends CacheableNode {
                 l += payload[j] >> k - i & Buffer.anIntArray1395[i];
             }
             return l;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("75102, " + i + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method494(byte byte0) {
         try {
-            position = (anInt1393 + 7) / 8;
+            position = (bitPosition + 7) / 8;
             if (byte0 != 4) {
                 return;
             }
@@ -416,7 +390,7 @@ public class Buffer extends CacheableNode {
             int j = position;
             position = 0;
             byte[] abyte0 = new byte[j];
-            method491((byte) 95, abyte0, 0, j);
+            readBytes(abyte0, 0, j);
             BigInteger biginteger2 = new BigInteger(abyte0);
             BigInteger biginteger3 = biginteger2.modPow(biginteger1, biginteger);
             byte[] abyte1 = biginteger3.toByteArray();

@@ -193,19 +193,16 @@ public class ChatCensor {
         throw new RuntimeException();
     }
 
-    public static String method352(String s, int i) {
+    public static String censor(String message) {
         try {
             System.currentTimeMillis();
-            char[] ac = s.toCharArray();
+            char[] ac = message.toCharArray();
             ChatCensor.method350(ac, 448);
             String s1 = (new String(ac)).trim();
             ac = s1.toLowerCase().toCharArray();
             String s2 = s1.toLowerCase();
             ChatCensor.method360(ac, 5);
             ChatCensor.method355((byte) 1, ac);
-            if (i != 0) {
-                throw new NullPointerException();
-            }
             ChatCensor.method356(ChatCensor.anInt751, ac);
             ChatCensor.method369(ac, -17411);
             for (int j = 0; j < ChatCensor.aStringArray762.length; j++) {
@@ -221,7 +218,7 @@ public class ChatCensor {
             System.currentTimeMillis();
             return (new String(ac)).trim();
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("926, " + s + ", " + i + ", " + runtimeexception);
+            SignLink.reporterror("926, " + message + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

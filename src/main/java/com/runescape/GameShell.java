@@ -109,7 +109,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             aFrame_Sub1_16.addWindowListener(this);
         }
         showProgress(0, "Loading...");
-        method6();
+        startUp();
         int i = 0;
         int j = 256;
         int k = 1;
@@ -514,7 +514,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public void windowOpened(WindowEvent windowevent) {
     }
 
-    public void method6() {
+    public void startUp() {
     }
 
     public void method7(int i) {

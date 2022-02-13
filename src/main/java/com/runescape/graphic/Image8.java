@@ -112,8 +112,7 @@ public class Image8 extends Draw2D {
         throw new RuntimeException();
     }
 
-    public void method450(int i) {
-        try {
+    public void flipH() {
             byte[] abyte0 = new byte[width * height];
             int j = 0;
             for (int k = 0; k < height; k++) {
@@ -122,19 +121,10 @@ public class Image8 extends Draw2D {
                 }
             }
             aByteArray1458 = abyte0;
-            if (i != 6) {
-                anInt1457 = 352;
-            }
             anInt1462 = anInt1464 - width - anInt1462;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("28636, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
-    public void method451(int i) {
-        try {
+    public void flipV() {
             byte[] abyte0 = new byte[width * height];
             int j = 0;
             for (int k = height - 1; k >= 0; k--) {
@@ -142,25 +132,11 @@ public class Image8 extends Draw2D {
                     abyte0[j++] = aByteArray1458[l + k * width];
                 }
             }
-            if (i != 35509) {
-                return;
-            } else {
                 aByteArray1458 = abyte0;
                 anInt1463 = anInt1465 - height - anInt1463;
-                return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("83103, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
-    }
 
-    public void method452(int i, byte byte0, int j, int k) {
-        try {
-            if (byte0 != 3) {
-                for (int l = 1; l > 0; l++) {
-                }
-            }
+    public void translate(int i, int j, int k) {
             for (int i1 = 0; i1 < anIntArray1459.length; i1++) {
                 int j1 = anIntArray1459[i1] >> 16 & 0xff;
                 j1 += i;
@@ -185,12 +161,6 @@ public class Image8 extends Draw2D {
                 }
                 anIntArray1459[i1] = (j1 << 16) + (k1 << 8) + l1;
             }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("28455, " + i + ", " + byte0 + ", " + j + ", " + k + ", "
-                    + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void blit(int i, int j) {

@@ -15,7 +15,7 @@ public class ChatCompression {
             '9', ' ', '!', '?', '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\', '\'', '@', '#', '+', '=', '\243',
             '$', '%', '"', '[', ']'};
 
-    public static String method556(byte byte0, Buffer class44_sub3_sub2, int i) {
+    public static String readFromBytes(byte byte0, Buffer class44_sub3_sub2, int i) {
         try {
             int j = 0;
             int k = -1;
@@ -123,7 +123,7 @@ public class ChatCompression {
                 ChatCompression.anInt807 = -64;
             }
             ChatCompression.aClass44_Sub3_Sub2_810.position = 0;
-            String s1 = ChatCompression.method556((byte) -94, ChatCompression.aClass44_Sub3_Sub2_810, j);
+            String s1 = ChatCompression.readFromBytes((byte) -94, ChatCompression.aClass44_Sub3_Sub2_810, j);
             return s1;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("99118, " + s + ", " + i + ", " + runtimeexception);

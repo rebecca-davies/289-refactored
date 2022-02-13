@@ -100,7 +100,7 @@ public class NpcType {
         throw new RuntimeException();
     }
 
-    public static NpcType method214(int i) {
+    public static NpcType lookup(int i) {
         for (int j = 0; j < 20; j++) {
             if (NpcType.cache[j].uid == i) {
                 return NpcType.cache[j];

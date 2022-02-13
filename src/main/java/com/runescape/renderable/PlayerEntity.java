@@ -13,15 +13,15 @@ public class PlayerEntity extends Actor {
     public static Cache aClass39_1696 = new Cache((byte) 7, 260);
     public int anInt1670;
     public boolean aBoolean1671;
-    public String aString1672;
-    public boolean aBoolean1673;
-    public int anInt1674;
-    public int anInt1675;
-    public int[] anIntArray1676;
-    public int[] anIntArray1677;
-    public int anInt1678;
-    public int anInt1679;
-    public long aLong1680;
+    public String name;
+    public boolean visible;
+    public int gender;
+    public int headIcon;
+    public int[] appearance;
+    public int[] bodyPartColour;
+    public int combatLevel;
+    public int skillLevel;
+    public long appearanceOffset;
     public int anInt1681;
     public int anInt1682;
     public int anInt1683;
@@ -35,116 +35,107 @@ public class PlayerEntity extends Actor {
     public int anInt1691;
     public boolean aBoolean1692;
     public long aLong1693;
-    public NpcType aClass12_1694;
-    public int anInt1695;
+    public NpcType npcAppearance;
+    public int team;
 
     public PlayerEntity() {
         aBoolean1671 = false;
-        aBoolean1673 = false;
-        anIntArray1676 = new int[12];
-        anIntArray1677 = new int[5];
+        visible = false;
+        appearance = new int[12];
+        bodyPartColour = new int[5];
         aBoolean1692 = false;
         aLong1693 = -1L;
     }
 
-    public void method537(boolean flag, Buffer class44_sub3_sub2) {
-        try {
-            if (flag) {
-                aBoolean1671 = !aBoolean1671;
-            }
-            class44_sub3_sub2.position = 0;
-            anInt1674 = class44_sub3_sub2.readUnsignedByte();
-            anInt1675 = class44_sub3_sub2.readUnsignedByte();
-            aClass12_1694 = null;
-            anInt1695 = 0;
-            for (int i = 0; i < 12; i++) {
-                int j = class44_sub3_sub2.readUnsignedByte();
-                if (j == 0) {
-                    anIntArray1676[i] = 0;
+    public void updateAppearanceData(Buffer in) {
+            in.position = 0;
+            gender = in.readUnsignedByte();
+            headIcon = in.readUnsignedByte();
+            npcAppearance = null;
+            team = 0;
+            for (int slot = 0; slot < 12; slot++) {
+                int objId = in.readUnsignedByte();
+                if (objId == 0) {
+                    appearance[slot] = 0;
                     continue;
                 }
-                int l = class44_sub3_sub2.readUnsignedByte();
-                anIntArray1676[i] = (j << 8) + l;
-                if (i == 0 && anIntArray1676[0] == 65535) {
-                    aClass12_1694 = NpcType.method214(class44_sub3_sub2.readUnsignedShort());
+                int _objId = in.readUnsignedByte();
+                appearance[slot] = (objId << 8) + _objId;
+                if (slot == 0 && appearance[0] == 65535) {
+                    npcAppearance = NpcType.lookup(in.readUnsignedShort());
                     break;
                 }
-                if (anIntArray1676[i] >= 512 && anIntArray1676[i] - 512 < ObjType.anInt323) {
-                    int k1 = ObjType.lookup(anIntArray1676[i] - 512).anInt368;
-                    if (k1 != 0) {
-                        anInt1695 = k1;
+                if (appearance[slot] >= 512 && appearance[slot] - 512 < ObjType.total) {
+                    int team = ObjType.lookup(appearance[slot] - 512).teamId;
+                    if (team != 0) {
+                        this.team = team;
                     }
                 }
             }
-            for (int k = 0; k < 5; k++) {
-                int i1 = class44_sub3_sub2.readUnsignedByte();
-                if (i1 < 0 || i1 >= Game.APPEARANCE_COLOURS[k].length) {
-                    i1 = 0;
+            for (int bodyPart = 0; bodyPart < 5; bodyPart++) {
+                int colour = in.readUnsignedByte();
+                if (colour < 0 || colour >= Game.APPEARANCE_COLOURS[bodyPart].length) {
+                    colour = 0;
                 }
-                anIntArray1677[k] = i1;
+                bodyPartColour[bodyPart] = colour;
             }
-            super.anInt1620 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1620 == 65535) {
-                super.anInt1620 = -1;
+            super.standSeqId = in.readUnsignedShort();
+            if (super.standSeqId == 65535) {
+                super.standSeqId = -1;
             }
-            super.anInt1621 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1621 == 65535) {
-                super.anInt1621 = -1;
+            super.standTurnSeqId = in.readUnsignedShort();
+            if (super.standTurnSeqId == 65535) {
+                super.standTurnSeqId = -1;
             }
-            super.anInt1622 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1622 == 65535) {
-                super.anInt1622 = -1;
+            super.walkSeqId = in.readUnsignedShort();
+            if (super.walkSeqId == 65535) {
+                super.walkSeqId = -1;
             }
-            super.anInt1623 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1623 == 65535) {
-                super.anInt1623 = -1;
+            super.turnSeqId = in.readUnsignedShort();
+            if (super.turnSeqId == 65535) {
+                super.turnSeqId = -1;
             }
-            super.anInt1624 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1624 == 65535) {
-                super.anInt1624 = -1;
+            super.turnRightSeqId = in.readUnsignedShort();
+            if (super.turnRightSeqId == 65535) {
+                super.turnRightSeqId = -1;
             }
-            super.anInt1625 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1625 == 65535) {
-                super.anInt1625 = -1;
+            super.turnLeftSeqId = in.readUnsignedShort();
+            if (super.turnLeftSeqId == 65535) {
+                super.turnLeftSeqId = -1;
             }
-            super.anInt1626 = class44_sub3_sub2.readUnsignedShort();
-            if (super.anInt1626 == 65535) {
-                super.anInt1626 = -1;
+            super.runSeqId = in.readUnsignedShort();
+            if (super.runSeqId == 65535) {
+                super.runSeqId = -1;
             }
-            aString1672 = TextUtils.method554(TextUtils.method551(class44_sub3_sub2.readLong(true), true), true);
-            anInt1678 = class44_sub3_sub2.readUnsignedByte();
-            anInt1679 = class44_sub3_sub2.readUnsignedShort();
-            aBoolean1673 = true;
-            aLong1680 = 0L;
-            for (int j1 = 0; j1 < 12; j1++) {
-                aLong1680 <<= 4;
-                if (anIntArray1676[j1] >= 256) {
-                    aLong1680 += anIntArray1676[j1] - 256;
+            name = TextUtils.formatName(TextUtils.longToName(in.readLong()));
+            combatLevel = in.readUnsignedByte();
+            skillLevel = in.readUnsignedShort();
+            visible = true;
+            appearanceOffset = 0L;
+            for (int slot = 0; slot < 12; slot++) {
+                appearanceOffset <<= 4;
+                if (appearance[slot] >= 256) {
+                    appearanceOffset += appearance[slot] - 256;
                 }
             }
-            if (anIntArray1676[0] >= 256) {
-                aLong1680 += anIntArray1676[0] - 256 >> 4;
+            if (appearance[0] >= 256) {
+                appearanceOffset += appearance[0] - 256 >> 4;
             }
-            if (anIntArray1676[1] >= 256) {
-                aLong1680 += anIntArray1676[1] - 256 >> 8;
+            if (appearance[1] >= 256) {
+                appearanceOffset += appearance[1] - 256 >> 8;
             }
-            for (int l1 = 0; l1 < 5; l1++) {
-                aLong1680 <<= 3;
-                aLong1680 += anIntArray1677[l1];
+            for (int bodyPart = 0; bodyPart < 5; bodyPart++) {
+                appearanceOffset <<= 3;
+                appearanceOffset += bodyPartColour[bodyPart];
             }
-            aLong1680 <<= 1;
-            aLong1680 += anInt1674;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("26459, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+            appearanceOffset <<= 1;
+            appearanceOffset += gender;
     }
 
     @Override
     public Model getRotatedModel(int i) {
         try {
-            if (!aBoolean1673) {
+            if (!visible) {
                 return null;
             }
             Model class44_sub3_sub4_sub4 = method538(false);
@@ -159,15 +150,15 @@ public class PlayerEntity extends Actor {
             if (aBoolean1692) {
                 return class44_sub3_sub4_sub4;
             }
-            if (super.anInt1648 != -1 && super.anInt1649 != -1) {
-                SpotAnimType class32 = SpotAnimType.cache[super.anInt1648];
+            if (super.spotAnimId != -1 && super.currentSeqId != -1) {
+                SpotAnimType class32 = SpotAnimType.cache[super.spotAnimId];
                 Model class44_sub3_sub4_sub4_2 = class32.method271();
                 if (class44_sub3_sub4_sub4_2 != null) {
                     Model class44_sub3_sub4_sub4_3 = new Model(class44_sub3_sub4_sub4_2, SeqFrame.method211(
-                            super.anInt1649, 0), false, anInt1670, true);
-                    class44_sub3_sub4_sub4_3.method519(-super.anInt1652, 0, (byte) 2, 0);
+                            super.currentSeqId, 0), false, anInt1670, true);
+                    class44_sub3_sub4_sub4_3.method519(-super.spotAnimHeight, 0, (byte) 2, 0);
                     class44_sub3_sub4_sub4_3.method513((byte) 3);
-                    class44_sub3_sub4_sub4_3.method514(class32.aClass26_563.primaryFrames[super.anInt1649], 188);
+                    class44_sub3_sub4_sub4_3.method514(class32.aClass26_563.primaryFrames[super.currentSeqId], 188);
                     class44_sub3_sub4_sub4_3.anIntArrayArray1567 = null;
                     class44_sub3_sub4_sub4_3.anIntArrayArray1566 = null;
                     if (class32.anInt566 != 128 || class32.anInt567 != 128) {
@@ -224,34 +215,34 @@ public class PlayerEntity extends Actor {
 
     public Model method538(boolean flag) {
         try {
-            if (aClass12_1694 != null) {
+            if (npcAppearance != null) {
                 int i = -1;
-                if (super.anInt1643 >= 0 && super.anInt1646 == 0) {
-                    i = SeqType.instances[super.anInt1643].primaryFrames[super.anInt1644];
+                if (super.primarySeq >= 0 && super.primarySeqDelays == 0) {
+                    i = SeqType.instances[super.primarySeq].primaryFrames[super.currentSeqFrame];
                 } else if (super.anInt1640 >= 0) {
                     i = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
                 }
-                Model class44_sub3_sub4_sub4 = aClass12_1694.method216(0, -1, i, null);
+                Model class44_sub3_sub4_sub4 = npcAppearance.method216(0, -1, i, null);
                 return class44_sub3_sub4_sub4;
             }
-            long l = aLong1680;
+            long l = appearanceOffset;
             int j = -1;
             int k = -1;
             int i1 = -1;
             int j1 = -1;
-            if (super.anInt1643 >= 0 && super.anInt1646 == 0) {
-                SeqType class26 = SeqType.instances[super.anInt1643];
-                j = class26.primaryFrames[super.anInt1644];
-                if (super.anInt1640 >= 0 && super.anInt1640 != super.anInt1620) {
+            if (super.primarySeq >= 0 && super.primarySeqDelays == 0) {
+                SeqType class26 = SeqType.instances[super.primarySeq];
+                j = class26.primaryFrames[super.currentSeqFrame];
+                if (super.anInt1640 >= 0 && super.anInt1640 != super.standSeqId) {
                     k = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
                 }
                 if (class26.anInt517 >= 0) {
                     i1 = class26.anInt517;
-                    l += i1 - anIntArray1676[5] << 40;
+                    l += i1 - appearance[5] << 40;
                 }
                 if (class26.anInt518 >= 0) {
                     j1 = class26.anInt518;
-                    l += j1 - anIntArray1676[3] << 48;
+                    l += j1 - appearance[3] << 48;
                 }
             } else if (super.anInt1640 >= 0) {
                 j = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
@@ -263,7 +254,7 @@ public class PlayerEntity extends Actor {
             if (class44_sub3_sub4_sub4_1 == null) {
                 boolean flag1 = false;
                 for (int k1 = 0; k1 < 12; k1++) {
-                    int i2 = anIntArray1676[k1];
+                    int i2 = appearance[k1];
                     if (j1 >= 0 && k1 == 3) {
                         i2 = j1;
                     }
@@ -273,7 +264,7 @@ public class PlayerEntity extends Actor {
                     if (i2 >= 256 && i2 < 512 && !IDKType.cache[i2 - 256].method249(9)) {
                         flag1 = true;
                     }
-                    if (i2 >= 512 && !ObjType.lookup(i2 - 512).method227(false, anInt1674)) {
+                    if (i2 >= 512 && !ObjType.lookup(i2 - 512).method227(false, gender)) {
                         flag1 = true;
                     }
                 }
@@ -290,7 +281,7 @@ public class PlayerEntity extends Actor {
                 Model[] aclass44_sub3_sub4_sub4 = new Model[12];
                 int l1 = 0;
                 for (int j2 = 0; j2 < 12; j2++) {
-                    int k2 = anIntArray1676[j2];
+                    int k2 = appearance[j2];
                     if (j1 >= 0 && j2 == 3) {
                         k2 = j1;
                     }
@@ -304,7 +295,7 @@ public class PlayerEntity extends Actor {
                         }
                     }
                     if (k2 >= 512) {
-                        Model class44_sub3_sub4_sub4_4 = ObjType.lookup(k2 - 512).method228(anInt1674, 0);
+                        Model class44_sub3_sub4_sub4_4 = ObjType.lookup(k2 - 512).method228(gender, 0);
                         if (class44_sub3_sub4_sub4_4 != null) {
                             aclass44_sub3_sub4_sub4[l1++] = class44_sub3_sub4_sub4_4;
                         }
@@ -312,12 +303,12 @@ public class PlayerEntity extends Actor {
                 }
                 class44_sub3_sub4_sub4_1 = new Model(aclass44_sub3_sub4_sub4, l1, -33019);
                 for (int l2 = 0; l2 < 5; l2++) {
-                    if (anIntArray1677[l2] != 0) {
+                    if (bodyPartColour[l2] != 0) {
                         class44_sub3_sub4_sub4_1.method520(Game.APPEARANCE_COLOURS[l2][0],
-                                Game.APPEARANCE_COLOURS[l2][anIntArray1677[l2]]);
+                                Game.APPEARANCE_COLOURS[l2][bodyPartColour[l2]]);
                         if (l2 == 1) {
                             class44_sub3_sub4_sub4_1.method520(Game.BEARD_COLOURS[0],
-                                    Game.BEARD_COLOURS[anIntArray1677[l2]]);
+                                    Game.BEARD_COLOURS[bodyPartColour[l2]]);
                         }
                     }
                 }
@@ -333,7 +324,7 @@ public class PlayerEntity extends Actor {
             class44_sub3_sub4_sub4_2.method508(SeqFrame.method211(j, 0) & SeqFrame.method211(k, 0),
                     class44_sub3_sub4_sub4_1, 0);
             if (j != -1 && k != -1) {
-                class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.instances[super.anInt1643].anIntArray514);
+                class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.instances[super.primarySeq].anIntArray514);
             } else if (j != -1) {
                 class44_sub3_sub4_sub4_2.method514(j, 188);
             }
@@ -353,19 +344,19 @@ public class PlayerEntity extends Actor {
                 for (int i = 1; i > 0; i++) {
                 }
             }
-            if (!aBoolean1673) {
+            if (!visible) {
                 return null;
             }
-            if (aClass12_1694 != null) {
-                return aClass12_1694.method217((byte) 105);
+            if (npcAppearance != null) {
+                return npcAppearance.method217((byte) 105);
             }
             boolean flag1 = false;
             for (int j = 0; j < 12; j++) {
-                int k = anIntArray1676[j];
+                int k = appearance[j];
                 if (k >= 256 && k < 512 && !IDKType.cache[k - 256].method251((byte) 0)) {
                     flag1 = true;
                 }
-                if (k >= 512 && !ObjType.lookup(k - 512).method229(true, anInt1674)) {
+                if (k >= 512 && !ObjType.lookup(k - 512).method229(true, gender)) {
                     flag1 = true;
                 }
             }
@@ -375,7 +366,7 @@ public class PlayerEntity extends Actor {
             Model[] aclass44_sub3_sub4_sub4 = new Model[12];
             int l = 0;
             for (int i1 = 0; i1 < 12; i1++) {
-                int j1 = anIntArray1676[i1];
+                int j1 = appearance[i1];
                 if (j1 >= 256 && j1 < 512) {
                     Model class44_sub3_sub4_sub4_1 = IDKType.cache[j1 - 256].method252((byte) -45);
                     if (class44_sub3_sub4_sub4_1 != null) {
@@ -383,7 +374,7 @@ public class PlayerEntity extends Actor {
                     }
                 }
                 if (j1 >= 512) {
-                    Model class44_sub3_sub4_sub4_2 = ObjType.lookup(j1 - 512).method230(481, anInt1674);
+                    Model class44_sub3_sub4_sub4_2 = ObjType.lookup(j1 - 512).method230(481, gender);
                     if (class44_sub3_sub4_sub4_2 != null) {
                         aclass44_sub3_sub4_sub4[l++] = class44_sub3_sub4_sub4_2;
                     }
@@ -391,12 +382,12 @@ public class PlayerEntity extends Actor {
             }
             Model class44_sub3_sub4_sub4 = new Model(aclass44_sub3_sub4_sub4, l, -33019);
             for (int k1 = 0; k1 < 5; k1++) {
-                if (anIntArray1677[k1] != 0) {
+                if (bodyPartColour[k1] != 0) {
                     class44_sub3_sub4_sub4.method520(Game.APPEARANCE_COLOURS[k1][0],
-                            Game.APPEARANCE_COLOURS[k1][anIntArray1677[k1]]);
+                            Game.APPEARANCE_COLOURS[k1][bodyPartColour[k1]]);
                     if (k1 == 1) {
                         class44_sub3_sub4_sub4.method520(Game.BEARD_COLOURS[0],
-                                Game.BEARD_COLOURS[anIntArray1677[k1]]);
+                                Game.BEARD_COLOURS[bodyPartColour[k1]]);
                     }
                 }
             }
@@ -413,7 +404,7 @@ public class PlayerEntity extends Actor {
             if (!flag) {
                 throw new NullPointerException();
             }
-            return aBoolean1673;
+            return visible;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("52910, " + flag + ", " + runtimeexception);
         }

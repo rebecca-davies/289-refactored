@@ -19,13 +19,13 @@ public class SeqType {
     public int anInt513;
     public int[] anIntArray514;
     public boolean aBoolean515;
-    public int anInt516;
+    public int priority;
     public int anInt517;
     public int anInt518;
     public int anInt519;
     public int anInt520;
     public int anInt521;
-    public int anInt522;
+    public int replayMode;
     public int anInt523;
 
     public SeqType() {
@@ -33,7 +33,7 @@ public class SeqType {
         aByte505 = 4;
         anInt513 = -1;
         aBoolean515 = false;
-        anInt516 = 5;
+        priority = 5;
         anInt517 = -1;
         anInt518 = -1;
         anInt519 = 99;
@@ -122,7 +122,7 @@ public class SeqType {
                 } else if (i == 4) {
                     aBoolean515 = true;
                 } else if (i == 5) {
-                    anInt516 = class44_sub3_sub2.readUnsignedByte();
+                    priority = class44_sub3_sub2.readUnsignedByte();
                 } else if (i == 6) {
                     anInt517 = class44_sub3_sub2.readUnsignedShort();
                 } else if (i == 7) {
@@ -134,7 +134,7 @@ public class SeqType {
                 } else if (i == 10) {
                     anInt521 = class44_sub3_sub2.readUnsignedByte();
                 } else if (i == 11) {
-                    anInt522 = class44_sub3_sub2.readUnsignedByte();
+                    replayMode = class44_sub3_sub2.readUnsignedByte();
                 } else if (i == 12) {
                     anInt523 = class44_sub3_sub2.readInt();
                 } else {

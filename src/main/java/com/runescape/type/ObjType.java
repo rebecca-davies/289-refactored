@@ -14,7 +14,7 @@ public class ObjType {
     public static int anInt319 = 6;
     public static byte aByte320 = 1;
     public static byte aByte321 = 8;
-    public static int anInt323;
+    public static int total;
     public static int[] anIntArray324;
     public static Buffer buffer;
     public static ObjType[] cache;
@@ -26,7 +26,7 @@ public class ObjType {
     public int anInt317;
     public byte aByte318;
     public int anInt322;
-    public int anInt329;
+    public int id;
     public int anInt330;
     public String name;
     public byte[] aByteArray332;
@@ -43,7 +43,7 @@ public class ObjType {
     public int anInt343;
     public boolean aBoolean344;
     public String[] aStringArray345;
-    public String[] aStringArray346;
+    public String[] actions;
     public int anInt347;
     public int anInt348;
     public byte aByte349;
@@ -65,23 +65,23 @@ public class ObjType {
     public int anInt365;
     public int anInt366;
     public int anInt367;
-    public int anInt368;
+    public int teamId;
 
     public ObjType() {
         aBoolean316 = false;
         anInt317 = 44692;
         aByte318 = 4;
         anInt322 = 2;
-        anInt329 = -1;
+        id = -1;
     }
 
     public static void method218(FileArchive class47) {
         ObjType.buffer = new Buffer(class47.method549("obj.dat", null));
         Buffer class44_sub3_sub2 = new Buffer(class47.method549("obj.idx", null));
-        ObjType.anInt323 = class44_sub3_sub2.readUnsignedShort();
-        ObjType.anIntArray324 = new int[ObjType.anInt323];
+        ObjType.total = class44_sub3_sub2.readUnsignedShort();
+        ObjType.anIntArray324 = new int[ObjType.total];
         int i = 2;
-        for (int j = 0; j < ObjType.anInt323; j++) {
+        for (int j = 0; j < ObjType.total; j++) {
             ObjType.anIntArray324[j] = i;
             i += class44_sub3_sub2.readUnsignedShort();
         }
@@ -110,14 +110,14 @@ public class ObjType {
 
     public static ObjType lookup(int i) {
         for (int j = 0; j < 10; j++) {
-            if (ObjType.cache[j].anInt329 == i) {
+            if (ObjType.cache[j].id == i) {
                 return ObjType.cache[j];
             }
         }
         ObjType.anInt327 = (ObjType.anInt327 + 1) % 10;
         ObjType class14 = ObjType.cache[ObjType.anInt327];
         ObjType.buffer.position = ObjType.anIntArray324[i];
-        class14.anInt329 = i;
+        class14.id = i;
         class14.method221();
         class14.method222(false, ObjType.buffer);
         if (class14.anInt362 != -1) {
@@ -127,7 +127,7 @@ public class ObjType {
             class14.name = "Members Object";
             class14.aByteArray332 = "Login to a members' server to use this object.".getBytes();
             class14.aStringArray345 = null;
-            class14.aStringArray346 = null;
+            class14.actions = null;
         }
         return class14;
     }
@@ -287,7 +287,7 @@ public class ObjType {
         anInt343 = 1;
         aBoolean344 = false;
         aStringArray345 = null;
-        aStringArray346 = null;
+        actions = null;
         anInt347 = -1;
         anInt348 = -1;
         aByte349 = 0;
@@ -309,7 +309,7 @@ public class ObjType {
         anInt365 = 128;
         anInt366 = 0;
         anInt367 = 0;
-        anInt368 = 0;
+        teamId = 0;
     }
 
     public void method222(boolean flag, Buffer class44_sub3_sub2) {
@@ -371,10 +371,10 @@ public class ObjType {
                         aStringArray345[i - 30] = null;
                     }
                 } else if (i >= 35 && i < 40) {
-                    if (aStringArray346 == null) {
-                        aStringArray346 = new String[5];
+                    if (actions == null) {
+                        actions = new String[5];
                     }
-                    aStringArray346[i - 35] = class44_sub3_sub2.readString();
+                    actions[i - 35] = class44_sub3_sub2.readString();
                 } else if (i == 40) {
                     int j = class44_sub3_sub2.readUnsignedByte();
                     anIntArray333 = new int[j];
@@ -419,7 +419,7 @@ public class ObjType {
                 } else if (i == 114) {
                     anInt367 = class44_sub3_sub2.readByte() * 5;
                 } else if (i == 115) {
-                    anInt368 = class44_sub3_sub2.readUnsignedByte();
+                    teamId = class44_sub3_sub2.readUnsignedByte();
                 }
             } while (true);
         } catch (RuntimeException runtimeexception) {
@@ -473,7 +473,7 @@ public class ObjType {
                 return ObjType.lookup(j).method224(1);
             }
         }
-        Model class44_sub3_sub4_sub4 = (Model) ObjType.aClass39_369.method339(anInt329);
+        Model class44_sub3_sub4_sub4 = (Model) ObjType.aClass39_369.method339(id);
         if (class44_sub3_sub4_sub4 != null) {
             return class44_sub3_sub4_sub4;
         }
@@ -491,7 +491,7 @@ public class ObjType {
         }
         class44_sub3_sub4_sub4.method523(64 + anInt366, 768 + anInt367, -50, -10, -50, true);
         class44_sub3_sub4_sub4.aBoolean1568 = true;
-        ObjType.aClass39_369.method340(anInt329, (byte) 76, class44_sub3_sub4_sub4);
+        ObjType.aClass39_369.method340(id, (byte) 76, class44_sub3_sub4_sub4);
         return class44_sub3_sub4_sub4;
     }
 

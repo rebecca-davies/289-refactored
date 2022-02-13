@@ -33,14 +33,14 @@ public class NPCEntity extends Actor {
                 return null;
             }
             super.anInt1661 = class44_sub3_sub4_sub4.anInt1412;
-            if (super.anInt1648 != -1 && super.anInt1649 != -1) {
-                SpotAnimType class32 = SpotAnimType.cache[super.anInt1648];
+            if (super.spotAnimId != -1 && super.currentSeqId != -1) {
+                SpotAnimType class32 = SpotAnimType.cache[super.spotAnimId];
                 Model class44_sub3_sub4_sub4_1 = class32.method271();
                 if (class44_sub3_sub4_sub4_1 != null) {
-                    int j = class32.aClass26_563.primaryFrames[super.anInt1649];
+                    int j = class32.aClass26_563.primaryFrames[super.currentSeqId];
                     Model class44_sub3_sub4_sub4_2 = new Model(class44_sub3_sub4_sub4_1, SeqFrame.method211(j, 0),
                             false, anInt1697, true);
-                    class44_sub3_sub4_sub4_2.method519(-super.anInt1652, 0, (byte) 2, 0);
+                    class44_sub3_sub4_sub4_2.method519(-super.spotAnimHeight, 0, (byte) 2, 0);
                     class44_sub3_sub4_sub4_2.method513((byte) 3);
                     class44_sub3_sub4_sub4_2.method514(j, 188);
                     class44_sub3_sub4_sub4_2.anIntArrayArray1567 = null;
@@ -70,13 +70,13 @@ public class NPCEntity extends Actor {
             if (flag) {
                 aBoolean1699 = !aBoolean1699;
             }
-            if (super.anInt1643 >= 0 && super.anInt1646 == 0) {
-                int i = SeqType.instances[super.anInt1643].primaryFrames[super.anInt1644];
+            if (super.primarySeq >= 0 && super.primarySeqDelays == 0) {
+                int i = SeqType.instances[super.primarySeq].primaryFrames[super.currentSeqFrame];
                 int k = -1;
-                if (super.anInt1640 >= 0 && super.anInt1640 != super.anInt1620) {
+                if (super.anInt1640 >= 0 && super.anInt1640 != super.standSeqId) {
                     k = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
                 }
-                return aClass12_1700.method216(0, k, i, SeqType.instances[super.anInt1643].anIntArray514);
+                return aClass12_1700.method216(0, k, i, SeqType.instances[super.primarySeq].anIntArray514);
             }
             int j = -1;
             if (super.anInt1640 >= 0) {

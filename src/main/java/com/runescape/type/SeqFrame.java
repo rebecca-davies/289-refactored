@@ -21,7 +21,7 @@ public class SeqFrame {
     public SeqFrame() {
     }
 
-    public static void method207(int i) {
+    public static void init(int i) {
         SeqFrame.aClass11Array264 = new SeqFrame[i + 1];
         SeqFrame.aBooleanArray272 = new boolean[i + 1];
         for (int j = 0; j < i + 1; j++) {

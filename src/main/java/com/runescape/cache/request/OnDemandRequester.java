@@ -50,7 +50,7 @@ public class OnDemandRequester extends Requester implements Runnable {
     public Socket aSocket1310;
     public InputStream anInputStream1311;
     public OutputStream anOutputStream1312;
-    public int anInt1313;
+    public int failedRequests;
     public OnDemandNode aClass44_Sub3_Sub3_1314;
     public int anInt1315;
     public int anInt1316;
@@ -82,7 +82,7 @@ public class OnDemandRequester extends Requester implements Runnable {
         aByteArray1318 = new byte[65000];
     }
 
-    public void method383(FileArchive class47, Game client1) {
+    public void load(FileArchive class47, Game client1) {
         String[] as = {"model_version", "anim_version", "midi_version", "map_version"};
         for (int i = 0; i < 4; i++) {
             byte[] abyte0 = class47.method549(as[i], null);
@@ -150,56 +150,29 @@ public class OnDemandRequester extends Requester implements Runnable {
         aBoolean1295 = false;
     }
 
-    public int method385(int i, byte byte0) {
-        try {
-            if (byte0 == 7) {
-                byte0 = 0;
-            } else {
-                return 1;
-            }
+    public int getFileCount(int i) {
             return anIntArrayArray1284[i].length;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("37225, " + i + ", " + byte0 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
-    public int method386(int i) {
-        try {
-            if (i != 7) {
-                return 1;
-            } else {
+    public int getSeqFrameCount() {
                 return anIntArray1293.length;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("62481, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
-    public int getMapFile(int i, int j, int k, int l) {
-        try {
+    public int getMapFile(int land, int i, int k) {
             int i1 = (k << 8) + i;
             for (int j1 = 0; j1 < anIntArray1289.length; j1++) {
                 if (anIntArray1289[j1] == i1) {
-                    if (l == 0) {
+                    if (land == 0) {
                         return anIntArray1290[j1];
                     } else {
                         return anIntArray1291[j1];
                     }
                 }
             }
-            if (j >= 0) {
-                anInt1282 = -467;
-            }
             return -1;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("24222, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
-    }
+     }
 
-    public void method388(boolean flag, boolean flag1) {
+    public void prefetchMaps(boolean flag, boolean flag1) {
         try {
             int i = anIntArray1289.length;
             if (flag) {
@@ -207,8 +180,8 @@ public class OnDemandRequester extends Requester implements Runnable {
             }
             for (int j = 0; j < i; j++) {
                 if (flag1 || anIntArray1292[j] != 0) {
-                    method395(7, 3, (byte) 2, anIntArray1291[j]);
-                    method395(7, 3, (byte) 2, anIntArray1290[j]);
+                    prefetch((byte) 2, anIntArray1291[j], 3);
+                    prefetch((byte) 2, anIntArray1290[j], 3);
                 }
             }
             return;
@@ -236,26 +209,12 @@ public class OnDemandRequester extends Requester implements Runnable {
         throw new RuntimeException();
     }
 
-    public int method390(int i, int j) {
-        try {
-            while (j >= 0) {
-                anInt1281 = 270;
-            }
+    public int getModelFlags(int i) {
             return aByteArray1288[i] & 0xff;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30503, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
-    public boolean method391(int i, int j) {
-        try {
-            j = 93 / j;
+    public boolean exists(int i) {
             return anIntArray1294[i] == 1;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("97829, " + i + ", " + j + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     @Override
@@ -288,7 +247,7 @@ public class OnDemandRequester extends Requester implements Runnable {
         }
     }
 
-    public int method393() {
+    public int remaining() {
         synchronized (aClass31_1301) {
             int i = aClass31_1301.method268();
             return i;
@@ -333,8 +292,7 @@ public class OnDemandRequester extends Requester implements Runnable {
         return class44_sub3_sub3;
     }
 
-    public void method395(int i, int j, byte byte0, int k) {
-        try {
+    public void prefetch(byte byte0, int k, int j) {
             if (aClient1296.filestores[0] == null) {
                 return;
             }
@@ -346,19 +304,10 @@ public class OnDemandRequester extends Requester implements Runnable {
                 return;
             }
             aByteArrayArray1286[j][k] = byte0;
-            if (i < 7 || i > 7) {
-                return;
-            }
             if (byte0 > anInt1287) {
                 anInt1287 = byte0;
             }
             anInt1309++;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("42758, " + i + ", " + j + ", " + byte0 + ", " + k + ", "
-                    + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method396(int i) {
@@ -780,7 +729,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                         return;
                     }
                     aLong1321 = l;
-                    aSocket1310 = aClient1296.method34(43594 + Game.portOffset);
+                    aSocket1310 = aClient1296.openSocket(43594 + Game.portOffset);
                     anInputStream1311 = aSocket1310.getInputStream();
                     anOutputStream1312 = aSocket1310.getOutputStream();
                     anOutputStream1312.write(15);
@@ -801,7 +750,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 }
                 anOutputStream1312.write(aByteArray1317, 0, 4);
                 anInt1320 = 0;
-                anInt1313 = -10000;
+                failedRequests = -10000;
                 return;
             } catch (IOException ioexception) {
             }
@@ -813,7 +762,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             anInputStream1311 = null;
             anOutputStream1312 = null;
             anInt1316 = 0;
-            anInt1313++;
+            failedRequests++;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("57925, " + class44_sub3_sub3 + ", " + i + ", " + runtimeexception);

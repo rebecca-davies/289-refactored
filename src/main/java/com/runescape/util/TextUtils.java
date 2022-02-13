@@ -31,11 +31,7 @@ public class TextUtils {
         return l;
     }
 
-    public static String method551(long l, boolean flag) {
-        try {
-            if (!flag) {
-                throw new NullPointerException();
-            }
+    public static String longToName(long l) {
             if (l <= 0L || l >= 0x5b5b57f8a98a5dd1L) {
                 return "invalid_name";
             }
@@ -50,10 +46,6 @@ public class TextUtils {
                 ac[11 - i++] = TextUtils.aCharArray805[(int) (l1 - l * 37L)];
             }
             return new String(ac, 12 - i, i);
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("40622, " + l + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public static long method552(int i, String s) {
@@ -87,11 +79,7 @@ public class TextUtils {
         throw new RuntimeException();
     }
 
-    public static String method554(String s, boolean flag) {
-        try {
-            if (!flag) {
-                TextUtils.anInt804 = -101;
-            }
+    public static String formatName(String s) {
             if (s.length() > 0) {
                 char[] ac = s.toCharArray();
                 for (int i = 0; i < ac.length; i++) {
@@ -109,10 +97,6 @@ public class TextUtils {
             } else {
                 return s;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("42296, " + s + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public static String toAsterisks(String s) {
