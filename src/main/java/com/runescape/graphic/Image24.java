@@ -267,40 +267,37 @@ public class Image24 extends Draw2D {
         throw new RuntimeException();
     }
 
-    public void method440(int i, byte byte0, int j) {
+    public void draw(int x, int y) {
         try {
-            j += cropX;
-            i += cropY;
-            int k = j + i * Draw2D.width;
+            x += cropX;
+            y += cropY;
+            int k = x + y * Draw2D.width;
             int l = 0;
             int i1 = height;
             int j1 = width;
             int k1 = Draw2D.width - j1;
             int l1 = 0;
-            if (byte0 != 1) {
-                return;
-            }
-            if (i < Draw2D.top) {
-                int i2 = Draw2D.top - i;
+            if (y < Draw2D.top) {
+                int i2 = Draw2D.top - y;
                 i1 -= i2;
-                i = Draw2D.top;
+                y = Draw2D.top;
                 l += i2 * j1;
                 k += i2 * Draw2D.width;
             }
-            if (i + i1 > Draw2D.bottom) {
-                i1 -= (i + i1) - Draw2D.bottom;
+            if (y + i1 > Draw2D.bottom) {
+                i1 -= (y + i1) - Draw2D.bottom;
             }
-            if (j < Draw2D.left) {
-                int j2 = Draw2D.left - j;
+            if (x < Draw2D.left) {
+                int j2 = Draw2D.left - x;
                 j1 -= j2;
-                j = Draw2D.left;
+                x = Draw2D.left;
                 l += j2;
                 k += j2;
                 l1 += j2;
                 k1 += j2;
             }
-            if (j + j1 > Draw2D.right) {
-                int k2 = (j + j1) - Draw2D.right;
+            if (x + j1 > Draw2D.right) {
+                int k2 = (x + j1) - Draw2D.right;
                 j1 -= k2;
                 l1 += k2;
                 k1 += k2;
@@ -312,7 +309,7 @@ public class Image24 extends Draw2D {
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("37524, " + i + ", " + byte0 + ", " + j + ", " + runtimeexception);
+            SignLink.reporterror("37524, " + y + ", " + x + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

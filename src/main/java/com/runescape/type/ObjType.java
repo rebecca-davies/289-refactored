@@ -244,7 +244,7 @@ public class ObjType {
                 int j6 = class44_sub3_sub1_sub2_2.cropHeight;
                 class44_sub3_sub1_sub2_2.cropWidth = 32;
                 class44_sub3_sub1_sub2_2.cropHeight = 32;
-                class44_sub3_sub1_sub2_2.method440(0, ObjType.aByte320, 0);
+                class44_sub3_sub1_sub2_2.draw(0, 0);
                 class44_sub3_sub1_sub2_2.cropWidth = l5;
                 class44_sub3_sub1_sub2_2.cropHeight = j6;
             }

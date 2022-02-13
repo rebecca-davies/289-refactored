@@ -105,7 +105,7 @@ public class TypeFace extends Draw2D {
 
     public void drawStringCenter(int i, String s, int j, int k, int l) {
         try {
-            method459((byte) -104, k, s, i - method458(s, -725) / 2, l);
+            drawText((byte) -104, k, s, i - method458(s, -725) / 2, l);
             if (j != -31546) {
                 return;
             }
@@ -171,7 +171,7 @@ public class TypeFace extends Draw2D {
         throw new RuntimeException();
     }
 
-    public void method459(byte byte0, int i, String s, int j, int k) {
+    public void drawText(byte byte0, int i, String s, int j, int k) {
         try {
             if (s == null) {
                 return;
