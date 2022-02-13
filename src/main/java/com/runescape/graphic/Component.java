@@ -19,16 +19,16 @@ public class Component {
     public int anInt99;
     public int[] containerObjId;
     public int[] containerItemAmount;
-    public int anInt103;
+    public int seqFrame;
     public int anInt104;
     public int id;
     public int anInt106;
     public int type;
-    public int anInt108;
+    public int optionType;
     public int contentType;
     public int width;
     public int height;
-    public byte aByte112;
+    public byte transparency;
     public int x;
     public int y;
     public int[][] anIntArrayArray115;
@@ -53,27 +53,27 @@ public class Component {
     public int[] invSlotX;
     public int[] invSlotY;
     public String[] aStringArray136;
-    public boolean aBoolean137;
-    public boolean aBoolean138;
-    public boolean aBoolean139;
-    public TypeFace aClass44_Sub3_Sub1_Sub4_140;
-    public String aString141;
-    public String aString142;
-    public int anInt143;
-    public int anInt144;
-    public int anInt145;
-    public int anInt146;
-    public Image24 aClass44_Sub3_Sub1_Sub2_147;
-    public Image24 aClass44_Sub3_Sub1_Sub2_148;
+    public boolean fill;
+    public boolean center;
+    public boolean shadow;
+    public BitmapFont font;
+    public String text;
+    public String activeText;
+    public int colour;
+    public int activeColour;
+    public int hoverColour;
+    public int activeHoverColour;
+    public Image24 image;
+    public Image24 activeImage;
     public int modelType;
     public int modelTypeId;
     public int anInt151;
     public int anInt152;
-    public int anInt153;
-    public int anInt154;
-    public int anInt155;
-    public int anInt156;
-    public int anInt157;
+    public int seqId;
+    public int activeSeqId;
+    public int modelZoom;
+    public int modelEyePitch;
+    public int modelYaw;
     public String aString158;
     public String aString159;
     public int anInt160;
@@ -83,7 +83,7 @@ public class Component {
         aByte98 = 4;
     }
 
-    public static void method181(TypeFace[] aclass44_sub3_sub1_sub4, FileArchive mediaArchive, int i, FileArchive widgetArchive) {
+    public static void method181(BitmapFont[] aclass44_sub3_sub1_sub4, FileArchive mediaArchive, int i, FileArchive widgetArchive) {
         try {
             Component.spriteCache = new Cache((byte) 7, 50000);
             Buffer class44_sub3_sub2 = new Buffer(widgetArchive.method549("data", null));
@@ -103,11 +103,11 @@ public class Component {
                 class5.id = l;
                 class5.anInt106 = j;
                 class5.type = class44_sub3_sub2.readUnsignedByte();
-                class5.anInt108 = class44_sub3_sub2.readUnsignedByte();
+                class5.optionType = class44_sub3_sub2.readUnsignedByte();
                 class5.contentType = class44_sub3_sub2.readUnsignedShort();
                 class5.width = class44_sub3_sub2.readUnsignedShort();
                 class5.height = class44_sub3_sub2.readUnsignedShort();
-                class5.aByte112 = (byte) class44_sub3_sub2.readUnsignedByte();
+                class5.transparency = (byte) class44_sub3_sub2.readUnsignedByte();
                 class5.anInt118 = class44_sub3_sub2.readUnsignedByte();
                 if (class5.anInt118 != 0) {
                     class5.anInt118 = (class5.anInt118 - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
@@ -185,39 +185,39 @@ public class Component {
                     }
                 }
                 if (class5.type == 3) {
-                    class5.aBoolean137 = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.fill = class44_sub3_sub2.readUnsignedByte() == 1;
                 }
                 if (class5.type == 4 || class5.type == 1) {
-                    class5.aBoolean138 = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.center = class44_sub3_sub2.readUnsignedByte() == 1;
                     int l2 = class44_sub3_sub2.readUnsignedByte();
                     if (aclass44_sub3_sub1_sub4 != null) {
-                        class5.aClass44_Sub3_Sub1_Sub4_140 = aclass44_sub3_sub1_sub4[l2];
+                        class5.font = aclass44_sub3_sub1_sub4[l2];
                     }
-                    class5.aBoolean139 = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.shadow = class44_sub3_sub2.readUnsignedByte() == 1;
                 }
                 if (class5.type == 4) {
-                    class5.aString141 = class44_sub3_sub2.readString();
-                    class5.aString142 = class44_sub3_sub2.readString();
+                    class5.text = class44_sub3_sub2.readString();
+                    class5.activeText = class44_sub3_sub2.readString();
                 }
                 if (class5.type == 1 || class5.type == 3 || class5.type == 4) {
-                    class5.anInt143 = class44_sub3_sub2.readInt();
+                    class5.colour = class44_sub3_sub2.readInt();
                 }
                 if (class5.type == 3 || class5.type == 4) {
-                    class5.anInt144 = class44_sub3_sub2.readInt();
-                    class5.anInt145 = class44_sub3_sub2.readInt();
-                    class5.anInt146 = class44_sub3_sub2.readInt();
+                    class5.activeColour = class44_sub3_sub2.readInt();
+                    class5.hoverColour = class44_sub3_sub2.readInt();
+                    class5.activeHoverColour = class44_sub3_sub2.readInt();
                 }
                 if (class5.type == 5) {
                     String s = class44_sub3_sub2.readString();
                     if (mediaArchive != null && s.length() > 0) {
                         int j4 = s.lastIndexOf(",");
-                        class5.aClass44_Sub3_Sub1_Sub2_147 = Component.method186(false,
+                        class5.image = Component.method186(false,
                                 Integer.parseInt(s.substring(j4 + 1)), mediaArchive, s.substring(0, j4));
                     }
                     s = class44_sub3_sub2.readString();
                     if (mediaArchive != null && s.length() > 0) {
                         int k4 = s.lastIndexOf(",");
-                        class5.aClass44_Sub3_Sub1_Sub2_148 = Component.method186(false,
+                        class5.activeImage = Component.method186(false,
                                 Integer.parseInt(s.substring(k4 + 1)), mediaArchive, s.substring(0, k4));
                     }
                 }
@@ -234,30 +234,30 @@ public class Component {
                     }
                     i1 = class44_sub3_sub2.readUnsignedByte();
                     if (i1 != 0) {
-                        class5.anInt153 = (i1 - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
+                        class5.seqId = (i1 - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
                     } else {
-                        class5.anInt153 = -1;
+                        class5.seqId = -1;
                     }
                     i1 = class44_sub3_sub2.readUnsignedByte();
                     if (i1 != 0) {
-                        class5.anInt154 = (i1 - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
+                        class5.activeSeqId = (i1 - 1 << 8) + class44_sub3_sub2.readUnsignedByte();
                     } else {
-                        class5.anInt154 = -1;
+                        class5.activeSeqId = -1;
                     }
-                    class5.anInt155 = class44_sub3_sub2.readUnsignedShort();
-                    class5.anInt156 = class44_sub3_sub2.readUnsignedShort();
-                    class5.anInt157 = class44_sub3_sub2.readUnsignedShort();
+                    class5.modelZoom = class44_sub3_sub2.readUnsignedShort();
+                    class5.modelEyePitch = class44_sub3_sub2.readUnsignedShort();
+                    class5.modelYaw = class44_sub3_sub2.readUnsignedShort();
                 }
                 if (class5.type == 7) {
                     class5.containerObjId = new int[class5.width * class5.height];
                     class5.containerItemAmount = new int[class5.width * class5.height];
-                    class5.aBoolean138 = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.center = class44_sub3_sub2.readUnsignedByte() == 1;
                     int i3 = class44_sub3_sub2.readUnsignedByte();
                     if (aclass44_sub3_sub1_sub4 != null) {
-                        class5.aClass44_Sub3_Sub1_Sub4_140 = aclass44_sub3_sub1_sub4[i3];
+                        class5.font = aclass44_sub3_sub1_sub4[i3];
                     }
-                    class5.aBoolean139 = class44_sub3_sub2.readUnsignedByte() == 1;
-                    class5.anInt143 = class44_sub3_sub2.readInt();
+                    class5.shadow = class44_sub3_sub2.readUnsignedByte() == 1;
+                    class5.colour = class44_sub3_sub2.readInt();
                     class5.invMarginX = class44_sub3_sub2.method485();
                     class5.invMarginY = class44_sub3_sub2.method485();
                     class5.aBoolean128 = class44_sub3_sub2.readUnsignedByte() == 1;
@@ -269,24 +269,24 @@ public class Component {
                         }
                     }
                 }
-                if (class5.anInt108 == 2 || class5.type == 2) {
+                if (class5.optionType == 2 || class5.type == 2) {
                     class5.aString158 = class44_sub3_sub2.readString();
                     class5.aString159 = class44_sub3_sub2.readString();
                     class5.anInt160 = class44_sub3_sub2.readUnsignedShort();
                 }
-                if (class5.anInt108 == 1 || class5.anInt108 == 4 || class5.anInt108 == 5 || class5.anInt108 == 6) {
+                if (class5.optionType == 1 || class5.optionType == 4 || class5.optionType == 5 || class5.optionType == 6) {
                     class5.aString161 = class44_sub3_sub2.readString();
                     if (class5.aString161.length() == 0) {
-                        if (class5.anInt108 == 1) {
+                        if (class5.optionType == 1) {
                             class5.aString161 = "Ok";
                         }
-                        if (class5.anInt108 == 4) {
+                        if (class5.optionType == 4) {
                             class5.aString161 = "Select";
                         }
-                        if (class5.anInt108 == 5) {
+                        if (class5.optionType == 5) {
                             class5.aString161 = "Select";
                         }
-                        if (class5.anInt108 == 6) {
+                        if (class5.optionType == 6) {
                             class5.aString161 = "Continue";
                         }
                     }
@@ -362,7 +362,7 @@ public class Component {
         throw new RuntimeException();
     }
 
-    public Model method183(int i, int j, int k, boolean flag) {
+    public Model getModel(int j, int k, boolean flag) {
         try {
             if (i != 0) {
                 for (int l = 1; l > 0; l++) {
@@ -414,7 +414,7 @@ public class Component {
             class44_sub3_sub4_sub4 = Game.self.method539(false);
         }
         if (i == 4) {
-            class44_sub3_sub4_sub4 = ObjType.method220(j).method225(true, 50);
+            class44_sub3_sub4_sub4 = ObjType.lookup(j).method225(true, 50);
         }
         if (i == 5) {
             class44_sub3_sub4_sub4 = null;

@@ -182,7 +182,7 @@ public class regionCached {
     }
 
     public static int method167(int i, int j, int k, int l) {
-        int i1 = 0x10000 - Draw3D.anIntArray1428[(k * 1024) / l] >> 1;
+        int i1 = 0x10000 - Draw3D.cos[(k * 1024) / l] >> 1;
         return (i * (0x10000 - i1) >> 16) + (j * i1 >> 16);
     }
 

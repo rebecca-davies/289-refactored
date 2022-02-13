@@ -37,7 +37,7 @@ public class NPCEntity extends Actor {
                 SpotAnimType class32 = SpotAnimType.cache[super.anInt1648];
                 Model class44_sub3_sub4_sub4_1 = class32.method271();
                 if (class44_sub3_sub4_sub4_1 != null) {
-                    int j = class32.aClass26_563.anIntArray510[super.anInt1649];
+                    int j = class32.aClass26_563.primaryFrames[super.anInt1649];
                     Model class44_sub3_sub4_sub4_2 = new Model(class44_sub3_sub4_sub4_1, SeqFrame.method211(j, 0),
                             false, anInt1697, true);
                     class44_sub3_sub4_sub4_2.method519(-super.anInt1652, 0, (byte) 2, 0);
@@ -71,16 +71,16 @@ public class NPCEntity extends Actor {
                 aBoolean1699 = !aBoolean1699;
             }
             if (super.anInt1643 >= 0 && super.anInt1646 == 0) {
-                int i = SeqType.cache[super.anInt1643].anIntArray510[super.anInt1644];
+                int i = SeqType.instances[super.anInt1643].primaryFrames[super.anInt1644];
                 int k = -1;
                 if (super.anInt1640 >= 0 && super.anInt1640 != super.anInt1620) {
-                    k = SeqType.cache[super.anInt1640].anIntArray510[super.anInt1641];
+                    k = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
                 }
-                return aClass12_1700.method216(0, k, i, SeqType.cache[super.anInt1643].anIntArray514);
+                return aClass12_1700.method216(0, k, i, SeqType.instances[super.anInt1643].anIntArray514);
             }
             int j = -1;
             if (super.anInt1640 >= 0) {
-                j = SeqType.cache[super.anInt1640].anIntArray510[super.anInt1641];
+                j = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
             }
             return aClass12_1700.method216(0, -1, j, null);
         } catch (RuntimeException runtimeexception) {

@@ -28,7 +28,7 @@ public class ObjType {
     public int anInt322;
     public int anInt329;
     public int anInt330;
-    public String aString331;
+    public String name;
     public byte[] aByteArray332;
     public int[] anIntArray333;
     public int[] anIntArray334;
@@ -39,7 +39,7 @@ public class ObjType {
     public int anInt339;
     public int anInt340;
     public int anInt341;
-    public boolean aBoolean342;
+    public boolean stackable;
     public int anInt343;
     public boolean aBoolean344;
     public String[] aStringArray345;
@@ -108,7 +108,7 @@ public class ObjType {
         }
     }
 
-    public static ObjType method220(int i) {
+    public static ObjType lookup(int i) {
         for (int j = 0; j < 10; j++) {
             if (ObjType.cache[j].anInt329 == i) {
                 return ObjType.cache[j];
@@ -124,7 +124,7 @@ public class ObjType {
             class14.method223(6);
         }
         if (!ObjType.aBoolean328 && class14.aBoolean344) {
-            class14.aString331 = "Members Object";
+            class14.name = "Members Object";
             class14.aByteArray332 = "Login to a members' server to use this object.".getBytes();
             class14.aStringArray345 = null;
             class14.aStringArray346 = null;
@@ -145,7 +145,7 @@ public class ObjType {
                     return class44_sub3_sub1_sub2;
                 }
             }
-            ObjType class14 = ObjType.method220(id);
+            ObjType class14 = ObjType.lookup(id);
             if (class14.anIntArray359 == null) {
                 amount = -1;
             }
@@ -157,7 +157,7 @@ public class ObjType {
                     }
                 }
                 if (i1 != -1) {
-                    class14 = ObjType.method220(i1);
+                    class14 = ObjType.lookup(i1);
                 }
             }
             Model class44_sub3_sub4_sub4 = class14.method224(1);
@@ -172,8 +172,8 @@ public class ObjType {
                 }
             }
             Image24 class44_sub3_sub1_sub2_1 = new Image24(32, 32);
-            int k1 = Draw3D.anInt1423;
-            int l1 = Draw3D.anInt1424;
+            int k1 = Draw3D.centerX;
+            int l1 = Draw3D.centerY;
             int[] ai = Draw3D.anIntArray1429;
             int[] ai1 = Draw2D.pixels;
             int i2 = Draw2D.width;
@@ -184,7 +184,7 @@ public class ObjType {
             int j3 = Draw2D.bottom;
             Draw3D.aBoolean1421 = false;
             Draw2D.bind(class44_sub3_sub1_sub2_1.pixels, 32, 32);
-            Draw2D.method411(0, 210, 0, 32, 0, 32);
+            Draw2D.fillRect(0, 0, 32, 32, 0, 210);
             Draw3D.method419((byte) 3);
             int k3 = class14.anInt335;
             if (outlineColour == -1) {
@@ -193,9 +193,9 @@ public class ObjType {
             if (outlineColour > 0) {
                 k3 = (int) (k3 * 1.04D);
             }
-            int l3 = Draw3D.anIntArray1427[class14.anInt336] * k3 >> 16;
-            int i4 = Draw3D.anIntArray1428[class14.anInt336] * k3 >> 16;
-            class44_sub3_sub4_sub4.method526(0, class14.anInt337, class14.anInt338, class14.anInt336, class14.anInt339,
+            int l3 = Draw3D.sin[class14.anInt336] * k3 >> 16;
+            int i4 = Draw3D.cos[class14.anInt336] * k3 >> 16;
+            class44_sub3_sub4_sub4.drawSimple(0, class14.anInt337, class14.anInt338, class14.anInt336, class14.anInt339,
                     l3 + class44_sub3_sub4_sub4.anInt1412 / 2 + class14.anInt340, i4
                             + class14.anInt340);
             for (int i5 = 31; i5 >= 0; i5--) {
@@ -253,11 +253,11 @@ public class ObjType {
             }
             Draw2D.bind(ai1, i2, j2);
             Draw2D.setBounds(l2, j3, i3, k2);
-            Draw3D.anInt1423 = k1;
-            Draw3D.anInt1424 = l1;
+            Draw3D.centerX = k1;
+            Draw3D.centerY = l1;
             Draw3D.anIntArray1429 = ai;
             Draw3D.aBoolean1421 = true;
-            if (class14.aBoolean342) {
+            if (class14.stackable) {
                 class44_sub3_sub1_sub2_1.cropWidth = 33;
             } else {
                 class44_sub3_sub1_sub2_1.cropWidth = 32;
@@ -272,7 +272,7 @@ public class ObjType {
 
     public void method221() {
         anInt330 = 0;
-        aString331 = null;
+        name = null;
         aByteArray332 = null;
         anIntArray333 = null;
         anIntArray334 = null;
@@ -283,7 +283,7 @@ public class ObjType {
         anInt339 = 0;
         anInt340 = 0;
         anInt341 = -1;
-        aBoolean342 = false;
+        stackable = false;
         anInt343 = 1;
         aBoolean344 = false;
         aStringArray345 = null;
@@ -325,7 +325,7 @@ public class ObjType {
                 if (i == 1) {
                     anInt330 = class44_sub3_sub2.readUnsignedShort();
                 } else if (i == 2) {
-                    aString331 = class44_sub3_sub2.readString();
+                    name = class44_sub3_sub2.readString();
                 } else if (i == 3) {
                     aByteArray332 = class44_sub3_sub2.method490(anInt317);
                 } else if (i == 4) {
@@ -347,7 +347,7 @@ public class ObjType {
                 } else if (i == 10) {
                     anInt341 = class44_sub3_sub2.readUnsignedShort();
                 } else if (i == 11) {
-                    aBoolean342 = true;
+                    stackable = true;
                 } else if (i == 12) {
                     anInt343 = class44_sub3_sub2.readInt();
                 } else if (i == 16) {
@@ -430,7 +430,7 @@ public class ObjType {
 
     public void method223(int i) {
         try {
-            ObjType class14 = ObjType.method220(anInt362);
+            ObjType class14 = ObjType.lookup(anInt362);
             anInt330 = class14.anInt330;
             anInt335 = class14.anInt335;
             anInt336 = class14.anInt336;
@@ -440,20 +440,20 @@ public class ObjType {
             anInt340 = class14.anInt340;
             anIntArray333 = class14.anIntArray333;
             anIntArray334 = class14.anIntArray334;
-            ObjType class14_1 = ObjType.method220(anInt361);
-            aString331 = class14_1.aString331;
+            ObjType class14_1 = ObjType.lookup(anInt361);
+            name = class14_1.name;
             aBoolean344 = class14_1.aBoolean344;
             anInt343 = class14_1.anInt343;
             String s = "a";
-            char c = class14_1.aString331.charAt(0);
+            char c = class14_1.name.charAt(0);
             if (i != 6) {
                 anInt317 = -375;
             }
             if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
                 s = "an";
             }
-            aByteArray332 = ("Swap this note at any bank for " + s + " " + class14_1.aString331 + ".").getBytes();
-            aBoolean342 = true;
+            aByteArray332 = ("Swap this note at any bank for " + s + " " + class14_1.name + ".").getBytes();
+            stackable = true;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("48619, " + i + ", " + runtimeexception);
@@ -470,7 +470,7 @@ public class ObjType {
                 }
             }
             if (j != -1) {
-                return ObjType.method220(j).method224(1);
+                return ObjType.lookup(j).method224(1);
             }
         }
         Model class44_sub3_sub4_sub4 = (Model) ObjType.aClass39_369.method339(anInt329);
@@ -505,7 +505,7 @@ public class ObjType {
                     }
                 }
                 if (j != -1) {
-                    return ObjType.method220(j).method225(true, 1);
+                    return ObjType.lookup(j).method225(true, 1);
                 }
             }
             Model class44_sub3_sub4_sub4 = Model.method506(anInt330, aByte318);

@@ -17,7 +17,7 @@ public class ObjStackEntity extends Renderable {
     @Override
     public Model getRotatedModel(int i) {
         try {
-            ObjType class14 = ObjType.method220(anInt1495);
+            ObjType class14 = ObjType.lookup(anInt1495);
             if (i != -37770) {
                 aBoolean1494 = !aBoolean1494;
             }

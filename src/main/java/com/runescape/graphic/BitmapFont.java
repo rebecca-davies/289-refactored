@@ -6,7 +6,7 @@ import com.runescape.util.SignLink;
 
 import java.util.Random;
 
-public class TypeFace extends Draw2D {
+public class BitmapFont extends Draw2D {
 
     public int anInt1466;
     public boolean aBoolean1467;
@@ -20,11 +20,11 @@ public class TypeFace extends Draw2D {
     public int[] anIntArray1475;
     public int[] anIntArray1476;
     public int[] anIntArray1477;
-    public int anInt1478;
+    public int height;
     public Random aRandom1479;
     public boolean aBoolean1480;
 
-    public TypeFace(int i, String s, boolean flag, FileArchive class47) {
+    public BitmapFont(int i, String s, boolean flag, FileArchive class47) {
         anInt1466 = 784;
         aBoolean1467 = false;
         aByte1469 = 5;
@@ -68,8 +68,8 @@ public class TypeFace extends Draw2D {
                         }
                     }
                 }
-                if (j1 > anInt1478 && l < 128) {
-                    anInt1478 = j1;
+                if (j1 > height && l < 128) {
+                    height = j1;
                 }
                 anIntArray1475[l] = 1;
                 anIntArray1477[l] = i1 + 2;
@@ -116,17 +116,8 @@ public class TypeFace extends Draw2D {
         }
     }
 
-    public void drawStringCenter(boolean flag, int i, byte byte0, int j, String s, int k) {
-        try {
-            drawStringTaggable(i, 2, k, flag, j - getTextDisplayedWidth(s) / 2, s);
-            if (byte0 != -85) {
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("52266, " + flag + ", " + i + ", " + byte0 + ", " + j + ", " + s + ", " + k + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
-        }
+    public void drawStringTaggableCenter(String text, int x, int y, int colour, boolean shadow) {
+            drawStringTaggable(text, x - getTextDisplayedWidth(text) / 2, y, colour, shadow);
     }
 
     public int getTextDisplayedWidth(String s) {
@@ -167,7 +158,7 @@ public class TypeFace extends Draw2D {
             if (s == null) {
                 return;
             }
-            x -= anInt1478;
+            x -= height;
             for (int l = 0; l < s.length(); l++) {
                 char c = s.charAt(l);
                 if (c != ' ') {
@@ -184,7 +175,7 @@ public class TypeFace extends Draw2D {
                 return;
             }
             i -= method458(s, -725) / 2;
-            l -= anInt1478;
+            l -= height;
             if (byte0 != aByte1469) {
                 for (int i1 = 1; i1 > 0; i1++) {
                 }
@@ -217,7 +208,7 @@ public class TypeFace extends Draw2D {
                 return;
             }
             j -= method458(s, -725) / 2;
-            k -= anInt1478;
+            k -= height;
             for (int i1 = 0; i1 < s.length(); i1++) {
                 char c = s.charAt(i1);
                 if (c != ' ') {
@@ -248,7 +239,7 @@ public class TypeFace extends Draw2D {
                 d = 0.0D;
             }
             i -= method458(s, -725) / 2;
-            k -= anInt1478;
+            k -= height;
             for (int k1 = 0; k1 < s.length(); k1++) {
                 char c = s.charAt(k1);
                 if (c != ' ') {
@@ -266,46 +257,37 @@ public class TypeFace extends Draw2D {
         throw new RuntimeException();
     }
 
-    public void drawStringTaggable(int i, int j, int k, boolean flag, int l, String s) {
-        try {
+    public void drawStringTaggable(String text, int x, int y, int colour, boolean shadow) {
             aBoolean1480 = false;
-            int i1 = l;
-            if (s == null) {
+            int i1 = x;
+            if (text == null) {
                 return;
             }
-            k -= anInt1478;
-            for (int j1 = 0; j1 < s.length(); j1++) {
-                if (s.charAt(j1) == '@' && j1 + 4 < s.length() && s.charAt(j1 + 4) == '@') {
-                    int k1 = method465(s.substring(j1 + 1, j1 + 4), 1);
+            y -= height;
+            for (int j1 = 0; j1 < text.length(); j1++) {
+                if (text.charAt(j1) == '@' && j1 + 4 < text.length() && text.charAt(j1 + 4) == '@') {
+                    int k1 = method465(text.substring(j1 + 1, j1 + 4), 1);
                     if (k1 != -1) {
-                        i = k1;
+                        colour = k1;
                     }
                     j1 += 4;
                 } else {
-                    char c = s.charAt(j1);
+                    char c = text.charAt(j1);
                     if (c != ' ') {
-                        if (flag) {
-                            method466(aByteArrayArray1472[c], l + anIntArray1475[c] + 1, k + anIntArray1476[c] + 1,
+                        if (shadow) {
+                            method466(aByteArrayArray1472[c], x + anIntArray1475[c] + 1, y + anIntArray1476[c] + 1,
                                     anIntArray1473[c], anIntArray1474[c], 0);
                         }
-                        method466(aByteArrayArray1472[c], l + anIntArray1475[c], k + anIntArray1476[c],
-                                anIntArray1473[c], anIntArray1474[c], i);
+                        method466(aByteArrayArray1472[c], x + anIntArray1475[c], y + anIntArray1476[c],
+                                anIntArray1473[c], anIntArray1474[c], colour);
                     }
-                    l += anIntArray1477[c];
+                    x += anIntArray1477[c];
                 }
             }
-            if (j < anInt1470 || j > anInt1470) {
-                return;
-            }
             if (aBoolean1480) {
-                Draw2D.method414(l - i1, i1, 0x800000, true, k + (int) (anInt1478 * 0.69999999999999996D));
+                Draw2D.method414(x - i1, i1, 0x800000, true, y + (int) (height * 0.69999999999999996D));
                 return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("34312, " + i + ", " + j + ", " + k + ", " + flag + ", " + l + ", " + s + ", "
-                    + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public void method464(String s, boolean flag, int i, int j, int k, int l, int i1) {
@@ -319,7 +301,7 @@ public class TypeFace extends Draw2D {
             }
             aRandom1479.setSeed(l);
             int k1 = 192 + (aRandom1479.nextInt() & 0x1f);
-            i1 -= anInt1478;
+            i1 -= height;
             for (int l1 = 0; l1 < s.length(); l1++) {
                 if (s.charAt(l1) == '@' && l1 + 4 < s.length() && s.charAt(l1 + 4) == '@') {
                     int i2 = method465(s.substring(l1 + 1, l1 + 4), 1);

@@ -14,12 +14,12 @@ public class Draw3D extends Draw2D {
     public static boolean aBoolean1420;
     public static boolean aBoolean1421 = true;
     public static int anInt1422;
-    public static int anInt1423;
-    public static int anInt1424;
+    public static int centerX;
+    public static int centerY;
     public static int[] anIntArray1425;
     public static int[] anIntArray1426;
-    public static int[] anIntArray1427;
-    public static int[] anIntArray1428;
+    public static int[] sin;
+    public static int[] cos;
     public static int[] anIntArray1429;
     public static int anInt1430;
     public static Image8[] aClass44_Sub3_Sub1_Sub3Array1431 = new Image8[50];
@@ -36,8 +36,8 @@ public class Draw3D extends Draw2D {
     static {
         Draw3D.anIntArray1425 = new int[512];
         Draw3D.anIntArray1426 = new int[2048];
-        Draw3D.anIntArray1427 = new int[2048];
-        Draw3D.anIntArray1428 = new int[2048];
+        Draw3D.sin = new int[2048];
+        Draw3D.cos = new int[2048];
         for (int i = 1; i < 512; i++) {
             Draw3D.anIntArray1425[i] = 32768 / i;
         }
@@ -45,8 +45,8 @@ public class Draw3D extends Draw2D {
             Draw3D.anIntArray1426[j] = 0x10000 / j;
         }
         for (int k = 0; k < 2048; k++) {
-            Draw3D.anIntArray1427[k] = (int) (65536D * Math.sin(k * 0.0030679614999999999D));
-            Draw3D.anIntArray1428[k] = (int) (65536D * Math.cos(k * 0.0030679614999999999D));
+            Draw3D.sin[k] = (int) (65536D * Math.sin(k * 0.0030679614999999999D));
+            Draw3D.cos[k] = (int) (65536D * Math.cos(k * 0.0030679614999999999D));
         }
     }
 
@@ -54,8 +54,8 @@ public class Draw3D extends Draw2D {
         try {
             Draw3D.anIntArray1425 = null;
             Draw3D.anIntArray1425 = null;
-            Draw3D.anIntArray1427 = null;
-            Draw3D.anIntArray1428 = null;
+            Draw3D.sin = null;
+            Draw3D.cos = null;
             Draw3D.anIntArray1429 = null;
             Draw3D.aClass44_Sub3_Sub1_Sub3Array1431 = null;
             Draw3D.aBooleanArray1432 = null;
@@ -87,8 +87,8 @@ public class Draw3D extends Draw2D {
             for (int i = 0; i < Draw2D.height; i++) {
                 Draw3D.anIntArray1429[i] = Draw2D.width * i;
             }
-            Draw3D.anInt1423 = Draw2D.width / 2;
-            Draw3D.anInt1424 = Draw2D.height / 2;
+            Draw3D.centerX = Draw2D.width / 2;
+            Draw3D.centerY = Draw2D.height / 2;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("80083, " + byte0 + ", " + runtimeexception);
@@ -105,8 +105,8 @@ public class Draw3D extends Draw2D {
             for (int l = 0; l < i; l++) {
                 Draw3D.anIntArray1429[l] = j * l;
             }
-            Draw3D.anInt1423 = j / 2;
-            Draw3D.anInt1424 = i / 2;
+            Draw3D.centerX = j / 2;
+            Draw3D.centerY = i / 2;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("87374, " + i + ", " + j + ", " + k + ", " + runtimeexception);
@@ -1284,7 +1284,7 @@ public class Draw3D extends Draw2D {
                     l1 -= l7 * j;
                     j = 0;
                 }
-                int k8 = i - Draw3D.anInt1424;
+                int k8 = i - Draw3D.centerY;
                 l4 += j5 * k8;
                 k5 += i6 * k8;
                 j6 += l6 * k8;
@@ -1363,7 +1363,7 @@ public class Draw3D extends Draw2D {
                 i2 -= l7 * k;
                 k = 0;
             }
-            int l8 = i - Draw3D.anInt1424;
+            int l8 = i - Draw3D.centerY;
             l4 += j5 * l8;
             k5 += i6 * l8;
             j6 += l6 * l8;
@@ -1453,7 +1453,7 @@ public class Draw3D extends Draw2D {
                     i2 -= j8 * k;
                     k = 0;
                 }
-                int i9 = j - Draw3D.anInt1424;
+                int i9 = j - Draw3D.centerY;
                 l4 += j5 * i9;
                 k5 += i6 * i9;
                 j6 += l6 * i9;
@@ -1532,7 +1532,7 @@ public class Draw3D extends Draw2D {
                 k1 -= j8 * i;
                 i = 0;
             }
-            int j9 = j - Draw3D.anInt1424;
+            int j9 = j - Draw3D.centerY;
             l4 += j5 * j9;
             k5 += i6 * j9;
             j6 += l6 * j9;
@@ -1621,7 +1621,7 @@ public class Draw3D extends Draw2D {
                 k1 -= j7 * i;
                 i = 0;
             }
-            int k9 = k - Draw3D.anInt1424;
+            int k9 = k - Draw3D.centerY;
             l4 += j5 * k9;
             k5 += i6 * k9;
             j6 += l6 * k9;
@@ -1700,7 +1700,7 @@ public class Draw3D extends Draw2D {
             l1 -= j7 * j;
             j = 0;
         }
-        int l9 = k - Draw3D.anInt1424;
+        int l9 = k - Draw3D.centerY;
         l4 += j5 * l9;
         k5 += i6 * l9;
         j6 += l6 * l9;
@@ -1799,7 +1799,7 @@ public class Draw3D extends Draw2D {
         if (Draw3D.aBoolean1418) {
             int i4 = 0;
             int k4 = 0;
-            int k6 = l - Draw3D.anInt1423;
+            int k6 = l - Draw3D.centerX;
             l1 += (k2 >> 3) * k6;
             i2 += (l2 >> 3) * k6;
             j2 += (i3 >> 3) * k6;
@@ -1964,7 +1964,7 @@ public class Draw3D extends Draw2D {
         }
         int j4 = 0;
         int l4 = 0;
-        int l6 = l - Draw3D.anInt1423;
+        int l6 = l - Draw3D.centerX;
         l1 += (k2 >> 3) * l6;
         i2 += (l2 >> 3) * l6;
         j2 += (i3 >> 3) * l6;

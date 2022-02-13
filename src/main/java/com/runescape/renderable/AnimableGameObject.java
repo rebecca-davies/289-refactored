@@ -73,7 +73,7 @@ public class AnimableGameObject extends Renderable {
             if (class44_sub3_sub4_sub4 == null) {
                 return null;
             }
-            int k = aClass32_1604.aClass26_563.anIntArray510[anInt1610];
+            int k = aClass32_1604.aClass26_563.primaryFrames[anInt1610];
             Model model = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(k, 0), false, anInt1602, true);
             if (!aBoolean1612) {
                 model.method513((byte) 3);

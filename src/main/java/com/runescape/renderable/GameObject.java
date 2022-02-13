@@ -36,7 +36,7 @@ public class GameObject extends Renderable {
                 throw new NullPointerException();
             }
             if (k1 != -1) {
-                aClass26_1489 = SeqType.cache[k1];
+                aClass26_1489 = SeqType.instances[k1];
                 anInt1490 = 0;
                 anInt1491 = Game.loopCycle;
                 if (flag1 && aClass26_1489.anInt513 != -1) {
@@ -82,7 +82,7 @@ public class GameObject extends Renderable {
                     break;
                 }
                 anInt1491 = Game.loopCycle - l;
-                k = aClass26_1489.anIntArray510[anInt1490];
+                k = aClass26_1489.primaryFrames[anInt1490];
             }
             LocType class8;
             if (anIntArray1493 != null) {

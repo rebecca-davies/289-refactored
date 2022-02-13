@@ -129,7 +129,7 @@ public class Projectile extends Renderable {
             }
             int j = -1;
             if (aClass32_1499.aClass26_563 != null) {
-                j = aClass32_1499.aClass26_563.anIntArray510[anInt1521];
+                j = aClass32_1499.aClass26_563.primaryFrames[anInt1521];
             }
             Model class44_sub3_sub4_sub4_1 = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(j, 0), false,
                     anInt1497, true);

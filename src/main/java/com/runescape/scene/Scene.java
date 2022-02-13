@@ -1979,14 +1979,14 @@ public class Scene {
         if (j3 < 50) {
             return;
         }
-        int i5 = Draw3D.anInt1423 + (i2 << 9) / k2;
-        int j5 = Draw3D.anInt1424 + (l3 << 9) / k2;
-        int k5 = Draw3D.anInt1423 + (i3 << 9) / j2;
-        int l5 = Draw3D.anInt1424 + (i4 << 9) / j2;
-        int i6 = Draw3D.anInt1423 + (l2 << 9) / k3;
-        int j6 = Draw3D.anInt1424 + (j4 << 9) / k3;
-        int k6 = Draw3D.anInt1423 + (l1 << 9) / j3;
-        int l6 = Draw3D.anInt1424 + (k4 << 9) / j3;
+        int i5 = Draw3D.centerX + (i2 << 9) / k2;
+        int j5 = Draw3D.centerY + (l3 << 9) / k2;
+        int k5 = Draw3D.centerX + (i3 << 9) / j2;
+        int l5 = Draw3D.centerY + (i4 << 9) / j2;
+        int i6 = Draw3D.centerX + (l2 << 9) / k3;
+        int j6 = Draw3D.centerY + (j4 << 9) / k3;
+        int k6 = Draw3D.centerX + (l1 << 9) / j3;
+        int l6 = Draw3D.centerY + (k4 << 9) / j3;
         Draw3D.anInt1422 = 0;
         if ((i6 - k6) * (l5 - l6) - (j6 - l6) * (k5 - k6) > 0) {
             Draw3D.aBoolean1419 = i6 < 0 || k6 < 0 || k5 < 0 || i6 > Draw2D.boundX || k6 > Draw2D.boundX
@@ -2064,8 +2064,8 @@ public class Scene {
                     ComplexTile.anIntArray390[l1] = k2;
                     ComplexTile.anIntArray391[l1] = i3;
                 }
-                ComplexTile.anIntArray387[l1] = Draw3D.anInt1423 + (i2 << 9) / i3;
-                ComplexTile.anIntArray388[l1] = Draw3D.anInt1424 + (k2 << 9) / i3;
+                ComplexTile.anIntArray387[l1] = Draw3D.centerX + (i2 << 9) / i3;
+                ComplexTile.anIntArray388[l1] = Draw3D.centerY + (k2 << 9) / i3;
             }
             Draw3D.anInt1422 = 0;
             k1 = class15.anIntArray378.length;

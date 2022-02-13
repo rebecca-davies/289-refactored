@@ -73,8 +73,8 @@ public class SpotAnimType {
                     anInt561 = class44_sub3_sub2.readUnsignedShort();
                 } else if (i == 2) {
                     anInt562 = class44_sub3_sub2.readUnsignedShort();
-                    if (SeqType.cache != null) {
-                        aClass26_563 = SeqType.cache[anInt562];
+                    if (SeqType.instances != null) {
+                        aClass26_563 = SeqType.instances[anInt562];
                     }
                 } else if (i == 4) {
                     anInt566 = class44_sub3_sub2.readUnsignedShort();

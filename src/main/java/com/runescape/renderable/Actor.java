@@ -93,7 +93,7 @@ public class Actor extends Renderable {
 
     public void method532(int i, boolean flag, int j, byte byte0) {
         try {
-            if (anInt1643 != -1 && SeqType.cache[anInt1643].anInt521 == 1) {
+            if (anInt1643 != -1 && SeqType.instances[anInt1643].anInt521 == 1) {
                 anInt1643 = -1;
             }
             if (!flag) {
@@ -166,7 +166,7 @@ public class Actor extends Renderable {
                 k++;
                 l--;
             }
-            if (anInt1643 != -1 && SeqType.cache[anInt1643].anInt521 == 1) {
+            if (anInt1643 != -1 && SeqType.instances[anInt1643].anInt521 == 1) {
                 anInt1643 = -1;
             }
             if (anInt1664 < 9) {

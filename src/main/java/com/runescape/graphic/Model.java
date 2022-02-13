@@ -50,8 +50,8 @@ public class Model extends Renderable {
     public static int[] anIntArray1601;
 
     static {
-        Model.SINE = Draw3D.anIntArray1427;
-        Model.COSINE = Draw3D.anIntArray1428;
+        Model.SINE = Draw3D.sin;
+        Model.COSINE = Draw3D.cos;
         Model.anIntArray1600 = Draw3D.anIntArray1439;
         Model.anIntArray1601 = Draw3D.anIntArray1426;
     }
@@ -1577,9 +1577,9 @@ public class Model extends Renderable {
         anIntArray1549 = null;
     }
 
-    public void method526(int i, int j, int k, int l, int i1, int j1, int k1) {
-        int l1 = Draw3D.anInt1423;
-        int i2 = Draw3D.anInt1424;
+    public void drawSimple(int i, int j, int k, int l, int i1, int j1, int k1) {
+        int l1 = Draw3D.centerX;
+        int i2 = Draw3D.centerY;
         int j2 = Model.SINE[i];
         int k2 = Model.COSINE[i];
         int l2 = Model.SINE[j];
@@ -1682,8 +1682,8 @@ public class Model extends Renderable {
                 k4 /= i3;
                 i5 /= k5;
             }
-            int i6 = Model.anInt1594 - Draw3D.anInt1423;
-            int k6 = Model.anInt1595 - Draw3D.anInt1424;
+            int i6 = Model.anInt1594 - Draw3D.centerX;
+            int k6 = Model.anInt1595 - Draw3D.centerY;
             if (i6 > k3 && i6 < l3 && k6 > i5 && k6 < k4) {
                 if (aBoolean1568) {
                     Model.anIntArray1597[Model.anInt1596++] = i2;
@@ -1692,8 +1692,8 @@ public class Model extends Renderable {
                 }
             }
         }
-        int l5 = Draw3D.anInt1423;
-        int j6 = Draw3D.anInt1424;
+        int l5 = Draw3D.centerX;
+        int j6 = Draw3D.centerY;
         int l6 = 0;
         int i7 = 0;
         if (i != 0) {
@@ -1967,8 +1967,8 @@ public class Model extends Renderable {
     }
 
     public void method529(int i) {
-        int j = Draw3D.anInt1423;
-        int k = Draw3D.anInt1424;
+        int j = Draw3D.centerX;
+        int k = Draw3D.centerY;
         int l = 0;
         int i1 = anIntArray1540[i];
         int j1 = anIntArray1541[i];

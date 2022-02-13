@@ -70,7 +70,7 @@ public class PlayerEntity extends Actor {
                     break;
                 }
                 if (anIntArray1676[i] >= 512 && anIntArray1676[i] - 512 < ObjType.anInt323) {
-                    int k1 = ObjType.method220(anIntArray1676[i] - 512).anInt368;
+                    int k1 = ObjType.lookup(anIntArray1676[i] - 512).anInt368;
                     if (k1 != 0) {
                         anInt1695 = k1;
                     }
@@ -167,7 +167,7 @@ public class PlayerEntity extends Actor {
                             super.anInt1649, 0), false, anInt1670, true);
                     class44_sub3_sub4_sub4_3.method519(-super.anInt1652, 0, (byte) 2, 0);
                     class44_sub3_sub4_sub4_3.method513((byte) 3);
-                    class44_sub3_sub4_sub4_3.method514(class32.aClass26_563.anIntArray510[super.anInt1649], 188);
+                    class44_sub3_sub4_sub4_3.method514(class32.aClass26_563.primaryFrames[super.anInt1649], 188);
                     class44_sub3_sub4_sub4_3.anIntArrayArray1567 = null;
                     class44_sub3_sub4_sub4_3.anIntArrayArray1566 = null;
                     if (class32.anInt566 != 128 || class32.anInt567 != 128) {
@@ -227,9 +227,9 @@ public class PlayerEntity extends Actor {
             if (aClass12_1694 != null) {
                 int i = -1;
                 if (super.anInt1643 >= 0 && super.anInt1646 == 0) {
-                    i = SeqType.cache[super.anInt1643].anIntArray510[super.anInt1644];
+                    i = SeqType.instances[super.anInt1643].primaryFrames[super.anInt1644];
                 } else if (super.anInt1640 >= 0) {
-                    i = SeqType.cache[super.anInt1640].anIntArray510[super.anInt1641];
+                    i = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
                 }
                 Model class44_sub3_sub4_sub4 = aClass12_1694.method216(0, -1, i, null);
                 return class44_sub3_sub4_sub4;
@@ -240,10 +240,10 @@ public class PlayerEntity extends Actor {
             int i1 = -1;
             int j1 = -1;
             if (super.anInt1643 >= 0 && super.anInt1646 == 0) {
-                SeqType class26 = SeqType.cache[super.anInt1643];
-                j = class26.anIntArray510[super.anInt1644];
+                SeqType class26 = SeqType.instances[super.anInt1643];
+                j = class26.primaryFrames[super.anInt1644];
                 if (super.anInt1640 >= 0 && super.anInt1640 != super.anInt1620) {
-                    k = SeqType.cache[super.anInt1640].anIntArray510[super.anInt1641];
+                    k = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
                 }
                 if (class26.anInt517 >= 0) {
                     i1 = class26.anInt517;
@@ -254,7 +254,7 @@ public class PlayerEntity extends Actor {
                     l += j1 - anIntArray1676[3] << 48;
                 }
             } else if (super.anInt1640 >= 0) {
-                j = SeqType.cache[super.anInt1640].anIntArray510[super.anInt1641];
+                j = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
             }
             Model class44_sub3_sub4_sub4_1 = (Model) PlayerEntity.aClass39_1696.method339(l);
             if (flag) {
@@ -273,7 +273,7 @@ public class PlayerEntity extends Actor {
                     if (i2 >= 256 && i2 < 512 && !IDKType.cache[i2 - 256].method249(9)) {
                         flag1 = true;
                     }
-                    if (i2 >= 512 && !ObjType.method220(i2 - 512).method227(false, anInt1674)) {
+                    if (i2 >= 512 && !ObjType.lookup(i2 - 512).method227(false, anInt1674)) {
                         flag1 = true;
                     }
                 }
@@ -304,7 +304,7 @@ public class PlayerEntity extends Actor {
                         }
                     }
                     if (k2 >= 512) {
-                        Model class44_sub3_sub4_sub4_4 = ObjType.method220(k2 - 512).method228(anInt1674, 0);
+                        Model class44_sub3_sub4_sub4_4 = ObjType.lookup(k2 - 512).method228(anInt1674, 0);
                         if (class44_sub3_sub4_sub4_4 != null) {
                             aclass44_sub3_sub4_sub4[l1++] = class44_sub3_sub4_sub4_4;
                         }
@@ -333,7 +333,7 @@ public class PlayerEntity extends Actor {
             class44_sub3_sub4_sub4_2.method508(SeqFrame.method211(j, 0) & SeqFrame.method211(k, 0),
                     class44_sub3_sub4_sub4_1, 0);
             if (j != -1 && k != -1) {
-                class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.cache[super.anInt1643].anIntArray514);
+                class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.instances[super.anInt1643].anIntArray514);
             } else if (j != -1) {
                 class44_sub3_sub4_sub4_2.method514(j, 188);
             }
@@ -365,7 +365,7 @@ public class PlayerEntity extends Actor {
                 if (k >= 256 && k < 512 && !IDKType.cache[k - 256].method251((byte) 0)) {
                     flag1 = true;
                 }
-                if (k >= 512 && !ObjType.method220(k - 512).method229(true, anInt1674)) {
+                if (k >= 512 && !ObjType.lookup(k - 512).method229(true, anInt1674)) {
                     flag1 = true;
                 }
             }
@@ -383,7 +383,7 @@ public class PlayerEntity extends Actor {
                     }
                 }
                 if (j1 >= 512) {
-                    Model class44_sub3_sub4_sub4_2 = ObjType.method220(j1 - 512).method230(481, anInt1674);
+                    Model class44_sub3_sub4_sub4_2 = ObjType.lookup(j1 - 512).method230(481, anInt1674);
                     if (class44_sub3_sub4_sub4_2 != null) {
                         aclass44_sub3_sub4_sub4[l++] = class44_sub3_sub4_sub4_2;
                     }

@@ -87,7 +87,7 @@ public class Draw2D extends CacheableNode {
         throw new RuntimeException();
     }
 
-    public static void method410(int i, int j, int k, int l, int i1, int j1, boolean flag) {
+    public static void fillRect(int i, int j, int k, int l, int i1, int j1, boolean flag) {
         try {
             if (j1 < Draw2D.left) {
                 i1 -= Draw2D.left - j1;
@@ -130,57 +130,57 @@ public class Draw2D extends CacheableNode {
         throw new RuntimeException();
     }
 
-    public static void method411(int i, int j, int k, int l, int i1, int j1) {
+    public static void fillRect(int x, int y, int width, int height, int colour, int j) {
         try {
-            if (i1 < Draw2D.left) {
-                j1 -= Draw2D.left - i1;
-                i1 = Draw2D.left;
+            if (x < Draw2D.left) {
+                width -= Draw2D.left - x;
+                x = Draw2D.left;
             }
-            if (k < Draw2D.top) {
-                l -= Draw2D.top - k;
-                k = Draw2D.top;
+            if (y < Draw2D.top) {
+                height -= Draw2D.top - y;
+                y = Draw2D.top;
             }
-            if (i1 + j1 > Draw2D.right) {
-                j1 = Draw2D.right - i1;
+            if (x + width > Draw2D.right) {
+                width = Draw2D.right - x;
             }
-            if (k + l > Draw2D.bottom) {
-                l = Draw2D.bottom - k;
+            if (y + height > Draw2D.bottom) {
+                height = Draw2D.bottom - y;
             }
-            int k1 = Draw2D.width - j1;
+            int k1 = Draw2D.width - width;
             j = 83 / j;
-            int l1 = i1 + k * Draw2D.width;
-            for (int i2 = -l; i2 < 0; i2++) {
-                for (int j2 = -j1; j2 < 0; j2++) {
-                    Draw2D.pixels[l1++] = i;
+            int l1 = x + y * Draw2D.width;
+            for (int i2 = -height; i2 < 0; i2++) {
+                for (int j2 = -width; j2 < 0; j2++) {
+                    Draw2D.pixels[l1++] = colour;
                 }
                 l1 += k1;
             }
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("43392, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
+            SignLink.reporterror("43392, " + colour + ", " + j + ", " + y + ", " + height + ", " + x + ", " + width + ", "
                     + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method412(int i, int j, int k, int l, int i1, int j1) {
+    public static void drawRect(int x, int y, int width, int height, int colour, int i) {
         try {
-            Draw2D.method414(k, j, l, true, i1);
-            Draw2D.method414(k, j, l, true, (i1 + j1) - 1);
-            Draw2D.method416(i1, j, l, j1, 0);
+            Draw2D.method414(width, x, colour, true, y);
+            Draw2D.method414(width, x, colour, true, (y + height) - 1);
+            Draw2D.method416(y, x, colour, height, 0);
             if (i < Draw2D.anInt1367 || i > Draw2D.anInt1367) {
                 Draw2D.aBoolean1364 = !Draw2D.aBoolean1364;
             }
-            Draw2D.method416(i1, (j + k) - 1, l, j1, 0);
+            Draw2D.method416(y, (x + width) - 1, colour, height, 0);
             return;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("9711, " + i + ", " + j + ", " + k + ", " + l + ", " + i1 + ", " + j1 + ", "
+            SignLink.reporterror("9711, " + i + ", " + x + ", " + width + ", " + colour + ", " + y + ", " + height + ", "
                     + runtimeexception);
         }
         throw new RuntimeException();
     }
 
-    public static void method413(int i, int j, int k, int l, int i1, int j1, int k1) {
+    public static void drawRect(int i, int j, int k, int l, int i1, int j1, int k1) {
         try {
             Draw2D.method415(-985, k, j, i1, j1, l);
             Draw2D.method415(-985, k, j, i1, (j1 + i) - 1, l);

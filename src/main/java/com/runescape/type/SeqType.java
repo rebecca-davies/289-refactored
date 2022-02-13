@@ -8,13 +8,13 @@ public class SeqType {
 
     public static boolean aBoolean506 = true;
     public static int anInt507;
-    public static SeqType[] cache;
+    public static SeqType[] instances;
     public static int anInt524;
     public boolean aBoolean504;
     public byte aByte505;
     public int anInt509;
-    public int[] anIntArray510;
-    public int[] anIntArray511;
+    public int[] primaryFrames;
+    public int[] secondaryFrames;
     public int[] anIntArray512;
     public int anInt513;
     public int[] anIntArray514;
@@ -45,14 +45,14 @@ public class SeqType {
         try {
             Buffer class44_sub3_sub2 = new Buffer(class47.method549("seq.dat", null));
             SeqType.anInt507 = class44_sub3_sub2.readUnsignedShort();
-            if (SeqType.cache == null) {
-                SeqType.cache = new SeqType[SeqType.anInt507];
+            if (SeqType.instances == null) {
+                SeqType.instances = new SeqType[SeqType.anInt507];
             }
             for (int i = 0; i < SeqType.anInt507; i++) {
-                if (SeqType.cache[i] == null) {
-                    SeqType.cache[i] = new SeqType();
+                if (SeqType.instances[i] == null) {
+                    SeqType.instances[i] = new SeqType();
                 }
-                SeqType.cache[i].method255(false, class44_sub3_sub2);
+                SeqType.instances[i].method255(false, class44_sub3_sub2);
             }
             if (!flag) {
                 SeqType.aBoolean506 = !SeqType.aBoolean506;
@@ -72,7 +72,7 @@ public class SeqType {
             }
             int l = anIntArray512[i];
             if (l == 0) {
-                SeqFrame class11 = SeqFrame.method210(anIntArray510[i], aByte505);
+                SeqFrame class11 = SeqFrame.method210(primaryFrames[i], aByte505);
                 if (class11 != null) {
                     l = anIntArray512[i] = class11.anInt265;
                 }
@@ -99,14 +99,14 @@ public class SeqType {
                 }
                 if (i == 1) {
                     anInt509 = class44_sub3_sub2.readUnsignedByte();
-                    anIntArray510 = new int[anInt509];
-                    anIntArray511 = new int[anInt509];
+                    primaryFrames = new int[anInt509];
+                    secondaryFrames = new int[anInt509];
                     anIntArray512 = new int[anInt509];
                     for (int j = 0; j < anInt509; j++) {
-                        anIntArray510[j] = class44_sub3_sub2.readUnsignedShort();
-                        anIntArray511[j] = class44_sub3_sub2.readUnsignedShort();
-                        if (anIntArray511[j] == 65535) {
-                            anIntArray511[j] = -1;
+                        primaryFrames[j] = class44_sub3_sub2.readUnsignedShort();
+                        secondaryFrames[j] = class44_sub3_sub2.readUnsignedShort();
+                        if (secondaryFrames[j] == 65535) {
+                            secondaryFrames[j] = -1;
                         }
                         anIntArray512[j] = class44_sub3_sub2.readUnsignedShort();
                     }
@@ -143,10 +143,10 @@ public class SeqType {
             } while (true);
             if (anInt509 == 0) {
                 anInt509 = 1;
-                anIntArray510 = new int[1];
-                anIntArray510[0] = -1;
-                anIntArray511 = new int[1];
-                anIntArray511[0] = -1;
+                primaryFrames = new int[1];
+                primaryFrames[0] = -1;
+                secondaryFrames = new int[1];
+                secondaryFrames[0] = -1;
                 anIntArray512 = new int[1];
                 anIntArray512[0] = -1;
             }
