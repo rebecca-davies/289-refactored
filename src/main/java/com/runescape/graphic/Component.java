@@ -17,41 +17,41 @@ public class Component {
     public static Cache spriteCache;
     public byte aByte98;
     public int anInt99;
-    public int[] containerItemId;
+    public int[] containerObjId;
     public int[] containerItemAmount;
     public int anInt103;
     public int anInt104;
-    public int anInt105;
+    public int id;
     public int anInt106;
-    public int anInt107;
+    public int type;
     public int anInt108;
-    public int anInt109;
-    public int anInt110;
-    public int anInt111;
+    public int contentType;
+    public int width;
+    public int height;
     public byte aByte112;
-    public int anInt113;
-    public int anInt114;
+    public int x;
+    public int y;
     public int[][] anIntArrayArray115;
     public int[] anIntArray116;
     public int[] anIntArray117;
     public int anInt118;
-    public int anInt119;
-    public int anInt120;
-    public boolean aBoolean121;
-    public int[] anIntArray122;
-    public int[] anIntArray123;
-    public int[] anIntArray124;
+    public int scrollHeight;
+    public int scrollY;
+    public boolean hidden;
+    public int[] child;
+    public int[] childX;
+    public int[] childY;
     public int anInt125;
     public boolean aBoolean126;
     public boolean aBoolean127;
     public boolean aBoolean128;
     public boolean aBoolean129;
     public boolean aBoolean130;
-    public int anInt131;
-    public int anInt132;
-    public Image24[] aClass44_Sub3_Sub1_Sub2Array133;
-    public int[] anIntArray134;
-    public int[] anIntArray135;
+    public int invMarginX;
+    public int invMarginY;
+    public Image24[] invSlotImage;
+    public int[] invSlotX;
+    public int[] invSlotY;
     public String[] aStringArray136;
     public boolean aBoolean137;
     public boolean aBoolean138;
@@ -100,13 +100,13 @@ public class Component {
                     l = class44_sub3_sub2.readUnsignedShort();
                 }
                 Component class5 = Component.instances[l] = new Component();
-                class5.anInt105 = l;
+                class5.id = l;
                 class5.anInt106 = j;
-                class5.anInt107 = class44_sub3_sub2.readUnsignedByte();
+                class5.type = class44_sub3_sub2.readUnsignedByte();
                 class5.anInt108 = class44_sub3_sub2.readUnsignedByte();
-                class5.anInt109 = class44_sub3_sub2.readUnsignedShort();
-                class5.anInt110 = class44_sub3_sub2.readUnsignedShort();
-                class5.anInt111 = class44_sub3_sub2.readUnsignedShort();
+                class5.contentType = class44_sub3_sub2.readUnsignedShort();
+                class5.width = class44_sub3_sub2.readUnsignedShort();
+                class5.height = class44_sub3_sub2.readUnsignedShort();
                 class5.aByte112 = (byte) class44_sub3_sub2.readUnsignedByte();
                 class5.anInt118 = class44_sub3_sub2.readUnsignedByte();
                 if (class5.anInt118 != 0) {
@@ -134,44 +134,44 @@ public class Component {
                         }
                     }
                 }
-                if (class5.anInt107 == 0) {
-                    class5.anInt119 = class44_sub3_sub2.readUnsignedShort();
-                    class5.aBoolean121 = class44_sub3_sub2.readUnsignedByte() == 1;
+                if (class5.type == 0) {
+                    class5.scrollHeight = class44_sub3_sub2.readUnsignedShort();
+                    class5.hidden = class44_sub3_sub2.readUnsignedByte() == 1;
                     int j2 = class44_sub3_sub2.readUnsignedShort();
-                    class5.anIntArray122 = new int[j2];
-                    class5.anIntArray123 = new int[j2];
-                    class5.anIntArray124 = new int[j2];
+                    class5.child = new int[j2];
+                    class5.childX = new int[j2];
+                    class5.childY = new int[j2];
                     for (int k3 = 0; k3 < j2; k3++) {
-                        class5.anIntArray122[k3] = class44_sub3_sub2.readUnsignedShort();
-                        class5.anIntArray123[k3] = class44_sub3_sub2.method485();
-                        class5.anIntArray124[k3] = class44_sub3_sub2.method485();
+                        class5.child[k3] = class44_sub3_sub2.readUnsignedShort();
+                        class5.childX[k3] = class44_sub3_sub2.method485();
+                        class5.childY[k3] = class44_sub3_sub2.method485();
                     }
                 }
-                if (class5.anInt107 == 1) {
+                if (class5.type == 1) {
                     class5.anInt125 = class44_sub3_sub2.readUnsignedShort();
                     class5.aBoolean126 = class44_sub3_sub2.readUnsignedByte() == 1;
                 }
-                if (class5.anInt107 == 2) {
-                    class5.containerItemId = new int[class5.anInt110 * class5.anInt111];
-                    class5.containerItemAmount = new int[class5.anInt110 * class5.anInt111];
+                if (class5.type == 2) {
+                    class5.containerObjId = new int[class5.width * class5.height];
+                    class5.containerItemAmount = new int[class5.width * class5.height];
                     class5.aBoolean127 = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.aBoolean128 = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.aBoolean129 = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.aBoolean130 = class44_sub3_sub2.readUnsignedByte() == 1;
-                    class5.anInt131 = class44_sub3_sub2.readUnsignedByte();
-                    class5.anInt132 = class44_sub3_sub2.readUnsignedByte();
-                    class5.anIntArray134 = new int[20];
-                    class5.anIntArray135 = new int[20];
-                    class5.aClass44_Sub3_Sub1_Sub2Array133 = new Image24[20];
+                    class5.invMarginX = class44_sub3_sub2.readUnsignedByte();
+                    class5.invMarginY = class44_sub3_sub2.readUnsignedByte();
+                    class5.invSlotX = new int[20];
+                    class5.invSlotY = new int[20];
+                    class5.invSlotImage = new Image24[20];
                     for (int k2 = 0; k2 < 20; k2++) {
                         int l3 = class44_sub3_sub2.readUnsignedByte();
                         if (l3 == 1) {
-                            class5.anIntArray134[k2] = class44_sub3_sub2.method485();
-                            class5.anIntArray135[k2] = class44_sub3_sub2.method485();
+                            class5.invSlotX[k2] = class44_sub3_sub2.method485();
+                            class5.invSlotY[k2] = class44_sub3_sub2.method485();
                             String s1 = class44_sub3_sub2.readString();
                             if (mediaArchive != null && s1.length() > 0) {
                                 int j5 = s1.lastIndexOf(",");
-                                class5.aClass44_Sub3_Sub1_Sub2Array133[k2] = Component.method186(false,
+                                class5.invSlotImage[k2] = Component.method186(false,
                                         Integer.parseInt(s1.substring(j5 + 1)), mediaArchive, s1.substring(0, j5));
                             }
                         }
@@ -184,10 +184,10 @@ public class Component {
                         }
                     }
                 }
-                if (class5.anInt107 == 3) {
+                if (class5.type == 3) {
                     class5.aBoolean137 = class44_sub3_sub2.readUnsignedByte() == 1;
                 }
-                if (class5.anInt107 == 4 || class5.anInt107 == 1) {
+                if (class5.type == 4 || class5.type == 1) {
                     class5.aBoolean138 = class44_sub3_sub2.readUnsignedByte() == 1;
                     int l2 = class44_sub3_sub2.readUnsignedByte();
                     if (aclass44_sub3_sub1_sub4 != null) {
@@ -195,19 +195,19 @@ public class Component {
                     }
                     class5.aBoolean139 = class44_sub3_sub2.readUnsignedByte() == 1;
                 }
-                if (class5.anInt107 == 4) {
+                if (class5.type == 4) {
                     class5.aString141 = class44_sub3_sub2.readString();
                     class5.aString142 = class44_sub3_sub2.readString();
                 }
-                if (class5.anInt107 == 1 || class5.anInt107 == 3 || class5.anInt107 == 4) {
+                if (class5.type == 1 || class5.type == 3 || class5.type == 4) {
                     class5.anInt143 = class44_sub3_sub2.readInt();
                 }
-                if (class5.anInt107 == 3 || class5.anInt107 == 4) {
+                if (class5.type == 3 || class5.type == 4) {
                     class5.anInt144 = class44_sub3_sub2.readInt();
                     class5.anInt145 = class44_sub3_sub2.readInt();
                     class5.anInt146 = class44_sub3_sub2.readInt();
                 }
-                if (class5.anInt107 == 5) {
+                if (class5.type == 5) {
                     String s = class44_sub3_sub2.readString();
                     if (mediaArchive != null && s.length() > 0) {
                         int j4 = s.lastIndexOf(",");
@@ -221,7 +221,7 @@ public class Component {
                                 Integer.parseInt(s.substring(k4 + 1)), mediaArchive, s.substring(0, k4));
                     }
                 }
-                if (class5.anInt107 == 6) {
+                if (class5.type == 6) {
                     int i1 = class44_sub3_sub2.readUnsignedByte();
                     if (i1 != 0) {
                         class5.modelType = 1;
@@ -248,9 +248,9 @@ public class Component {
                     class5.anInt156 = class44_sub3_sub2.readUnsignedShort();
                     class5.anInt157 = class44_sub3_sub2.readUnsignedShort();
                 }
-                if (class5.anInt107 == 7) {
-                    class5.containerItemId = new int[class5.anInt110 * class5.anInt111];
-                    class5.containerItemAmount = new int[class5.anInt110 * class5.anInt111];
+                if (class5.type == 7) {
+                    class5.containerObjId = new int[class5.width * class5.height];
+                    class5.containerItemAmount = new int[class5.width * class5.height];
                     class5.aBoolean138 = class44_sub3_sub2.readUnsignedByte() == 1;
                     int i3 = class44_sub3_sub2.readUnsignedByte();
                     if (aclass44_sub3_sub1_sub4 != null) {
@@ -258,8 +258,8 @@ public class Component {
                     }
                     class5.aBoolean139 = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.anInt143 = class44_sub3_sub2.readInt();
-                    class5.anInt131 = class44_sub3_sub2.method485();
-                    class5.anInt132 = class44_sub3_sub2.method485();
+                    class5.invMarginX = class44_sub3_sub2.method485();
+                    class5.invMarginY = class44_sub3_sub2.method485();
                     class5.aBoolean128 = class44_sub3_sub2.readUnsignedByte() == 1;
                     class5.aStringArray136 = new String[5];
                     for (int l4 = 0; l4 < 5; l4++) {
@@ -269,7 +269,7 @@ public class Component {
                         }
                     }
                 }
-                if (class5.anInt108 == 2 || class5.anInt107 == 2) {
+                if (class5.anInt108 == 2 || class5.type == 2) {
                     class5.aString158 = class44_sub3_sub2.readString();
                     class5.aString159 = class44_sub3_sub2.readString();
                     class5.anInt160 = class44_sub3_sub2.readUnsignedShort();
@@ -345,12 +345,12 @@ public class Component {
 
     public void method182(int i, int j, int k) {
         try {
-            int l = containerItemId[k];
-            containerItemId[k] = containerItemId[j];
+            int l = containerObjId[k];
+            containerObjId[k] = containerObjId[j];
             if (i < 0 || i > 0) {
                 return;
             } else {
-                containerItemId[j] = l;
+                containerObjId[j] = l;
                 l = containerItemAmount[k];
                 containerItemAmount[k] = containerItemAmount[j];
                 containerItemAmount[j] = l;

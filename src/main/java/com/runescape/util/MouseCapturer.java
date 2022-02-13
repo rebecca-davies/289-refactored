@@ -1,7 +1,6 @@
 package com.runescape.util;
 
 import com.runescape.Game;
-import com.runescape.GameShell;
 
 public class MouseCapturer implements Runnable {
 
@@ -32,8 +31,8 @@ public class MouseCapturer implements Runnable {
         while (aBoolean257) {
             synchronized (anObject258) {
                 if (coordinatesIndex < 500) {
-                    anIntArray260[coordinatesIndex] = aClient256.anInt21;
-                    anIntArray261[coordinatesIndex] = aClient256.anInt22;
+                    anIntArray260[coordinatesIndex] = aClient256.mouseX;
+                    anIntArray261[coordinatesIndex] = aClient256.mouseY;
                     coordinatesIndex++;
                 }
             }

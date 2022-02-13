@@ -33,8 +33,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public boolean hasFocus;
     public int idleTime;
     public int mouseButton;
-    public int anInt21;
-    public int anInt22;
+    public int mouseX;
+    public int mouseY;
     public int anInt23;
     public int anInt24;
     public int anInt25;
@@ -320,8 +320,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     @Override
     public void mouseExited(MouseEvent mouseevent) {
         idleTime = 0;
-        anInt21 = -1;
-        anInt22 = -1;
+        mouseX = -1;
+        mouseY = -1;
     }
 
     @Override
@@ -333,8 +333,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             j -= 22;
         }
         idleTime = 0;
-        anInt21 = i;
-        anInt22 = j;
+        mouseX = i;
+        mouseY = j;
     }
 
     @Override
@@ -346,8 +346,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             j -= 22;
         }
         idleTime = 0;
-        anInt21 = i;
-        anInt22 = j;
+        mouseX = i;
+        mouseY = j;
     }
 
     @Override

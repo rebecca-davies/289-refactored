@@ -132,11 +132,11 @@ public class ObjType {
         return class14;
     }
 
-    public static Image24 method226(int i, int j, int k, int l) {
+    public static Image24 fetchIcon(int id, int outlineColour, int amount) {
         try {
-            if (k == 0) {
-                Image24 class44_sub3_sub1_sub2 = (Image24) ObjType.aClass39_370.method339(j);
-                if (class44_sub3_sub1_sub2 != null && class44_sub3_sub1_sub2.cropHeight != l
+            if (outlineColour == 0) {
+                Image24 class44_sub3_sub1_sub2 = (Image24) ObjType.aClass39_370.method339(id);
+                if (class44_sub3_sub1_sub2 != null && class44_sub3_sub1_sub2.cropHeight != amount
                         && class44_sub3_sub1_sub2.cropHeight != -1) {
                     class44_sub3_sub1_sub2.remove();
                     class44_sub3_sub1_sub2 = null;
@@ -145,14 +145,14 @@ public class ObjType {
                     return class44_sub3_sub1_sub2;
                 }
             }
-            ObjType class14 = ObjType.method220(j);
+            ObjType class14 = ObjType.method220(id);
             if (class14.anIntArray359 == null) {
-                l = -1;
+                amount = -1;
             }
-            if (l > 1) {
+            if (amount > 1) {
                 int i1 = -1;
                 for (int j1 = 0; j1 < 10; j1++) {
-                    if (l >= class14.anIntArray360[j1] && class14.anIntArray360[j1] != 0) {
+                    if (amount >= class14.anIntArray360[j1] && class14.anIntArray360[j1] != 0) {
                         i1 = class14.anIntArray359[j1];
                     }
                 }
@@ -166,7 +166,7 @@ public class ObjType {
             }
             Image24 class44_sub3_sub1_sub2_2 = null;
             if (class14.anInt362 != -1) {
-                class44_sub3_sub1_sub2_2 = ObjType.method226(54, class14.anInt361, -1, 10);
+                class44_sub3_sub1_sub2_2 = ObjType.fetchIcon(class14.anInt361, -1, 10);
                 if (class44_sub3_sub1_sub2_2 == null) {
                     return null;
                 }
@@ -187,10 +187,10 @@ public class ObjType {
             Draw2D.method411(0, 210, 0, 32, 0, 32);
             Draw3D.method419((byte) 3);
             int k3 = class14.anInt335;
-            if (k == -1) {
+            if (outlineColour == -1) {
                 k3 = (int) (k3 * 1.5D);
             }
-            if (k > 0) {
+            if (outlineColour > 0) {
                 k3 = (int) (k3 * 1.04D);
             }
             int l3 = Draw3D.anIntArray1427[class14.anInt336] * k3 >> 16;
@@ -213,23 +213,23 @@ public class ObjType {
                     }
                 }
             }
-            if (k > 0) {
+            if (outlineColour > 0) {
                 for (int j5 = 31; j5 >= 0; j5--) {
                     for (int k4 = 31; k4 >= 0; k4--) {
                         if (class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] == 0) {
                             if (j5 > 0 && class44_sub3_sub1_sub2_1.pixels[(j5 - 1) + k4 * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = outlineColour;
                             } else if (k4 > 0 && class44_sub3_sub1_sub2_1.pixels[j5 + (k4 - 1) * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = outlineColour;
                             } else if (j5 < 31 && class44_sub3_sub1_sub2_1.pixels[j5 + 1 + k4 * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = outlineColour;
                             } else if (k4 < 31 && class44_sub3_sub1_sub2_1.pixels[j5 + (k4 + 1) * 32] == 1) {
-                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = k;
+                                class44_sub3_sub1_sub2_1.pixels[j5 + k4 * 32] = outlineColour;
                             }
                         }
                     }
                 }
-            } else if (k == 0) {
+            } else if (outlineColour == 0) {
                 for (int k5 = 31; k5 >= 0; k5--) {
                     for (int l4 = 31; l4 >= 0; l4--) {
                         if (class44_sub3_sub1_sub2_1.pixels[k5 + l4 * 32] == 0 && k5 > 0 && l4 > 0
@@ -248,8 +248,8 @@ public class ObjType {
                 class44_sub3_sub1_sub2_2.cropWidth = l5;
                 class44_sub3_sub1_sub2_2.cropHeight = j6;
             }
-            if (k == 0) {
-                ObjType.aClass39_370.method340(j, (byte) 76, class44_sub3_sub1_sub2_1);
+            if (outlineColour == 0) {
+                ObjType.aClass39_370.method340(id, (byte) 76, class44_sub3_sub1_sub2_1);
             }
             Draw2D.bind(ai1, i2, j2);
             Draw2D.setBounds(l2, j3, i3, k2);
@@ -262,14 +262,10 @@ public class ObjType {
             } else {
                 class44_sub3_sub1_sub2_1.cropWidth = 32;
             }
-            class44_sub3_sub1_sub2_1.cropHeight = l;
-            if (i <= 0) {
-                for (int i6 = 1; i6 > 0; i6++) {
-                }
-            }
+            class44_sub3_sub1_sub2_1.cropHeight = amount;
             return class44_sub3_sub1_sub2_1;
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("85079, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
+            SignLink.reporterror("85079, " + id + ", " + outlineColour + ", " + amount + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

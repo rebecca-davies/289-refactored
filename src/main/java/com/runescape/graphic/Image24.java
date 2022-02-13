@@ -357,38 +357,37 @@ public class Image24 extends Draw2D {
         }
     }
 
-    public void method442(int i, int j, int k, int l) {
+    public void draw(int x, int y, int opacity) {
         try {
-            l += cropX;
-            j = 15 / j;
-            k += cropY;
-            int i1 = l + k * Draw2D.width;
+            x += cropX;
+            y += cropY;
+            int i1 = x + y * Draw2D.width;
             int j1 = 0;
             int k1 = height;
             int l1 = width;
             int i2 = Draw2D.width - l1;
             int j2 = 0;
-            if (k < Draw2D.top) {
-                int k2 = Draw2D.top - k;
+            if (y < Draw2D.top) {
+                int k2 = Draw2D.top - y;
                 k1 -= k2;
-                k = Draw2D.top;
+                y = Draw2D.top;
                 j1 += k2 * l1;
                 i1 += k2 * Draw2D.width;
             }
-            if (k + k1 > Draw2D.bottom) {
-                k1 -= (k + k1) - Draw2D.bottom;
+            if (y + k1 > Draw2D.bottom) {
+                k1 -= (y + k1) - Draw2D.bottom;
             }
-            if (l < Draw2D.left) {
-                int l2 = Draw2D.left - l;
+            if (x < Draw2D.left) {
+                int l2 = Draw2D.left - x;
                 l1 -= l2;
-                l = Draw2D.left;
+                x = Draw2D.left;
                 j1 += l2;
                 i1 += l2;
                 j2 += l2;
                 i2 += l2;
             }
-            if (l + l1 > Draw2D.right) {
-                int i3 = (l + l1) - Draw2D.right;
+            if (x + l1 > Draw2D.right) {
+                int i3 = (x + l1) - Draw2D.right;
                 l1 -= i3;
                 j2 += i3;
                 i2 += i3;
@@ -396,11 +395,11 @@ public class Image24 extends Draw2D {
             if (l1 <= 0 || k1 <= 0) {
                 return;
             } else {
-                method443(j1, i, i1, k1, Draw2D.pixels, pixels, i2, j2, 0, l1, false);
+                method443(j1, opacity, i1, k1, Draw2D.pixels, pixels, i2, j2, 0, l1, false);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("12746, " + i + ", " + j + ", " + k + ", " + l + ", " + runtimeexception);
+            SignLink.reporterror("12746, " + opacity + ", " + y + ", " + x + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }

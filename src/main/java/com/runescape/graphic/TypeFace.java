@@ -105,7 +105,7 @@ public class TypeFace extends Draw2D {
 
     public void drawStringCenter(int i, String s, int j, int k, int l) {
         try {
-            drawText((byte) -104, k, s, i - method458(s, -725) / 2, l);
+            drawText(s, l, i - method458(s, -725) / 2, k);
             if (j != -31546) {
                 return;
             }
@@ -118,7 +118,7 @@ public class TypeFace extends Draw2D {
 
     public void drawStringCenter(boolean flag, int i, byte byte0, int j, String s, int k) {
         try {
-            drawStringTaggable(i, 2, k, flag, j - method457(s, true) / 2, s);
+            drawStringTaggable(i, 2, k, flag, j - getTextDisplayedWidth(s) / 2, s);
             if (byte0 != -85) {
                 return;
             }
@@ -129,15 +129,11 @@ public class TypeFace extends Draw2D {
         }
     }
 
-    public int method457(String s, boolean flag) {
-        try {
+    public int getTextDisplayedWidth(String s) {
             if (s == null) {
                 return 0;
             }
             int i = 0;
-            if (!flag) {
-                anInt1466 = 391;
-            }
             for (int j = 0; j < s.length(); j++) {
                 if (s.charAt(j) == '@' && j + 4 < s.length() && s.charAt(j + 4) == '@') {
                     j += 4;
@@ -146,10 +142,6 @@ public class TypeFace extends Draw2D {
                 }
             }
             return i;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("63390, " + s + ", " + flag + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public int method458(String s, int i) {
@@ -171,29 +163,19 @@ public class TypeFace extends Draw2D {
         throw new RuntimeException();
     }
 
-    public void drawText(byte byte0, int i, String s, int j, int k) {
-        try {
+    public void drawText(String s, int x, int y, int outline) {
             if (s == null) {
                 return;
             }
-            k -= anInt1478;
-            if (byte0 != -104) {
-                anInt1468 = -300;
-            }
+            x -= anInt1478;
             for (int l = 0; l < s.length(); l++) {
                 char c = s.charAt(l);
                 if (c != ' ') {
-                    method466(aByteArrayArray1472[c], j + anIntArray1475[c], k + anIntArray1476[c], anIntArray1473[c],
-                            anIntArray1474[c], i);
+                    method466(aByteArrayArray1472[c], y + anIntArray1475[c], x + anIntArray1476[c], anIntArray1473[c],
+                            anIntArray1474[c], outline);
                 }
-                j += anIntArray1477[c];
+                y += anIntArray1477[c];
             }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("88673, " + byte0 + ", " + i + ", " + s + ", " + j + ", " + k + ", "
-                    + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method460(int i, int j, byte byte0, int k, int l, String s) {
