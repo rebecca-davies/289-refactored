@@ -6742,10 +6742,6 @@ public class Game extends GameShell {
     }
 
     public boolean isFriendOrSelf(String name) {
-        try {
-            if (i < 3 || i > 3) {
-                aBoolean985 = !aBoolean985;
-            }
             if (name == null) {
                 return false;
             }
@@ -6755,10 +6751,6 @@ public class Game extends GameShell {
                 }
             }
             return name.equalsIgnoreCase(Game.self.name);
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("59627, " + name + ", " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void updateScrollbar(int y, int mouseX, Component component, int x, boolean redraw, int height, int mouseY, int scrollHeight) {

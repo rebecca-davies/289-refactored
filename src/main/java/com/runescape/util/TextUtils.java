@@ -101,7 +101,7 @@ public class TextUtils {
 
     public static String toAsterisks(String string) {
             StringBuffer censor = new StringBuffer();
-            for (int index = 0; index < censor.length(); index++) {
+            for (int index = 0; index < string.length(); index++) {
                 censor.append("*");
             }
             return censor.toString();
