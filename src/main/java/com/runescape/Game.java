@@ -153,10 +153,10 @@ public class Game extends GameShell {
     public Image24[] activeMapfunctions;
     public int anInt874;
     public int cameraPositionX;
-    public int cameraPositionY;
     public int cameraPositionZ;
+    public int cameraPositionY;
     public int cameraVerticalRotation;
-    public int anInt879;
+    public int cameraHorizontalRotation;
     public int anInt880;
     public int[] anIntArray881;
     public int sceneState;
@@ -172,7 +172,7 @@ public class Game extends GameShell {
     public Image8 titleButton;
     public boolean aBoolean893;
     public int[] anIntArray894;
-    public int privateChatSetting;
+    public int privateChatMode;
     public String[] menuOption;
     public boolean redrawInvback;
     public int anInt899;
@@ -270,8 +270,8 @@ public class Game extends GameShell {
     public int viewportHoveredComponentId;
     public int anInt1000;
     public int[] anIntArray1001;
-    public int[] anIntArray1002;
-    public String[] aStringArray1003;
+    public int[] chatTypes;
+    public String[] chatNames;
     public String[] chatMessages;
     public int hintIconType;
     public int[] anIntArray1006;
@@ -285,7 +285,7 @@ public class Game extends GameShell {
     public int loginScreenState;
     public int anInt1015 = 100;
     public int[] anIntArray1016;
-    public int anInt1017;
+    public int splitPrivateChat;
     public int[] flameLineOffset;
     public int anInt1019;
     public int[] anIntArray1020;
@@ -459,7 +459,7 @@ public class Game extends GameShell {
     public int weightCarried;
     public int[] cameraAmplitude;
     public FileStore[] filestores;
-    public boolean[] aBooleanArray1209;
+    public boolean[] customCameraActive;
     public Image24 mapmarker0Image;
     public Image24 mapmarker1Image;
     public int chatbackHoveredComponentId;
@@ -595,8 +595,8 @@ public class Game extends GameShell {
         aBoolean987 = false;
         anInt1000 = 0x23201b;
         anIntArray1001 = new int[5];
-        anIntArray1002 = new int[100];
-        aStringArray1003 = new String[100];
+        chatTypes = new int[100];
+        chatNames = new String[100];
         chatMessages = new String[100];
         anIntArray1006 = new int[50];
         aString1007 = "";
@@ -680,7 +680,7 @@ public class Game extends GameShell {
         anInt1202 = 9;
         cameraAmplitude = new int[5];
         filestores = new FileStore[5];
-        aBooleanArray1209 = new boolean[5];
+        customCameraActive = new boolean[5];
         aByte1213 = 1;
         anIntArray1214 = new int[2000];
         anInt1216 = 2;
@@ -1062,12 +1062,12 @@ public class Game extends GameShell {
             redrawChatback = true;
         }
         for (int j = 99; j > 0; j--) {
-            anIntArray1002[j] = anIntArray1002[j - 1];
-            aStringArray1003[j] = aStringArray1003[j - 1];
+            chatTypes[j] = chatTypes[j - 1];
+            chatNames[j] = chatNames[j - 1];
             chatMessages[j] = chatMessages[j - 1];
         }
-        anIntArray1002[0] = i;
-        aStringArray1003[0] = s1;
+        chatTypes[0] = i;
+        chatNames[0] = s1;
         chatMessages[0] = s;
     }
 
@@ -1843,7 +1843,7 @@ public class Game extends GameShell {
                 }
                 if (packetType == PacketConstants.incoming.CHAT_SETTINGS) {
                     publicChatSetting = in.readUnsignedByte();
-                    privateChatSetting = in.readUnsignedByte();
+                    privateChatMode = in.readUnsignedByte();
                     tradeChatSetting = in.readUnsignedByte();
                     redrawPrivacySettings = true;
                     redrawChatback = true;
@@ -2042,8 +2042,8 @@ public class Game extends GameShell {
                     anInt1122 = in.readUnsignedByte();
                     if (anInt1122 >= 100) {
                         cameraPositionX = anInt1118 * 128 + 64;
-                        cameraPositionZ = anInt1119 * 128 + 64;
-                        cameraPositionY = getFloorDrawHeight(false, cameraPositionZ, cameraPositionX, plane) - anInt1120;
+                        cameraPositionY = anInt1119 * 128 + 64;
+                        cameraPositionZ = getFloorDrawHeight(false, cameraPositionY, cameraPositionX, plane) - anInt1120;
                     }
                     packetType = -1;
                     return true;
@@ -2191,7 +2191,7 @@ public class Game extends GameShell {
                     int jitter = in.readUnsignedByte();
                     int amplitude = in.readUnsignedByte();
                     int frequency = in.readUnsignedByte();
-                    aBooleanArray1209[cameraId] = true;
+                    customCameraActive[cameraId] = true;
                     cameraJitter[cameraId] = jitter;
                     cameraAmplitude[cameraId] = amplitude;
                     cameraFrequency[cameraId] = frequency;
@@ -2730,7 +2730,7 @@ public class Game extends GameShell {
                 if (packetType == 133) {
                     cutsceneActive = false;
                     for (int j9 = 0; j9 < 5; j9++) {
-                        aBooleanArray1209[j9] = false;
+                        customCameraActive[j9] = false;
                     }
                     packetType = -1;
                     return true;
@@ -4159,47 +4159,47 @@ public class Game extends GameShell {
             renderPlayers(true, false);
             renderNPCs(false, false);
             renderProjectiles(aByte1098);
-            method114(-249);
+            renderStillSpotanim(-249);
             if (!cutsceneActive) {
                 int vertical = cameraVertical;
                 if (secondaryCameraVertical / 256 > vertical) {
                     vertical = secondaryCameraVertical / 256;
                 }
-                if (aBooleanArray1209[4] && cameraAmplitude[4] + 128 > vertical) {
+                if (customCameraActive[4] && cameraAmplitude[4] + 128 > vertical) {
                     vertical = cameraAmplitude[4] + 128;
                 }
                 int horizontal = cameraHorizontal + cameraRandomisationA & 0x7ff;
                 setCameraPosition(600 + vertical * 3, horizontal, getFloorDrawHeight(false, self.z, self.x, plane) - 50, currentCameraPositionV, currentCameraPositionH, vertical);
             }
-            int k;
+            int cameraPlane;
             if (!cutsceneActive) {
-                k = method126();
+                cameraPlane = getWorldDrawPlane();
             } else {
-                k = method127((byte) 7);
+                cameraPlane = getCameraPlaneCutscene((byte) 7);
             }
-            int i1 = cameraPositionX;
-            int j1 = cameraPositionY;
-            int k1 = cameraPositionZ;
-            int l1 = cameraVerticalRotation;
-            int i2 = anInt879;
-            for (int j2 = 0; j2 < 5; j2++) {
-                if (aBooleanArray1209[j2]) {
-                    int k2 = (int) ((Math.random() * (cameraJitter[j2] * 2 + 1) - cameraJitter[j2]) + Math
-                            .sin(anIntArray1001[j2] * (cameraFrequency[j2] / 100D)) * cameraAmplitude[j2]);
-                    if (j2 == 0) {
-                        cameraPositionX += k2;
+            int x = cameraPositionX;
+            int z = cameraPositionZ;
+            int y = cameraPositionY;
+            int curveY = cameraVerticalRotation;
+            int curveZ = cameraHorizontalRotation;
+            for (int it = 0; it < 5; it++) {
+                if (customCameraActive[it]) {
+                    int randomisation = (int) ((Math.random() * (cameraJitter[it] * 2 + 1) - cameraJitter[it]) + Math
+                            .sin(anIntArray1001[it] * (cameraFrequency[it] / 100D)) * cameraAmplitude[it]);
+                    if (it == 0) {
+                        cameraPositionX += randomisation;
                     }
-                    if (j2 == 1) {
-                        cameraPositionY += k2;
+                    if (it == 1) {
+                        cameraPositionZ += randomisation;
                     }
-                    if (j2 == 2) {
-                        cameraPositionZ += k2;
+                    if (it == 2) {
+                        cameraPositionY += randomisation;
                     }
-                    if (j2 == 3) {
-                        anInt879 = anInt879 + k2 & 0x7ff;
+                    if (it == 3) {
+                        cameraHorizontalRotation = cameraHorizontalRotation + randomisation & 0x7ff;
                     }
-                    if (j2 == 4) {
-                        cameraVerticalRotation += k2;
+                    if (it == 4) {
+                        cameraVerticalRotation += randomisation;
                         if (cameraVerticalRotation < 128) {
                             cameraVerticalRotation = 128;
                         }
@@ -4209,27 +4209,27 @@ public class Game extends GameShell {
                     }
                 }
             }
-            int l2 = Draw3D.anInt1438;
+            int textureId = Draw3D.getTexture;
             Model.aBoolean1593 = true;
-            Model.anInt1596 = 0;
+            Model.resourceCount = 0;
             if (i != 0) {
                 return;
             } else {
-                Model.anInt1594 = super.mouseX - 4;
-                Model.anInt1595 = super.mouseY - 4;
+                Model.cursorX = super.mouseX - 4;
+                Model.cursorY = super.mouseY - 4;
                 Draw2D.clear((byte) 127);
-                scene.method317(cameraPositionX, 7, cameraVerticalRotation, cameraPositionZ, k, cameraPositionY, anInt879);
-                scene.method292(true);
-                method61(1);
-                method136(anInt1019);
-                method62(l2, (byte) -12);
+                scene.render(cameraPositionX, 7, cameraVerticalRotation, cameraPositionY, cameraPlane, cameraPositionZ, cameraHorizontalRotation);
+                scene.clearInteractiveLocCache(true);
+                updateEntities(1);
+                drawHeadIcon(anInt1019);
+                animateTexture(textureId, (byte) -12);
                 draw3dScreen();
                 areaViewport.draw(super.graphics, 4, 4);
-                cameraPositionX = i1;
-                cameraPositionY = j1;
-                cameraPositionZ = k1;
-                cameraVerticalRotation = l1;
-                anInt879 = i2;
+                cameraPositionX = x;
+                cameraPositionZ = z;
+                cameraPositionY = y;
+                cameraVerticalRotation = curveY;
+                cameraHorizontalRotation = curveZ;
                 return;
             }
         } catch (Exception e) {
@@ -4266,63 +4266,54 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method45(int i) {
-        try {
-            while (i >= 0) {
-                out.writeByte(139);
-            }
-            if (anInt1017 == 0) {
+    public void buildSplitPrivateChatMenu() {
+            if (splitPrivateChat == 0) {
                 return;
             }
-            int j = 0;
+            int line = 0;
             if (systemUpdateTimer != 0) {
-                j = 1;
+                line = 1;
             }
-            for (int k = 0; k < 100; k++) {
-                if (chatMessages[k] != null) {
-                    int l = anIntArray1002[k];
-                    String s = aStringArray1003[k];
-                    if (s != null && s.startsWith("@cr1@")) {
-                        s = s.substring(5);
+            for (int message = 0; message < 100; message++) {
+                if (this.chatMessages[message] != null) {
+                    int chatType = chatTypes[message];
+                    String chatName = chatNames[message];
+                    if (chatName != null && chatName.startsWith("@cr1@")) {
+                        chatName = chatName.substring(5);
                     }
-                    if (s != null && s.startsWith("@cr2@")) {
-                        s = s.substring(5);
+                    if (chatName != null && chatName.startsWith("@cr2@")) {
+                        chatName = chatName.substring(5);
                     }
-                    if ((l == 3 || l == 7) && (l == 7 || privateChatSetting == 0 || privateChatSetting == 1 && method80(s, 3))) {
-                        int i1 = 329 - j * 13;
-                        if (super.mouseX > 4 && super.mouseY - 4 > i1 - 10 && super.mouseY - 4 <= i1 + 3) {
-                            int j1 = fontPlain.getTextDisplayedWidth("From:  " + s + chatMessages[k]) + 25;
-                            if (j1 > 450) {
-                                j1 = 450;
+                    if ((chatType == 3 || chatType == 7) && (chatType == 7 || privateChatMode == 0 || privateChatMode == 1 && isFriendOrSelf(chatName))) {
+                        int height = 329 - line * 13;
+                        if (super.mouseX > 4 && super.mouseY - 4 > height - 10 && super.mouseY - 4 <= height + 3) {
+                            int width = fontPlain.getTextDisplayedWidth("From:  " + chatName + this.chatMessages[message]) + 25;
+                            if (width > 450) {
+                                width = 450;
                             }
-                            if (super.mouseX < 4 + j1) {
+                            if (super.mouseX < 4 + width) {
                                 if (rights >= 1) {
-                                    menuOption[menuSize] = "Report abuse @whi@" + s;
+                                    menuOption[menuSize] = "Report abuse @whi@" + chatName;
                                     menuAction[menuSize] = 2524;
                                     menuSize++;
                                 }
-                                menuOption[menuSize] = "Add ignore @whi@" + s;
+                                menuOption[menuSize] = "Add ignore @whi@" + chatName;
                                 menuAction[menuSize] = 2047;
                                 menuSize++;
-                                menuOption[menuSize] = "Add friend @whi@" + s;
+                                menuOption[menuSize] = "Add friend @whi@" + chatName;
                                 menuAction[menuSize] = 2605;
                                 menuSize++;
                             }
                         }
-                        if (++j >= 5) {
+                        if (++line >= 5) {
                             return;
                         }
                     }
-                    if ((l == 5 || l == 6) && privateChatSetting < 2 && ++j >= 5) {
+                    if ((chatType == 5 || chatType == 6) && privateChatMode < 2 && ++line >= 5) {
                         return;
                     }
                 }
             }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("41007, " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     @Override
@@ -4509,9 +4500,9 @@ public class Game extends GameShell {
                 Draw2D.setBounds(463, 77, 0, 0);
                 for (int k = 0; k < 100; k++) {
                     if (chatMessages[k] != null) {
-                        int l = anIntArray1002[k];
+                        int l = chatTypes[k];
                         int i1 = (70 - j * 14) + anInt1103;
-                        String s1 = aStringArray1003[k];
+                        String s1 = chatNames[k];
                         byte byte0 = 0;
                         if (s1 != null && s1.startsWith("@cr1@")) {
                             s1 = s1.substring(5);
@@ -4527,7 +4518,7 @@ public class Game extends GameShell {
                             }
                             j++;
                         }
-                        if ((l == 1 || l == 2) && (l == 1 || publicChatSetting == 0 || publicChatSetting == 1 && method80(s1, 3))) {
+                        if ((l == 1 || l == 2) && (l == 1 || publicChatSetting == 0 || publicChatSetting == 1 && isFriendOrSelf(s1))) {
                             if (i1 > 0 && i1 < 110) {
                                 int j1 = 4;
                                 if (byte0 == 1) {
@@ -4544,8 +4535,8 @@ public class Game extends GameShell {
                             }
                             j++;
                         }
-                        if ((l == 3 || l == 7) && anInt1017 == 0
-                                && (l == 7 || privateChatSetting == 0 || privateChatSetting == 1 && method80(s1, 3))) {
+                        if ((l == 3 || l == 7) && splitPrivateChat == 0
+                                && (l == 7 || privateChatMode == 0 || privateChatMode == 1 && isFriendOrSelf(s1))) {
                             if (i1 > 0 && i1 < 110) {
                                 int k1 = 4;
                                 class44_sub3_sub1_sub4.drawText("From", i1, k1, 0);
@@ -4564,20 +4555,20 @@ public class Game extends GameShell {
                             }
                             j++;
                         }
-                        if (l == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && method80(s1, 3))) {
+                        if (l == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(s1))) {
                             if (i1 > 0 && i1 < 110) {
                                 class44_sub3_sub1_sub4.drawText(s1 + " " + chatMessages[k], i1, 4, 0x800080
                                 );
                             }
                             j++;
                         }
-                        if (l == 5 && anInt1017 == 0 && privateChatSetting < 2) {
+                        if (l == 5 && splitPrivateChat == 0 && privateChatMode < 2) {
                             if (i1 > 0 && i1 < 110) {
                                 class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, 4, 0x800000);
                             }
                             j++;
                         }
-                        if (l == 6 && anInt1017 == 0 && privateChatSetting < 2) {
+                        if (l == 6 && splitPrivateChat == 0 && privateChatMode < 2) {
                             if (i1 > 0 && i1 < 110) {
                                 class44_sub3_sub1_sub4.drawText("To " + s1 + ":", i1, 4, 0);
                                 class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, 12 + class44_sub3_sub1_sub4.getTextDisplayedWidth("To " + s1), 0x800000
@@ -4585,7 +4576,7 @@ public class Game extends GameShell {
                             }
                             j++;
                         }
-                        if (l == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && method80(s1, 3))) {
+                        if (l == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(s1))) {
                             if (i1 > 0 && i1 < 110) {
                                 class44_sub3_sub1_sub4.drawText(s1 + " " + chatMessages[k], i1, 4, 0x7e3200
                                 );
@@ -4952,7 +4943,7 @@ public class Game extends GameShell {
             menuOption[0] = "Cancel";
             menuAction[0] = 1106;
             menuSize = 1;
-            method45(-113);
+            buildSplitPrivateChatMenu();
             lastHoveredComponentId = 0;
             if (super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
                 if (viewportComponentId != -1) {
@@ -5580,7 +5571,7 @@ public class Game extends GameShell {
         }
     }
 
-    public void method61(int i) {
+    public void updateEntities(int i) {
         try {
             anInt1157 = 0;
             if (i < 1 || i > 1) {
@@ -5636,7 +5627,7 @@ public class Game extends GameShell {
                     }
                     if (((Actor) (obj)).spoken != null
                             && (j >= anInt1226 || publicChatSetting == 0 || publicChatSetting == 3 || publicChatSetting == 1
-                            && method80(((PlayerEntity) obj).name, 3))) {
+                            && isFriendOrSelf(((PlayerEntity) obj).name))) {
                         method74(((Actor) (obj)).anInt1661, ((Actor) (obj)), 0);
                         if (anInt1064 > -1 && anInt1157 < anInt1158) {
                             anIntArray1162[anInt1157] = fontBold.method458(
@@ -5815,7 +5806,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method62(int i, byte byte0) {
+    public void animateTexture(int i, byte byte0) {
         try {
             if (byte0 != -12) {
                 startUp();
@@ -5857,7 +5848,7 @@ public class Game extends GameShell {
 
     public void drawSplitPrivateChat() {
         try {
-            if (anInt1017 == 0) {
+            if (splitPrivateChat == 0) {
                 return;
             }
             BitmapFont class44_sub3_sub1_sub4 = fontPlain;
@@ -5867,8 +5858,8 @@ public class Game extends GameShell {
             }
             for (int k = 0; k < 100; k++) {
                 if (chatMessages[k] != null) {
-                    int l = anIntArray1002[k];
-                    String s = aStringArray1003[k];
+                    int l = chatTypes[k];
+                    String s = chatNames[k];
                     byte byte0 = 0;
                     if (s != null && s.startsWith("@cr1@")) {
                         s = s.substring(5);
@@ -5878,7 +5869,7 @@ public class Game extends GameShell {
                         s = s.substring(5);
                         byte0 = 2;
                     }
-                    if ((l == 3 || l == 7) && (l == 7 || privateChatSetting == 0 || privateChatSetting == 1 && method80(s, 3))) {
+                    if ((l == 3 || l == 7) && (l == 7 || privateChatMode == 0 || privateChatMode == 1 && isFriendOrSelf(s))) {
                         int i1 = 329 - j * 13;
                         int l1 = 4;
                         class44_sub3_sub1_sub4.drawText("From", i1, l1, 0);
@@ -5899,7 +5890,7 @@ public class Game extends GameShell {
                             return;
                         }
                     }
-                    if (l == 5 && privateChatSetting < 2) {
+                    if (l == 5 && privateChatMode < 2) {
                         int j1 = 329 - j * 13;
                         class44_sub3_sub1_sub4.drawText(chatMessages[k], j1, 4, 0);
                         class44_sub3_sub1_sub4.drawText(chatMessages[k], j1 - 1, 4, 65535);
@@ -5907,7 +5898,7 @@ public class Game extends GameShell {
                             return;
                         }
                     }
-                    if (l == 6 && privateChatSetting < 2) {
+                    if (l == 6 && privateChatMode < 2) {
                         int k1 = 329 - j * 13;
                         class44_sub3_sub1_sub4.drawText("To " + s + ": " + chatMessages[k], k1, 4, 0);
                         class44_sub3_sub1_sub4.drawText("To " + s + ": " + chatMessages[k], k1 - 1, 4, 65535
@@ -6637,12 +6628,12 @@ public class Game extends GameShell {
             if (byte0 != -79) {
                 out.writeByte(22);
             }
-            l -= cameraPositionY;
-            k -= cameraPositionZ;
+            l -= cameraPositionZ;
+            k -= cameraPositionY;
             int i1 = Model.SINE[cameraVerticalRotation];
             int j1 = Model.COSINE[cameraVerticalRotation];
-            int k1 = Model.SINE[anInt879];
-            int l1 = Model.COSINE[anInt879];
+            int k1 = Model.SINE[cameraHorizontalRotation];
+            int l1 = Model.COSINE[cameraHorizontalRotation];
             int i2 = k * k1 + i * l1 >> 16;
             k = k * l1 - i * k1 >> 16;
             i = i2;
@@ -6750,22 +6741,22 @@ public class Game extends GameShell {
         return SignLink.wavereplay();
     }
 
-    public boolean method80(String s, int i) {
+    public boolean isFriendOrSelf(String name) {
         try {
             if (i < 3 || i > 3) {
                 aBoolean985 = !aBoolean985;
             }
-            if (s == null) {
+            if (name == null) {
                 return false;
             }
             for (int j = 0; j < anInt1104; j++) {
-                if (s.equalsIgnoreCase(aStringArray1044[j])) {
+                if (name.equalsIgnoreCase(aStringArray1044[j])) {
                     return true;
                 }
             }
-            return s.equalsIgnoreCase(Game.self.name);
+            return name.equalsIgnoreCase(Game.self.name);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("59627, " + s + ", " + i + ", " + runtimeexception);
+            SignLink.reporterror("59627, " + name + ", " + i + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
@@ -8489,12 +8480,12 @@ public class Game extends GameShell {
                 if (chatMessages[l] == null) {
                     continue;
                 }
-                int i1 = anIntArray1002[l];
+                int i1 = chatTypes[l];
                 int j1 = (70 - k * 14) + anInt1103 + 4;
                 if (j1 < -20) {
                     break;
                 }
-                String s = aStringArray1003[l];
+                String s = chatNames[l];
                 if (s != null && s.startsWith("@cr1@")) {
                     s = s.substring(5);
                 }
@@ -8504,7 +8495,7 @@ public class Game extends GameShell {
                 if (i1 == 0) {
                     k++;
                 }
-                if ((i1 == 1 || i1 == 2) && (i1 == 1 || publicChatSetting == 0 || publicChatSetting == 1 && method80(s, 3))) {
+                if ((i1 == 1 || i1 == 2) && (i1 == 1 || publicChatSetting == 0 || publicChatSetting == 1 && isFriendOrSelf(s))) {
                     if (j > j1 - 14 && j <= j1 && !s.equals(Game.self.name)) {
                         if (rights >= 1) {
                             menuOption[menuSize] = "Report abuse @whi@" + s;
@@ -8520,8 +8511,8 @@ public class Game extends GameShell {
                     }
                     k++;
                 }
-                if ((i1 == 3 || i1 == 7) && anInt1017 == 0
-                        && (i1 == 7 || privateChatSetting == 0 || privateChatSetting == 1 && method80(s, 3))) {
+                if ((i1 == 3 || i1 == 7) && splitPrivateChat == 0
+                        && (i1 == 7 || privateChatMode == 0 || privateChatMode == 1 && isFriendOrSelf(s))) {
                     if (j > j1 - 14 && j <= j1) {
                         if (rights >= 1) {
                             menuOption[menuSize] = "Report abuse @whi@" + s;
@@ -8537,7 +8528,7 @@ public class Game extends GameShell {
                     }
                     k++;
                 }
-                if (i1 == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && method80(s, 3))) {
+                if (i1 == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(s))) {
                     if (j > j1 - 14 && j <= j1) {
                         menuOption[menuSize] = "Accept trade @whi@" + s;
                         menuAction[menuSize] = 507;
@@ -8545,10 +8536,10 @@ public class Game extends GameShell {
                     }
                     k++;
                 }
-                if ((i1 == 5 || i1 == 6) && anInt1017 == 0 && privateChatSetting < 2) {
+                if ((i1 == 5 || i1 == 6) && splitPrivateChat == 0 && privateChatMode < 2) {
                     k++;
                 }
-                if (i1 == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && method80(s, 3))) {
+                if (i1 == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(s))) {
                     if (j > j1 - 14 && j <= j1) {
                         menuOption[menuSize] = "Accept challenge @whi@" + s;
                         menuAction[menuSize] = 957;
@@ -8686,7 +8677,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method114(int i) {
+    public void renderStillSpotanim(int i) {
         try {
             AnimableGameObject class44_sub3_sub4_sub5 = (AnimableGameObject) aClass28_1054.peekFront();
             if (i >= 0) {
@@ -9366,13 +9357,13 @@ public class Game extends GameShell {
                     fontPlain.drawStringTaggableCenter("Hide", 55, 41, 65535, true);
                 }
                 fontPlain.drawStringTaggableCenter("Private chat", 184, 28, 0xffffff, true);
-                if (privateChatSetting == 0) {
+                if (privateChatMode == 0) {
                     fontPlain.drawStringTaggableCenter("On", 184, 41, 65280, true);
                 }
-                if (privateChatSetting == 1) {
+                if (privateChatMode == 1) {
                     fontPlain.drawStringTaggableCenter("Friends", 184, 41, 0xffff00, true);
                 }
-                if (privateChatSetting == 2) {
+                if (privateChatMode == 2) {
                     fontPlain.drawStringTaggableCenter("Off", 184, 41, 0xff0000, true);
                 }
                 fontPlain.drawStringTaggableCenter("Trade/compete", 324, 28, 0xffffff, true);
@@ -9725,13 +9716,13 @@ public class Game extends GameShell {
     }
 
 
-    public int method126() {
+    public int getWorldDrawPlane() {
         try {
             int worldPlane = 3;
 
             if (cameraVerticalRotation < 310) {
                 int cameraX = cameraPositionX >> 7;
-                int cameraZ = cameraPositionZ >> 7;
+                int cameraZ = cameraPositionY >> 7;
                 int playerX = self.x >> 7;
                 int playerZ = self.z >> 7;
                 if ((planeTileFlags[this.plane][cameraX][cameraZ] & 4) != 0) {
@@ -9811,15 +9802,15 @@ public class Game extends GameShell {
         return 0;
     }
 
-    public int method127(byte byte0) {
+    public int getCameraPlaneCutscene(byte byte0) {
         try {
             if (byte0 == 7) {
                 byte0 = 0;
             } else {
                 return 2;
             }
-            int i = getFloorDrawHeight(false, cameraPositionZ, cameraPositionX, plane);
-            if (i - cameraPositionY < 800 && (planeTileFlags[plane][cameraPositionX >> 7][cameraPositionZ >> 7] & 4) != 0) {
+            int i = getFloorDrawHeight(false, cameraPositionY, cameraPositionX, plane);
+            if (i - cameraPositionZ < 800 && (planeTileFlags[plane][cameraPositionX >> 7][cameraPositionY >> 7] & 4) != 0) {
                 return plane;
             } else {
                 return 3;
@@ -10057,36 +10048,36 @@ public class Game extends GameShell {
                     cameraPositionX = j;
                 }
             }
-            if (cameraPositionY < l) {
-                cameraPositionY += anInt1121 + ((l - cameraPositionY) * anInt1122) / 1000;
-                if (cameraPositionY > l) {
-                    cameraPositionY = l;
+            if (cameraPositionZ < l) {
+                cameraPositionZ += anInt1121 + ((l - cameraPositionZ) * anInt1122) / 1000;
+                if (cameraPositionZ > l) {
+                    cameraPositionZ = l;
                 }
             }
-            if (cameraPositionY > l) {
-                cameraPositionY -= anInt1121 + ((cameraPositionY - l) * anInt1122) / 1000;
-                if (cameraPositionY < l) {
-                    cameraPositionY = l;
+            if (cameraPositionZ > l) {
+                cameraPositionZ -= anInt1121 + ((cameraPositionZ - l) * anInt1122) / 1000;
+                if (cameraPositionZ < l) {
+                    cameraPositionZ = l;
                 }
             }
-            if (cameraPositionZ < k) {
-                cameraPositionZ += anInt1121 + ((k - cameraPositionZ) * anInt1122) / 1000;
-                if (cameraPositionZ > k) {
-                    cameraPositionZ = k;
+            if (cameraPositionY < k) {
+                cameraPositionY += anInt1121 + ((k - cameraPositionY) * anInt1122) / 1000;
+                if (cameraPositionY > k) {
+                    cameraPositionY = k;
                 }
             }
-            if (cameraPositionZ > k) {
-                cameraPositionZ -= anInt1121 + ((cameraPositionZ - k) * anInt1122) / 1000;
-                if (cameraPositionZ < k) {
-                    cameraPositionZ = k;
+            if (cameraPositionY > k) {
+                cameraPositionY -= anInt1121 + ((cameraPositionY - k) * anInt1122) / 1000;
+                if (cameraPositionY < k) {
+                    cameraPositionY = k;
                 }
             }
             j = anInt989 * 128 + 64;
             k = anInt990 * 128 + 64;
             l = getFloorDrawHeight(false, k, j, plane) - anInt991;
             int i1 = j - cameraPositionX;
-            int j1 = l - cameraPositionY;
-            int k1 = k - cameraPositionZ;
+            int j1 = l - cameraPositionZ;
+            int k1 = k - cameraPositionY;
             packetSize += i;
             int l1 = (int) Math.sqrt(i1 * i1 + k1 * k1);
             int i2 = (int) (Math.atan2(j1, l1) * 325.94900000000001D) & 0x7ff;
@@ -10109,7 +10100,7 @@ public class Game extends GameShell {
                     cameraVerticalRotation = i2;
                 }
             }
-            int k2 = j2 - anInt879;
+            int k2 = j2 - cameraHorizontalRotation;
             if (k2 > 1024) {
                 k2 -= 2048;
             }
@@ -10117,14 +10108,14 @@ public class Game extends GameShell {
                 k2 += 2048;
             }
             if (k2 > 0) {
-                anInt879 += anInt992 + (k2 * anInt993) / 1000;
-                anInt879 &= 0x7ff;
+                cameraHorizontalRotation += anInt992 + (k2 * anInt993) / 1000;
+                cameraHorizontalRotation &= 0x7ff;
             }
             if (k2 < 0) {
-                anInt879 -= anInt992 + (-k2 * anInt993) / 1000;
-                anInt879 &= 0x7ff;
+                cameraHorizontalRotation -= anInt992 + (-k2 * anInt993) / 1000;
+                cameraHorizontalRotation &= 0x7ff;
             }
-            int l2 = j2 - anInt879;
+            int l2 = j2 - cameraHorizontalRotation;
             if (l2 > 1024) {
                 l2 -= 2048;
             }
@@ -10132,7 +10123,7 @@ public class Game extends GameShell {
                 l2 += 2048;
             }
             if (l2 < 0 && k2 > 0 || l2 > 0 && k2 < 0) {
-                anInt879 = j2;
+                cameraHorizontalRotation = j2;
                 return;
             }
         } catch (RuntimeException runtimeexception) {
@@ -10191,12 +10182,12 @@ public class Game extends GameShell {
                             aString1007 = ChatCensor.censor(aString1007);
                             renderText(TextUtils.formatName(TextUtils.longToName(aLong967)), aString1007, 6
                             );
-                            if (privateChatSetting == 2) {
-                                privateChatSetting = 1;
+                            if (privateChatMode == 2) {
+                                privateChatMode = 1;
                                 redrawPrivacySettings = true;
                                 out.writePacket(161);
                                 out.writeByte(publicChatSetting);
-                                out.writeByte(privateChatSetting);
+                                out.writeByte(privateChatMode);
                                 out.writeByte(tradeChatSetting);
                             }
                         }
@@ -10346,7 +10337,7 @@ public class Game extends GameShell {
                                 redrawPrivacySettings = true;
                                 out.writePacket(161);
                                 out.writeByte(publicChatSetting);
-                                out.writeByte(privateChatSetting);
+                                out.writeByte(privateChatMode);
                                 out.writeByte(tradeChatSetting);
                             }
                         }
@@ -11025,7 +11016,7 @@ public class Game extends GameShell {
             }
             int i = -1;
             ingame &= flag;
-            for (int j = 0; j < Model.anInt1596; j++) {
+            for (int j = 0; j < Model.resourceCount; j++) {
                 int k = Model.anIntArray1597[j];
                 int l = k & 0x7f;
                 int i1 = k >> 7 & 0x7f;
@@ -11225,7 +11216,7 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void method136(int i) {
+    public void drawHeadIcon(int i) {
         try {
             if (i <= 0) {
                 packetType = -1;
@@ -11267,10 +11258,10 @@ public class Game extends GameShell {
                 offsetX = tmp;
             }
             cameraPositionX = x - offsetX;
-            cameraPositionY = y - offsetY;
-            cameraPositionZ = z - offsetZ;
+            cameraPositionZ = y - offsetY;
+            cameraPositionY = z - offsetZ;
             cameraVerticalRotation = vertical;
-            anInt879 = horizontal;
+            cameraHorizontalRotation = horizontal;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("24308, " + i + ", " + horizontal + ", " + y + ", " + z + ", " + x + ", " + vertical
@@ -11747,16 +11738,16 @@ public class Game extends GameShell {
                     redrawChatback = true;
                     out.writePacket(161);
                     out.writeByte(publicChatSetting);
-                    out.writeByte(privateChatSetting);
+                    out.writeByte(privateChatMode);
                     out.writeByte(tradeChatSetting);
                 }
                 if (super.mousePressX >= 135 && super.mousePressX <= 235 && super.mousePressY >= 467 && super.mousePressY <= 499) {
-                    privateChatSetting = (privateChatSetting + 1) % 3;
+                    privateChatMode = (privateChatMode + 1) % 3;
                     redrawPrivacySettings = true;
                     redrawChatback = true;
                     out.writePacket(161);
                     out.writeByte(publicChatSetting);
-                    out.writeByte(privateChatSetting);
+                    out.writeByte(privateChatMode);
                     out.writeByte(tradeChatSetting);
                 }
                 if (super.mousePressX >= 273 && super.mousePressX <= 373 && super.mousePressY >= 467 && super.mousePressY <= 499) {
@@ -11765,7 +11756,7 @@ public class Game extends GameShell {
                     redrawChatback = true;
                     out.writePacket(161);
                     out.writeByte(publicChatSetting);
-                    out.writeByte(privateChatSetting);
+                    out.writeByte(privateChatMode);
                     out.writeByte(tradeChatSetting);
                 }
                 if (super.mousePressX >= 412 && super.mousePressX <= 512 && super.mousePressY >= 467 && super.mousePressY <= 499) {
@@ -11893,7 +11884,7 @@ public class Game extends GameShell {
                 anInt970 = k;
             }
             if (j == 8) {
-                anInt1017 = k;
+                splitPrivateChat = k;
                 redrawChatback = true;
             }
             if (j == 9) {

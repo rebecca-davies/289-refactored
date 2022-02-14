@@ -29,7 +29,7 @@ public class Draw3D extends Draw2D {
     public static int[][] anIntArrayArray1435;
     public static int[][] anIntArrayArray1436 = new int[50][];
     public static int[] anIntArray1437 = new int[50];
-    public static int anInt1438;
+    public static int getTexture;
     public static int[] anIntArray1439 = new int[0x10000];
     public static int[][] anIntArrayArray1440 = new int[50][];
 
@@ -227,7 +227,7 @@ public class Draw3D extends Draw2D {
     }
 
     public static int[] method426(int i) {
-        Draw3D.anIntArray1437[i] = Draw3D.anInt1438++;
+        Draw3D.anIntArray1437[i] = Draw3D.getTexture++;
         if (Draw3D.anIntArrayArray1436[i] != null) {
             return Draw3D.anIntArrayArray1436[i];
         }

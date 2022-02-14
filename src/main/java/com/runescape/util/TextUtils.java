@@ -31,21 +31,21 @@ public class TextUtils {
         return l;
     }
 
-    public static String longToName(long l) {
-            if (l <= 0L || l >= 0x5b5b57f8a98a5dd1L) {
+    public static String longToName(long encoded) {
+            if (encoded <= 0L || encoded >= 0x5b5b57f8a98a5dd1L) {
                 return "invalid_name";
             }
-            if (l % 37L == 0L) {
+            if (encoded % 37L == 0L) {
                 return "invalid_name";
             }
             int i = 0;
-            char[] ac = new char[12];
-            while (l != 0L) {
-                long l1 = l;
-                l /= 37L;
-                ac[11 - i++] = TextUtils.aCharArray805[(int) (l1 - l * 37L)];
+            char[] chars = new char[12];
+            while (encoded != 0L) {
+                long l1 = encoded;
+                encoded /= 37L;
+                chars[11 - i++] = TextUtils.aCharArray805[(int) (l1 - encoded * 37L)];
             }
-            return new String(ac, 12 - i, i);
+            return new String(chars, 12 - i, i);
     }
 
     public static long method552(int i, String s) {
@@ -79,37 +79,32 @@ public class TextUtils {
         throw new RuntimeException();
     }
 
-    public static String formatName(String s) {
-            if (s.length() > 0) {
-                char[] ac = s.toCharArray();
-                for (int i = 0; i < ac.length; i++) {
-                    if (ac[i] == '_') {
-                        ac[i] = ' ';
-                        if (i + 1 < ac.length && ac[i + 1] >= 'a' && ac[i + 1] <= 'z') {
-                            ac[i + 1] = (char) ((ac[i + 1] + 65) - 97);
+    public static String formatName(String name) {
+            if (name.length() > 0) {
+                char[] chars = name.toCharArray();
+                for (int index = 0; index < chars.length; index++) {
+                    if (chars[index] == '_') {
+                        chars[index] = ' ';
+                        if (index + 1 < chars.length && chars[index + 1] >= 'a' && chars[index + 1] <= 'z') {
+                            chars[index + 1] = (char) ((chars[index + 1] + 65) - 97);
                         }
                     }
                 }
-                if (ac[0] >= 'a' && ac[0] <= 'z') {
-                    ac[0] = (char) ((ac[0] + 65) - 97);
+                if (chars[0] >= 'a' && chars[0] <= 'z') {
+                    chars[0] = (char) ((chars[0] + 65) - 97);
                 }
-                return new String(ac);
+                return new String(chars);
             } else {
-                return s;
+                return name;
             }
     }
 
-    public static String toAsterisks(String s) {
-        try {
-            StringBuffer stringbuffer = new StringBuffer();
-            for (int j = 0; j < s.length(); j++) {
-                stringbuffer.append("*");
+    public static String toAsterisks(String string) {
+            StringBuffer censor = new StringBuffer();
+            for (int index = 0; index < censor.length(); index++) {
+                censor.append("*");
             }
-            return stringbuffer.toString();
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("15483, " + s + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
+            return censor.toString();
     }
 
 }

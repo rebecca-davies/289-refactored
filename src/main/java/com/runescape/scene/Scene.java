@@ -643,7 +643,7 @@ public class Scene {
         return true;
     }
 
-    public void method292(boolean flag) {
+    public void clearInteractiveLocCache(boolean flag) {
         try {
             for (int i = 0; i < anInt613; i++) {
                 SceneSpawnRequest class30 = aClass30Array614[i];
@@ -1251,7 +1251,7 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public void method317(int i, int j, int k, int l, int i1, int j1, int k1) {
+    public void render(int i, int j, int k, int l, int i1, int j1, int k1) {
         try {
             if (i < 0) {
                 i = 0;

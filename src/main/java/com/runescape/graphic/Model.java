@@ -40,9 +40,9 @@ public class Model extends Renderable {
     public static int anInt1591;
     public static int anInt1592;
     public static boolean aBoolean1593;
-    public static int anInt1594;
-    public static int anInt1595;
-    public static int anInt1596;
+    public static int cursorX;
+    public static int cursorY;
+    public static int resourceCount;
     public static int[] anIntArray1597 = new int[1000];
     public static int[] SINE;
     public static int[] COSINE;
@@ -1682,11 +1682,11 @@ public class Model extends Renderable {
                 k4 /= i3;
                 i5 /= k5;
             }
-            int i6 = Model.anInt1594 - Draw3D.centerX;
-            int k6 = Model.anInt1595 - Draw3D.centerY;
+            int i6 = Model.cursorX - Draw3D.centerX;
+            int k6 = Model.cursorY - Draw3D.centerY;
             if (i6 > k3 && i6 < l3 && k6 > i5 && k6 < k4) {
                 if (aBoolean1568) {
-                    Model.anIntArray1597[Model.anInt1596++] = i2;
+                    Model.anIntArray1597[Model.resourceCount++] = i2;
                 } else {
                     flag1 = true;
                 }
@@ -1759,9 +1759,9 @@ public class Model extends Renderable {
                     Model.anIntArrayArray1581[j5][Model.anIntArray1580[j5]++] = k;
                 } else {
                     if (flag1
-                            && method530(Model.anInt1594, Model.anInt1595, Model.anIntArray1575[l],
+                            && method530(Model.cursorX, Model.cursorY, Model.anIntArray1575[l],
                             Model.anIntArray1575[k1], Model.anIntArray1575[j2], i3, l3, k4)) {
-                        Model.anIntArray1597[Model.anInt1596++] = i;
+                        Model.anIntArray1597[Model.resourceCount++] = i;
                         flag1 = false;
                     }
                     if ((i3 - l3) * (Model.anIntArray1575[j2] - Model.anIntArray1575[k1])
