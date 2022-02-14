@@ -20,7 +20,7 @@ public class Draw3D extends Draw2D {
     public static int[] anIntArray1426;
     public static int[] sin;
     public static int[] cos;
-    public static int[] anIntArray1429;
+    public static int[] lineOffset;
     public static int anInt1430;
     public static Image8[] aClass44_Sub3_Sub1_Sub3Array1431 = new Image8[50];
     public static boolean[] aBooleanArray1432 = new boolean[50];
@@ -56,7 +56,7 @@ public class Draw3D extends Draw2D {
             Draw3D.anIntArray1425 = null;
             Draw3D.sin = null;
             Draw3D.cos = null;
-            Draw3D.anIntArray1429 = null;
+            Draw3D.lineOffset = null;
             Draw3D.aClass44_Sub3_Sub1_Sub3Array1431 = null;
             Draw3D.aBooleanArray1432 = null;
             if (byte0 != 42) {
@@ -78,14 +78,14 @@ public class Draw3D extends Draw2D {
 
     public static void method419(byte byte0) {
         try {
-            Draw3D.anIntArray1429 = new int[Draw2D.height];
+            Draw3D.lineOffset = new int[Draw2D.height];
             if (byte0 == 3) {
                 byte0 = 0;
             } else {
                 Draw3D.anInt1415 = 340;
             }
             for (int i = 0; i < Draw2D.height; i++) {
-                Draw3D.anIntArray1429[i] = Draw2D.width * i;
+                Draw3D.lineOffset[i] = Draw2D.width * i;
             }
             Draw3D.centerX = Draw2D.width / 2;
             Draw3D.centerY = Draw2D.height / 2;
@@ -96,22 +96,13 @@ public class Draw3D extends Draw2D {
         throw new RuntimeException();
     }
 
-    public static void method420(int i, int j, int k) {
-        try {
-            if (k != Draw3D.anInt1414) {
-                Draw3D.aBoolean1416 = !Draw3D.aBoolean1416;
-            }
-            Draw3D.anIntArray1429 = new int[i];
+    public static void init3D(int i, int j) {
+            Draw3D.lineOffset = new int[i];
             for (int l = 0; l < i; l++) {
-                Draw3D.anIntArray1429[l] = j * l;
+                Draw3D.lineOffset[l] = j * l;
             }
             Draw3D.centerX = j / 2;
             Draw3D.centerY = i / 2;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("87374, " + i + ", " + j + ", " + k + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public static void method421(boolean flag) {
@@ -130,11 +121,7 @@ public class Draw3D extends Draw2D {
         throw new RuntimeException();
     }
 
-    public static void method422(int i, int j) {
-        try {
-            if (i < 1 || i > 1) {
-                Draw3D.anInt1415 = 245;
-            }
+    public static void initPool(int j) {
             if (Draw3D.anIntArrayArray1435 == null) {
                 Draw3D.anInt1434 = j;
                 if (Draw3D.aBoolean1418) {
@@ -145,16 +132,10 @@ public class Draw3D extends Draw2D {
                 for (int k = 0; k < 50; k++) {
                     Draw3D.anIntArrayArray1436[k] = null;
                 }
-                return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("73856, " + i + ", " + j + ", " + runtimeexception);
-            throw new RuntimeException();
         }
-    }
 
-    public static void method423(FileArchive class47, boolean flag) {
-        try {
+    public static void unpackTextures(FileArchive class47) {
             Draw3D.anInt1430 = 0;
             for (int i = 0; i < 50; i++) {
                 try {
@@ -168,14 +149,6 @@ public class Draw3D extends Draw2D {
                 } catch (Exception _ex) {
                 }
             }
-            if (flag) {
-                Draw3D.aBoolean1416 = !Draw3D.aBoolean1416;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("81199, " + class47 + ", " + flag + ", " + runtimeexception.toString());
-            throw new RuntimeException();
-        }
     }
 
     public static int method424(int i, int j) {
@@ -253,7 +226,7 @@ public class Draw3D extends Draw2D {
         if (Draw3D.aBoolean1418) {
             Draw3D.aBooleanArray1432[i] = false;
             for (int i1 = 0; i1 < 4096; i1++) {
-                int i2 = ai[i1] = ai1[class44_sub3_sub1_sub3.aByteArray1458[i1]] & 0xf8f8ff;
+                int i2 = ai[i1] = ai1[class44_sub3_sub1_sub3.pixels[i1]] & 0xf8f8ff;
                 if (i2 == 0) {
                     Draw3D.aBooleanArray1432[i] = true;
                 }
@@ -265,12 +238,12 @@ public class Draw3D extends Draw2D {
             if (class44_sub3_sub1_sub3.width == 64) {
                 for (int j1 = 0; j1 < 128; j1++) {
                     for (int j2 = 0; j2 < 128; j2++) {
-                        ai[j2 + (j1 << 7)] = ai1[class44_sub3_sub1_sub3.aByteArray1458[(j2 >> 1) + ((j1 >> 1) << 6)]];
+                        ai[j2 + (j1 << 7)] = ai1[class44_sub3_sub1_sub3.pixels[(j2 >> 1) + ((j1 >> 1) << 6)]];
                     }
                 }
             } else {
                 for (int k1 = 0; k1 < 16384; k1++) {
-                    ai[k1] = ai1[class44_sub3_sub1_sub3.aByteArray1458[k1]];
+                    ai[k1] = ai1[class44_sub3_sub1_sub3.pixels[k1]];
                 }
             }
             Draw3D.aBooleanArray1432[i] = false;
@@ -288,14 +261,9 @@ public class Draw3D extends Draw2D {
         return ai;
     }
 
-    public static void method427(double d, int i) {
-        try {
+    public static void setBrightness(double d) {
             d += Math.random() * 0.029999999999999999D - 0.014999999999999999D;
             int j = 0;
-            if (i != 0) {
-                for (int k = 1; k > 0; k++) {
-                }
-            }
             for (int l = 0; l < 512; l++) {
                 double d1 = l / 8 / 64D + 0.0078125D;
                 double d2 = (l & 7) / 8D + 0.0625D;
@@ -372,11 +340,6 @@ public class Draw3D extends Draw2D {
             for (int j1 = 0; j1 < 50; j1++) {
                 Draw3D.method425(9, j1);
             }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("64743, " + d + ", " + i + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public static int method428(int i, double d) {
@@ -441,7 +404,7 @@ public class Draw3D extends Draw2D {
                 if (i != j && j3 < j2 || i == j && j3 > l2) {
                     k -= j;
                     j -= i;
-                    for (i = Draw3D.anIntArray1429[i]; --j >= 0; i += Draw2D.width) {
+                    for (i = Draw3D.lineOffset[i]; --j >= 0; i += Draw2D.width) {
                         Draw3D.method430(Draw2D.pixels, i, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
                         j1 += j3;
                         l += j2;
@@ -461,7 +424,7 @@ public class Draw3D extends Draw2D {
                 }
                 k -= j;
                 j -= i;
-                for (i = Draw3D.anIntArray1429[i]; --j >= 0; i += Draw2D.width) {
+                for (i = Draw3D.lineOffset[i]; --j >= 0; i += Draw2D.width) {
                     Draw3D.method430(Draw2D.pixels, i, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
                     j1 += j3;
                     l += j2;
@@ -497,7 +460,7 @@ public class Draw3D extends Draw2D {
             if (i != k && j3 < j2 || i == k && l2 > j2) {
                 j -= k;
                 k -= i;
-                for (i = Draw3D.anIntArray1429[i]; --k >= 0; i += Draw2D.width) {
+                for (i = Draw3D.lineOffset[i]; --k >= 0; i += Draw2D.width) {
                     Draw3D.method430(Draw2D.pixels, i, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
                     i1 += j3;
                     l += j2;
@@ -516,7 +479,7 @@ public class Draw3D extends Draw2D {
             }
             j -= k;
             k -= i;
-            for (i = Draw3D.anIntArray1429[i]; --k >= 0; i += Draw2D.width) {
+            for (i = Draw3D.lineOffset[i]; --k >= 0; i += Draw2D.width) {
                 Draw3D.method430(Draw2D.pixels, i, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
                 i1 += j3;
                 l += j2;
@@ -563,7 +526,7 @@ public class Draw3D extends Draw2D {
                 if (j != k && j2 < l2 || j == k && j2 > j3) {
                     i -= k;
                     k -= j;
-                    for (j = Draw3D.anIntArray1429[j]; --k >= 0; j += Draw2D.width) {
+                    for (j = Draw3D.lineOffset[j]; --k >= 0; j += Draw2D.width) {
                         Draw3D.method430(Draw2D.pixels, j, 0, 0, l >> 16, i1 >> 16, k1 >> 7, l1 >> 7);
                         l += j2;
                         i1 += l2;
@@ -582,7 +545,7 @@ public class Draw3D extends Draw2D {
                 }
                 i -= k;
                 k -= j;
-                for (j = Draw3D.anIntArray1429[j]; --k >= 0; j += Draw2D.width) {
+                for (j = Draw3D.lineOffset[j]; --k >= 0; j += Draw2D.width) {
                     Draw3D.method430(Draw2D.pixels, j, 0, 0, i1 >> 16, l >> 16, l1 >> 7, k1 >> 7);
                     l += j2;
                     i1 += l2;
@@ -618,7 +581,7 @@ public class Draw3D extends Draw2D {
             if (j2 < l2) {
                 k -= i;
                 i -= j;
-                for (j = Draw3D.anIntArray1429[j]; --i >= 0; j += Draw2D.width) {
+                for (j = Draw3D.lineOffset[j]; --i >= 0; j += Draw2D.width) {
                     Draw3D.method430(Draw2D.pixels, j, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
                     j1 += j2;
                     i1 += l2;
@@ -637,7 +600,7 @@ public class Draw3D extends Draw2D {
             }
             k -= i;
             i -= j;
-            for (j = Draw3D.anIntArray1429[j]; --i >= 0; j += Draw2D.width) {
+            for (j = Draw3D.lineOffset[j]; --i >= 0; j += Draw2D.width) {
                 Draw3D.method430(Draw2D.pixels, j, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
                 j1 += j2;
                 i1 += l2;
@@ -683,7 +646,7 @@ public class Draw3D extends Draw2D {
             if (l2 < j3) {
                 j -= i;
                 i -= k;
-                for (k = Draw3D.anIntArray1429[k]; --i >= 0; k += Draw2D.width) {
+                for (k = Draw3D.lineOffset[k]; --i >= 0; k += Draw2D.width) {
                     Draw3D.method430(Draw2D.pixels, k, 0, 0, i1 >> 16, j1 >> 16, l1 >> 7, i2 >> 7);
                     i1 += l2;
                     j1 += j3;
@@ -702,7 +665,7 @@ public class Draw3D extends Draw2D {
             }
             j -= i;
             i -= k;
-            for (k = Draw3D.anIntArray1429[k]; --i >= 0; k += Draw2D.width) {
+            for (k = Draw3D.lineOffset[k]; --i >= 0; k += Draw2D.width) {
                 Draw3D.method430(Draw2D.pixels, k, 0, 0, j1 >> 16, i1 >> 16, i2 >> 7, l1 >> 7);
                 i1 += l2;
                 j1 += j3;
@@ -738,7 +701,7 @@ public class Draw3D extends Draw2D {
         if (l2 < j3) {
             i -= j;
             j -= k;
-            for (k = Draw3D.anIntArray1429[k]; --j >= 0; k += Draw2D.width) {
+            for (k = Draw3D.lineOffset[k]; --j >= 0; k += Draw2D.width) {
                 Draw3D.method430(Draw2D.pixels, k, 0, 0, l >> 16, j1 >> 16, k1 >> 7, i2 >> 7);
                 l += l2;
                 j1 += j3;
@@ -757,7 +720,7 @@ public class Draw3D extends Draw2D {
         }
         i -= j;
         j -= k;
-        for (k = Draw3D.anIntArray1429[k]; --j >= 0; k += Draw2D.width) {
+        for (k = Draw3D.lineOffset[k]; --j >= 0; k += Draw2D.width) {
             Draw3D.method430(Draw2D.pixels, k, 0, 0, j1 >> 16, l >> 16, i2 >> 7, k1 >> 7);
             l += l2;
             j1 += j3;
@@ -921,7 +884,7 @@ public class Draw3D extends Draw2D {
                 if (i != j && j2 < l1 || i == j && j2 > i2) {
                     k -= j;
                     j -= i;
-                    for (i = Draw3D.anIntArray1429[i]; --j >= 0; i += Draw2D.width) {
+                    for (i = Draw3D.lineOffset[i]; --j >= 0; i += Draw2D.width) {
                         Draw3D.method432(Draw2D.pixels, i, k1, 0, j1 >> 16, l >> 16);
                         j1 += j2;
                         l += l1;
@@ -936,7 +899,7 @@ public class Draw3D extends Draw2D {
                 }
                 k -= j;
                 j -= i;
-                for (i = Draw3D.anIntArray1429[i]; --j >= 0; i += Draw2D.width) {
+                for (i = Draw3D.lineOffset[i]; --j >= 0; i += Draw2D.width) {
                     Draw3D.method432(Draw2D.pixels, i, k1, 0, l >> 16, j1 >> 16);
                     j1 += j2;
                     l += l1;
@@ -963,7 +926,7 @@ public class Draw3D extends Draw2D {
             if (i != k && j2 < l1 || i == k && i2 > l1) {
                 j -= k;
                 k -= i;
-                for (i = Draw3D.anIntArray1429[i]; --k >= 0; i += Draw2D.width) {
+                for (i = Draw3D.lineOffset[i]; --k >= 0; i += Draw2D.width) {
                     Draw3D.method432(Draw2D.pixels, i, k1, 0, i1 >> 16, l >> 16);
                     i1 += j2;
                     l += l1;
@@ -978,7 +941,7 @@ public class Draw3D extends Draw2D {
             }
             j -= k;
             k -= i;
-            for (i = Draw3D.anIntArray1429[i]; --k >= 0; i += Draw2D.width) {
+            for (i = Draw3D.lineOffset[i]; --k >= 0; i += Draw2D.width) {
                 Draw3D.method432(Draw2D.pixels, i, k1, 0, l >> 16, i1 >> 16);
                 i1 += j2;
                 l += l1;
@@ -1016,7 +979,7 @@ public class Draw3D extends Draw2D {
                 if (j != k && l1 < i2 || j == k && l1 > j2) {
                     i -= k;
                     k -= j;
-                    for (j = Draw3D.anIntArray1429[j]; --k >= 0; j += Draw2D.width) {
+                    for (j = Draw3D.lineOffset[j]; --k >= 0; j += Draw2D.width) {
                         Draw3D.method432(Draw2D.pixels, j, k1, 0, l >> 16, i1 >> 16);
                         l += l1;
                         i1 += i2;
@@ -1031,7 +994,7 @@ public class Draw3D extends Draw2D {
                 }
                 i -= k;
                 k -= j;
-                for (j = Draw3D.anIntArray1429[j]; --k >= 0; j += Draw2D.width) {
+                for (j = Draw3D.lineOffset[j]; --k >= 0; j += Draw2D.width) {
                     Draw3D.method432(Draw2D.pixels, j, k1, 0, i1 >> 16, l >> 16);
                     l += l1;
                     i1 += i2;
@@ -1058,7 +1021,7 @@ public class Draw3D extends Draw2D {
             if (l1 < i2) {
                 k -= i;
                 i -= j;
-                for (j = Draw3D.anIntArray1429[j]; --i >= 0; j += Draw2D.width) {
+                for (j = Draw3D.lineOffset[j]; --i >= 0; j += Draw2D.width) {
                     Draw3D.method432(Draw2D.pixels, j, k1, 0, j1 >> 16, i1 >> 16);
                     j1 += l1;
                     i1 += i2;
@@ -1073,7 +1036,7 @@ public class Draw3D extends Draw2D {
             }
             k -= i;
             i -= j;
-            for (j = Draw3D.anIntArray1429[j]; --i >= 0; j += Draw2D.width) {
+            for (j = Draw3D.lineOffset[j]; --i >= 0; j += Draw2D.width) {
                 Draw3D.method432(Draw2D.pixels, j, k1, 0, i1 >> 16, j1 >> 16);
                 j1 += l1;
                 i1 += i2;
@@ -1110,7 +1073,7 @@ public class Draw3D extends Draw2D {
             if (i2 < j2) {
                 j -= i;
                 i -= k;
-                for (k = Draw3D.anIntArray1429[k]; --i >= 0; k += Draw2D.width) {
+                for (k = Draw3D.lineOffset[k]; --i >= 0; k += Draw2D.width) {
                     Draw3D.method432(Draw2D.pixels, k, k1, 0, i1 >> 16, j1 >> 16);
                     i1 += i2;
                     j1 += j2;
@@ -1125,7 +1088,7 @@ public class Draw3D extends Draw2D {
             }
             j -= i;
             i -= k;
-            for (k = Draw3D.anIntArray1429[k]; --i >= 0; k += Draw2D.width) {
+            for (k = Draw3D.lineOffset[k]; --i >= 0; k += Draw2D.width) {
                 Draw3D.method432(Draw2D.pixels, k, k1, 0, j1 >> 16, i1 >> 16);
                 i1 += i2;
                 j1 += j2;
@@ -1152,7 +1115,7 @@ public class Draw3D extends Draw2D {
         if (i2 < j2) {
             i -= j;
             j -= k;
-            for (k = Draw3D.anIntArray1429[k]; --j >= 0; k += Draw2D.width) {
+            for (k = Draw3D.lineOffset[k]; --j >= 0; k += Draw2D.width) {
                 Draw3D.method432(Draw2D.pixels, k, k1, 0, l >> 16, j1 >> 16);
                 l += i2;
                 j1 += j2;
@@ -1167,7 +1130,7 @@ public class Draw3D extends Draw2D {
         }
         i -= j;
         j -= k;
-        for (k = Draw3D.anIntArray1429[k]; --j >= 0; k += Draw2D.width) {
+        for (k = Draw3D.lineOffset[k]; --j >= 0; k += Draw2D.width) {
             Draw3D.method432(Draw2D.pixels, k, k1, 0, j1 >> 16, l >> 16);
             l += i2;
             j1 += j2;
@@ -1291,7 +1254,7 @@ public class Draw3D extends Draw2D {
                 if (i != j && i8 < i7 || i == j && i8 > k7) {
                     k -= j;
                     j -= i;
-                    i = Draw3D.anIntArray1429[i];
+                    i = Draw3D.lineOffset[i];
                     while (--j >= 0) {
                         Draw3D.method434(Draw2D.pixels, ai, 0, 0, i, j1 >> 16, l >> 16, i2 >> 8,
                                 k1 >> 8, l4, k5, j6, i5, l5, k6);
@@ -1320,7 +1283,7 @@ public class Draw3D extends Draw2D {
                 }
                 k -= j;
                 j -= i;
-                i = Draw3D.anIntArray1429[i];
+                i = Draw3D.lineOffset[i];
                 while (--j >= 0) {
                     Draw3D.method434(Draw2D.pixels, ai, 0, 0, i, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8,
                             l4, k5, j6, i5, l5, k6);
@@ -1370,7 +1333,7 @@ public class Draw3D extends Draw2D {
             if (i != k && i8 < i7 || i == k && k7 > i7) {
                 j -= k;
                 k -= i;
-                i = Draw3D.anIntArray1429[i];
+                i = Draw3D.lineOffset[i];
                 while (--k >= 0) {
                     Draw3D.method434(Draw2D.pixels, ai, 0, 0, i, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8,
                             l4, k5, j6, i5, l5, k6);
@@ -1399,7 +1362,7 @@ public class Draw3D extends Draw2D {
             }
             j -= k;
             k -= i;
-            i = Draw3D.anIntArray1429[i];
+            i = Draw3D.lineOffset[i];
             while (--k >= 0) {
                 Draw3D.method434(Draw2D.pixels, ai, 0, 0, i, l >> 16, i1 >> 16, k1 >> 8, l1 >> 8, l4,
                         k5, j6, i5, l5, k6);
@@ -1460,7 +1423,7 @@ public class Draw3D extends Draw2D {
                 if (j != k && i7 < k7 || j == k && i7 > i8) {
                     i -= k;
                     k -= j;
-                    j = Draw3D.anIntArray1429[j];
+                    j = Draw3D.lineOffset[j];
                     while (--k >= 0) {
                         Draw3D.method434(Draw2D.pixels, ai, 0, 0, j, l >> 16, i1 >> 16, k1 >> 8,
                                 l1 >> 8, l4, k5, j6, i5, l5, k6);
@@ -1489,7 +1452,7 @@ public class Draw3D extends Draw2D {
                 }
                 i -= k;
                 k -= j;
-                j = Draw3D.anIntArray1429[j];
+                j = Draw3D.lineOffset[j];
                 while (--k >= 0) {
                     Draw3D.method434(Draw2D.pixels, ai, 0, 0, j, i1 >> 16, l >> 16, l1 >> 8, k1 >> 8,
                             l4, k5, j6, i5, l5, k6);
@@ -1539,7 +1502,7 @@ public class Draw3D extends Draw2D {
             if (i7 < k7) {
                 k -= i;
                 i -= j;
-                j = Draw3D.anIntArray1429[j];
+                j = Draw3D.lineOffset[j];
                 while (--i >= 0) {
                     Draw3D.method434(Draw2D.pixels, ai, 0, 0, j, j1 >> 16, i1 >> 16, i2 >> 8,
                             l1 >> 8, l4, k5, j6, i5, l5, k6);
@@ -1568,7 +1531,7 @@ public class Draw3D extends Draw2D {
             }
             k -= i;
             i -= j;
-            j = Draw3D.anIntArray1429[j];
+            j = Draw3D.lineOffset[j];
             while (--i >= 0) {
                 Draw3D.method434(Draw2D.pixels, ai, 0, 0, j, i1 >> 16, j1 >> 16, l1 >> 8, i2 >> 8,
                         l4, k5, j6, i5, l5, k6);
@@ -1628,7 +1591,7 @@ public class Draw3D extends Draw2D {
             if (k7 < i8) {
                 j -= i;
                 i -= k;
-                k = Draw3D.anIntArray1429[k];
+                k = Draw3D.lineOffset[k];
                 while (--i >= 0) {
                     Draw3D.method434(Draw2D.pixels, ai, 0, 0, k, i1 >> 16, j1 >> 16, l1 >> 8,
                             i2 >> 8, l4, k5, j6, i5, l5, k6);
@@ -1657,7 +1620,7 @@ public class Draw3D extends Draw2D {
             }
             j -= i;
             i -= k;
-            k = Draw3D.anIntArray1429[k];
+            k = Draw3D.lineOffset[k];
             while (--i >= 0) {
                 Draw3D.method434(Draw2D.pixels, ai, 0, 0, k, j1 >> 16, i1 >> 16, i2 >> 8, l1 >> 8,
                         l4, k5, j6, i5, l5, k6);
@@ -1707,7 +1670,7 @@ public class Draw3D extends Draw2D {
         if (k7 < i8) {
             i -= j;
             j -= k;
-            k = Draw3D.anIntArray1429[k];
+            k = Draw3D.lineOffset[k];
             while (--j >= 0) {
                 Draw3D.method434(Draw2D.pixels, ai, 0, 0, k, l >> 16, j1 >> 16, k1 >> 8, i2 >> 8, l4,
                         k5, j6, i5, l5, k6);
@@ -1736,7 +1699,7 @@ public class Draw3D extends Draw2D {
         }
         i -= j;
         j -= k;
-        k = Draw3D.anIntArray1429[k];
+        k = Draw3D.lineOffset[k];
         while (--j >= 0) {
             Draw3D.method434(Draw2D.pixels, ai, 0, 0, k, j1 >> 16, l >> 16, i2 >> 8, k1 >> 8, l4, k5,
                     j6, i5, l5, k6);

@@ -68,9 +68,9 @@ public class LocType {
         anInt215 = -1;
     }
 
-    public static void method197(FileArchive class47) {
-        LocType.buffer = new Buffer(class47.method549("loc.dat", null));
-        Buffer class44_sub3_sub2 = new Buffer(class47.method549("loc.idx", null));
+    public static void unpack(FileArchive class47) {
+        LocType.buffer = new Buffer(class47.read("loc.dat"));
+        Buffer class44_sub3_sub2 = new Buffer(class47.read("loc.idx"));
         LocType.anInt209 = class44_sub3_sub2.readUnsignedShort();
         LocType.anIntArray210 = new int[LocType.anInt209];
         int i = 2;

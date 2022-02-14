@@ -29,12 +29,8 @@ public class IDKType {
         aBoolean470 = false;
     }
 
-    public static void method247(boolean flag, FileArchive class47) {
-        try {
-            Buffer class44_sub3_sub2 = new Buffer(class47.method549("idk.dat", null));
-            if (!flag) {
-                IDKType.aBoolean462 = !IDKType.aBoolean462;
-            }
+    public static void unpack(FileArchive class47) {
+            Buffer class44_sub3_sub2 = new Buffer(class47.read("idk.dat"));
             IDKType.anInt463 = class44_sub3_sub2.readUnsignedShort();
             if (IDKType.cache == null) {
                 IDKType.cache = new IDKType[IDKType.anInt463];
@@ -45,11 +41,6 @@ public class IDKType {
                 }
                 IDKType.cache[i].method248(false, class44_sub3_sub2);
             }
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("42475, " + flag + ", " + class47 + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public void method248(boolean flag, Buffer class44_sub3_sub2) {

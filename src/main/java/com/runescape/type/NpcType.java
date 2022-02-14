@@ -67,9 +67,9 @@ public class NpcType {
         anInt306 = 32;
     }
 
-    public static void method212(FileArchive class47) {
-        NpcType.buffer = new Buffer(class47.method549("npc.dat", null));
-        Buffer class44_sub3_sub2 = new Buffer(class47.method549("npc.idx", null));
+    public static void unpack(FileArchive class47) {
+        NpcType.buffer = new Buffer(class47.read("npc.dat"));
+        Buffer class44_sub3_sub2 = new Buffer(class47.read("npc.idx"));
         NpcType.anInt276 = class44_sub3_sub2.readUnsignedShort();
         NpcType.anIntArray277 = new int[NpcType.anInt276];
         int i = 2;

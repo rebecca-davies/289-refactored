@@ -72,26 +72,27 @@ public class FileArchive {
         throw new RuntimeException();
     }
 
-    public byte[] method549(String s, byte[] abyte0) {
+    public byte[] read(String s) {
         int i = 0;
+        byte[] bytes = null;
         s = s.toUpperCase();
         for (int j = 0; j < s.length(); j++) {
             i = (i * 61 + s.charAt(j)) - 32;
         }
         for (int k = 0; k < anInt792; k++) {
             if (anIntArray793[k] == i) {
-                if (abyte0 == null) {
-                    abyte0 = new byte[anIntArray794[k]];
+                if (bytes == null) {
+                    bytes = new byte[anIntArray794[k]];
                 }
                 if (!aBoolean797) {
-                    BZip2Decompressor.method329(abyte0, anIntArray794[k], aByteArray791, anIntArray795[k],
+                    BZip2Decompressor.method329(bytes, anIntArray794[k], aByteArray791, anIntArray795[k],
                             anIntArray796[k]);
                 } else {
                     for (int l = 0; l < anIntArray794[k]; l++) {
-                        abyte0[l] = aByteArray791[anIntArray796[k] + l];
+                        bytes[l] = aByteArray791[anIntArray796[k] + l];
                     }
                 }
-                return abyte0;
+                return bytes;
             }
         }
         return null;

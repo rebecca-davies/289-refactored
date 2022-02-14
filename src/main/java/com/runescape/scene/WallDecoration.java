@@ -9,8 +9,8 @@ public class WallDecoration {
     public int anInt310;
     public int anInt311;
     public int anInt312;
-    public Renderable aClass44_Sub3_Sub4_313;
-    public int anInt314;
+    public Renderable renderable;
+    public int uid;
     public byte aByte315;
 
     public WallDecoration() {

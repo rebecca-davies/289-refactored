@@ -39,8 +39,8 @@ public class BitmapFont extends Draw2D {
         aRandom1479 = new Random();
         aBoolean1480 = false;
         try {
-            Buffer class44_sub3_sub2 = new Buffer(class47.method549(s + ".dat", null));
-            Buffer class44_sub3_sub2_1 = new Buffer(class47.method549("index.dat", null));
+            Buffer class44_sub3_sub2 = new Buffer(class47.read(s + ".dat"));
+            Buffer class44_sub3_sub2_1 = new Buffer(class47.read("index.dat"));
             class44_sub3_sub2_1.position = class44_sub3_sub2.readUnsignedShort() + 4;
             if (i != 9) {
                 aBoolean1467 = !aBoolean1467;

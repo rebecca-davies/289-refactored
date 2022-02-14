@@ -9,8 +9,8 @@ public class Wall {
     public int anInt574;
     public int anInt575;
     public int anInt576;
-    public Renderable aClass44_Sub3_Sub4_577;
-    public Renderable aClass44_Sub3_Sub4_578;
+    public Renderable primary;
+    public Renderable secondary;
     public int anInt579;
     public byte aByte580;
 

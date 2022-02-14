@@ -27,7 +27,7 @@ public class LinkedList {
         throw new RuntimeException();
     }
 
-    public void method256(Node class44) {
+    public void pushBack(Node class44) {
         if (class44.nextNode != null) {
             class44.remove();
         }

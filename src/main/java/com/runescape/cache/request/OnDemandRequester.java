@@ -82,10 +82,10 @@ public class OnDemandRequester extends Requester implements Runnable {
         aByteArray1318 = new byte[65000];
     }
 
-    public void load(FileArchive class47, Game client1) {
-        String[] as = {"model_version", "anim_version", "midi_version", "map_version"};
+    public void load(FileArchive archive, Game client1) {
+        String[] versions = {"model_version", "anim_version", "midi_version", "map_version"};
         for (int i = 0; i < 4; i++) {
-            byte[] abyte0 = class47.method549(as[i], null);
+            byte[] abyte0 = archive.read(versions[i]);
             int j = abyte0.length / 2;
             Buffer class44_sub3_sub2 = new Buffer(abyte0);
             anIntArrayArray1284[i] = new int[j];
@@ -94,9 +94,9 @@ public class OnDemandRequester extends Requester implements Runnable {
                 anIntArrayArray1284[i][l] = class44_sub3_sub2.readUnsignedShort();
             }
         }
-        String[] as1 = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
+        String[] crcs = {"model_crc", "anim_crc", "midi_crc", "map_crc"};
         for (int k = 0; k < 4; k++) {
-            byte[] abyte1 = class47.method549(as1[k], null);
+            byte[] abyte1 = archive.read(crcs[k]);
             int i1 = abyte1.length / 4;
             Buffer class44_sub3_sub2_1 = new Buffer(abyte1);
             anIntArrayArray1285[k] = new int[i1];
@@ -104,7 +104,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 anIntArrayArray1285[k][l1] = class44_sub3_sub2_1.readInt();
             }
         }
-        byte[] abyte2 = class47.method549("model_index", null);
+        byte[] abyte2 = archive.read("model_index");
         int j1 = anIntArrayArray1284[0].length;
         aByteArray1288 = new byte[j1];
         for (int k1 = 0; k1 < j1; k1++) {
@@ -114,7 +114,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 aByteArray1288[k1] = 0;
             }
         }
-        abyte2 = class47.method549("map_index", null);
+        abyte2 = archive.read("map_index");
         Buffer class44_sub3_sub2_2 = new Buffer(abyte2);
         j1 = abyte2.length / 7;
         anIntArray1289 = new int[j1];
@@ -127,14 +127,14 @@ public class OnDemandRequester extends Requester implements Runnable {
             anIntArray1291[i2] = class44_sub3_sub2_2.readUnsignedShort();
             anIntArray1292[i2] = class44_sub3_sub2_2.readUnsignedByte();
         }
-        abyte2 = class47.method549("anim_index", null);
+        abyte2 = archive.read("anim_index");
         class44_sub3_sub2_2 = new Buffer(abyte2);
         j1 = abyte2.length / 2;
         anIntArray1293 = new int[j1];
         for (int j2 = 0; j2 < j1; j2++) {
             anIntArray1293[j2] = class44_sub3_sub2_2.readUnsignedShort();
         }
-        abyte2 = class47.method549("midi_index", null);
+        abyte2 = archive.read("midi_index");
         class44_sub3_sub2_2 = new Buffer(abyte2);
         j1 = abyte2.length;
         anIntArray1294 = new int[j1];
@@ -143,7 +143,7 @@ public class OnDemandRequester extends Requester implements Runnable {
         }
         aClient1296 = client1;
         aBoolean1295 = true;
-        aClient1296.method12(this, 2);
+        aClient1296.startThread(this, 2);
     }
 
     public void method384() {
@@ -241,7 +241,7 @@ public class OnDemandRequester extends Requester implements Runnable {
             class44_sub3_sub3_1.anInt1406 = j;
             class44_sub3_sub3_1.aBoolean1409 = true;
             synchronized (aClass28_1302) {
-                aClass28_1302.method256(class44_sub3_sub3_1);
+                aClass28_1302.pushBack(class44_sub3_sub3_1);
             }
             aClass31_1301.method264(class44_sub3_sub3_1);
         }
@@ -347,7 +347,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 return;
             }
             synchronized (aClass28_1306) {
-                aClass28_1306.method256(class44_sub3_sub3);
+                aClass28_1306.pushBack(class44_sub3_sub3);
             }
             return;
         } catch (RuntimeException runtimeexception) {
@@ -469,11 +469,11 @@ public class OnDemandRequester extends Requester implements Runnable {
                 }
                 synchronized (aClass28_1302) {
                     if (abyte0 == null) {
-                        aClass28_1303.method256(class44_sub3_sub3);
+                        aClass28_1303.pushBack(class44_sub3_sub3);
                     } else {
                         class44_sub3_sub3.aByteArray1407 = abyte0;
                         synchronized (aClass28_1305) {
-                            aClass28_1305.method256(class44_sub3_sub3);
+                            aClass28_1305.pushBack(class44_sub3_sub3);
                         }
                     }
                     class44_sub3_sub3 = (OnDemandNode) aClass28_1302.method258();
@@ -510,7 +510,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                     anInt1308++;
                 }
                 aByteArrayArray1286[class44_sub3_sub3_1.anInt1405][class44_sub3_sub3_1.anInt1406] = 0;
-                aClass28_1304.method256(class44_sub3_sub3_1);
+                aClass28_1304.pushBack(class44_sub3_sub3_1);
                 anInt1299++;
                 method403(class44_sub3_sub3_1, 409);
                 aBoolean1298 = true;
@@ -546,7 +546,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                     while (class44_sub3_sub3 != null) {
                         if (aByteArrayArray1286[class44_sub3_sub3.anInt1405][class44_sub3_sub3.anInt1406] != 0) {
                             aByteArrayArray1286[class44_sub3_sub3.anInt1405][class44_sub3_sub3.anInt1406] = (byte) 0;
-                            aClass28_1304.method256(class44_sub3_sub3);
+                            aClass28_1304.pushBack(class44_sub3_sub3);
                             method403(class44_sub3_sub3, 409);
                             aBoolean1298 = true;
                             if (anInt1308 < anInt1309) {
@@ -572,7 +572,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                                 class44_sub3_sub3.anInt1405 = j;
                                 class44_sub3_sub3.anInt1406 = l;
                                 class44_sub3_sub3.aBoolean1409 = false;
-                                aClass28_1304.method256(class44_sub3_sub3);
+                                aClass28_1304.pushBack(class44_sub3_sub3);
                                 method403(class44_sub3_sub3, 409);
                                 aBoolean1298 = true;
                                 if (anInt1308 < anInt1309) {
@@ -627,7 +627,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                             aClass44_Sub3_Sub3_1314.aByteArray1407 = null;
                             if (aClass44_Sub3_Sub3_1314.aBoolean1409) {
                                 synchronized (aClass28_1305) {
-                                    aClass28_1305.method256(aClass44_Sub3_Sub3_1314);
+                                    aClass28_1305.pushBack(aClass44_Sub3_Sub3_1314);
                                 }
                             } else {
                                 aClass44_Sub3_Sub3_1314.remove();
@@ -669,7 +669,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                         }
                         if (aClass44_Sub3_Sub3_1314.aBoolean1409) {
                             synchronized (aClass28_1305) {
-                                aClass28_1305.method256(aClass44_Sub3_Sub3_1314);
+                                aClass28_1305.pushBack(aClass44_Sub3_Sub3_1314);
                             }
                         } else {
                             aClass44_Sub3_Sub3_1314.remove();

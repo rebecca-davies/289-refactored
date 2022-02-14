@@ -83,15 +83,11 @@ public class Component {
         aByte98 = 4;
     }
 
-    public static void method181(BitmapFont[] aclass44_sub3_sub1_sub4, FileArchive mediaArchive, int i, FileArchive widgetArchive) {
-        try {
+    public static void unpack(BitmapFont[] aclass44_sub3_sub1_sub4, FileArchive mediaArchive, FileArchive widgetArchive) {
             Component.spriteCache = new Cache((byte) 7, 50000);
-            Buffer class44_sub3_sub2 = new Buffer(widgetArchive.method549("data", null));
+            Buffer class44_sub3_sub2 = new Buffer(widgetArchive.read("data"));
             int j = -1;
             int k = class44_sub3_sub2.readUnsignedShort();
-            if (i != 0) {
-                return;
-            }
             Component.instances = new Component[k];
             while (class44_sub3_sub2.position < class44_sub3_sub2.payload.length) {
                 int l = class44_sub3_sub2.readUnsignedShort();
@@ -293,12 +289,6 @@ public class Component {
                 }
             }
             Component.spriteCache = null;
-            return;
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("87101, " + aclass44_sub3_sub1_sub4 + ", " + mediaArchive + ", " + i + ", "
-                    + widgetArchive + ", " + runtimeexception);
-        }
-        throw new RuntimeException();
     }
 
     public static void method185(int i, Model class44_sub3_sub4_sub4, int j, int k) {

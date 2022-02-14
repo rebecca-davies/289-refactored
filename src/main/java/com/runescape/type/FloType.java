@@ -29,9 +29,8 @@ public class FloType {
         aBoolean435 = true;
     }
 
-    public static void method243(boolean flag, FileArchive class47) {
-        try {
-            Buffer class44_sub3_sub2 = new Buffer(class47.method549("flo.dat", null));
+    public static void unpack(FileArchive class47) {
+            Buffer class44_sub3_sub2 = new Buffer(class47.read("flo.dat"));
             FloType.anInt429 = class44_sub3_sub2.readUnsignedShort();
             if (FloType.aClass20Array430 == null) {
                 FloType.aClass20Array430 = new FloType[FloType.anInt429];
@@ -42,14 +41,6 @@ public class FloType {
                 }
                 FloType.aClass20Array430[i].method244(false, class44_sub3_sub2);
             }
-            if (!flag) {
-                FloType.aBoolean428 = !FloType.aBoolean428;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("30324, " + flag + ", " + class47 + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public void method244(boolean flag, Buffer class44_sub3_sub2) {

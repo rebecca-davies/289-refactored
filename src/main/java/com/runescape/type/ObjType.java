@@ -19,7 +19,7 @@ public class ObjType {
     public static Buffer buffer;
     public static ObjType[] cache;
     public static int anInt327;
-    public static boolean aBoolean328 = true;
+    public static boolean members = true;
     public static Cache aClass39_369 = new Cache((byte) 7, 50);
     public static Cache aClass39_370 = new Cache((byte) 7, 100);
     public boolean aBoolean316;
@@ -75,9 +75,9 @@ public class ObjType {
         id = -1;
     }
 
-    public static void method218(FileArchive class47) {
-        ObjType.buffer = new Buffer(class47.method549("obj.dat", null));
-        Buffer class44_sub3_sub2 = new Buffer(class47.method549("obj.idx", null));
+    public static void unpack(FileArchive class47) {
+        ObjType.buffer = new Buffer(class47.read("obj.dat"));
+        Buffer class44_sub3_sub2 = new Buffer(class47.read("obj.idx"));
         ObjType.total = class44_sub3_sub2.readUnsignedShort();
         ObjType.anIntArray324 = new int[ObjType.total];
         int i = 2;
@@ -123,7 +123,7 @@ public class ObjType {
         if (class14.anInt362 != -1) {
             class14.method223(6);
         }
-        if (!ObjType.aBoolean328 && class14.aBoolean344) {
+        if (!ObjType.members && class14.aBoolean344) {
             class14.name = "Members Object";
             class14.aByteArray332 = "Login to a members' server to use this object.".getBytes();
             class14.aStringArray345 = null;
@@ -174,7 +174,7 @@ public class ObjType {
             Image24 class44_sub3_sub1_sub2_1 = new Image24(32, 32);
             int k1 = Draw3D.centerX;
             int l1 = Draw3D.centerY;
-            int[] ai = Draw3D.anIntArray1429;
+            int[] ai = Draw3D.lineOffset;
             int[] ai1 = Draw2D.pixels;
             int i2 = Draw2D.width;
             int j2 = Draw2D.height;
@@ -255,7 +255,7 @@ public class ObjType {
             Draw2D.setBounds(l2, j3, i3, k2);
             Draw3D.centerX = k1;
             Draw3D.centerY = l1;
-            Draw3D.anIntArray1429 = ai;
+            Draw3D.lineOffset = ai;
             Draw3D.aBoolean1421 = true;
             if (class14.stackable) {
                 class44_sub3_sub1_sub2_1.cropWidth = 33;

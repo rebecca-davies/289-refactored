@@ -34,12 +34,8 @@ public class VarpType {
         anInt687 = -1;
     }
 
-    public static void method337(boolean flag, FileArchive class47) {
-        try {
-            if (!flag) {
-                VarpType.aBoolean671 = !VarpType.aBoolean671;
-            }
-            Buffer class44_sub3_sub2 = new Buffer(class47.method549("varp.dat", null));
+    public static void unpack(FileArchive class47) {
+            Buffer class44_sub3_sub2 = new Buffer(class47.read("varp.dat"));
             VarpType.anInt675 = 0;
             VarpType.anInt673 = class44_sub3_sub2.readUnsignedShort();
             if (VarpType.cache == null) {
@@ -56,12 +52,7 @@ public class VarpType {
             }
             if (class44_sub3_sub2.position != class44_sub3_sub2.payload.length) {
                 System.out.println("varptype load mismatch");
-                return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("51793, " + flag + ", " + class47 + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public void method338(int i, int j, Buffer class44_sub3_sub2) {

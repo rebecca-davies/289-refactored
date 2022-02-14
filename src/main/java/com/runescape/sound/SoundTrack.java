@@ -33,12 +33,8 @@ public class SoundTrack {
         }
     }
 
-    public static void method175(boolean flag, Buffer class44_sub3_sub2) {
-        try {
+    public static void load(Buffer class44_sub3_sub2) {
             SoundTrack.aByteArray93 = new byte[0x6baa8];
-            if (!flag) {
-                return;
-            }
             SoundTrack.buffer = new Buffer(SoundTrack.aByteArray93);
             SoundTone.method187();
             do {
@@ -50,11 +46,6 @@ public class SoundTrack {
                 SoundTrack.aClass4Array91[i].method177(false, class44_sub3_sub2);
                 SoundTrack.anIntArray92[i] = SoundTrack.aClass4Array91[i].method178(368);
             } while (true);
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("47278, " + flag + ", " + class44_sub3_sub2 + ", " + runtimeexception);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static Buffer method176(int i, int j, int k) {

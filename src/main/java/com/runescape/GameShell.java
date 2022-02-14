@@ -74,7 +74,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 anInt4 = -480;
             }
             aClass34_14 = new DrawArea(width, height);
-            method12(this, 1);
+            startThread(this, 1);
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("84735, " + i + ", " + j + ", " + k + ", " + runtimeexception);
@@ -91,7 +91,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
             height = j;
             graphics = method11(7).getGraphics();
             aClass34_14 = new DrawArea(width, height);
-            method12(this, 1);
+            startThread(this, 1);
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("72806, " + flag + ", " + i + ", " + j + ", " + runtimeexception);
@@ -578,7 +578,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         throw new RuntimeException();
     }
 
-    public void method12(Runnable runnable, int i) {
+    public void startThread(Runnable runnable, int i) {
         Thread thread = new Thread(runnable);
         thread.start();
         thread.setPriority(i);

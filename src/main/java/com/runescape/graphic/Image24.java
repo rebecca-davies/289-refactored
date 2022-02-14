@@ -70,8 +70,8 @@ public class Image24 extends Draw2D {
         anInt1445 = 9;
         aByte1446 = 8;
         aBoolean1447 = true;
-        Buffer class44_sub3_sub2 = new Buffer(class47.method549(s + ".dat", null));
-        Buffer class44_sub3_sub2_1 = new Buffer(class47.method549("index.dat", null));
+        Buffer class44_sub3_sub2 = new Buffer(class47.read(s + ".dat"));
+        Buffer class44_sub3_sub2_1 = new Buffer(class47.read("index.dat"));
         class44_sub3_sub2_1.position = class44_sub3_sub2.readUnsignedShort();
         cropWidth = class44_sub3_sub2_1.readUnsignedShort();
         cropHeight = class44_sub3_sub2_1.readUnsignedShort();
@@ -535,7 +535,7 @@ public class Image24 extends Draw2D {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method447(l, k, l1, class44_sub3_sub1_sub3.aByteArray1458, j1, k1, 0, i1, pixels, true,
+                method447(l, k, l1, class44_sub3_sub1_sub3.pixels, j1, k1, 0, i1, pixels, true,
                         Draw2D.pixels);
                 return;
             }

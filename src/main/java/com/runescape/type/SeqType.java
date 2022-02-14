@@ -41,9 +41,8 @@ public class SeqType {
         anInt521 = -1;
     }
 
-    public static void method253(boolean flag, FileArchive class47) {
-        try {
-            Buffer class44_sub3_sub2 = new Buffer(class47.method549("seq.dat", null));
+    public static void unpack(FileArchive class47) {
+            Buffer class44_sub3_sub2 = new Buffer(class47.read("seq.dat"));
             SeqType.anInt507 = class44_sub3_sub2.readUnsignedShort();
             if (SeqType.instances == null) {
                 SeqType.instances = new SeqType[SeqType.anInt507];
@@ -54,14 +53,6 @@ public class SeqType {
                 }
                 SeqType.instances[i].method255(false, class44_sub3_sub2);
             }
-            if (!flag) {
-                SeqType.aBoolean506 = !SeqType.aBoolean506;
-                return;
-            }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("90750, " + flag + ", " + class47 + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public int method254(int i, int j) {

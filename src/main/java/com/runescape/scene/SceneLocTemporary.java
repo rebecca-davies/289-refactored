@@ -4,20 +4,20 @@ import com.runescape.collection.Node;
 
 public class SceneLocTemporary extends Node {
 
-    public int anInt1323;
-    public int anInt1324;
+    public int plane;
+    public int locType;
     public int sceneTileX;
     public int sceneTileZ;
     public int anInt1327;
     public int anInt1328;
     public int anInt1329;
-    public int anInt1330;
-    public int anInt1331;
-    public int anInt1332;
-    public int anInt1333;
-    public int anInt1334;
+    public int id2;
+    public int face2;
+    public int type2;
+    public int delayUntilSpawn;
+    public int delayUntilRespawn;
 
     public SceneLocTemporary() {
-        anInt1334 = -1;
+        delayUntilRespawn = -1;
     }
 }

@@ -22,12 +22,8 @@ public class VarBit {
         anInt596 = -1;
     }
 
-    public static void method275(boolean flag, FileArchive class47) {
-        try {
-            if (!flag) {
-                return;
-            }
-            Buffer class44_sub3_sub2 = new Buffer(class47.method549("varbit.dat", null));
+    public static void unpack(FileArchive class47) {
+            Buffer class44_sub3_sub2 = new Buffer(class47.read("varbit.dat"));
             VarBit.anInt589 = class44_sub3_sub2.readUnsignedShort();
             if (VarBit.aClass35Array590 == null) {
                 VarBit.aClass35Array590 = new VarBit[VarBit.anInt589];
@@ -43,12 +39,7 @@ public class VarBit {
             }
             if (class44_sub3_sub2.position != class44_sub3_sub2.payload.length) {
                 System.out.println("varbit load mismatch");
-                return;
             }
-        } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("10921, " + flag + ", " + class47 + ", " + runtimeexception);
-            throw new RuntimeException();
-        }
     }
 
     public void method276(int i, int j, Buffer class44_sub3_sub2) {

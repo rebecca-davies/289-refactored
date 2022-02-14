@@ -9,7 +9,7 @@ public class Image8 extends Draw2D {
     public boolean aBoolean1455;
     public boolean aBoolean1456;
     public int anInt1457;
-    public byte[] aByteArray1458;
+    public byte[] pixels;
     public int[] anIntArray1459;
     public int width;
     public int height;
@@ -22,8 +22,8 @@ public class Image8 extends Draw2D {
         aBoolean1455 = false;
         aBoolean1456 = false;
         anInt1457 = 9;
-        Buffer class44_sub3_sub2 = new Buffer(class47.method549(s + ".dat", null));
-        Buffer class44_sub3_sub2_1 = new Buffer(class47.method549("index.dat", null));
+        Buffer class44_sub3_sub2 = new Buffer(class47.read(s + ".dat"));
+        Buffer class44_sub3_sub2_1 = new Buffer(class47.read("index.dat"));
         class44_sub3_sub2_1.position = class44_sub3_sub2.readUnsignedShort();
         anInt1464 = class44_sub3_sub2_1.readUnsignedShort();
         anInt1465 = class44_sub3_sub2_1.readUnsignedShort();
@@ -43,17 +43,17 @@ public class Image8 extends Draw2D {
         height = class44_sub3_sub2_1.readUnsignedShort();
         int i1 = class44_sub3_sub2_1.readUnsignedByte();
         int j1 = width * height;
-        aByteArray1458 = new byte[j1];
+        pixels = new byte[j1];
         if (i1 == 0) {
             for (int k1 = 0; k1 < j1; k1++) {
-                aByteArray1458[k1] = class44_sub3_sub2.readByte();
+                pixels[k1] = class44_sub3_sub2.readByte();
             }
             return;
         }
         if (i1 == 1) {
             for (int l1 = 0; l1 < width; l1++) {
                 for (int i2 = 0; i2 < height; i2++) {
-                    aByteArray1458[l1 + i2 * width] = class44_sub3_sub2.readByte();
+                    pixels[l1 + i2 * width] = class44_sub3_sub2.readByte();
                 }
             }
         }
@@ -67,10 +67,10 @@ public class Image8 extends Draw2D {
             int j = 0;
             for (int k = 0; k < height; k++) {
                 for (int l = 0; l < width; l++) {
-                    abyte0[(l + anInt1462 >> 1) + (k + anInt1463 >> 1) * anInt1464] = aByteArray1458[j++];
+                    abyte0[(l + anInt1462 >> 1) + (k + anInt1463 >> 1) * anInt1464] = pixels[j++];
                 }
             }
-            aByteArray1458 = abyte0;
+            pixels = abyte0;
             width = anInt1464;
             if (i != 0) {
                 aBoolean1455 = !aBoolean1455;
@@ -94,10 +94,10 @@ public class Image8 extends Draw2D {
             int j = 0;
             for (int k = 0; k < height; k++) {
                 for (int l = 0; l < width; l++) {
-                    abyte0[l + anInt1462 + (k + anInt1463) * anInt1464] = aByteArray1458[j++];
+                    abyte0[l + anInt1462 + (k + anInt1463) * anInt1464] = pixels[j++];
                 }
             }
-            aByteArray1458 = abyte0;
+            pixels = abyte0;
             width = anInt1464;
             height = anInt1465;
             anInt1462 = 0;
@@ -117,10 +117,10 @@ public class Image8 extends Draw2D {
             int j = 0;
             for (int k = 0; k < height; k++) {
                 for (int l = width - 1; l >= 0; l--) {
-                    abyte0[j++] = aByteArray1458[l + k * width];
+                    abyte0[j++] = pixels[l + k * width];
                 }
             }
-            aByteArray1458 = abyte0;
+            pixels = abyte0;
             anInt1462 = anInt1464 - width - anInt1462;
     }
 
@@ -129,10 +129,10 @@ public class Image8 extends Draw2D {
             int j = 0;
             for (int k = height - 1; k >= 0; k--) {
                 for (int l = 0; l < width; l++) {
-                    abyte0[j++] = aByteArray1458[l + k * width];
+                    abyte0[j++] = pixels[l + k * width];
                 }
             }
-                aByteArray1458 = abyte0;
+                pixels = abyte0;
                 anInt1463 = anInt1465 - height - anInt1463;
             }
 
@@ -201,7 +201,7 @@ public class Image8 extends Draw2D {
             if (j1 <= 0 || i1 <= 0) {
                 return;
             } else {
-                method454(i1, anIntArray1459, k, Draw2D.pixels, l1, k1, (byte) 34, aByteArray1458, j1, l);
+                method454(i1, anIntArray1459, k, Draw2D.pixels, l1, k1, (byte) 34, pixels, j1, l);
                 return;
             }
         } catch (RuntimeException runtimeexception) {
