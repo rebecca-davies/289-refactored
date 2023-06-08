@@ -228,11 +228,11 @@ public class NpcType {
                 }
                 if (anIntArray292 != null) {
                     for (int k1 = 0; k1 < anIntArray292.length; k1++) {
-                        class44_sub3_sub4_sub4.method520(anIntArray292[k1], anIntArray293[k1]);
+                        class44_sub3_sub4_sub4.recolor(anIntArray292[k1], anIntArray293[k1]);
                     }
                 }
-                class44_sub3_sub4_sub4.method513((byte) 3);
-                class44_sub3_sub4_sub4.method523(64 + anInt303, 850 + anInt304, -30, -50, -30, true);
+                class44_sub3_sub4_sub4.createLabelReference((byte) 3);
+                class44_sub3_sub4_sub4.calculateNormals(64 + anInt303, 850 + anInt304, -30, -50, -30, true);
                 NpcType.aClass39_307.method340(uid, (byte) 76, class44_sub3_sub4_sub4);
             }
             Model class44_sub3_sub4_sub4_1 = Model.aClass44_Sub3_Sub4_Sub4_1530;
@@ -241,7 +241,7 @@ public class NpcType {
             if (k != -1 && j != -1) {
                 class44_sub3_sub4_sub4_1.method515(k, true, j, ai);
             } else if (k != -1) {
-                class44_sub3_sub4_sub4_1.method514(k, 188);
+                class44_sub3_sub4_sub4_1.applyTransform(k, 188);
             }
             if (anInt300 != 128 || anInt301 != 128) {
                 class44_sub3_sub4_sub4_1.method522(anInt300, anInt300, anInt301, (byte) 31);
@@ -288,7 +288,7 @@ public class NpcType {
             }
             if (anIntArray292 != null) {
                 for (int k = 0; k < anIntArray292.length; k++) {
-                    class44_sub3_sub4_sub4.method520(anIntArray292[k], anIntArray293[k]);
+                    class44_sub3_sub4_sub4.recolor(anIntArray292[k], anIntArray293[k]);
                 }
             }
             return class44_sub3_sub4_sub4;

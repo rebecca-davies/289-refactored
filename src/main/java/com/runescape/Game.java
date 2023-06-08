@@ -92,7 +92,7 @@ public class Game extends GameShell {
         }
     }
 
-    public boolean aBoolean812;
+    public boolean updateDesignModel;
     public long serverSeed;
     public OnDemandRequester ondemand;
     public int crossX;
@@ -127,7 +127,7 @@ public class Game extends GameShell {
     public int[] anIntArray846;
     public boolean aBoolean847;
     public int minimapState;
-    public int[] anIntArray849;
+    public int[] designIdentityKits;
     public Buffer out;
     public int[] anIntArray851;
     public Image8 redstone5Image;
@@ -142,15 +142,15 @@ public class Game extends GameShell {
     public int anInt861;
     public int anInt862;
     public boolean ingame;
-    public Image8[] aClass44_Sub3_Sub1_Sub3Array864;
+    public Image8[] imageRunes;
     public int[][][] planeHeightMap;
     public MouseCapturer mouseCapturer;
     public Image24[] crosses;
     public int[] minimapMaskLineLengths;
-    public int anInt869;
+    public int daysSinceRecoveriesChanged;
     public byte[][][] planeTileFlags;
     public Image24[] activeMapfunctions;
-    public int anInt874;
+    public int chatScrollHeight;
     public int cameraPositionX;
     public int cameraPositionZ;
     public int cameraPositionY;
@@ -162,15 +162,15 @@ public class Game extends GameShell {
     public byte aByte883;
     public byte aByte884;
     public int[][] anIntArrayArray885;
-    public boolean aBoolean886;
+    public boolean flamesThread;
     public int anInt887;
     public int anInt888;
     public int sidebarComponentId;
-    public int anInt890;
+    public int flameCycle0;
     public Image8 titleBox;
     public Image8 titleButton;
     public boolean aBoolean893;
-    public int[] anIntArray894;
+    public int[] friendWorld;
     public int privateChatMode;
     public String[] menuOption;
     public boolean redrawInvback;
@@ -192,7 +192,7 @@ public class Game extends GameShell {
     public int[] areaChatbackOffsets;
     public int[] areaInvbackOffsets;
     public int[] areaViewportOffsets;
-    public int anInt917;
+    public int warnMembersInNonmembers;
     public LinkedList projectiles;
     public String[] playerOptions;
     public boolean[] playerOptionPushDown;
@@ -212,14 +212,14 @@ public class Game extends GameShell {
     public boolean continuedDialogue;
     public int playerEnergy;
     public int[] designColors;
-    public String aString939;
+    public String reportAbuseInput;
     public int anInt940;
     public int[] anIntArray941;
     public int nextSongDelay;
     public int[] cameraFrequency;
     public int anInt945;
     public boolean menuOpen;
-    public int anInt947;
+    public int daysSinceLastLogin;
     public int anInt948;
     public boolean aBoolean950;
     public CRC32 aCRC32_951;
@@ -254,7 +254,7 @@ public class Game extends GameShell {
     public int moveItemSlotEnd;
     public int lastActiveInventoryInterface;
     public boolean aBoolean985;
-    public boolean aBoolean987;
+    public boolean reportAbuseMuteOption;
     public Image24 compassImage;
     public int anInt989;
     public int anInt990;
@@ -274,7 +274,7 @@ public class Game extends GameShell {
     public String[] chatMessages;
     public int hintIconType;
     public int[] anIntArray1006;
-    public String aString1007;
+    public String socialInput;
     public NPCEntity[] npcs;
     public int npcCount;
     public int[] anIntArray1010;
@@ -290,10 +290,10 @@ public class Game extends GameShell {
     public int[] anIntArray1020;
     public int[] anIntArray1021;
     public CollisionMap[] collisions;
-    public int anInt1023;
+    public int unreadMessages;
     public int[] anIntArray1024;
-    public Image24 aClass44_Sub3_Sub1_Sub2_1025;
-    public Image24 aClass44_Sub3_Sub1_Sub2_1026;
+    public Image24 genderButtonImage0;
+    public Image24 genderButtonImage1;
     public int currentTab;
     public int anInt1028;
     public int menuScreenArea;
@@ -309,7 +309,7 @@ public class Game extends GameShell {
     public int[] sceneMapLandFile;
     public int[] sceneMapLocFile;
     public byte aByte1042;
-    public String[] aStringArray1044;
+    public String[] friendName;
     public long aLong1048;
     public boolean redrawChatback;
     public boolean aBoolean1050;
@@ -350,7 +350,7 @@ public class Game extends GameShell {
     public int isMembers;
     public int[] anIntArray1090;
     public int anInt1091;
-    public String aString1092;
+    public String chatBackInput;
     public int objDragComponentId;
     public int objDragSlot;
     public int objDragArea;
@@ -359,8 +359,8 @@ public class Game extends GameShell {
     public byte aByte1098;
     public Connection connection;
     public byte aByte1101;
-    public String aString1102;
-    public int anInt1103;
+    public String socialMessage;
+    public int chatScrollOffset;
     public int friendCount;
     public int friendlistStatus;
     public int cameraAnticheatAngle;
@@ -389,14 +389,14 @@ public class Game extends GameShell {
     public DrawArea backvmid3Area;
     public DrawArea backhmid2Area;
     public Buffer in;
-    public int[] anIntArray1133;
-    public int[] anIntArray1134;
+    public int[] flameBuffer0;
+    public int[] flameBuffer1;
     public Image8 redstone0Image;
     public Image8 redstone1Image;
     public Image8 redstone2Image;
     public Image8 redstone3Image;
     public Image8 redstone4Image;
-    public String aString1141;
+    public String chatTyped;
     public int[] TYPE_TO_CLASS = {0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3};
     public Image8 invbackImage;
     public Image8 mapbackImage;
@@ -428,7 +428,7 @@ public class Game extends GameShell {
     public int timeoutCounter;
     public int anInt1172;
     public int idleLogout;
-    public boolean aBoolean1174;
+    public boolean flameActive;
     public int percent;
     public int anInt1177;
     public boolean aBoolean1178;
@@ -449,7 +449,7 @@ public class Game extends GameShell {
     public DrawArea aClass34_1195;
     public DrawArea aClass34_1196;
     public DrawArea areaViewport;
-    public DrawArea aClass34_1198;
+    public DrawArea areaChatBack;
     public int viewportComponentId;
     public int anInt1200;
     public Component aClass5_1201;
@@ -481,7 +481,7 @@ public class Game extends GameShell {
     public int anInt1228;
     public int[] anIntArray1229;
     public Buffer[] appearanceBuffer;
-    public int anInt1231;
+    public int lastAddress;
     public boolean errorStarted;
     public boolean aBoolean1237;
     public int secondaryCameraVertical;
@@ -516,14 +516,14 @@ public class Game extends GameShell {
     public DrawArea title7;
     public DrawArea title8;
     public int[] flameBuffer3;
-    public int[] anIntArray1273;
+    public int[] flameBuffer2;
     public boolean loadingMap;
     public Image8[] sideicons;
     public Image24 flamesLeft;
     public Image24 flameRight;
 
     public Game() {
-        aBoolean812 = false;
+        updateDesignModel = false;
         aBoolean820 = false;
         loginBuffer = Buffer.method470(-929, 1);
         activeMapfunctionsX = new int[1000];
@@ -539,22 +539,22 @@ public class Game extends GameShell {
         anInt844 = 0x332d25;
         anIntArray846 = new int[50];
         aBoolean847 = false;
-        anIntArray849 = new int[7];
+        designIdentityKits = new int[7];
         out = Buffer.method470(-929, 1);
         anIntArray851 = new int[SkillConstants.skillCount];
         ingame = false;
         crosses = new Image24[8];
         minimapMaskLineLengths = new int[151];
         activeMapfunctions = new Image24[1000];
-        anInt874 = 78;
+        chatScrollHeight = 78;
         minimapMaskLineOffsets = new int[151];
         aByte883 = -127;
         aByte884 = 38;
         anIntArrayArray885 = new int[104][104];
-        aBoolean886 = false;
+        flamesThread = false;
         sidebarComponentId = -1;
         aBoolean893 = false;
-        anIntArray894 = new int[200];
+        friendWorld = new int[200];
         menuOption = new String[500];
         redrawInvback = false;
         anInt900 = -1;
@@ -572,7 +572,7 @@ public class Game extends GameShell {
         windowFocused = true;
         continuedDialogue = false;
         designColors = new int[5];
-        aString939 = "";
+        reportAbuseInput = "";
         anIntArray941 = new int[1000];
         cameraFrequency = new int[5];
         menuOpen = false;
@@ -592,14 +592,14 @@ public class Game extends GameShell {
         aLongArray979 = new long[200];
         chatbackInputType = false;
         aBoolean985 = true;
-        aBoolean987 = false;
+        reportAbuseMuteOption = false;
         anInt1000 = 0x23201b;
         anIntArray1001 = new int[5];
         chatTypes = new int[100];
         chatNames = new String[100];
         chatMessages = new String[100];
         anIntArray1006 = new int[50];
-        aString1007 = "";
+        socialInput = "";
         npcs = new NPCEntity[16384];
         anIntArray1010 = new int[16384];
         anInt1012 = 2;
@@ -615,7 +615,7 @@ public class Game extends GameShell {
         anIntArray1035 = new int[SkillConstants.skillCount];
         aBoolean1036 = true;
         aByte1042 = -71;
-        aStringArray1044 = new String[200];
+        friendName = new String[200];
         redrawChatback = false;
         aBoolean1050 = true;
         archiveCRCs = new int[9];
@@ -638,10 +638,10 @@ public class Game extends GameShell {
         aByte1086 = 38;
         anIntArray1090 = new int[SkillConstants.skillCount];
         anInt1091 = 37395;
-        aString1092 = "";
+        chatBackInput = "";
         aByte1098 = 29;
         aByte1101 = 6;
-        aString1102 = "";
+        socialMessage = "";
         anInt1107 = 1;
         hitmarks = new Image24[20];
         aByteArray1109 = new byte[16384];
@@ -651,7 +651,7 @@ public class Game extends GameShell {
         localPlayerIndex = -1;
         listTemporaryLocs = new LinkedList(-199);
         in = Buffer.method470(-929, 1);
-        aString1141 = "";
+        chatTyped = "";
         planeObjStacks = new LinkedList[4][104][104];
         aBoolean1147 = false;
         anInt1153 = -6002;
@@ -666,7 +666,7 @@ public class Game extends GameShell {
         anIntArray1164 = new int[anInt1158];
         anIntArray1165 = new int[anInt1158];
         aStringArray1166 = new String[anInt1158];
-        aBoolean1174 = false;
+        flameActive = false;
         anInt1177 = -1;
         aBoolean1178 = true;
         designGenderMasc = true;
@@ -1095,17 +1095,17 @@ public class Game extends GameShell {
                     redrawChatback = true;
                     chatbackInputType = false;
                     showSocialInput = true;
-                    aString1007 = "";
+                    socialInput = "";
                     anInt880 = 1;
-                    aString1102 = "Enter name of friend to add to list";
+                    socialMessage = "Enter name of friend to add to list";
                 }
                 if (i == 202) {
                     redrawChatback = true;
                     chatbackInputType = false;
                     showSocialInput = true;
-                    aString1007 = "";
+                    socialInput = "";
                     anInt880 = 2;
-                    aString1102 = "Enter name of friend to delete from list";
+                    socialMessage = "Enter name of friend to delete from list";
                 }
             }
             if (i == 205) {
@@ -1116,34 +1116,34 @@ public class Game extends GameShell {
                 redrawChatback = true;
                 chatbackInputType = false;
                 showSocialInput = true;
-                aString1007 = "";
+                socialInput = "";
                 anInt880 = 4;
-                aString1102 = "Enter name of player to add to list";
+                socialMessage = "Enter name of player to add to list";
             }
             if (i == 502) {
                 redrawChatback = true;
                 chatbackInputType = false;
                 showSocialInput = true;
-                aString1007 = "";
+                socialInput = "";
                 anInt880 = 5;
-                aString1102 = "Enter name of player to delete from list";
+                socialMessage = "Enter name of player to delete from list";
             }
             if (i >= 300 && i <= 313) {
                 int j = (i - 300) / 2;
                 int i1 = i & 1;
-                int l1 = anIntArray849[j];
+                int l1 = designIdentityKits[j];
                 if (l1 != -1) {
                     do {
                         if (i1 == 0 && --l1 < 0) {
-                            l1 = IDKType.anInt463 - 1;
+                            l1 = IdkType.anInt463 - 1;
                         }
-                        if (i1 == 1 && ++l1 >= IDKType.anInt463) {
+                        if (i1 == 1 && ++l1 >= IdkType.anInt463) {
                             l1 = 0;
                         }
-                    } while (IDKType.cache[l1].aBoolean470
-                            || IDKType.cache[l1].anInt465 != j + (designGenderMasc ? 0 : 7));
-                    anIntArray849[j] = l1;
-                    aBoolean812 = true;
+                    } while (IdkType.cache[l1].aBoolean470
+                            || IdkType.cache[l1].anInt465 != j + (designGenderMasc ? 0 : 7));
+                    designIdentityKits[j] = l1;
+                    updateDesignModel = true;
                 }
             }
             if (i >= 314 && i <= 323) {
@@ -1157,7 +1157,7 @@ public class Game extends GameShell {
                     i2 = 0;
                 }
                 designColors[k] = i2;
-                aBoolean812 = true;
+                updateDesignModel = true;
             }
             if (i == 324 && !designGenderMasc) {
                 designGenderMasc = true;
@@ -1171,7 +1171,7 @@ public class Game extends GameShell {
                 out.writePacket(27);
                 out.writeByte(designGenderMasc ? 0 : 1);
                 for (int l = 0; l < 7; l++) {
-                    out.writeByte(anIntArray849[l]);
+                    out.writeByte(designIdentityKits[l]);
                 }
                 for (int k1 = 0; k1 < 5; k1++) {
                     out.writeByte(designColors[k1]);
@@ -1179,15 +1179,15 @@ public class Game extends GameShell {
                 return true;
             }
             if (i == 613) {
-                aBoolean987 = !aBoolean987;
+                reportAbuseMuteOption = !reportAbuseMuteOption;
             }
             if (i >= 601 && i <= 612) {
                 method28(3);
-                if (aString939.length() > 0) {
+                if (reportAbuseInput.length() > 0) {
                     out.writePacket(94);
-                    out.method478(TextUtils.encodeBase37(aString939), true);
+                    out.method478(TextUtils.encodeBase37(reportAbuseInput), true);
                     out.writeByte(i - 601);
-                    out.writeByte(aBoolean987 ? 1 : 0);
+                    out.writeByte(reportAbuseMuteOption ? 1 : 0);
                 }
             }
             return false;
@@ -1247,12 +1247,12 @@ public class Game extends GameShell {
             Draw2D.fillRect(x, y + 16 + l1, 16, k1, anInt1200, 210);
             Draw2D.method416(y + 16 + l1, x, anInt1085, k1, 0);
             Draw2D.method416(y + 16 + l1, x + 1, anInt1085, k1, 0);
-            Draw2D.method414(16, x, anInt1085, true, y + 16 + l1);
-            Draw2D.method414(16, x, anInt1085, true, y + 17 + l1);
+            Draw2D.drawLineX(16, x, anInt1085, true, y + 16 + l1);
+            Draw2D.drawLineX(16, x, anInt1085, true, y + 17 + l1);
             Draw2D.method416(y + 16 + l1, x + 15, anInt844, k1, 0);
             Draw2D.method416(y + 17 + l1, x + 14, anInt844, k1 - 1, 0);
-            Draw2D.method414(16, x, anInt844, true, y + 15 + l1 + k1);
-            Draw2D.method414(15, x + 1, anInt844, true, y + 14 + l1 + k1);
+            Draw2D.drawLineX(16, x, anInt844, true, y + 15 + l1 + k1);
+            Draw2D.drawLineX(15, x + 1, anInt844, true, y + 14 + l1 + k1);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("34190, " + y + ", " + x + ", " + scroll + ", " + scrollHeight + ", " + height + ", "
                     + runtimeexception);
@@ -1357,48 +1357,46 @@ public class Game extends GameShell {
         }
     }
 
-    public void method25(int i) {
+    public void updateFlames(int i) {
         try {
-            char c = '\u0100';
-            for (int j = 10; j < 117; j++) {
-                int k = (int) (Math.random() * 100D);
-                if (k < 50) {
-                    flameBuffer3[j + (c - 2 << 7)] = 255;
+            int height = 256;
+            for (int x = 10; x < 117; x++) {
+                int flickerRandom = (int) (Math.random() * 100D);
+                if (flickerRandom < 50) {
+                    flameBuffer3[x + (height - 2 << 7)] = 255;
                 }
             }
             for (int l = 0; l < 100; l++) {
-                int i1 = (int) (Math.random() * 124D) + 2;
-                int k1 = (int) (Math.random() * 128D) + 128;
-                int k2 = i1 + (k1 << 7);
-                flameBuffer3[k2] = 192;
+                int x = (int) (Math.random() * 124D) + 2;
+                int y = (int) (Math.random() * 128D) + 128;
+                flameBuffer3[x + (y << 7)] = 192;
             }
-            for (int j1 = 1; j1 < c - 1; j1++) {
-                for (int l1 = 1; l1 < 127; l1++) {
-                    int l2 = l1 + (j1 << 7);
-                    anIntArray1273[l2] = (flameBuffer3[l2 - 1] + flameBuffer3[l2 + 1] + flameBuffer3[l2 - 128] + flameBuffer3[l2 + 128]) / 4;
+            for (int y = 1; y < height - 1; y++) {
+                for (int x = 1; x < 127; x++) {
+                    int pos = x + (y << 7);
+                    flameBuffer2[pos] = (flameBuffer3[pos - 1] + flameBuffer3[pos + 1] + flameBuffer3[pos - 128] + flameBuffer3[pos + 128]) / 4;
                 }
             }
-            anInt890 += 128;
+            flameCycle0 += 128;
             i = 27 / i;
-            if (anInt890 > anIntArray1133.length) {
-                anInt890 -= anIntArray1133.length;
-                int i2 = (int) (Math.random() * 12D);
-                method109(aClass44_Sub3_Sub1_Sub3Array864[i2], 34809);
+            if (flameCycle0 > flameBuffer0.length) {
+                flameCycle0 -= flameBuffer0.length;
+                updateFlameBuffer(imageRunes[(int) (Math.random() * 12D)], 34809);
             }
-            for (int j2 = 1; j2 < c - 1; j2++) {
-                for (int i3 = 1; i3 < 127; i3++) {
-                    int k3 = i3 + (j2 << 7);
-                    int i4 = anIntArray1273[k3 + 128] - anIntArray1133[k3 + anInt890 & anIntArray1133.length - 1] / 5;
-                    if (i4 < 0) {
-                        i4 = 0;
+            for (int y = 1; y < height - 1; y++) {
+                for (int x = 1; x < 127; x++) {
+                    int pos = x + (y << 7);
+                    int intensity = flameBuffer2[pos + 128] - flameBuffer0[pos + flameCycle0 & flameBuffer0.length - 1] / 5;
+                    if (intensity < 0) {
+                        intensity = 0;
                     }
-                    flameBuffer3[k3] = i4;
+                    flameBuffer3[pos] = intensity;
                 }
             }
-            for (int j3 = 0; j3 < c - 1; j3++) {
+            for (int j3 = 0; j3 < height - 1; j3++) {
                 flameLineOffset[j3] = flameLineOffset[j3 + 1];
             }
-            flameLineOffset[c - 1] = (int) (Math.sin(Game.loopCycle / 14D) * 16D + Math.sin(Game.loopCycle / 15D)
+            flameLineOffset[height - 1] = (int) (Math.sin(Game.loopCycle / 14D) * 16D + Math.sin(Game.loopCycle / 15D)
                     * 14D + Math.sin(Game.loopCycle / 16D) * 12D);
             if (flameGradientCycle0 > 0) {
                 flameGradientCycle0 -= 4;
@@ -2094,8 +2092,8 @@ public class Game extends GameShell {
                         if (l2 != aLongArray979[i21]) {
                             continue;
                         }
-                        if (anIntArray894[i21] != l15) {
-                            anIntArray894[i21] = l15;
+                        if (friendWorld[i21] != l15) {
+                            friendWorld[i21] = l15;
                             redrawInvback = true;
                             if (l15 > 0) {
                                 renderText("", s7 + " has logged in.", 5);
@@ -2109,22 +2107,22 @@ public class Game extends GameShell {
                     }
                     if (s7 != null && friendCount < 200) {
                         aLongArray979[friendCount] = l2;
-                        aStringArray1044[friendCount] = s7;
-                        anIntArray894[friendCount] = l15;
+                        friendName[friendCount] = s7;
+                        friendWorld[friendCount] = l15;
                         friendCount++;
                         redrawInvback = true;
                     }
                     for (boolean flag6 = false; !flag6; ) {
                         flag6 = true;
                         for (int l24 = 0; l24 < friendCount - 1; l24++) {
-                            if (anIntArray894[l24] != Game.nodeId && anIntArray894[l24 + 1] == Game.nodeId
-                                    || anIntArray894[l24] == 0 && anIntArray894[l24 + 1] != 0) {
-                                int i26 = anIntArray894[l24];
-                                anIntArray894[l24] = anIntArray894[l24 + 1];
-                                anIntArray894[l24 + 1] = i26;
-                                String s10 = aStringArray1044[l24];
-                                aStringArray1044[l24] = aStringArray1044[l24 + 1];
-                                aStringArray1044[l24 + 1] = s10;
+                            if (friendWorld[l24] != Game.nodeId && friendWorld[l24 + 1] == Game.nodeId
+                                    || friendWorld[l24] == 0 && friendWorld[l24 + 1] != 0) {
+                                int i26 = friendWorld[l24];
+                                friendWorld[l24] = friendWorld[l24 + 1];
+                                friendWorld[l24 + 1] = i26;
+                                String s10 = friendName[l24];
+                                friendName[l24] = friendName[l24 + 1];
+                                friendName[l24 + 1] = s10;
                                 long l27 = aLongArray979[l24];
                                 aLongArray979[l24] = aLongArray979[l24 + 1];
                                 aLongArray979[l24 + 1] = l27;
@@ -2385,20 +2383,20 @@ public class Game extends GameShell {
                     return true;
                 }
                 if (packetType == 253) {
-                    anInt1231 = in.readInt();
-                    anInt947 = in.readUnsignedShort();
-                    anInt869 = in.readUnsignedByte();
-                    anInt1023 = in.readUnsignedShort();
-                    anInt917 = in.readUnsignedByte();
-                    if (anInt1231 != 0 && viewportComponentId == -1) {
-                        SignLink.dnslookup(TextUtils.method553(anInt1231, (byte) 1));
+                    lastAddress = in.readInt();
+                    daysSinceLastLogin = in.readUnsignedShort();
+                    daysSinceRecoveriesChanged = in.readUnsignedByte();
+                    unreadMessages = in.readUnsignedShort();
+                    warnMembersInNonmembers = in.readUnsignedByte();
+                    if (lastAddress != 0 && viewportComponentId == -1) {
+                        SignLink.dnslookup(TextUtils.method553(lastAddress, (byte) 1));
                         method28(3);
                         char c = '\u028A';
-                        if (anInt869 != 201 || anInt917 == 1) {
+                        if (daysSinceRecoveriesChanged != 201 || warnMembersInNonmembers == 1) {
                             c = '\u028F';
                         }
-                        aString939 = "";
-                        aBoolean987 = false;
+                        reportAbuseInput = "";
+                        reportAbuseMuteOption = false;
                         for (int j12 = 0; j12 < Component.instances.length; j12++) {
                             if (Component.instances[j12] == null || Component.instances[j12].contentType != c) {
                                 continue;
@@ -2720,7 +2718,7 @@ public class Game extends GameShell {
                 if (packetType == 35) {
                     showSocialInput = false;
                     chatbackInputType = true;
-                    aString1092 = "";
+                    chatBackInput = "";
                     redrawChatback = true;
                     packetType = -1;
                     return true;
@@ -2839,7 +2837,7 @@ public class Game extends GameShell {
             fontBold = new BitmapFont(9, "b12_full", false, titleArchive);
             fontQuill = new BitmapFont(9, "q8_full", true, titleArchive);
             createTitleBackground();
-            createTitleImages();
+            loadTitleImages();
             FileArchive configArchive = loadArchive(2, "config", "config", archiveCRCs[2], 30);
             FileArchive interfaceArchive = loadArchive(3, "interface", "interface", archiveCRCs[3], 35);
             FileArchive mediaArchive = loadArchive(4, "2d graphics", "media", archiveCRCs[4], 40);
@@ -3099,7 +3097,7 @@ public class Game extends GameShell {
             FloType.unpack(configArchive);
             ObjType.unpack(configArchive);
             NpcType.unpack(configArchive);
-            IDKType.unpack(configArchive);
+            IdkType.unpack(configArchive);
             SpotAnimType.unpack(configArchive);
             VarpType.unpack(configArchive);
             VarBit.unpack(configArchive);
@@ -3192,10 +3190,10 @@ public class Game extends GameShell {
                 long l = System.currentTimeMillis();
                 int i = 0;
                 int j = 20;
-                while (aBoolean1174) {
+                while (flameActive) {
                     anInt945++;
-                    method25(699);
-                    method25(699);
+                    updateFlames(699);
+                    updateFlames(699);
                     drawFlames();
                     if (++i > 10) {
                         long l1 = System.currentTimeMillis();
@@ -3287,7 +3285,7 @@ public class Game extends GameShell {
                     boolean flag = false;
                     long l6 = TextUtils.encodeBase37(class44_sub3_sub4_sub6_sub1.name);
                     for (int i7 = 0; i7 < friendCount; i7++) {
-                        if (l6 != aLongArray979[i7] || anIntArray894[i7] == 0) {
+                        if (l6 != aLongArray979[i7] || friendWorld[i7] == 0) {
                             continue;
                         }
                         flag = true;
@@ -3776,286 +3774,284 @@ public class Game extends GameShell {
         }
     }
 
-    public void updateComponentContent(Component child) {
+    public void updateComponentContent(Component component) {
         try {
-            int j = child.contentType;
-            if (j >= 1 && j <= 100 || j >= 701 && j <= 800) {
-                if (j == 1 && friendlistStatus == 0) {
-                    child.text = "Loading friend list";
-                    child.optionType = 0;
+            int type = component.contentType;
+            if (type >= 1 && type <= 100 || type >= 701 && type <= 800) {
+                if (type == 1 && friendlistStatus == 0) {
+                    component.text = "Loading friend list";
+                    component.optionType = 0;
                     return;
                 }
-                if (j == 1 && friendlistStatus == 1) {
-                    child.text = "Connecting to friendserver";
-                    child.optionType = 0;
+                if (type == 1 && friendlistStatus == 1) {
+                    component.text = "Connecting to friendserver";
+                    component.optionType = 0;
                     return;
                 }
-                if (j == 2 && friendlistStatus != 2) {
-                    child.text = "Please wait...";
-                    child.optionType = 0;
+                if (type == 2 && friendlistStatus != 2) {
+                    component.text = "Please wait...";
+                    component.optionType = 0;
                     return;
                 }
-                int k = friendCount;
+                int count = friendCount;
                 if (friendlistStatus != 2) {
-                    k = 0;
+                    count = 0;
                 }
-                if (j > 700) {
-                    j -= 601;
+                if (type > 700) {
+                    type -= 601;
                 } else {
-                    j--;
+                    type--;
                 }
-                if (j >= k) {
-                    child.text = "";
-                    child.optionType = 0;
+                if (type >= count) {
+                    component.text = "";
+                    component.optionType = 0;
                     return;
                 } else {
-                    child.text = aStringArray1044[j];
-                    child.optionType = 1;
+                    component.text = friendName[type];
+                    component.optionType = 1;
                     return;
                 }
             }
-            if (j >= 101 && j <= 200 || j >= 801 && j <= 900) {
-                int l = friendCount;
+            if (type >= 101 && type <= 200 || type >= 801 && type <= 900) {
+                int count = friendCount;
                 if (friendlistStatus != 2) {
-                    l = 0;
+                    count = 0;
                 }
-                if (j > 800) {
-                    j -= 701;
+                if (type > 800) {
+                    type -= 701;
                 } else {
-                    j -= 101;
+                    type -= 101;
                 }
-                if (j >= l) {
-                    child.text = "";
-                    child.optionType = 0;
+                if (type >= count) {
+                    component.text = "";
+                    component.optionType = 0;
                     return;
                 }
-                if (anIntArray894[j] == 0) {
-                    child.text = "@red@Offline";
-                } else if (anIntArray894[j] == Game.nodeId) {
-                    child.text = "@gre@World-" + (anIntArray894[j] - 9);
+                if (friendWorld[type] == 0) {
+                    component.text = "@red@Offline";
+                } else if (friendWorld[type] == Game.nodeId) {
+                    component.text = "@gre@World-" + (friendWorld[type] - 9);
                 } else {
-                    child.text = "@yel@World-" + (anIntArray894[j] - 9);
+                    component.text = "@yel@World-" + (friendWorld[type] - 9);
                 }
-                child.optionType = 1;
+                component.optionType = 1;
                 return;
             }
-            if (j == 203) {
-                int i1 = friendCount;
+            if (type == 203) {
+                int count = friendCount;
                 if (friendlistStatus != 2) {
-                    i1 = 0;
+                    count = 0;
                 }
-                child.scrollHeight = i1 * 15 + 20;
-                if (child.scrollHeight <= child.height) {
-                    child.scrollHeight = child.height + 1;
+                component.scrollHeight = count * 15 + 20;
+                if (component.scrollHeight <= component.height) {
+                    component.scrollHeight = component.height + 1;
                 }
                 return;
             }
-            if (j >= 401 && j <= 500) {
-                if ((j -= 401) == 0 && friendlistStatus == 0) {
-                    child.text = "Loading ignore list";
-                    child.optionType = 0;
+            if (type >= 401 && type <= 500) {
+                if ((type -= 401) == 0 && friendlistStatus == 0) {
+                    component.text = "Loading ignore list";
+                    component.optionType = 0;
                     return;
                 }
-                if (j == 1 && friendlistStatus == 0) {
-                    child.text = "Please wait...";
-                    child.optionType = 0;
+                if (type == 1 && friendlistStatus == 0) {
+                    component.text = "Please wait...";
+                    component.optionType = 0;
                     return;
                 }
-                int j1 = ignoreCount;
+                int count = ignoreCount;
                 if (friendlistStatus == 0) {
-                    j1 = 0;
+                    count = 0;
                 }
-                if (j >= j1) {
-                    child.text = "";
-                    child.optionType = 0;
+                if (type >= count) {
+                    component.text = "";
+                    component.optionType = 0;
                     return;
                 } else {
-                    child.text = TextUtils.formatName(TextUtils.longToName(ignoreNameLong[j]));
-                    child.optionType = 1;
+                    component.text = TextUtils.formatName(TextUtils.longToName(ignoreNameLong[type]));
+                    component.optionType = 1;
                     return;
                 }
             }
-            if (j == 503) {
-                child.scrollHeight = ignoreCount * 15 + 20;
-                if (child.scrollHeight <= child.height) {
-                    child.scrollHeight = child.height + 1;
+            if (type == 503) {
+                component.scrollHeight = ignoreCount * 15 + 20;
+                if (component.scrollHeight <= component.height) {
+                    component.scrollHeight = component.height + 1;
                 }
                 return;
             }
-            if (j == 327) {
-                child.modelEyePitch = 150;
-                child.modelYaw = (int) (Math.sin(Game.loopCycle / 40D) * 256D) & 0x7ff;
-                if (aBoolean812) {
-                    for (int k1 = 0; k1 < 7; k1++) {
-                        int l1 = anIntArray849[k1];
-                        if (l1 >= 0 && !IDKType.cache[l1].method249(9)) {
+            if (type == 327) {
+                component.modelEyePitch = 150;
+                component.modelYaw = (int) (Math.sin(Game.loopCycle / 40D) * 256D) & 0x7ff;
+                if (updateDesignModel) {
+                    for (int part = 0; part < 7; part++) {
+                        int kit = designIdentityKits[part];
+                        if (kit >= 0 && !IdkType.cache[kit].validateModel(9)) {
                             return;
                         }
                     }
-                    aBoolean812 = false;
-                    Model[] aclass44_sub3_sub4_sub4 = new Model[7];
-                    int i2 = 0;
-                    for (int j2 = 0; j2 < 7; j2++) {
-                        int k2 = anIntArray849[j2];
-                        if (k2 >= 0) {
-                            aclass44_sub3_sub4_sub4[i2++] = IDKType.cache[k2].method250(0);
+                    updateDesignModel = false;
+                    Model[] models = new Model[7];
+                    int modelCount = 0;
+                    for (int part = 0; part < 7; part++) {
+                        int kit = designIdentityKits[part];
+                        if (kit >= 0) {
+                            models[modelCount++] = IdkType.cache[kit].getModel(0);
                         }
                     }
-                    Model class44_sub3_sub4_sub4 = new Model(aclass44_sub3_sub4_sub4, i2, -33019);
-                    for (int l2 = 0; l2 < 5; l2++) {
-                        if (designColors[l2] != 0) {
-                            class44_sub3_sub4_sub4.method520(Game.APPEARANCE_COLOURS[l2][0],
-                                    Game.APPEARANCE_COLOURS[l2][designColors[l2]]);
-                            if (l2 == 1) {
-                                class44_sub3_sub4_sub4.method520(Game.BEARD_COLOURS[0],
-                                        Game.BEARD_COLOURS[designColors[l2]]);
+                    Model model = new Model(models, modelCount, -33019);
+                    for (int part = 0; part < 5; part++) {
+                        if (designColors[part] != 0) {
+                            model.recolor(Game.APPEARANCE_COLOURS[part][0],
+                                    Game.APPEARANCE_COLOURS[part][designColors[part]]);
+                            if (part == 1) {
+                                model.recolor(Game.BEARD_COLOURS[0],
+                                        Game.BEARD_COLOURS[designColors[part]]);
                             }
                         }
                     }
-                    class44_sub3_sub4_sub4.method513((byte) 3);
-                    class44_sub3_sub4_sub4
-                            .method514(
-                                    SeqType.instances[Game.localPlayer.standSeqId].primaryFrames[0],
+                    model.createLabelReference((byte) 3);
+                    model.applyTransform(SeqType.instances[Game.localPlayer.standSeqId].primaryFrames[0],
                                     188);
-                    class44_sub3_sub4_sub4.method523(64, 850, -30, -50, -30, true);
-                    child.modelType = 5;
-                    child.modelTypeId = 0;
-                    Component.method185(5, class44_sub3_sub4_sub4, 9, 0);
+                    model.calculateNormals(64, 850, -30, -50, -30, true);
+                    component.modelType = 5;
+                    component.modelTypeId = 0;
+                    Component.cacheModel(5, model, 9, 0);
                 }
                 return;
             }
-            if (j == 324) {
-                if (aClass44_Sub3_Sub1_Sub2_1025 == null) {
-                    aClass44_Sub3_Sub1_Sub2_1025 = child.image;
-                    aClass44_Sub3_Sub1_Sub2_1026 = child.activeImage;
+            if (type == 324) {
+                if (genderButtonImage0 == null) {
+                    genderButtonImage0 = component.image;
+                    genderButtonImage1 = component.activeImage;
                 }
                 if (designGenderMasc) {
-                    child.image = aClass44_Sub3_Sub1_Sub2_1026;
+                    component.image = genderButtonImage1;
                     return;
                 } else {
-                    child.image = aClass44_Sub3_Sub1_Sub2_1025;
+                    component.image = genderButtonImage0;
                     return;
                 }
             }
-            if (j == 325) {
-                if (aClass44_Sub3_Sub1_Sub2_1025 == null) {
-                    aClass44_Sub3_Sub1_Sub2_1025 = child.image;
-                    aClass44_Sub3_Sub1_Sub2_1026 = child.activeImage;
+            if (type == 325) {
+                if (genderButtonImage0 == null) {
+                    genderButtonImage0 = component.image;
+                    genderButtonImage1 = component.activeImage;
                 }
                 if (designGenderMasc) {
-                    child.image = aClass44_Sub3_Sub1_Sub2_1025;
+                    component.image = genderButtonImage0;
                     return;
                 } else {
-                    child.image = aClass44_Sub3_Sub1_Sub2_1026;
+                    component.image = genderButtonImage1;
                     return;
                 }
             }
-            if (j == 600) {
-                child.text = aString939;
+            if (type == 600) {
+                component.text = reportAbuseInput;
                 if (Game.loopCycle % 20 < 10) {
-                    child.text += "|";
+                    component.text += "|";
                     return;
                 } else {
-                    child.text += " ";
+                    component.text += " ";
                     return;
                 }
             }
-            if (j == 613) {
+            if (type == 613) {
                 if (rights >= 1) {
-                    if (aBoolean987) {
-                        child.colour = 0xff0000;
-                        child.text = "Moderator option: Mute player for 48 hours: <ON>";
+                    if (reportAbuseMuteOption) {
+                        component.colour = 0xff0000;
+                        component.text = "Moderator option: Mute player for 48 hours: <ON>";
                     } else {
-                        child.colour = 0xffffff;
-                        child.text = "Moderator option: Mute player for 48 hours: <OFF>";
+                        component.colour = 0xffffff;
+                        component.text = "Moderator option: Mute player for 48 hours: <OFF>";
                     }
                 } else {
-                    child.text = "";
+                    component.text = "";
                 }
             }
-            if (j == 650 || j == 655) {
-                if (anInt1231 != 0) {
-                    String s;
-                    if (anInt947 == 0) {
-                        s = "earlier today";
-                    } else if (anInt947 == 1) {
-                        s = "yesterday";
+            if (type == 650 || type == 655) {
+                if (lastAddress != 0) {
+                    String text;
+                    if (daysSinceLastLogin == 0) {
+                        text = "earlier today";
+                    } else if (daysSinceLastLogin == 1) {
+                        text = "yesterday";
                     } else {
-                        s = anInt947 + " days ago";
+                        text = daysSinceLastLogin + " days ago";
                     }
-                    child.text = "You last logged in " + s + " from: " + SignLink.dns;
+                    component.text = "You last logged in " + text + " from: " + SignLink.dns;
                 } else {
-                    child.text = "";
+                    component.text = "";
                 }
             }
-            if (j == 651) {
-                if (anInt1023 == 0) {
-                    child.text = "0 unread messages";
-                    child.colour = 0xffff00;
+            if (type == 651) {
+                if (unreadMessages == 0) {
+                    component.text = "0 unread messages";
+                    component.colour = 0xffff00;
                 }
-                if (anInt1023 == 1) {
-                    child.text = "1 unread message";
-                    child.colour = 65280;
+                if (unreadMessages == 1) {
+                    component.text = "1 unread message";
+                    component.colour = 65280;
                 }
-                if (anInt1023 > 1) {
-                    child.text = anInt1023 + " unread messages";
-                    child.colour = 65280;
+                if (unreadMessages > 1) {
+                    component.text = unreadMessages + " unread messages";
+                    component.colour = 65280;
                 }
             }
-            if (j == 652) {
-                if (anInt869 == 201) {
-                    if (anInt917 == 1) {
-                        child.text = "@yel@This is a non-members world: @whi@Since you are a member we";
+            if (type == 652) {
+                if (daysSinceRecoveriesChanged == 201) {
+                    if (warnMembersInNonmembers == 1) {
+                        component.text = "@yel@This is a non-members world: @whi@Since you are a member we";
                     } else {
-                        child.text = "";
+                        component.text = "";
                     }
-                } else if (anInt869 == 200) {
-                    child.text = "You have not yet set any password recovery questions.";
+                } else if (daysSinceRecoveriesChanged == 200) {
+                    component.text = "You have not yet set any password recovery questions.";
                 } else {
-                    String s1;
-                    if (anInt869 == 0) {
-                        s1 = "Earlier today";
-                    } else if (anInt869 == 1) {
-                        s1 = "Yesterday";
+                    String text;
+                    if (daysSinceRecoveriesChanged == 0) {
+                        text = "Earlier today";
+                    } else if (daysSinceRecoveriesChanged == 1) {
+                        text = "Yesterday";
                     } else {
-                        s1 = anInt869 + " days ago";
+                        text = daysSinceRecoveriesChanged + " days ago";
                     }
-                    child.text = s1 + " you changed your recovery questions";
+                    component.text = text + " you changed your recovery questions";
                 }
             }
-            if (j == 653) {
-                if (anInt869 == 201) {
-                    if (anInt917 == 1) {
-                        child.text = "@whi@recommend you use a members world instead. You may use";
+            if (type == 653) {
+                if (daysSinceRecoveriesChanged == 201) {
+                    if (warnMembersInNonmembers == 1) {
+                        component.text = "@whi@recommend you use a members world instead. You may use";
                     } else {
-                        child.text = "";
+                        component.text = "";
                     }
-                } else if (anInt869 == 200) {
-                    child.text = "We strongly recommend you do so now to secure your account.";
+                } else if (daysSinceRecoveriesChanged == 200) {
+                    component.text = "We strongly recommend you do so now to secure your account.";
                 } else {
-                    child.text = "If you do not remember making this change then cancel it immediately";
+                    component.text = "If you do not remember making this change then cancel it immediately";
                 }
             }
-            if (j == 654) {
-                if (anInt869 == 201) {
-                    if (anInt917 == 1) {
-                        child.text = "@whi@this world but member benefits are unavailable whilst here.";
+            if (type == 654) {
+                if (daysSinceRecoveriesChanged == 201) {
+                    if (warnMembersInNonmembers == 1) {
+                        component.text = "@whi@this world but member benefits are unavailable whilst here.";
                         return;
                     } else {
-                        child.text = "";
+                        component.text = "";
                         return;
                     }
                 }
-                if (anInt869 == 200) {
-                    child.text = "Do this from the 'account management' area on our front webpage";
+                if (daysSinceRecoveriesChanged == 200) {
+                    component.text = "Do this from the 'account management' area on our front webpage";
                     return;
                 } else {
-                    child.text = "Do this from the 'account management' area on our front webpage";
+                    component.text = "Do this from the 'account management' area on our front webpage";
                     return;
                 }
             }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("89305, " + child + ", " + runtimeexception);
+            SignLink.reporterror("89305, " + component + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
@@ -4137,7 +4133,7 @@ public class Game extends GameShell {
         title4.draw(super.graphics, 202, 171);
         if (redrawTitleBackground) {
             redrawTitleBackground = false;
-            if (!aBoolean1174) {
+            if (!flameActive) {
                 title0.draw(super.graphics, 0, 0);
                 title1.draw(super.graphics, 637, 0);
             }
@@ -4250,8 +4246,8 @@ public class Game extends GameShell {
                     friendCount--;
                     redrawInvback = true;
                     for (int k = j; k < friendCount; k++) {
-                        aStringArray1044[k] = aStringArray1044[k + 1];
-                        anIntArray894[k] = anIntArray894[k + 1];
+                        friendName[k] = friendName[k + 1];
+                        friendWorld[k] = friendWorld[k + 1];
                         aLongArray979[k] = aLongArray979[k + 1];
                     }
                     out.writePacket(203);
@@ -4473,20 +4469,17 @@ public class Game extends GameShell {
         }
     }
 
-    public void method47(int i) {
+    public void drawChatback(int i) {
         try {
-            if (i <= 0) {
-                packetType = -1;
-            }
-            aClass34_1198.bind();
+            areaChatBack.bind();
             Draw3D.lineOffset = areaChatbackOffsets;
             chatbackImage.blit(0, 0);
             if (showSocialInput) {
-                fontBold.drawStringCenter(239, aString1102, -31546, 0, 40);
-                fontBold.drawStringCenter(239, aString1007 + "*", -31546, 128, 60);
+                fontBold.drawStringCenter(239, socialMessage, -31546, 0, 40);
+                fontBold.drawStringCenter(239, socialInput + "*", -31546, 128, 60);
             } else if (chatbackInputType) {
                 fontBold.drawStringCenter(239, "Enter amount:", -31546, 0, 40);
-                fontBold.drawStringCenter(239, aString1092 + "*", -31546, 128, 60);
+                fontBold.drawStringCenter(239, chatBackInput + "*", -31546, 128, 60);
             } else if (modalMessage != null) {
                 fontBold.drawStringCenter(239, modalMessage, -31546, 0, 40);
                 fontBold.drawStringCenter(239, "Click to continue", -31546, 128, 60);
@@ -4495,118 +4488,118 @@ public class Game extends GameShell {
             } else if (chatOverlayComponentId != -1) {
                 drawComponent(Component.instances[chatOverlayComponentId], 0, 0, 0);
             } else {
-                BitmapFont class44_sub3_sub1_sub4 = fontPlain;
-                int j = 0;
+                BitmapFont font = fontPlain;
+                int line = 0;
                 Draw2D.setBounds(463, 77, 0, 0);
-                for (int k = 0; k < 100; k++) {
-                    if (chatMessages[k] != null) {
-                        int l = chatTypes[k];
-                        int i1 = (70 - j * 14) + anInt1103;
-                        String s1 = chatNames[k];
-                        byte byte0 = 0;
-                        if (s1 != null && s1.startsWith("@cr1@")) {
-                            s1 = s1.substring(5);
-                            byte0 = 1;
+                for (int i = 0; i < 100; i++) {
+                    if (chatMessages[i] != null) {
+                        int type = chatTypes[i];
+                        int y = (70 - line * 14) + chatScrollOffset;
+                        String sender = chatNames[i];
+                        byte icon = 0;
+                        if (sender != null && sender.startsWith("@cr1@")) {
+                            sender = sender.substring(5);
+                            icon = 1;
                         }
-                        if (s1 != null && s1.startsWith("@cr2@")) {
-                            s1 = s1.substring(5);
-                            byte0 = 2;
+                        if (sender != null && sender.startsWith("@cr2@")) {
+                            sender = sender.substring(5);
+                            icon = 2;
                         }
-                        if (l == 0) {
-                            if (i1 > 0 && i1 < 110) {
-                                class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, 4, 0);
+                        if (type == 0) {
+                            if (y > 0 && y < 110) {
+                                font.drawText(chatMessages[i], y, 4, 0);
                             }
-                            j++;
+                            line++;
                         }
-                        if ((l == 1 || l == 2) && (l == 1 || publicChatSetting == 0 || publicChatSetting == 1 && isFriendOrSelf(s1))) {
-                            if (i1 > 0 && i1 < 110) {
-                                int j1 = 4;
-                                if (byte0 == 1) {
-                                    modicons[0].blit(i1 - 12, j1);
-                                    j1 += 14;
+                        if ((type == 1 || type == 2) && (type == 1 || publicChatSetting == 0 || publicChatSetting == 1 && isFriendOrSelf(sender))) {
+                            if (y > 0 && y < 110) {
+                                int x = 4;
+                                if (icon == 1) {
+                                    modicons[0].blit(y - 12, x);
+                                    x += 14;
                                 }
-                                if (byte0 == 2) {
-                                    modicons[1].blit(i1 - 12, j1);
-                                    j1 += 14;
+                                if (icon == 2) {
+                                    modicons[1].blit(y - 12, x);
+                                    x += 14;
                                 }
-                                class44_sub3_sub1_sub4.drawText(s1 + ":", i1, j1, 0);
-                                j1 += class44_sub3_sub1_sub4.getTextDisplayedWidth(s1) + 8;
-                                class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, j1, 255);
+                                font.drawText(sender + ":", y, x, 0);
+                                x += font.getTextDisplayedWidth(sender) + 8;
+                                font.drawText(chatMessages[i], y, x, 255);
                             }
-                            j++;
+                            line++;
                         }
-                        if ((l == 3 || l == 7) && splitPrivateChat == 0
-                                && (l == 7 || privateChatMode == 0 || privateChatMode == 1 && isFriendOrSelf(s1))) {
-                            if (i1 > 0 && i1 < 110) {
-                                int k1 = 4;
-                                class44_sub3_sub1_sub4.drawText("From", i1, k1, 0);
-                                k1 += class44_sub3_sub1_sub4.getTextDisplayedWidth("From ");
-                                if (byte0 == 1) {
-                                    modicons[0].blit(i1 - 12, k1);
-                                    k1 += 14;
+                        if ((type == 3 || type == 7) && splitPrivateChat == 0
+                                && (type == 7 || privateChatMode == 0 || privateChatMode == 1 && isFriendOrSelf(sender))) {
+                            if (y > 0 && y < 110) {
+                                int x = 4;
+                                font.drawText("From", y, x, 0);
+                                x += font.getTextDisplayedWidth("From ");
+                                if (icon == 1) {
+                                    modicons[0].blit(y - 12, x);
+                                    x += 14;
                                 }
-                                if (byte0 == 2) {
-                                    modicons[1].blit(i1 - 12, k1);
-                                    k1 += 14;
+                                if (icon == 2) {
+                                    modicons[1].blit(y - 12, x);
+                                    x += 14;
                                 }
-                                class44_sub3_sub1_sub4.drawText(s1 + ":", i1, k1, 0);
-                                k1 += class44_sub3_sub1_sub4.getTextDisplayedWidth(s1) + 8;
-                                class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, k1, 0x800000);
+                                font.drawText(sender + ":", y, x, 0);
+                                x += font.getTextDisplayedWidth(sender) + 8;
+                                font.drawText(chatMessages[i], y, x, 0x800000);
                             }
-                            j++;
+                            line++;
                         }
-                        if (l == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(s1))) {
-                            if (i1 > 0 && i1 < 110) {
-                                class44_sub3_sub1_sub4.drawText(s1 + " " + chatMessages[k], i1, 4, 0x800080
+                        if (type == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(sender))) {
+                            if (y > 0 && y < 110) {
+                                font.drawText(sender + " " + chatMessages[i], y, 4, 0x800080
                                 );
                             }
-                            j++;
+                            line++;
                         }
-                        if (l == 5 && splitPrivateChat == 0 && privateChatMode < 2) {
-                            if (i1 > 0 && i1 < 110) {
-                                class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, 4, 0x800000);
+                        if (type == 5 && splitPrivateChat == 0 && privateChatMode < 2) {
+                            if (y > 0 && y < 110) {
+                                font.drawText(chatMessages[i], y, 4, 0x800000);
                             }
-                            j++;
+                            line++;
                         }
-                        if (l == 6 && splitPrivateChat == 0 && privateChatMode < 2) {
-                            if (i1 > 0 && i1 < 110) {
-                                class44_sub3_sub1_sub4.drawText("To " + s1 + ":", i1, 4, 0);
-                                class44_sub3_sub1_sub4.drawText(chatMessages[k], i1, 12 + class44_sub3_sub1_sub4.getTextDisplayedWidth("To " + s1), 0x800000
+                        if (type == 6 && splitPrivateChat == 0 && privateChatMode < 2) {
+                            if (y > 0 && y < 110) {
+                                font.drawText("To " + sender + ":", y, 4, 0);
+                                font.drawText(chatMessages[i], y, 12 + font.getTextDisplayedWidth("To " + sender), 0x800000
                                 );
                             }
-                            j++;
+                            line++;
                         }
-                        if (l == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(s1))) {
-                            if (i1 > 0 && i1 < 110) {
-                                class44_sub3_sub1_sub4.drawText(s1 + " " + chatMessages[k], i1, 4, 0x7e3200
+                        if (type == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(sender))) {
+                            if (y > 0 && y < 110) {
+                                font.drawText(sender + " " + chatMessages[i], y, 4, 0x7e3200
                                 );
                             }
-                            j++;
+                            line++;
                         }
                     }
                 }
                 Draw2D.resetBounds();
-                anInt874 = j * 14 + 7;
-                if (anInt874 < 78) {
-                    anInt874 = 78;
+                chatScrollHeight = line * 14 + 7;
+                if (chatScrollHeight < 78) {
+                    chatScrollHeight = 78;
                 }
-                drawScrollbar(463, 0, anInt874 - anInt1103 - 77, anInt874, 77);
-                String s;
+                drawScrollbar(463, 0, chatScrollHeight - chatScrollOffset - 77, chatScrollHeight, 77);
+                String name;
                 if (Game.localPlayer != null
                         && Game.localPlayer.name != null) {
-                    s = Game.localPlayer.name;
+                    name = Game.localPlayer.name;
                 } else {
-                    s = TextUtils.formatName(username);
+                    name = TextUtils.formatName(username);
                 }
-                class44_sub3_sub1_sub4.drawText(s + ":", 90, 4, 0);
-                class44_sub3_sub1_sub4.drawText(aString1141 + "*", 90, 6 + class44_sub3_sub1_sub4.getTextDisplayedWidth(s + ": "), 255
+                font.drawText(name + ":", 90, 4, 0);
+                font.drawText(chatTyped + "*", 90, 6 + font.getTextDisplayedWidth(name + ": "), 255
                 );
-                Draw2D.method414(479, 0, 0, true, 77);
+                Draw2D.drawLineX(479, 0, 0, true, 77);
             }
             if (menuOpen && menuScreenArea == 2) {
                 drawMenu();
             }
-            aClass34_1198.draw(super.graphics, 17, 357);
+            areaChatBack.draw(super.graphics, 17, 357);
             areaViewport.bind();
             Draw3D.lineOffset = areaViewportOffsets;
             return;
@@ -4616,81 +4609,77 @@ public class Game extends GameShell {
         throw new RuntimeException();
     }
 
-    public void createTitleImages() {
+    public void loadTitleImages() {
         titleBox = new Image8(titleArchive, "titlebox", 0);
         titleButton = new Image8(titleArchive, "titlebutton", 0);
-        aClass44_Sub3_Sub1_Sub3Array864 = new Image8[12];
-        int j = 0;
+        imageRunes = new Image8[12];
+        int icon = 0;
         try {
-            j = Integer.parseInt(getParameter("fl_icon"));
+            icon = Integer.parseInt(getParameter("fl_icon"));
         } catch (Exception _ex) {
         }
-        if (j == 0) {
-            for (int k = 0; k < 12; k++) {
-                aClass44_Sub3_Sub1_Sub3Array864[k] = new Image8(titleArchive, "runes", k);
+        if (icon == 0) {
+            for (int i = 0; i < 12; i++) {
+                imageRunes[i] = new Image8(titleArchive, "runes", i);
             }
         } else {
-            for (int l = 0; l < 12; l++) {
-                aClass44_Sub3_Sub1_Sub3Array864[l] = new Image8(titleArchive, "runes", 12 + (l & 3));
+            for (int i = 0; i < 12; i++) {
+                imageRunes[i] = new Image8(titleArchive, "runes", 12 + (i & 3));
             }
         }
         flamesLeft = new Image24(128, 265);
         flameRight = new Image24(128, 265);
-        for (int i1 = 0; i1 < 33920; i1++) {
-            flamesLeft.pixels[i1] = title0.pixels[i1];
-        }
-        for (int j1 = 0; j1 < 33920; j1++) {
-            flameRight.pixels[j1] = title1.pixels[j1];
-        }
+        System.arraycopy(title0.pixels, 0, flamesLeft.pixels, 0, 33920);
+        System.arraycopy(title1.pixels, 0, flameRight.pixels, 0, 33920);
         flameGradient0 = new int[256];
-        for (int k1 = 0; k1 < 64; k1++) {
-            flameGradient0[k1] = k1 * 0x40000;
+        for (int i = 0; i < 64; i++) {
+            flameGradient0[i] = i * 0x40000;
         }
-        for (int l1 = 0; l1 < 64; l1++) {
-            flameGradient0[l1 + 64] = 0xff0000 + 1024 * l1;
+        for (int i = 0; i < 64; i++) {
+            flameGradient0[i + 64] = 0xff0000 + 1024 * i;
         }
-        for (int i2 = 0; i2 < 64; i2++) {
-            flameGradient0[i2 + 128] = 0xffff00 + 4 * i2;
+        for (int i = 0; i < 64; i++) {
+            flameGradient0[i + 128] = 0xffff00 + 4 * i;
         }
-        for (int j2 = 0; j2 < 64; j2++) {
-            flameGradient0[j2 + 192] = 0xffffff;
+        for (int i = 0; i < 64; i++) {
+            flameGradient0[i + 192] = 0xffffff;
         }
         flameGradient1 = new int[256];
-        for (int k2 = 0; k2 < 64; k2++) {
-            flameGradient1[k2] = k2 * 1024;
+        for (int i = 0; i < 64; i++) {
+            flameGradient1[i] = i * 1024;
         }
-        for (int l2 = 0; l2 < 64; l2++) {
-            flameGradient1[l2 + 64] = 65280 + 4 * l2;
+        for (int i = 0; i < 64; i++) {
+            flameGradient1[i + 64] = 65280 + 4 * i;
         }
-        for (int i3 = 0; i3 < 64; i3++) {
-            flameGradient1[i3 + 128] = 65535 + 0x40000 * i3;
+        for (int i = 0; i < 64; i++) {
+            flameGradient1[i + 128] = 65535 + 0x40000 * i;
         }
-        for (int j3 = 0; j3 < 64; j3++) {
-            flameGradient1[j3 + 192] = 0xffffff;
+        for (int i = 0; i < 64; i++) {
+            flameGradient1[i + 192] = 0xffffff;
         }
         flameGradient2 = new int[256];
-        for (int k3 = 0; k3 < 64; k3++) {
-            flameGradient2[k3] = k3 * 4;
+        for (int i = 0; i < 64; i++) {
+            flameGradient2[i] = i * 4;
         }
-        for (int l3 = 0; l3 < 64; l3++) {
-            flameGradient2[l3 + 64] = 255 + 0x40000 * l3;
+        for (int i = 0; i < 64; i++) {
+            flameGradient2[i + 64] = 255 + 0x40000 * i;
         }
-        for (int i4 = 0; i4 < 64; i4++) {
-            flameGradient2[i4 + 128] = 0xff00ff + 1024 * i4;
+        for (int i = 0; i < 64; i++) {
+            flameGradient2[i + 128] = 0xff00ff + 1024 * i;
         }
-        for (int j4 = 0; j4 < 64; j4++) {
-            flameGradient2[j4 + 192] = 0xffffff;
+        for (int i = 0; i < 64; i++) {
+            flameGradient2[i + 192] = 0xffffff;
         }
         flameGradient = new int[256];
-        anIntArray1133 = new int[32768];
-        anIntArray1134 = new int[32768];
-        method109(null, 34809);
+        flameBuffer0 = new int[32768];
+        flameBuffer1 = new int[32768];
+        updateFlameBuffer(null, 34809);
         flameBuffer3 = new int[32768];
-        anIntArray1273 = new int[32768];
+        flameBuffer2 = new int[32768];
         showProgress(10, "Connecting to fileserver");
-        if (!aBoolean1174) {
-            aBoolean886 = true;
-            aBoolean1174 = true;
+        if (!flameActive) {
+            flamesThread = true;
+            flameActive = true;
             startThread(this, 2);
         }
     }
@@ -4883,7 +4872,7 @@ public class Game extends GameShell {
             g.fillRect(0, 0, 765, 503);
             method4(1, 711);
             if (errorLoading) {
-                aBoolean1174 = false;
+                flameActive = false;
                 g.setFont(new Font("Helvetica", 1, 16));
                 g.setColor(Color.yellow);
                 int k = 35;
@@ -4905,7 +4894,7 @@ public class Game extends GameShell {
                 g.drawString("5: Try selecting a different version of Java from the play-game menu", 30, k);
             }
             if (aBoolean820) {
-                aBoolean1174 = false;
+                flameActive = false;
                 g.setFont(new Font("Helvetica", 1, 20));
                 g.setColor(Color.white);
                 g.drawString("Error - unable to load game!", 50, 50);
@@ -4913,7 +4902,7 @@ public class Game extends GameShell {
                 g.drawString("http://www.runescape.com", 50, 150);
             }
             if (errorStarted) {
-                aBoolean1174 = false;
+                flameActive = false;
                 g.setColor(Color.yellow);
                 int l = 35;
                 g.drawString("Error a copy of RuneScape already appears to be loaded", 30, l);
@@ -5536,7 +5525,7 @@ public class Game extends GameShell {
 
     public void prepareGameScreen(int i) {
         try {
-            if (aClass34_1198 != null) {
+            if (areaChatBack != null) {
                 return;
             }
             method128(false);
@@ -5550,7 +5539,7 @@ public class Game extends GameShell {
             title6 = null;
             title7 = null;
             title8 = null;
-            aClass34_1198 = new DrawArea(479, 96);
+            areaChatBack = new DrawArea(479, 96);
             aClass34_1196 = new DrawArea(172, 156);
             Draw2D.clear((byte) 127);
             mapbackImage.blit(0, 0);
@@ -6459,14 +6448,14 @@ public class Game extends GameShell {
 
     public void validateCharacterDesign(byte byte0) {
         try {
-            aBoolean812 = true;
+            updateDesignModel = true;
             for (int i = 0; i < 7; i++) {
-                anIntArray849[i] = -1;
-                for (int j = 0; j < IDKType.anInt463; j++) {
-                    if (IDKType.cache[j].aBoolean470 || IDKType.cache[j].anInt465 != i + (designGenderMasc ? 0 : 7)) {
+                designIdentityKits[i] = -1;
+                for (int j = 0; j < IdkType.anInt463; j++) {
+                    if (IdkType.cache[j].aBoolean470 || IdkType.cache[j].anInt465 != i + (designGenderMasc ? 0 : 7)) {
                         continue;
                     }
-                    anIntArray849[i] = j;
+                    designIdentityKits[i] = j;
                     break;
                 }
             }
@@ -6727,7 +6716,7 @@ public class Game extends GameShell {
                 return false;
             }
             for (int j = 0; j < friendCount; j++) {
-                if (name.equalsIgnoreCase(aStringArray1044[j])) {
+                if (name.equalsIgnoreCase(friendName[j])) {
                     return true;
                 }
             }
@@ -7070,7 +7059,7 @@ public class Game extends GameShell {
             return;
         }
         super.aClass34_14 = null;
-        aClass34_1198 = null;
+        areaChatBack = null;
         aClass34_1196 = null;
         aClass34_1195 = null;
         areaViewport = null;
@@ -7097,7 +7086,7 @@ public class Game extends GameShell {
         Draw2D.clear((byte) 127);
         if (titleArchive != null) {
             createTitleBackground();
-            createTitleImages();
+            loadTitleImages();
         }
         redrawTitleBackground = true;
     }
@@ -7506,9 +7495,9 @@ public class Game extends GameShell {
             if (s.equals(Game.localPlayer.name)) {
                 return;
             }
-            aStringArray1044[friendCount] = s;
+            friendName[friendCount] = s;
             aLongArray979[friendCount] = l;
-            anIntArray894[friendCount] = 0;
+            friendWorld[friendCount] = 0;
             if (i != 0) {
                 for (int i1 = 1; i1 > 0; i1++) {
                 }
@@ -8232,10 +8221,10 @@ public class Game extends GameShell {
                 } else {
                     i--;
                 }
-                menuOption[menuSize] = "Remove @whi@" + aStringArray1044[i];
+                menuOption[menuSize] = "Remove @whi@" + friendName[i];
                 menuAction[menuSize] = 513;
                 menuSize++;
-                menuOption[menuSize] = "Message @whi@" + aStringArray1044[i];
+                menuOption[menuSize] = "Message @whi@" + friendName[i];
                 menuAction[menuSize] = 902;
                 menuSize++;
                 return true;
@@ -8313,27 +8302,27 @@ public class Game extends GameShell {
         }
     }
 
-    public void method109(Image8 class44_sub3_sub1_sub3, int i) {
+    public void updateFlameBuffer(Image8 class44_sub3_sub1_sub3, int i) {
         try {
             int j = 256;
-            for (int k = 0; k < anIntArray1133.length; k++) {
-                anIntArray1133[k] = 0;
+            for (int k = 0; k < flameBuffer0.length; k++) {
+                flameBuffer0[k] = 0;
             }
             for (int l = 0; l < 5000; l++) {
                 int i1 = (int) (Math.random() * 128D * j);
-                anIntArray1133[i1] = (int) (Math.random() * 256D);
+                flameBuffer0[i1] = (int) (Math.random() * 256D);
             }
             for (int j1 = 0; j1 < 20; j1++) {
                 for (int k1 = 1; k1 < j - 1; k1++) {
                     for (int i2 = 1; i2 < 127; i2++) {
                         int k2 = i2 + (k1 << 7);
-                        anIntArray1134[k2] = (anIntArray1133[k2 - 1] + anIntArray1133[k2 + 1]
-                                + anIntArray1133[k2 - 128] + anIntArray1133[k2 + 128]) / 4;
+                        flameBuffer1[k2] = (flameBuffer0[k2 - 1] + flameBuffer0[k2 + 1]
+                                + flameBuffer0[k2 - 128] + flameBuffer0[k2 + 128]) / 4;
                     }
                 }
-                int[] ai = anIntArray1133;
-                anIntArray1133 = anIntArray1134;
-                anIntArray1134 = ai;
+                int[] ai = flameBuffer0;
+                flameBuffer0 = flameBuffer1;
+                flameBuffer1 = ai;
             }
             if (i != 34809) {
                 packetType = -1;
@@ -8346,7 +8335,7 @@ public class Game extends GameShell {
                             int i3 = l2 + 16 + class44_sub3_sub1_sub3.anInt1462;
                             int j3 = j2 + 16 + class44_sub3_sub1_sub3.anInt1463;
                             int k3 = i3 + (j3 << 7);
-                            anIntArray1133[k3] = 0;
+                            flameBuffer0[k3] = 0;
                         }
                     }
                 }
@@ -8444,7 +8433,7 @@ public class Game extends GameShell {
                     continue;
                 }
                 int i1 = chatTypes[l];
-                int j1 = (70 - k * 14) + anInt1103 + 4;
+                int j1 = (70 - k * 14) + chatScrollOffset + 4;
                 if (j1 < -20) {
                     break;
                 }
@@ -9152,20 +9141,20 @@ public class Game extends GameShell {
                 redrawInvback = false;
             }
             if (chatComponentId == -1) {
-                aClass5_1201.scrollY = anInt874 - anInt1103 - 77;
+                aClass5_1201.scrollY = chatScrollHeight - chatScrollOffset - 77;
                 if (super.mouseX > 448 && super.mouseX < 560 && super.mouseY > 332) {
                     updateScrollbar(0, super.mouseX - 17, aClass5_1201, 463, false, 77, super.mouseY - 357,
-                            anInt874);
+                            chatScrollHeight);
                 }
-                int i = anInt874 - 77 - aClass5_1201.scrollY;
+                int i = chatScrollHeight - 77 - aClass5_1201.scrollY;
                 if (i < 0) {
                     i = 0;
                 }
-                if (i > anInt874 - 77) {
-                    i = anInt874 - 77;
+                if (i > chatScrollHeight - 77) {
+                    i = chatScrollHeight - 77;
                 }
-                if (anInt1103 != i) {
-                    anInt1103 = i;
+                if (chatScrollOffset != i) {
+                    chatScrollOffset = i;
                     redrawChatback = true;
                 }
             }
@@ -9188,7 +9177,7 @@ public class Game extends GameShell {
                 redrawChatback = true;
             }
             if (redrawChatback) {
-                method47(311);
+                drawChatback(311);
                 redrawChatback = false;
             }
             if (sceneState == 2) {
@@ -9786,9 +9775,9 @@ public class Game extends GameShell {
 
     public void method128(boolean flag) {
         try {
-            aBoolean1174 = false;
+            flameActive = false;
             while (aBoolean893) {
-                aBoolean1174 = false;
+                flameActive = false;
                 try {
                     Thread.sleep(50L);
                 } catch (Exception _ex) {
@@ -9796,18 +9785,18 @@ public class Game extends GameShell {
             }
             titleBox = null;
             titleButton = null;
-            aClass44_Sub3_Sub1_Sub3Array864 = null;
+            imageRunes = null;
             flameGradient = null;
             flameGradient0 = null;
             flameGradient1 = null;
             flameGradient2 = null;
-            anIntArray1133 = null;
-            anIntArray1134 = null;
+            flameBuffer0 = null;
+            flameBuffer1 = null;
             flameBuffer3 = null;
             if (flag) {
                 out.writeByte(203);
             }
-            anIntArray1273 = null;
+            flameBuffer2 = null;
             flamesLeft = null;
             flameRight = null;
             return;
@@ -9819,7 +9808,7 @@ public class Game extends GameShell {
 
     @Override
     public void run() {
-        if (aBoolean886) {
+        if (flamesThread) {
             method35(false);
             return;
         } else {
@@ -10107,43 +10096,43 @@ public class Game extends GameShell {
                     break;
                 }
                 if (viewportComponentId != -1 && viewportComponentId == anInt1217) {
-                    if (j == 8 && aString939.length() > 0) {
-                        aString939 = aString939.substring(0, aString939.length() - 1);
+                    if (j == 8 && reportAbuseInput.length() > 0) {
+                        reportAbuseInput = reportAbuseInput.substring(0, reportAbuseInput.length() - 1);
                     }
                     if ((j >= 97 && j <= 122 || j >= 65 && j <= 90 || j >= 48 && j <= 57 || j == 32)
-                            && aString939.length() < 12) {
-                        aString939 += (char) j;
+                            && reportAbuseInput.length() < 12) {
+                        reportAbuseInput += (char) j;
                     }
                 } else if (showSocialInput) {
-                    if (j >= 32 && j <= 122 && aString1007.length() < 80) {
-                        aString1007 += (char) j;
+                    if (j >= 32 && j <= 122 && socialInput.length() < 80) {
+                        socialInput += (char) j;
                         redrawChatback = true;
                     }
-                    if (j == 8 && aString1007.length() > 0) {
-                        aString1007 = aString1007.substring(0, aString1007.length() - 1);
+                    if (j == 8 && socialInput.length() > 0) {
+                        socialInput = socialInput.substring(0, socialInput.length() - 1);
                         redrawChatback = true;
                     }
                     if (j == 13 || j == 10) {
                         showSocialInput = false;
                         redrawChatback = true;
                         if (anInt880 == 1) {
-                            long l = TextUtils.encodeBase37(aString1007);
+                            long l = TextUtils.encodeBase37(socialInput);
                             method95(0, l);
                         }
                         if (anInt880 == 2 && friendCount > 0) {
-                            long l1 = TextUtils.encodeBase37(aString1007);
+                            long l1 = TextUtils.encodeBase37(socialInput);
                             method44(l1, 37517);
                         }
-                        if (anInt880 == 3 && aString1007.length() > 0) {
+                        if (anInt880 == 3 && socialInput.length() > 0) {
                             out.writePacket(107);
                             out.writeByte(0);
                             int k = out.position;
                             out.method478(aLong967, true);
-                            ChatCompression.method557(aString1007, out, 991);
+                            ChatCompression.method557(socialInput, out, 991);
                             out.method481(out.position - k, anInt1152);
-                            aString1007 = ChatCompression.method558(aString1007, anInt1242);
-                            aString1007 = ChatCensor.censor(aString1007);
-                            renderText(TextUtils.formatName(TextUtils.longToName(aLong967)), aString1007, 6
+                            socialInput = ChatCompression.method558(socialInput, anInt1242);
+                            socialInput = ChatCensor.censor(socialInput);
+                            renderText(TextUtils.formatName(TextUtils.longToName(aLong967)), socialInput, 6
                             );
                             if (privateChatMode == 2) {
                                 privateChatMode = 1;
@@ -10155,28 +10144,28 @@ public class Game extends GameShell {
                             }
                         }
                         if (anInt880 == 4 && ignoreCount < 100) {
-                            long l2 = TextUtils.encodeBase37(aString1007);
+                            long l2 = TextUtils.encodeBase37(socialInput);
                             method55((byte) -37, l2);
                         }
                         if (anInt880 == 5 && ignoreCount > 0) {
-                            long l3 = TextUtils.encodeBase37(aString1007);
+                            long l3 = TextUtils.encodeBase37(socialInput);
                             method142(-197, l3);
                         }
                     }
                 } else if (chatbackInputType) {
-                    if (j >= 48 && j <= 57 && aString1092.length() < 10) {
-                        aString1092 += (char) j;
+                    if (j >= 48 && j <= 57 && chatBackInput.length() < 10) {
+                        chatBackInput += (char) j;
                         redrawChatback = true;
                     }
-                    if (j == 8 && aString1092.length() > 0) {
-                        aString1092 = aString1092.substring(0, aString1092.length() - 1);
+                    if (j == 8 && chatBackInput.length() > 0) {
+                        chatBackInput = chatBackInput.substring(0, chatBackInput.length() - 1);
                         redrawChatback = true;
                     }
                     if (j == 13 || j == 10) {
-                        if (aString1092.length() > 0) {
+                        if (chatBackInput.length() > 0) {
                             int i1 = 0;
                             try {
-                                i1 = Integer.parseInt(aString1092);
+                                i1 = Integer.parseInt(chatBackInput);
                             } catch (Exception _ex) {
                             }
                             out.writePacket(180);
@@ -10186,100 +10175,100 @@ public class Game extends GameShell {
                         redrawChatback = true;
                     }
                 } else if (chatComponentId == -1) {
-                    if (j >= 32 && j <= 122 && aString1141.length() < 80) {
-                        aString1141 += (char) j;
+                    if (j >= 32 && j <= 122 && chatTyped.length() < 80) {
+                        chatTyped += (char) j;
                         redrawChatback = true;
                     }
-                    if (j == 8 && aString1141.length() > 0) {
-                        aString1141 = aString1141.substring(0, aString1141.length() - 1);
+                    if (j == 8 && chatTyped.length() > 0) {
+                        chatTyped = chatTyped.substring(0, chatTyped.length() - 1);
                         redrawChatback = true;
                     }
-                    if ((j == 13 || j == 10) && aString1141.length() > 0) {
+                    if ((j == 13 || j == 10) && chatTyped.length() > 0) {
                         if (rights == 2) {
-                            if (aString1141.equals("::clientdrop")) {
+                            if (chatTyped.equals("::clientdrop")) {
                                 attemptReconnect((byte) 7);
                             }
-                            if (aString1141.equals("::lag")) {
+                            if (chatTyped.equals("::lag")) {
                                 method29((byte) -11);
                             }
-                            if (aString1141.equals("::prefetchmusic")) {
+                            if (chatTyped.equals("::prefetchmusic")) {
                                 for (int j1 = 0; j1 < ondemand.getFileCount(2); j1++) {
                                     ondemand.prefetch((byte) 1, j1, 2);
                                 }
                             }
                         }
-                        if (aString1141.startsWith("::")) {
+                        if (chatTyped.startsWith("::")) {
                             out.writePacket(34);
-                            out.writeByte(aString1141.length() - 1);
-                            out.writeString(aString1141.substring(2));
+                            out.writeByte(chatTyped.length() - 1);
+                            out.writeString(chatTyped.substring(2));
                         } else {
-                            String s = aString1141.toLowerCase();
+                            String s = chatTyped.toLowerCase();
                             int k1 = 0;
                             if (s.startsWith("yellow:")) {
                                 k1 = 0;
-                                aString1141 = aString1141.substring(7);
+                                chatTyped = chatTyped.substring(7);
                             } else if (s.startsWith("red:")) {
                                 k1 = 1;
-                                aString1141 = aString1141.substring(4);
+                                chatTyped = chatTyped.substring(4);
                             } else if (s.startsWith("green:")) {
                                 k1 = 2;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             } else if (s.startsWith("cyan:")) {
                                 k1 = 3;
-                                aString1141 = aString1141.substring(5);
+                                chatTyped = chatTyped.substring(5);
                             } else if (s.startsWith("purple:")) {
                                 k1 = 4;
-                                aString1141 = aString1141.substring(7);
+                                chatTyped = chatTyped.substring(7);
                             } else if (s.startsWith("white:")) {
                                 k1 = 5;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             } else if (s.startsWith("flash1:")) {
                                 k1 = 6;
-                                aString1141 = aString1141.substring(7);
+                                chatTyped = chatTyped.substring(7);
                             } else if (s.startsWith("flash2:")) {
                                 k1 = 7;
-                                aString1141 = aString1141.substring(7);
+                                chatTyped = chatTyped.substring(7);
                             } else if (s.startsWith("flash3:")) {
                                 k1 = 8;
-                                aString1141 = aString1141.substring(7);
+                                chatTyped = chatTyped.substring(7);
                             } else if (s.startsWith("glow1:")) {
                                 k1 = 9;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             } else if (s.startsWith("glow2:")) {
                                 k1 = 10;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             } else if (s.startsWith("glow3:")) {
                                 k1 = 11;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             }
-                            s = aString1141.toLowerCase();
+                            s = chatTyped.toLowerCase();
                             int i2 = 0;
                             if (s.startsWith("wave:")) {
                                 i2 = 1;
-                                aString1141 = aString1141.substring(5);
+                                chatTyped = chatTyped.substring(5);
                             } else if (s.startsWith("wave2:")) {
                                 i2 = 2;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             } else if (s.startsWith("shake:")) {
                                 i2 = 3;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             } else if (s.startsWith("scroll:")) {
                                 i2 = 4;
-                                aString1141 = aString1141.substring(7);
+                                chatTyped = chatTyped.substring(7);
                             } else if (s.startsWith("slide:")) {
                                 i2 = 5;
-                                aString1141 = aString1141.substring(6);
+                                chatTyped = chatTyped.substring(6);
                             }
                             out.writePacket(156);
                             out.writeByte(0);
                             int j2 = out.position;
                             out.writeByte(k1);
                             out.writeByte(i2);
-                            ChatCompression.method557(aString1141, out, 991);
+                            ChatCompression.method557(chatTyped, out, 991);
                             out.method481(out.position - j2, anInt1152);
-                            aString1141 = ChatCompression.method558(aString1141, anInt1242);
-                            aString1141 = ChatCensor.censor(aString1141);
-                            Game.localPlayer.spoken = aString1141;
+                            chatTyped = ChatCompression.method558(chatTyped, anInt1242);
+                            chatTyped = ChatCensor.censor(chatTyped);
+                            Game.localPlayer.spoken = chatTyped;
                             Game.localPlayer.spokenColour = k1;
                             Game.localPlayer.spokenEffect = i2;
                             Game.localPlayer.spokenLife = 150;
@@ -10304,7 +10293,7 @@ public class Game extends GameShell {
                                 out.writeByte(tradeChatSetting);
                             }
                         }
-                        aString1141 = "";
+                        chatTyped = "";
                         redrawChatback = true;
                     }
                 }
@@ -10462,14 +10451,14 @@ public class Game extends GameShell {
                         i4 = j4;
                         break;
                     }
-                    if (i4 != -1 && anIntArray894[i4] > 0) {
+                    if (i4 != -1 && friendWorld[i4] > 0) {
                         redrawChatback = true;
                         chatbackInputType = false;
                         showSocialInput = true;
-                        aString1007 = "";
+                        socialInput = "";
                         anInt880 = 3;
                         aLong967 = aLongArray979[i4];
-                        aString1102 = "Enter message to send to " + aStringArray1044[i4];
+                        socialMessage = "Enter message to send to " + friendName[i4];
                     }
                 }
             }
@@ -10551,8 +10540,8 @@ public class Game extends GameShell {
                 if (l2 != -1) {
                     if (viewportComponentId == -1) {
                         method28(3);
-                        aString939 = s3.substring(l2 + 5).trim();
-                        aBoolean987 = false;
+                        reportAbuseInput = s3.substring(l2 + 5).trim();
+                        reportAbuseMuteOption = false;
                         for (int j3 = 0; j3 < Component.instances.length; j3++) {
                             if (Component.instances[j3] == null || Component.instances[j3].contentType != 600) {
                                 continue;
@@ -11585,7 +11574,7 @@ public class Game extends GameShell {
             aClass34_1195 = null;
             aClass34_1196 = null;
             areaViewport = null;
-            aClass34_1198 = null;
+            areaChatBack = null;
             aClass34_858 = null;
             aClass34_859 = null;
             aClass34_860 = null;
@@ -11650,9 +11639,9 @@ public class Game extends GameShell {
                 planeObjStacks = null;
             }
             minimap = null;
-            aStringArray1044 = null;
+            friendName = null;
             aLongArray979 = null;
-            anIntArray894 = null;
+            friendWorld = null;
             title0 = null;
             title1 = null;
             title2 = null;
@@ -11667,7 +11656,7 @@ public class Game extends GameShell {
             NpcType.method213((byte) 42);
             ObjType.method219((byte) 42);
             FloType.aClass20Array430 = null;
-            IDKType.cache = null;
+            IdkType.cache = null;
             Component.instances = null;
             SeqType.instances = null;
             SpotAnimType.cache = null;
@@ -11725,8 +11714,8 @@ public class Game extends GameShell {
                 if (super.mousePressX >= 412 && super.mousePressX <= 512 && super.mousePressY >= 467 && super.mousePressY <= 499) {
                     if (viewportComponentId == -1) {
                         method28(3);
-                        aString939 = "";
-                        aBoolean987 = false;
+                        reportAbuseInput = "";
+                        reportAbuseMuteOption = false;
                         for (int i = 0; i < Component.instances.length; i++) {
                             if (Component.instances[i] != null && Component.instances[i].contentType == 600) {
                                 anInt1217 = viewportComponentId = Component.instances[i].anInt106;

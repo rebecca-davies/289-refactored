@@ -157,15 +157,15 @@ public class PlayerEntity extends Actor {
                     Model class44_sub3_sub4_sub4_3 = new Model(class44_sub3_sub4_sub4_2, SeqFrame.method211(
                             super.currentSeqId, 0), false, anInt1670, true);
                     class44_sub3_sub4_sub4_3.method519(-super.spotAnimHeight, 0, (byte) 2, 0);
-                    class44_sub3_sub4_sub4_3.method513((byte) 3);
-                    class44_sub3_sub4_sub4_3.method514(class32.aClass26_563.primaryFrames[super.currentSeqId], 188);
+                    class44_sub3_sub4_sub4_3.createLabelReference((byte) 3);
+                    class44_sub3_sub4_sub4_3.applyTransform(class32.aClass26_563.primaryFrames[super.currentSeqId], 188);
                     class44_sub3_sub4_sub4_3.anIntArrayArray1567 = null;
                     class44_sub3_sub4_sub4_3.anIntArrayArray1566 = null;
                     if (class32.anInt566 != 128 || class32.anInt567 != 128) {
                         class44_sub3_sub4_sub4_3.method522(class32.anInt566, class32.anInt566, class32.anInt567,
                                 (byte) 31);
                     }
-                    class44_sub3_sub4_sub4_3.method523(64 + class32.anInt569, 850 + class32.anInt570, -30, -50, -30,
+                    class44_sub3_sub4_sub4_3.calculateNormals(64 + class32.anInt569, 850 + class32.anInt570, -30, -50, -30,
                             true);
                     Model[] aclass44_sub3_sub4_sub4_1 = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_3};
                     class44_sub3_sub4_sub4 = new Model(true, 0, aclass44_sub3_sub4_sub4_1, 2);
@@ -261,7 +261,7 @@ public class PlayerEntity extends Actor {
                     if (i1 >= 0 && k1 == 5) {
                         i2 = i1;
                     }
-                    if (i2 >= 256 && i2 < 512 && !IDKType.cache[i2 - 256].method249(9)) {
+                    if (i2 >= 256 && i2 < 512 && !IdkType.cache[i2 - 256].validateModel(9)) {
                         flag1 = true;
                     }
                     if (i2 >= 512 && !ObjType.lookup(i2 - 512).method227(false, gender)) {
@@ -289,7 +289,7 @@ public class PlayerEntity extends Actor {
                         k2 = i1;
                     }
                     if (k2 >= 256 && k2 < 512) {
-                        Model class44_sub3_sub4_sub4_3 = IDKType.cache[k2 - 256].method250(0);
+                        Model class44_sub3_sub4_sub4_3 = IdkType.cache[k2 - 256].getModel(0);
                         if (class44_sub3_sub4_sub4_3 != null) {
                             aclass44_sub3_sub4_sub4[l1++] = class44_sub3_sub4_sub4_3;
                         }
@@ -304,16 +304,16 @@ public class PlayerEntity extends Actor {
                 class44_sub3_sub4_sub4_1 = new Model(aclass44_sub3_sub4_sub4, l1, -33019);
                 for (int l2 = 0; l2 < 5; l2++) {
                     if (bodyPartColour[l2] != 0) {
-                        class44_sub3_sub4_sub4_1.method520(Game.APPEARANCE_COLOURS[l2][0],
+                        class44_sub3_sub4_sub4_1.recolor(Game.APPEARANCE_COLOURS[l2][0],
                                 Game.APPEARANCE_COLOURS[l2][bodyPartColour[l2]]);
                         if (l2 == 1) {
-                            class44_sub3_sub4_sub4_1.method520(Game.BEARD_COLOURS[0],
+                            class44_sub3_sub4_sub4_1.recolor(Game.BEARD_COLOURS[0],
                                     Game.BEARD_COLOURS[bodyPartColour[l2]]);
                         }
                     }
                 }
-                class44_sub3_sub4_sub4_1.method513((byte) 3);
-                class44_sub3_sub4_sub4_1.method523(64, 850, -30, -50, -30, true);
+                class44_sub3_sub4_sub4_1.createLabelReference((byte) 3);
+                class44_sub3_sub4_sub4_1.calculateNormals(64, 850, -30, -50, -30, true);
                 PlayerEntity.aClass39_1696.method340(l, (byte) 76, class44_sub3_sub4_sub4_1);
                 aLong1693 = l;
             }
@@ -326,7 +326,7 @@ public class PlayerEntity extends Actor {
             if (j != -1 && k != -1) {
                 class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.instances[super.primarySeq].anIntArray514);
             } else if (j != -1) {
-                class44_sub3_sub4_sub4_2.method514(j, 188);
+                class44_sub3_sub4_sub4_2.applyTransform(j, 188);
             }
             class44_sub3_sub4_sub4_2.method510(-18258);
             class44_sub3_sub4_sub4_2.anIntArrayArray1567 = null;
@@ -353,7 +353,7 @@ public class PlayerEntity extends Actor {
             boolean flag1 = false;
             for (int j = 0; j < 12; j++) {
                 int k = appearance[j];
-                if (k >= 256 && k < 512 && !IDKType.cache[k - 256].method251((byte) 0)) {
+                if (k >= 256 && k < 512 && !IdkType.cache[k - 256].method251((byte) 0)) {
                     flag1 = true;
                 }
                 if (k >= 512 && !ObjType.lookup(k - 512).method229(true, gender)) {
@@ -368,7 +368,7 @@ public class PlayerEntity extends Actor {
             for (int i1 = 0; i1 < 12; i1++) {
                 int j1 = appearance[i1];
                 if (j1 >= 256 && j1 < 512) {
-                    Model class44_sub3_sub4_sub4_1 = IDKType.cache[j1 - 256].method252((byte) -45);
+                    Model class44_sub3_sub4_sub4_1 = IdkType.cache[j1 - 256].method252((byte) -45);
                     if (class44_sub3_sub4_sub4_1 != null) {
                         aclass44_sub3_sub4_sub4[l++] = class44_sub3_sub4_sub4_1;
                     }
@@ -383,10 +383,10 @@ public class PlayerEntity extends Actor {
             Model class44_sub3_sub4_sub4 = new Model(aclass44_sub3_sub4_sub4, l, -33019);
             for (int k1 = 0; k1 < 5; k1++) {
                 if (bodyPartColour[k1] != 0) {
-                    class44_sub3_sub4_sub4.method520(Game.APPEARANCE_COLOURS[k1][0],
+                    class44_sub3_sub4_sub4.recolor(Game.APPEARANCE_COLOURS[k1][0],
                             Game.APPEARANCE_COLOURS[k1][bodyPartColour[k1]]);
                     if (k1 == 1) {
-                        class44_sub3_sub4_sub4.method520(Game.BEARD_COLOURS[0],
+                        class44_sub3_sub4_sub4.recolor(Game.BEARD_COLOURS[0],
                                 Game.BEARD_COLOURS[bodyPartColour[k1]]);
                     }
                 }

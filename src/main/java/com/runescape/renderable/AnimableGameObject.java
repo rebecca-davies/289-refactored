@@ -76,8 +76,8 @@ public class AnimableGameObject extends Renderable {
             int k = aClass32_1604.aClass26_563.primaryFrames[anInt1610];
             Model model = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(k, 0), false, anInt1602, true);
             if (!aBoolean1612) {
-                model.method513((byte) 3);
-                model.method514(k, 188);
+                model.createLabelReference((byte) 3);
+                model.applyTransform(k, 188);
                 model.anIntArrayArray1567 = null;
                 model.anIntArrayArray1566 = null;
             }
@@ -98,7 +98,7 @@ public class AnimableGameObject extends Renderable {
                     model.method517(0);
                 }
             }
-            model.method523(64 + aClass32_1604.anInt569, 850 + aClass32_1604.anInt570, -30, -50, -30, true);
+            model.calculateNormals(64 + aClass32_1604.anInt569, 850 + aClass32_1604.anInt570, -30, -50, -30, true);
             return model;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("834, " + i + ", " + runtimeexception);

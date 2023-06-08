@@ -134,8 +134,8 @@ public class Projectile extends Renderable {
             Model class44_sub3_sub4_sub4_1 = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(j, 0), false,
                     anInt1497, true);
             if (j != -1) {
-                class44_sub3_sub4_sub4_1.method513((byte) 3);
-                class44_sub3_sub4_sub4_1.method514(j, 188);
+                class44_sub3_sub4_sub4_1.createLabelReference((byte) 3);
+                class44_sub3_sub4_sub4_1.applyTransform(j, 188);
                 class44_sub3_sub4_sub4_1.anIntArrayArray1567 = null;
                 class44_sub3_sub4_sub4_1.anIntArrayArray1566 = null;
             }
@@ -147,7 +147,7 @@ public class Projectile extends Renderable {
             if (i != -37770) {
                 throw new NullPointerException();
             } else {
-                class44_sub3_sub4_sub4_1.method523(64 + aClass32_1499.anInt569, 850 + aClass32_1499.anInt570, -30, -50,
+                class44_sub3_sub4_sub4_1.calculateNormals(64 + aClass32_1499.anInt569, 850 + aClass32_1499.anInt570, -30, -50,
                         -30, true);
                 return class44_sub3_sub4_sub4_1;
             }

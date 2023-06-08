@@ -41,15 +41,15 @@ public class NPCEntity extends Actor {
                     Model class44_sub3_sub4_sub4_2 = new Model(class44_sub3_sub4_sub4_1, SeqFrame.method211(j, 0),
                             false, anInt1697, true);
                     class44_sub3_sub4_sub4_2.method519(-super.spotAnimHeight, 0, (byte) 2, 0);
-                    class44_sub3_sub4_sub4_2.method513((byte) 3);
-                    class44_sub3_sub4_sub4_2.method514(j, 188);
+                    class44_sub3_sub4_sub4_2.createLabelReference((byte) 3);
+                    class44_sub3_sub4_sub4_2.applyTransform(j, 188);
                     class44_sub3_sub4_sub4_2.anIntArrayArray1567 = null;
                     class44_sub3_sub4_sub4_2.anIntArrayArray1566 = null;
                     if (class32.anInt566 != 128 || class32.anInt567 != 128) {
                         class44_sub3_sub4_sub4_2.method522(class32.anInt566, class32.anInt566, class32.anInt567,
                                 (byte) 31);
                     }
-                    class44_sub3_sub4_sub4_2.method523(64 + class32.anInt569, 850 + class32.anInt570, -30, -50, -30,
+                    class44_sub3_sub4_sub4_2.calculateNormals(64 + class32.anInt569, 850 + class32.anInt570, -30, -50, -30,
                             true);
                     Model[] aclass44_sub3_sub4_sub4 = {class44_sub3_sub4_sub4, class44_sub3_sub4_sub4_2};
                     class44_sub3_sub4_sub4 = new Model(true, 0, aclass44_sub3_sub4_sub4, 2);

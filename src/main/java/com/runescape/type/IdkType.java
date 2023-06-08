@@ -5,11 +5,11 @@ import com.runescape.graphic.Model;
 import com.runescape.net.Buffer;
 import com.runescape.util.SignLink;
 
-public class IDKType {
+public class IdkType {
 
     public static boolean aBoolean462;
     public static int anInt463;
-    public static IDKType[] cache;
+    public static IdkType[] cache;
     public boolean aBoolean459;
     public byte aByte460;
     public int anInt461;
@@ -20,7 +20,7 @@ public class IDKType {
     public int[] anIntArray469 = {-1, -1, -1, -1, -1};
     public boolean aBoolean470;
 
-    public IDKType() {
+    public IdkType() {
         aBoolean459 = false;
         aByte460 = 4;
         anInt465 = -1;
@@ -31,15 +31,15 @@ public class IDKType {
 
     public static void unpack(FileArchive class47) {
             Buffer class44_sub3_sub2 = new Buffer(class47.read("idk.dat"));
-            IDKType.anInt463 = class44_sub3_sub2.readUnsignedShort();
-            if (IDKType.cache == null) {
-                IDKType.cache = new IDKType[IDKType.anInt463];
+            IdkType.anInt463 = class44_sub3_sub2.readUnsignedShort();
+            if (IdkType.cache == null) {
+                IdkType.cache = new IdkType[IdkType.anInt463];
             }
-            for (int i = 0; i < IDKType.anInt463; i++) {
-                if (IDKType.cache[i] == null) {
-                    IDKType.cache[i] = new IDKType();
+            for (int i = 0; i < IdkType.anInt463; i++) {
+                if (IdkType.cache[i] == null) {
+                    IdkType.cache[i] = new IdkType();
                 }
-                IDKType.cache[i].method248(false, class44_sub3_sub2);
+                IdkType.cache[i].method248(false, class44_sub3_sub2);
             }
     }
 
@@ -79,7 +79,7 @@ public class IDKType {
         throw new RuntimeException();
     }
 
-    public boolean method249(int i) {
+    public boolean validateModel(int i) {
         try {
             if (anIntArray466 == null) {
                 return true;
@@ -100,7 +100,7 @@ public class IDKType {
         throw new RuntimeException();
     }
 
-    public Model method250(int i) {
+    public Model getModel(int i) {
         try {
             if (anIntArray466 == null) {
                 return null;
@@ -122,7 +122,7 @@ public class IDKType {
                 if (anIntArray467[k] == 0) {
                     break;
                 }
-                class44_sub3_sub4_sub4.method520(anIntArray467[k], anIntArray468[k]);
+                class44_sub3_sub4_sub4.recolor(anIntArray467[k], anIntArray468[k]);
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {
@@ -167,7 +167,7 @@ public class IDKType {
                 if (anIntArray467[l] == 0) {
                     break;
                 }
-                class44_sub3_sub4_sub4.method520(anIntArray467[l], anIntArray468[l]);
+                class44_sub3_sub4_sub4.recolor(anIntArray467[l], anIntArray468[l]);
             }
             return class44_sub3_sub4_sub4;
         } catch (RuntimeException runtimeexception) {

@@ -477,8 +477,8 @@ public class LocType {
             Model class44_sub3_sub4_sub4_3 = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(i, 0), j == 0
                     && i == -1 && !flag && !flag2, anInt206, anIntArray220 == null);
             if (i != -1) {
-                class44_sub3_sub4_sub4_3.method513((byte) 3);
-                class44_sub3_sub4_sub4_3.method514(i, 188);
+                class44_sub3_sub4_sub4_3.createLabelReference((byte) 3);
+                class44_sub3_sub4_sub4_3.applyTransform(i, 188);
                 class44_sub3_sub4_sub4_3.anIntArrayArray1567 = null;
                 class44_sub3_sub4_sub4_3.anIntArrayArray1566 = null;
             }
@@ -487,7 +487,7 @@ public class LocType {
             }
             if (anIntArray220 != null) {
                 for (int j2 = 0; j2 < anIntArray220.length; j2++) {
-                    class44_sub3_sub4_sub4_3.method520(anIntArray220[j2], anIntArray221[j2]);
+                    class44_sub3_sub4_sub4_3.recolor(anIntArray220[j2], anIntArray221[j2]);
                 }
             }
             if (flag) {
@@ -496,7 +496,7 @@ public class LocType {
             if (flag2) {
                 class44_sub3_sub4_sub4_3.method519(anInt243, anInt242, (byte) 2, anInt244);
             }
-            class44_sub3_sub4_sub4_3.method523(64 + aByte232, 768 + aByte233 * 5, -50, -10, -50, !aBoolean228);
+            class44_sub3_sub4_sub4_3.calculateNormals(64 + aByte232, 768 + aByte233 * 5, -50, -10, -50, !aBoolean228);
             if (anInt248 == 1) {
                 class44_sub3_sub4_sub4_3.anInt1563 = class44_sub3_sub4_sub4_3.anInt1412;
             }

@@ -165,8 +165,8 @@ public class Draw2D extends CacheableNode {
 
     public static void drawRect(int x, int y, int width, int height, int colour, int i) {
         try {
-            Draw2D.method414(width, x, colour, true, y);
-            Draw2D.method414(width, x, colour, true, (y + height) - 1);
+            Draw2D.drawLineX(width, x, colour, true, y);
+            Draw2D.drawLineX(width, x, colour, true, (y + height) - 1);
             Draw2D.method416(y, x, colour, height, 0);
             if (i < Draw2D.anInt1367 || i > Draw2D.anInt1367) {
                 Draw2D.aBoolean1364 = !Draw2D.aBoolean1364;
@@ -199,7 +199,7 @@ public class Draw2D extends CacheableNode {
         }
     }
 
-    public static void method414(int i, int j, int k, boolean flag, int l) {
+    public static void drawLineX(int i, int j, int k, boolean flag, int l) {
         try {
             if (!flag) {
                 return;

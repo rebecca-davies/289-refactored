@@ -486,10 +486,10 @@ public class ObjType {
         }
         if (anIntArray333 != null) {
             for (int l = 0; l < anIntArray333.length; l++) {
-                class44_sub3_sub4_sub4.method520(anIntArray333[l], anIntArray334[l]);
+                class44_sub3_sub4_sub4.recolor(anIntArray333[l], anIntArray334[l]);
             }
         }
-        class44_sub3_sub4_sub4.method523(64 + anInt366, 768 + anInt367, -50, -10, -50, true);
+        class44_sub3_sub4_sub4.calculateNormals(64 + anInt366, 768 + anInt367, -50, -10, -50, true);
         class44_sub3_sub4_sub4.aBoolean1568 = true;
         ObjType.aClass39_369.method340(id, (byte) 76, class44_sub3_sub4_sub4);
         return class44_sub3_sub4_sub4;
@@ -517,7 +517,7 @@ public class ObjType {
             }
             if (anIntArray333 != null) {
                 for (int l = 0; l < anIntArray333.length; l++) {
-                    class44_sub3_sub4_sub4.method520(anIntArray333[l], anIntArray334[l]);
+                    class44_sub3_sub4_sub4.recolor(anIntArray333[l], anIntArray334[l]);
                 }
             }
             return class44_sub3_sub4_sub4;
@@ -595,7 +595,7 @@ public class ObjType {
             }
             if (anIntArray333 != null) {
                 for (int j1 = 0; j1 < anIntArray333.length; j1++) {
-                    class44_sub3_sub4_sub4.method520(anIntArray333[j1], anIntArray334[j1]);
+                    class44_sub3_sub4_sub4.recolor(anIntArray333[j1], anIntArray334[j1]);
                 }
             }
             return class44_sub3_sub4_sub4;
@@ -650,7 +650,7 @@ public class ObjType {
             }
             if (anIntArray333 != null) {
                 for (int i1 = 0; i1 < anIntArray333.length; i1++) {
-                    class44_sub3_sub4_sub4.method520(anIntArray333[i1], anIntArray334[i1]);
+                    class44_sub3_sub4_sub4.recolor(anIntArray333[i1], anIntArray334[i1]);
                 }
             }
             return class44_sub3_sub4_sub4;

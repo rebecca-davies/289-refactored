@@ -1072,7 +1072,7 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public void method513(byte byte0) {
+    public void createLabelReference(byte byte0) {
         try {
             if (byte0 == 3) {
                 byte0 = 0;
@@ -1128,7 +1128,7 @@ public class Model extends Renderable {
         }
     }
 
-    public void method514(int i, int j) {
+    public void applyTransform(int i, int j) {
         try {
             if (anIntArrayArray1566 == null) {
                 return;
@@ -1163,7 +1163,7 @@ public class Model extends Renderable {
                 return;
             }
             if (ai == null || j == -1) {
-                method514(i, 188);
+                applyTransform(i, 188);
                 return;
             }
             SeqFrame class11 = SeqFrame.method210(i, aByte1525);
@@ -1175,7 +1175,7 @@ public class Model extends Renderable {
                 return;
             }
             if (class11_1 == null) {
-                method514(i, 188);
+                applyTransform(i, 188);
                 return;
             }
             Skins class9 = class11.aClass9_266;
@@ -1402,7 +1402,7 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public void method520(int i, int j) {
+    public void recolor(int i, int j) {
         for (int k = 0; k < anInt1539; k++) {
             if (anIntArray1549[k] == i) {
                 anIntArray1549[k] = j;
@@ -1448,7 +1448,7 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public void method523(int i, int j, int k, int l, int i1, boolean flag) {
+    public void calculateNormals(int i, int j, int k, int l, int i1, boolean flag) {
         int j1 = (int) Math.sqrt(k * k + l * l + i1 * i1);
         int k1 = j * j1 >> 8;
         if (anIntArray1543 == null) {

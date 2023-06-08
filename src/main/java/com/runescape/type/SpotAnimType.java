@@ -102,7 +102,7 @@ public class SpotAnimType {
         }
         for (int i = 0; i < 6; i++) {
             if (anIntArray564[0] != 0) {
-                class44_sub3_sub4_sub4.method520(anIntArray564[i], anIntArray565[i]);
+                class44_sub3_sub4_sub4.recolor(anIntArray564[i], anIntArray565[i]);
             }
         }
         SpotAnimType.aClass39_571.method340(anInt560, (byte) 76, class44_sub3_sub4_sub4);

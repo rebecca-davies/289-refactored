@@ -291,7 +291,7 @@ public class Component {
             Component.spriteCache = null;
     }
 
-    public static void method185(int i, Model class44_sub3_sub4_sub4, int j, int k) {
+    public static void cacheModel(int i, Model class44_sub3_sub4_sub4, int j, int k) {
         try {
             Component.aClass39_162.method341();
             if (j != 9) {
@@ -368,15 +368,15 @@ public class Component {
             Model class44_sub3_sub4_sub4_1 = new Model(class44_sub3_sub4_sub4, SeqFrame.method211(k, 0)
                     & SeqFrame.method211(j, 0), false, anInt99, true);
             if (k != -1 || j != -1) {
-                class44_sub3_sub4_sub4_1.method513((byte) 3);
+                class44_sub3_sub4_sub4_1.createLabelReference((byte) 3);
             }
             if (k != -1) {
-                class44_sub3_sub4_sub4_1.method514(k, 188);
+                class44_sub3_sub4_sub4_1.applyTransform(k, 188);
             }
             if (j != -1) {
-                class44_sub3_sub4_sub4_1.method514(j, 188);
+                class44_sub3_sub4_sub4_1.applyTransform(j, 188);
             }
-            class44_sub3_sub4_sub4_1.method523(64, 768, -50, -10, -50, true);
+            class44_sub3_sub4_sub4_1.calculateNormals(64, 768, -50, -10, -50, true);
             return class44_sub3_sub4_sub4_1;
     }
 

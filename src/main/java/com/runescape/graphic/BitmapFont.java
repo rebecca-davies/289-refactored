@@ -285,7 +285,7 @@ public class BitmapFont extends Draw2D {
                 }
             }
             if (aBoolean1480) {
-                Draw2D.method414(x - i1, i1, 0x800000, true, y + (int) (height * 0.69999999999999996D));
+                Draw2D.drawLineX(x - i1, i1, 0x800000, true, y + (int) (height * 0.69999999999999996D));
                 return;
             }
     }
