@@ -4491,11 +4491,11 @@ public class Game extends GameShell {
                 BitmapFont font = fontPlain;
                 int line = 0;
                 Draw2D.setBounds(463, 77, 0, 0);
-                for (int i = 0; i < 100; i++) {
-                    if (chatMessages[i] != null) {
-                        int type = chatTypes[i];
+                for (int j = 0; j < 100; j++) {
+                    if (chatMessages[j] != null) {
+                        int type = chatTypes[j];
                         int y = (70 - line * 14) + chatScrollOffset;
-                        String sender = chatNames[i];
+                        String sender = chatNames[j];
                         byte icon = 0;
                         if (sender != null && sender.startsWith("@cr1@")) {
                             sender = sender.substring(5);
@@ -4507,7 +4507,7 @@ public class Game extends GameShell {
                         }
                         if (type == 0) {
                             if (y > 0 && y < 110) {
-                                font.drawText(chatMessages[i], y, 4, 0);
+                                font.drawText(chatMessages[j], y, 4, 0);
                             }
                             line++;
                         }
@@ -4524,7 +4524,7 @@ public class Game extends GameShell {
                                 }
                                 font.drawText(sender + ":", y, x, 0);
                                 x += font.getTextDisplayedWidth(sender) + 8;
-                                font.drawText(chatMessages[i], y, x, 255);
+                                font.drawText(chatMessages[j], y, x, 255);
                             }
                             line++;
                         }
@@ -4544,34 +4544,34 @@ public class Game extends GameShell {
                                 }
                                 font.drawText(sender + ":", y, x, 0);
                                 x += font.getTextDisplayedWidth(sender) + 8;
-                                font.drawText(chatMessages[i], y, x, 0x800000);
+                                font.drawText(chatMessages[j], y, x, 0x800000);
                             }
                             line++;
                         }
                         if (type == 4 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(sender))) {
                             if (y > 0 && y < 110) {
-                                font.drawText(sender + " " + chatMessages[i], y, 4, 0x800080
+                                font.drawText(sender + " " + chatMessages[j], y, 4, 0x800080
                                 );
                             }
                             line++;
                         }
                         if (type == 5 && splitPrivateChat == 0 && privateChatMode < 2) {
                             if (y > 0 && y < 110) {
-                                font.drawText(chatMessages[i], y, 4, 0x800000);
+                                font.drawText(chatMessages[j], y, 4, 0x800000);
                             }
                             line++;
                         }
                         if (type == 6 && splitPrivateChat == 0 && privateChatMode < 2) {
                             if (y > 0 && y < 110) {
                                 font.drawText("To " + sender + ":", y, 4, 0);
-                                font.drawText(chatMessages[i], y, 12 + font.getTextDisplayedWidth("To " + sender), 0x800000
+                                font.drawText(chatMessages[j], y, 12 + font.getTextDisplayedWidth("To " + sender), 0x800000
                                 );
                             }
                             line++;
                         }
                         if (type == 8 && (tradeChatSetting == 0 || tradeChatSetting == 1 && isFriendOrSelf(sender))) {
                             if (y > 0 && y < 110) {
-                                font.drawText(sender + " " + chatMessages[i], y, 4, 0x7e3200
+                                font.drawText(sender + " " + chatMessages[j], y, 4, 0x7e3200
                                 );
                             }
                             line++;
