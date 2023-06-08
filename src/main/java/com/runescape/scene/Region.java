@@ -215,7 +215,7 @@ public class Region {
         return (i & 0xff80) + j;
     }
 
-    public static boolean method173(int i, int j, int k) {
+    public static boolean isLocReady(int i, int j, int k) {
         try {
             if (k <= 0) {
                 for (int l = 1; l > 0; l++) {

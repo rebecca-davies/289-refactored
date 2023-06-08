@@ -316,7 +316,7 @@ public class OnDemandRequester extends Requester implements Runnable {
                 return;
             }
             synchronized (aClass28_1306) {
-                aClass28_1306.method263();
+                aClass28_1306.clear();
             }
             return;
         } catch (RuntimeException runtimeexception) {

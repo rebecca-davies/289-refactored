@@ -116,7 +116,7 @@ public class Scene {
             tiles = new SceneTile[j][i][k];
             anIntArrayArrayArray615 = new int[j][i + 1][k + 1];
             anIntArrayArrayArray610 = ai;
-            method278(true);
+            reset(true);
     }
 
     public static void method277() {
@@ -249,7 +249,7 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public void method278(boolean flag) {
+    public void reset(boolean flag) {
         try {
             for (int i = 0; i < anInt607; i++) {
                 for (int j = 0; j < anInt608; j++) {

@@ -35,14 +35,14 @@ public class CollisionMap {
             anInt417 = j;
             flags = new int[anInt416][anInt417];
             i = 13 / i;
-            method231(3);
+            reset(3);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("80242, " + i + ", " + j + ", " + k + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }
 
-    public void method231(int i) {
+    public void reset(int i) {
         try {
             for (int j = 0; j < anInt416; j++) {
                 for (int k = 0; k < anInt417; k++) {

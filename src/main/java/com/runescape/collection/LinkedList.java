@@ -133,7 +133,7 @@ public class LinkedList {
         throw new RuntimeException();
     }
 
-    public void method263() {
+    public void clear() {
         if (head.previousNode == head) {
             return;
         }

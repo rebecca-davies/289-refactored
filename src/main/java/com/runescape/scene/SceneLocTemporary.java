@@ -8,9 +8,9 @@ public class SceneLocTemporary extends Node {
     public int locType;
     public int sceneTileX;
     public int sceneTileZ;
-    public int anInt1327;
-    public int anInt1328;
-    public int anInt1329;
+    public int previousId;
+    public int id;
+    public int previousType;
     public int id2;
     public int face2;
     public int type2;

@@ -392,7 +392,7 @@ public class Component {
             class44_sub3_sub4_sub4 = NpcType.lookup(j).method217((byte) 105);
         }
         if (i == 3) {
-            class44_sub3_sub4_sub4 = Game.self.method539(false);
+            class44_sub3_sub4_sub4 = Game.localPlayer.method539(false);
         }
         if (i == 4) {
             class44_sub3_sub4_sub4 = ObjType.lookup(j).method225(true, 50);
