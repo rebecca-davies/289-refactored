@@ -17,59 +17,59 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public int anInt2;
     public int anInt3;
     public int anInt4;
-    public int anInt5;
-    public int anInt6;
+    public int state;
+    public int deltaTime;
     public int mindel;
-    public long[] aLongArray8;
-    public int anInt9;
-    public boolean aBoolean10;
+    public long[] otim;
+    public int fps;
+    public boolean debug;
     public int width;
     public int height;
     public Graphics graphics;
     public DrawArea aClass34_14;
     public Image24[] aClass44_Sub3_Sub1_Sub2Array15;
-    public GameFrame aFrame_Sub1_16;
-    public boolean aBoolean17;
+    public GameFrame frame;
+    public boolean refresh;
     public boolean hasFocus;
-    public int idleTime;
+    public int idleCycles;
     public int mouseButton;
     public int mouseX;
     public int mouseY;
-    public int anInt23;
-    public int anInt24;
-    public int anInt25;
-    public long aLong26;
-    public int clickType;
-    public int mousePressX;
-    public int mousePressY;
-    public long aLong30;
-    public int[] anIntArray31;
-    public int[] anIntArray32;
-    public int anInt33;
-    public int anInt34;
+    public int lastMouseclickType;
+    public int lastMouseClickX;
+    public int lastMouseClickY;
+    public long lastMouseClickTime;
+    public int mouseClickType;
+    public int mouseClickX;
+    public int mouseClickY;
+    public long mouseClickTime;
+    public int[] actionKey;
+    public int[] keyQueue;
+    public int keyQueueReadPos;
+    public int keyQueueWritePos;
 
     public GameShell() {
         aBoolean1 = false;
         anInt2 = -128;
         anInt3 = 37395;
         anInt4 = -6002;
-        anInt6 = 20;
+        deltaTime = 20;
         mindel = 1;
-        aLongArray8 = new long[10];
-        aBoolean10 = false;
+        otim = new long[10];
+        debug = false;
         aClass44_Sub3_Sub1_Sub2Array15 = new Image24[6];
-        aBoolean17 = true;
+        refresh = true;
         hasFocus = true;
-        anIntArray31 = new int[128];
-        anIntArray32 = new int[128];
+        actionKey = new int[128];
+        keyQueue = new int[128];
     }
 
     public void method1(int i, int j, int k) {
         try {
             width = j;
             height = i;
-            aFrame_Sub1_16 = new GameFrame(width, height, this);
-            graphics = method11(7).getGraphics();
+            frame = new GameFrame(width, height, this);
+            graphics = getFrame(7).getGraphics();
             if (k != 0) {
                 anInt4 = -480;
             }
@@ -89,7 +89,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 anInt3 = 4;
             }
             height = j;
-            graphics = method11(7).getGraphics();
+            graphics = this.getGraphics();
             aClass34_14 = new DrawArea(width, height);
             startThread(this, 1);
             return;
@@ -101,110 +101,109 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
     @Override
     public void run() {
-        method11(7).addMouseListener(this);
-        method11(7).addMouseMotionListener(this);
-        method11(7).addKeyListener(this);
-        method11(7).addFocusListener(this);
-        if (aFrame_Sub1_16 != null) {
-            aFrame_Sub1_16.addWindowListener(this);
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
+        this.addKeyListener(this);
+        this.addFocusListener(this);
+        if (frame != null) {
+            frame.addWindowListener(this);
         }
         showProgress(0, "Loading...");
         startUp();
-        int i = 0;
-        int j = 256;
-        int k = 1;
-        int i1 = 0;
-        int j1 = 0;
-        for (int k1 = 0; k1 < 10; k1++) {
-            aLongArray8[k1] = System.currentTimeMillis();
+        int opos = 0;
+        int ratio = 256;
+        int delta = 1;
+        int count = 0;
+        int intex = 0;
+        for (int i = 0; i < 10; i++) {
+            otim[i] = System.currentTimeMillis();
         }
-        System.currentTimeMillis();
-        while (anInt5 >= 0) {
-            if (anInt5 > 0) {
-                anInt5--;
-                if (anInt5 == 0) {
-                    method3(0);
+        while (state >= 0) {
+            if (state > 0) {
+                state--;
+                if (state == 0) {
+                    shutdown(0);
                     return;
                 }
             }
-            int i2 = j;
-            int j2 = k;
-            j = 300;
-            k = 1;
-            long l1 = System.currentTimeMillis();
-            if (aLongArray8[i] == 0L) {
-                j = i2;
-                k = j2;
-            } else if (l1 > aLongArray8[i]) {
-                j = (int) (2560 * anInt6 / (l1 - aLongArray8[i]));
+            int lastRatio = ratio;
+            int lastDelta = delta;
+            ratio = 300;
+            delta = 1;
+            long ntime = System.currentTimeMillis();
+            if (otim[opos] == 0L) {
+                ratio = lastRatio;
+                delta = lastDelta;
+            } else if (ntime > otim[opos]) {
+                ratio = (int) (2560 * deltaTime / (ntime - otim[opos]));
             }
-            if (j < 25) {
-                j = 25;
+            if (ratio < 25) {
+                ratio = 25;
             }
-            if (j > 256) {
-                j = 256;
-                k = (int) (anInt6 - (l1 - aLongArray8[i]) / 10L);
+            if (ratio > 256) {
+                ratio = 256;
+                delta = (int) (deltaTime - (ntime - otim[opos]) / 10L);
             }
-            if (k > anInt6) {
-                k = anInt6;
+            if (delta > deltaTime) {
+                delta = deltaTime;
             }
-            aLongArray8[i] = l1;
-            i = (i + 1) % 10;
-            if (k > 1) {
-                for (int k2 = 0; k2 < 10; k2++) {
-                    if (aLongArray8[k2] != 0L) {
-                        aLongArray8[k2] += k;
+            otim[opos] = ntime;
+            opos = (opos + 1) % 10;
+            if (delta > 1) {
+                for (int i = 0; i < 10; i++) {
+                    if (otim[i] != 0L) {
+                        otim[i] += delta;
                     }
                 }
             }
-            if (k < mindel) {
-                k = mindel;
+            if (delta < mindel) {
+                delta = mindel;
             }
             try {
-                Thread.sleep(k);
+                Thread.sleep(delta);
             } catch (InterruptedException _ex) {
-                j1++;
+                intex++;
             }
-            for (; i1 < 256; i1 += j) {
-                clickType = anInt23;
-                mousePressX = anInt24;
-                mousePressY = anInt25;
-                aLong30 = aLong26;
-                anInt23 = 0;
-                method7(9);
-                anInt33 = anInt34;
+            for (; count < 256; count += ratio) {
+                mouseClickType = lastMouseclickType;
+                mouseClickX = lastMouseClickX;
+                mouseClickY = lastMouseClickY;
+                mouseClickTime = lastMouseClickTime;
+                lastMouseclickType = 0;
+                update(9);
+                keyQueueReadPos = keyQueueWritePos;
             }
-            i1 &= 0xff;
-            if (anInt6 > 0) {
-                anInt9 = (1000 * j) / (anInt6 * 256);
+            count &= 0xff;
+            if (deltaTime > 0) {
+                fps = (1000 * ratio) / (deltaTime * 256);
             }
-            method9((byte) 1);
-            if (aBoolean10) {
-                System.out.println("ntime:" + l1);
+            draw((byte) 1);
+            if (debug) {
+                System.out.println("ntime:" + ntime);
                 for (int l2 = 0; l2 < 10; l2++) {
-                    int i3 = ((i - l2 - 1) + 20) % 10;
-                    System.out.println("otim" + i3 + ":" + aLongArray8[i3]);
+                    int i3 = ((opos - l2 - 1) + 20) % 10;
+                    System.out.println("otim" + i3 + ":" + otim[i3]);
                 }
-                System.out.println("fps:" + anInt9 + " ratio:" + j + " count:" + i1);
-                System.out.println("del:" + k + " deltime:" + anInt6 + " mindel:" + mindel);
-                System.out.println("intex:" + j1 + " opos:" + i);
-                aBoolean10 = false;
-                j1 = 0;
+                System.out.println("fps:" + fps + " ratio:" + ratio + " count:" + count);
+                System.out.println("del:" + delta + " deltime:" + deltaTime + " mindel:" + mindel);
+                System.out.println("intex:" + intex + " opos:" + opos);
+                debug = false;
+                intex = 0;
             }
         }
-        if (anInt5 == -1) {
-            method3(0);
+        if (state == -1) {
+            shutdown(0);
         }
     }
 
-    public void method3(int i) {
+    public void shutdown(int i) {
         try {
-            anInt5 = -2;
-            method8(874);
+            state = -2;
+            unload(874);
             if (i != 0) {
                 return;
             }
-            if (aFrame_Sub1_16 != null) {
+            if (frame != null) {
                 try {
                     Thread.sleep(1000L);
                 } catch (Exception _ex) {
@@ -222,43 +221,39 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         }
     }
 
-    public void method4(int i, int j) {
+    public void setFramerate(int fps, int j) {
         try {
-            if (j <= 0) {
+                deltaTime = 1000 / fps;
                 return;
-            } else {
-                anInt6 = 1000 / i;
-                return;
-            }
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("19917, " + i + ", " + j + ", " + runtimeexception);
+            SignLink.reporterror("19917, " + fps + ", " + j + ", " + runtimeexception);
         }
         throw new RuntimeException();
     }
 
     @Override
     public void start() {
-        if (anInt5 >= 0) {
-            anInt5 = 0;
+        if (state >= 0) {
+            state = 0;
         }
     }
 
     @Override
     public void stop() {
-        if (anInt5 >= 0) {
-            anInt5 = 4000 / anInt6;
+        if (state >= 0) {
+            state = 4000 / deltaTime;
         }
     }
 
     @Override
     public void destroy() {
-        anInt5 = -1;
+        state = -1;
         try {
             Thread.sleep(5000L);
         } catch (Exception _ex) {
         }
-        if (anInt5 == -1) {
-            method3(0);
+        if (state == -1) {
+            shutdown(0);
         }
     }
 
@@ -267,8 +262,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         if (graphics == null) {
             graphics = g;
         }
-        aBoolean17 = true;
-        method10(false);
+        refresh = true;
+        refresh(false);
     }
 
     @Override
@@ -276,194 +271,191 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         if (graphics == null) {
             graphics = g;
         }
-        aBoolean17 = true;
-        method10(false);
+        refresh = true;
+        refresh(false);
     }
 
     @Override
-    public void mousePressed(MouseEvent mouseevent) {
-        int i = mouseevent.getX();
-        int j = mouseevent.getY();
-        if (aFrame_Sub1_16 != null) {
-            i -= 4;
-            j -= 22;
+    public void mousePressed(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if (frame != null) {
+            x -= 4;
+            y -= 22;
         }
-        idleTime = 0;
-        anInt24 = i;
-        anInt25 = j;
-        aLong26 = System.currentTimeMillis();
-        if (mouseevent.isMetaDown()) {
-            anInt23 = 2;
+        idleCycles = 0;
+        lastMouseClickX = x;
+        lastMouseClickY = y;
+        lastMouseClickTime = System.currentTimeMillis();
+        if (e.isMetaDown()) {
+            lastMouseclickType = 2;
             mouseButton = 2;
             return;
         } else {
-            anInt23 = 1;
+            lastMouseclickType = 1;
             mouseButton = 1;
             return;
         }
     }
 
     @Override
-    public void mouseReleased(MouseEvent mouseevent) {
-        idleTime = 0;
+    public void mouseReleased(MouseEvent e) {
+        idleCycles = 0;
         mouseButton = 0;
     }
 
     @Override
-    public void mouseClicked(MouseEvent mouseevent) {
+    public void mouseClicked(MouseEvent e) {
     }
 
     @Override
-    public void mouseEntered(MouseEvent mouseevent) {
+    public void mouseEntered(MouseEvent e) {
     }
 
     @Override
-    public void mouseExited(MouseEvent mouseevent) {
-        idleTime = 0;
+    public void mouseExited(MouseEvent e) {
+        idleCycles = 0;
         mouseX = -1;
         mouseY = -1;
     }
 
     @Override
-    public void mouseDragged(MouseEvent mouseevent) {
-        int i = mouseevent.getX();
-        int j = mouseevent.getY();
-        if (aFrame_Sub1_16 != null) {
-            i -= 4;
-            j -= 22;
+    public void mouseDragged(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if (frame != null) {
+            x -= 4;
+            y -= 22;
         }
-        idleTime = 0;
-        mouseX = i;
-        mouseY = j;
+        idleCycles = 0;
+        mouseX = x;
+        mouseY = y;
     }
 
     @Override
-    public void mouseMoved(MouseEvent mouseevent) {
-        int i = mouseevent.getX();
-        int j = mouseevent.getY();
-        if (aFrame_Sub1_16 != null) {
-            i -= 4;
-            j -= 22;
+    public void mouseMoved(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if (frame != null) {
+            x -= 4;
+            y -= 22;
         }
-        idleTime = 0;
-        mouseX = i;
-        mouseY = j;
+        idleCycles = 0;
+        mouseX = x;
+        mouseY = y;
     }
 
     @Override
-    public void keyPressed(KeyEvent keyevent) {
-        idleTime = 0;
-        int i = keyevent.getKeyCode();
-        int j = keyevent.getKeyChar();
-        if (j < 30) {
-            j = 0;
+    public void keyPressed(KeyEvent e) {
+        idleCycles = 0;
+        int code = e.getKeyCode();
+        int value = e.getKeyChar();
+        if (value < 30) {
+            value = 0;
         }
-        if (i == 37) {
-            j = 1;
+        if (code == 37) {
+            value = 1;
         }
-        if (i == 39) {
-            j = 2;
+        if (code == 39) {
+            value = 2;
         }
-        if (i == 38) {
-            j = 3;
+        if (code == 38) {
+            value = 3;
         }
-        if (i == 40) {
-            j = 4;
+        if (code == 40) {
+            value = 4;
         }
-        if (i == 17) {
-            j = 5;
+        if (code == 17) {
+            value = 5;
         }
-        if (i == 8) {
-            j = 8;
+        if (code == 8) {
+            value = 8;
         }
-        if (i == 127) {
-            j = 8;
+        if (code == 127) {
+            value = 8;
         }
-        if (i == 9) {
-            j = 9;
+        if (code == 9) {
+            value = 9;
         }
-        if (i == 10) {
-            j = 10;
+        if (code == 10) {
+            value = 10;
         }
-        if (i >= 112 && i <= 123) {
-            j = (1008 + i) - 112;
+        if (code >= 112 && code <= 123) {
+            value = (1008 + code) - 112;
         }
-        if (i == 36) {
-            j = 1000;
+        if (code == 36) {
+            value = 1000;
         }
-        if (i == 35) {
-            j = 1001;
+        if (code == 35) {
+            value = 1001;
         }
-        if (i == 33) {
-            j = 1002;
+        if (code == 33) {
+            value = 1002;
         }
-        if (i == 34) {
-            j = 1003;
+        if (code == 34) {
+            value = 1003;
         }
-        if (j > 0 && j < 128) {
-            anIntArray31[j] = 1;
+        if (value > 0 && value < 128) {
+            actionKey[value] = 1;
         }
-        if (j > 4) {
-            anIntArray32[anInt34] = j;
-            anInt34 = anInt34 + 1 & 0x7f;
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent keyevent) {
-        idleTime = 0;
-        int i = keyevent.getKeyCode();
-        char c = keyevent.getKeyChar();
-        if (c < '\036') {
-            c = '\0';
-        }
-        if (i == 37) {
-            c = '\001';
-        }
-        if (i == 39) {
-            c = '\002';
-        }
-        if (i == 38) {
-            c = '\003';
-        }
-        if (i == 40) {
-            c = '\004';
-        }
-        if (i == 17) {
-            c = '\005';
-        }
-        if (i == 8) {
-            c = '\b';
-        }
-        if (i == 127) {
-            c = '\b';
-        }
-        if (i == 9) {
-            c = '\t';
-        }
-        if (i == 10) {
-            c = '\n';
-        }
-        if (c > 0 && c < '\200') {
-            anIntArray31[c] = 0;
+        if (value > 4) {
+            keyQueue[keyQueueWritePos] = value;
+            keyQueueWritePos = keyQueueWritePos + 1 & 0x7f;
         }
     }
 
     @Override
-    public void keyTyped(KeyEvent keyevent) {
+    public void keyReleased(KeyEvent e) {
+        idleCycles = 0;
+        int code = e.getKeyCode();
+        char value = e.getKeyChar();
+        if (value < '\036') {
+            value = '\0';
+        }
+        if (code == 37) {
+            value = '\001';
+        }
+        if (code == 39) {
+            value = '\002';
+        }
+        if (code == 38) {
+            value = '\003';
+        }
+        if (code == 40) {
+            value = '\004';
+        }
+        if (code == 17) {
+            value = '\005';
+        }
+        if (code == 8) {
+            value = '\b';
+        }
+        if (code == 127) {
+            value = '\b';
+        }
+        if (code == 9) {
+            value = '\t';
+        }
+        if (code == 10) {
+            value = '\n';
+        }
+        if (value > 0 && value < '\200') {
+            actionKey[value] = 0;
+        }
     }
 
-    public int method5(int i) {
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    public int pollKey(int i) {
         try {
-            int j = -1;
-            if (i >= 0) {
-                aBoolean1 = !aBoolean1;
+            int key = -1;
+            if (keyQueueWritePos != keyQueueReadPos) {
+                key = keyQueue[keyQueueReadPos];
+                keyQueueReadPos = keyQueueReadPos + 1 & 0x7f;
             }
-            if (anInt34 != anInt33) {
-                j = anIntArray32[anInt33];
-                anInt33 = anInt33 + 1 & 0x7f;
-            }
-            return j;
+            return key;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("9078, " + i + ", " + runtimeexception);
         }
@@ -471,17 +463,17 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     }
 
     @Override
-    public void focusGained(FocusEvent focusevent) {
+    public void focusGained(FocusEvent e) {
         hasFocus = true;
-        aBoolean17 = true;
-        method10(false);
+        refresh = true;
+        refresh(false);
     }
 
     @Override
-    public void focusLost(FocusEvent focusevent) {
+    public void focusLost(FocusEvent e) {
         hasFocus = false;
         for (int i = 0; i < 128; i++) {
-            anIntArray31[i] = 0;
+            actionKey[i] = 0;
         }
     }
 
@@ -517,7 +509,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
     public void startUp() {
     }
 
-    public void method7(int i) {
+    public void update(int i) {
         try {
             if (i != 9) {
                 return;
@@ -528,7 +520,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         }
     }
 
-    public void method8(int i) {
+    public void unload(int i) {
         try {
             i = 38 / i;
             return;
@@ -538,7 +530,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         throw new RuntimeException();
     }
 
-    public void method9(byte byte0) {
+    public void draw(byte byte0) {
         try {
             if (byte0 != 1) {
                 aBoolean1 = !aBoolean1;
@@ -550,7 +542,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         }
     }
 
-    public void method10(boolean flag) {
+    public void refresh(boolean flag) {
         try {
             if (flag) {
                 anInt3 = 244;
@@ -562,13 +554,13 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         }
     }
 
-    public Component method11(int i) {
+    public Component getFrame(int i) {
         try {
             if (i != 7) {
                 throw new NullPointerException();
             }
-            if (aFrame_Sub1_16 != null) {
-                return aFrame_Sub1_16;
+            if (frame != null) {
+                return frame;
             } else {
                 return this;
             }
@@ -584,12 +576,12 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
         thread.setPriority(i);
     }
 
-    public void showProgress(int i, String s) {
+    public void showProgress(int i, String message) {
         try {
             while (graphics == null) {
-                graphics = method11(7).getGraphics();
+                graphics = getFrame(7).getGraphics();
                 try {
-                    method11(7).repaint();
+                    getFrame(7).repaint();
                 } catch (Exception _ex) {
                 }
                 try {
@@ -597,27 +589,25 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
                 } catch (Exception _ex) {
                 }
             }
-            Font font = new Font("Helvetica", 1, 13);
-            FontMetrics fontmetrics = method11(7).getFontMetrics(font);
-            Font font1 = new Font("Helvetica", 0, 13);
-            method11(7).getFontMetrics(font1);
-            if (aBoolean17) {
+            Font helvetica = new Font("Helvetica", 1, 13);
+            FontMetrics metrics = getFrame(7).getFontMetrics(helvetica);
+            if (refresh) {
                 graphics.setColor(Color.black);
                 graphics.fillRect(0, 0, width, height);
-                aBoolean17 = false;
+                refresh = false;
             }
             Color color = new Color(140, 17, 17);
-            int j = height / 2 - 18;
+            int y = height / 2 - 18;
             graphics.setColor(color);
-            graphics.drawRect(width / 2 - 152, j, 304, 34);
-            graphics.fillRect(width / 2 - 150, j + 2, i * 3, 30);
+            graphics.drawRect(width / 2 - 152, y, 304, 34);
+            graphics.fillRect(width / 2 - 150, y + 2, i * 3, 30);
             graphics.setColor(Color.black);
-            graphics.fillRect((width / 2 - 150) + i * 3, j + 2, 300 - i * 3, 30);
-            graphics.setFont(font);
+            graphics.fillRect((width / 2 - 150) + i * 3, y + 2, 300 - i * 3, 30);
+            graphics.setFont(helvetica);
             graphics.setColor(Color.white);
-            graphics.drawString(s, (width - fontmetrics.stringWidth(s)) / 2, j + 22);
+            graphics.drawString(message, (width - metrics.stringWidth(message)) / 2, y + 22);
         } catch (RuntimeException runtimeexception) {
-            SignLink.reporterror("88163, " + i + ", " + s + ", " + runtimeexception);
+            SignLink.reporterror("88163, " + i + ", " + message + ", " + runtimeexception);
             throw new RuntimeException();
         }
     }

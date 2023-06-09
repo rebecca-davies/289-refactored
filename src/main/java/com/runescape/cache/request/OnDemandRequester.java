@@ -146,7 +146,7 @@ public class OnDemandRequester extends Requester implements Runnable {
         aClient1296.startThread(this, 2);
     }
 
-    public void method384() {
+    public void stop() {
         aBoolean1295 = false;
     }
 

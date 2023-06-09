@@ -84,7 +84,7 @@ public class LocType {
         }
     }
 
-    public static void method198(byte byte0) {
+    public static void unload(byte byte0) {
         try {
             LocType.aClass39_251 = null;
             LocType.aClass39_252 = null;

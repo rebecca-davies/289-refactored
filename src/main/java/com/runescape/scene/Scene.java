@@ -119,7 +119,7 @@ public class Scene {
             reset(true);
     }
 
-    public static void method277() {
+    public static void unload() {
                 Scene.aClass30Array632 = null;
                 Scene.anIntArray643 = null;
                 Scene.aClass23ArrayArray644 = null;
@@ -526,8 +526,8 @@ public class Scene {
         throw new RuntimeException();
     }
 
-    public boolean method289(int i, int j, int k, int l, int i1, Renderable class44_sub3_sub4, int j1, boolean flag,
-                             int k1, int l1) {
+    public boolean addTemporaryLoc(int i, int j, int k, int l, int i1, Renderable class44_sub3_sub4, int j1, boolean flag,
+                                   int k1, int l1) {
         try {
             if (class44_sub3_sub4 == null) {
                 return true;

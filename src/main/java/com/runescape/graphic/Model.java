@@ -689,7 +689,7 @@ public class Model extends Renderable {
         throw new RuntimeException();
     }
 
-    public static void method502(byte byte0) {
+    public static void unload(byte byte0) {
         try {
             Model.aClass21Array1570 = null;
             Model.aBooleanArray1572 = null;

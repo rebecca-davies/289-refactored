@@ -9,9 +9,9 @@ public class Actor extends Renderable {
     public boolean aBoolean1614;
     public int x;
     public int z;
-    public int anInt1617;
-    public boolean aBoolean1618;
-    public int anInt1619;
+    public int yaw;
+    public boolean needsForwardDrawPadding;
+    public int size;
     public int standSeqId;
     public int standTurnSeqId;
     public int walkSeqId;
@@ -66,8 +66,8 @@ public class Actor extends Renderable {
     public Actor() {
         aBoolean1613 = false;
         aBoolean1614 = false;
-        aBoolean1618 = false;
-        anInt1619 = 1;
+        needsForwardDrawPadding = false;
+        size = 1;
         standSeqId = -1;
         standTurnSeqId = -1;
         walkSeqId = -1;
@@ -93,7 +93,7 @@ public class Actor extends Renderable {
 
     public void method532(int i, boolean flag, int j, byte byte0) {
         try {
-            if (primarySeq != -1 && SeqType.instances[primarySeq].anInt521 == 1) {
+            if (primarySeq != -1 && SeqType.cache[primarySeq].anInt521 == 1) {
                 primarySeq = -1;
             }
             if (!flag) {
@@ -119,13 +119,13 @@ public class Actor extends Renderable {
             anInt1668 = 0;
             pathTileX[0] = i;
             pathTileZ[0] = j;
-            x = pathTileX[0] * 128 + anInt1619 * 64;
+            x = pathTileX[0] * 128 + size * 64;
             if (byte0 == 1) {
                 byte0 = 0;
             } else {
                 aBoolean1613 = !aBoolean1613;
             }
-            z = pathTileZ[0] * 128 + anInt1619 * 64;
+            z = pathTileZ[0] * 128 + size * 64;
             return;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("61882, " + i + ", " + flag + ", " + j + ", " + byte0 + ", "
@@ -166,7 +166,7 @@ public class Actor extends Renderable {
                 k++;
                 l--;
             }
-            if (primarySeq != -1 && SeqType.instances[primarySeq].anInt521 == 1) {
+            if (primarySeq != -1 && SeqType.cache[primarySeq].anInt521 == 1) {
                 primarySeq = -1;
             }
             if (anInt1664 < 9) {
@@ -203,7 +203,7 @@ public class Actor extends Renderable {
         throw new RuntimeException();
     }
 
-    public boolean method535(boolean flag) {
+    public boolean isVisible(boolean flag) {
         try {
             if (!flag) {
                 throw new NullPointerException();

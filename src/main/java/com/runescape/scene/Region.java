@@ -1030,7 +1030,7 @@ public class Region {
                         if (j9 >= 0 && j9 < anInt66) {
                             int k12 = aByteArrayArrayArray70[k][j9][l7] & 0xff;
                             if (k12 > 0) {
-                                FloType class20 = FloType.aClass20Array430[k12 - 1];
+                                FloType class20 = FloType.cache[k12 - 1];
                                 anIntArray76[l7] += class20.anInt439;
                                 anIntArray77[l7] += class20.anInt437;
                                 anIntArray78[l7] += class20.anInt438;
@@ -1042,7 +1042,7 @@ public class Region {
                         if (l12 >= 0 && l12 < anInt66) {
                             int l13 = aByteArrayArrayArray70[k][l12][l7] & 0xff;
                             if (l13 > 0) {
-                                FloType class20_1 = FloType.aClass20Array430[l13 - 1];
+                                FloType class20_1 = FloType.cache[l13 - 1];
                                 anIntArray76[l7] -= class20_1.anInt439;
                                 anIntArray77[l7] -= class20_1.anInt437;
                                 anIntArray78[l7] -= class20_1.anInt438;
@@ -1107,7 +1107,7 @@ public class Region {
                                     }
                                     if (k > 0) {
                                         boolean flag = k18 != 0 || aByteArrayArrayArray72[k][k6][j17] == 0;
-                                        if (l18 > 0 && !FloType.aClass20Array430[l18 - 1].aBoolean435) {
+                                        if (l18 > 0 && !FloType.cache[l18 - 1].aBoolean435) {
                                             flag = false;
                                         }
                                         if (flag && i19 == j19 && i19 == k19 && i19 == l19) {
@@ -1126,7 +1126,7 @@ public class Region {
                                     } else {
                                         int j22 = aByteArrayArrayArray72[k][k6][j17] + 1;
                                         byte byte5 = aByteArrayArrayArray73[k][k6][j17];
-                                        FloType class20_2 = FloType.aClass20Array430[l18 - 1];
+                                        FloType class20_2 = FloType.cache[l18 - 1];
                                         int l22 = class20_2.anInt433;
                                         int i23;
                                         int j23;

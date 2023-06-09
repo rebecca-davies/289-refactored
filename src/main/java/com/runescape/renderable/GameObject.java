@@ -36,7 +36,7 @@ public class GameObject extends Renderable {
                 throw new NullPointerException();
             }
             if (k1 != -1) {
-                aClass26_1489 = SeqType.instances[k1];
+                aClass26_1489 = SeqType.cache[k1];
                 anInt1490 = 0;
                 anInt1491 = Game.loopCycle;
                 if (flag1 && aClass26_1489.anInt513 != -1) {
@@ -91,7 +91,7 @@ public class GameObject extends Renderable {
                 int j1 = class35.anInt593;
                 int k1 = class35.anInt594;
                 int l1 = Game.BITMASK[k1 - j1];
-                int i2 = GameObject.game.anIntArray1214[i1] >> j1 & l1;
+                int i2 = GameObject.game.varps[i1] >> j1 & l1;
                 if (i2 < 0 || i2 >= anIntArray1493.length || anIntArray1493[i2] == -1) {
                     return null;
                 }

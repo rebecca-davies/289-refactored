@@ -7,14 +7,14 @@ import com.runescape.type.SpotAnimType;
 import com.runescape.graphic.Model;
 import com.runescape.util.SignLink;
 
-public class NPCEntity extends Actor {
+public class NpcEntity extends Actor {
 
     public int anInt1697;
     public int anInt1698;
     public boolean aBoolean1699;
-    public NpcType aClass12_1700;
+    public NpcType type;
 
-    public NPCEntity() {
+    public NpcEntity() {
         anInt1698 = 8;
         aBoolean1699 = true;
     }
@@ -22,7 +22,7 @@ public class NPCEntity extends Actor {
     @Override
     public Model getRotatedModel(int i) {
         try {
-            if (aClass12_1700 == null) {
+            if (type == null) {
                 return null;
             }
             Model class44_sub3_sub4_sub4 = method540(false);
@@ -55,7 +55,7 @@ public class NPCEntity extends Actor {
                     class44_sub3_sub4_sub4 = new Model(true, 0, aclass44_sub3_sub4_sub4, 2);
                 }
             }
-            if (aClass12_1700.aByte284 == 1) {
+            if (type.aByte284 == 1) {
                 class44_sub3_sub4_sub4.aBoolean1568 = true;
             }
             return class44_sub3_sub4_sub4;
@@ -71,18 +71,18 @@ public class NPCEntity extends Actor {
                 aBoolean1699 = !aBoolean1699;
             }
             if (super.primarySeq >= 0 && super.primarySeqDelays == 0) {
-                int i = SeqType.instances[super.primarySeq].primaryFrames[super.currentSeqFrame];
+                int i = SeqType.cache[super.primarySeq].primaryFrames[super.currentSeqFrame];
                 int k = -1;
                 if (super.anInt1640 >= 0 && super.anInt1640 != super.standSeqId) {
-                    k = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
+                    k = SeqType.cache[super.anInt1640].primaryFrames[super.anInt1641];
                 }
-                return aClass12_1700.method216(0, k, i, SeqType.instances[super.primarySeq].anIntArray514);
+                return type.method216(0, k, i, SeqType.cache[super.primarySeq].anIntArray514);
             }
             int j = -1;
             if (super.anInt1640 >= 0) {
-                j = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
+                j = SeqType.cache[super.anInt1640].primaryFrames[super.anInt1641];
             }
-            return aClass12_1700.method216(0, -1, j, null);
+            return type.method216(0, -1, j, null);
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("99332, " + flag + ", " + runtimeexception);
         }
@@ -90,12 +90,12 @@ public class NPCEntity extends Actor {
     }
 
     @Override
-    public boolean method535(boolean flag) {
+    public boolean isVisible(boolean flag) {
         try {
             if (!flag) {
                 anInt1698 = -80;
             }
-            return aClass12_1700 != null;
+            return type != null;
         } catch (RuntimeException runtimeexception) {
             SignLink.reporterror("4937, " + flag + ", " + runtimeexception.toString());
         }

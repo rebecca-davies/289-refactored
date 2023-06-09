@@ -131,7 +131,7 @@ public class SeqFrame {
         throw new RuntimeException();
     }
 
-    public static void method209(byte byte0) {
+    public static void unload(byte byte0) {
         try {
             if (byte0 != 42) {
                 SeqFrame.anInt262 = 423;

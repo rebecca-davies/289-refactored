@@ -8,7 +8,7 @@ public class SeqType {
 
     public static boolean aBoolean506 = true;
     public static int anInt507;
-    public static SeqType[] instances;
+    public static SeqType[] cache;
     public static int anInt524;
     public boolean aBoolean504;
     public byte aByte505;
@@ -44,14 +44,14 @@ public class SeqType {
     public static void unpack(FileArchive class47) {
             Buffer class44_sub3_sub2 = new Buffer(class47.read("seq.dat"));
             SeqType.anInt507 = class44_sub3_sub2.readUnsignedShort();
-            if (SeqType.instances == null) {
-                SeqType.instances = new SeqType[SeqType.anInt507];
+            if (SeqType.cache == null) {
+                SeqType.cache = new SeqType[SeqType.anInt507];
             }
             for (int i = 0; i < SeqType.anInt507; i++) {
-                if (SeqType.instances[i] == null) {
-                    SeqType.instances[i] = new SeqType();
+                if (SeqType.cache[i] == null) {
+                    SeqType.cache[i] = new SeqType();
                 }
-                SeqType.instances[i].method255(false, class44_sub3_sub2);
+                SeqType.cache[i].method255(false, class44_sub3_sub2);
             }
     }
 

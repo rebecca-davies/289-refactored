@@ -44,7 +44,7 @@ public class Connection implements Runnable {
         }
     }
 
-    public void method191() {
+    public void close() {
         aBoolean196 = true;
         try {
             if (anInputStream193 != null) {

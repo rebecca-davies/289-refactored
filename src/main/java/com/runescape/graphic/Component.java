@@ -12,7 +12,7 @@ import com.runescape.util.TextUtils;
 
 public class Component {
 
-    public static Component[] instances;
+    public static Component[] cache;
     public static Cache aClass39_162 = new Cache((byte) 7, 30);
     public static Cache spriteCache;
     public byte aByte98;
@@ -88,14 +88,14 @@ public class Component {
             Buffer class44_sub3_sub2 = new Buffer(widgetArchive.read("data"));
             int j = -1;
             int k = class44_sub3_sub2.readUnsignedShort();
-            Component.instances = new Component[k];
+            Component.cache = new Component[k];
             while (class44_sub3_sub2.position < class44_sub3_sub2.payload.length) {
                 int l = class44_sub3_sub2.readUnsignedShort();
                 if (l == 65535) {
                     j = class44_sub3_sub2.readUnsignedShort();
                     l = class44_sub3_sub2.readUnsignedShort();
                 }
-                Component class5 = Component.instances[l] = new Component();
+                Component class5 = Component.cache[l] = new Component();
                 class5.id = l;
                 class5.anInt106 = j;
                 class5.type = class44_sub3_sub2.readUnsignedByte();

@@ -38,7 +38,7 @@ public class NpcType {
     public int anInt299;
     public int anInt300;
     public int anInt301;
-    public boolean aBoolean302;
+    public boolean important;
     public int anInt303;
     public int anInt304;
     public int anInt305;
@@ -62,7 +62,7 @@ public class NpcType {
         anInt299 = -1;
         anInt300 = 128;
         anInt301 = 128;
-        aBoolean302 = false;
+        important = false;
         anInt305 = -1;
         anInt306 = 32;
     }
@@ -83,7 +83,7 @@ public class NpcType {
         }
     }
 
-    public static void method213(byte byte0) {
+    public static void unload(byte byte0) {
         try {
             NpcType.aClass39_307 = null;
             NpcType.anIntArray277 = null;
@@ -183,7 +183,7 @@ public class NpcType {
                 } else if (j == 98) {
                     anInt301 = class44_sub3_sub2.readUnsignedShort();
                 } else if (j == 99) {
-                    aBoolean302 = true;
+                    important = true;
                 } else if (j == 100) {
                     anInt303 = class44_sub3_sub2.readByte();
                 } else if (j == 101) {

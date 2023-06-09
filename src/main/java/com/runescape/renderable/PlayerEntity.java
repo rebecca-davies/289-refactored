@@ -218,9 +218,9 @@ public class PlayerEntity extends Actor {
             if (npcAppearance != null) {
                 int i = -1;
                 if (super.primarySeq >= 0 && super.primarySeqDelays == 0) {
-                    i = SeqType.instances[super.primarySeq].primaryFrames[super.currentSeqFrame];
+                    i = SeqType.cache[super.primarySeq].primaryFrames[super.currentSeqFrame];
                 } else if (super.anInt1640 >= 0) {
-                    i = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
+                    i = SeqType.cache[super.anInt1640].primaryFrames[super.anInt1641];
                 }
                 Model class44_sub3_sub4_sub4 = npcAppearance.method216(0, -1, i, null);
                 return class44_sub3_sub4_sub4;
@@ -231,10 +231,10 @@ public class PlayerEntity extends Actor {
             int i1 = -1;
             int j1 = -1;
             if (super.primarySeq >= 0 && super.primarySeqDelays == 0) {
-                SeqType class26 = SeqType.instances[super.primarySeq];
+                SeqType class26 = SeqType.cache[super.primarySeq];
                 j = class26.primaryFrames[super.currentSeqFrame];
                 if (super.anInt1640 >= 0 && super.anInt1640 != super.standSeqId) {
-                    k = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
+                    k = SeqType.cache[super.anInt1640].primaryFrames[super.anInt1641];
                 }
                 if (class26.anInt517 >= 0) {
                     i1 = class26.anInt517;
@@ -245,7 +245,7 @@ public class PlayerEntity extends Actor {
                     l += j1 - appearance[3] << 48;
                 }
             } else if (super.anInt1640 >= 0) {
-                j = SeqType.instances[super.anInt1640].primaryFrames[super.anInt1641];
+                j = SeqType.cache[super.anInt1640].primaryFrames[super.anInt1641];
             }
             Model class44_sub3_sub4_sub4_1 = (Model) PlayerEntity.aClass39_1696.method339(l);
             if (flag) {
@@ -324,7 +324,7 @@ public class PlayerEntity extends Actor {
             class44_sub3_sub4_sub4_2.method508(SeqFrame.method211(j, 0) & SeqFrame.method211(k, 0),
                     class44_sub3_sub4_sub4_1, 0);
             if (j != -1 && k != -1) {
-                class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.instances[super.primarySeq].anIntArray514);
+                class44_sub3_sub4_sub4_2.method515(j, true, k, SeqType.cache[super.primarySeq].anIntArray514);
             } else if (j != -1) {
                 class44_sub3_sub4_sub4_2.applyTransform(j, 188);
             }
@@ -399,7 +399,7 @@ public class PlayerEntity extends Actor {
     }
 
     @Override
-    public boolean method535(boolean flag) {
+    public boolean isVisible(boolean flag) {
         try {
             if (!flag) {
                 throw new NullPointerException();

@@ -5,14 +5,14 @@ import com.runescape.Game;
 public class MouseCapturer implements Runnable {
 
     public Game aClient256;
-    public boolean aBoolean257;
+    public boolean active;
     public Object anObject258;
     public int coordinatesIndex;
     public int[] anIntArray260;
     public int[] anIntArray261;
 
     public MouseCapturer(int i, Game client1) {
-        aBoolean257 = true;
+        active = true;
         anObject258 = new Object();
         anIntArray260 = new int[500];
         anIntArray261 = new int[500];
@@ -28,7 +28,7 @@ public class MouseCapturer implements Runnable {
 
     @Override
     public void run() {
-        while (aBoolean257) {
+        while (active) {
             synchronized (anObject258) {
                 if (coordinatesIndex < 500) {
                     anIntArray260[coordinatesIndex] = aClient256.mouseX;

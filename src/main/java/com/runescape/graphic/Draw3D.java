@@ -50,7 +50,7 @@ public class Draw3D extends Draw2D {
         }
     }
 
-    public static void method418(byte byte0) {
+    public static void unload(byte byte0) {
         try {
             Draw3D.anIntArray1425 = null;
             Draw3D.anIntArray1425 = null;

@@ -91,7 +91,7 @@ public class ObjType {
         }
     }
 
-    public static void method219(byte byte0) {
+    public static void unload(byte byte0) {
         try {
             ObjType.aClass39_369 = null;
             ObjType.aClass39_370 = null;

@@ -10,7 +10,7 @@ public class SpotAnimType {
 
     public static int anInt558;
     public static SpotAnimType[] cache;
-    public static Cache aClass39_571 = new Cache((byte) 7, 30);
+    public static Cache modelCache = new Cache((byte) 7, 30);
     public boolean aBoolean556;
     public byte aByte557;
     public int anInt560;
@@ -64,8 +64,8 @@ public class SpotAnimType {
                     anInt561 = class44_sub3_sub2.readUnsignedShort();
                 } else if (i == 2) {
                     anInt562 = class44_sub3_sub2.readUnsignedShort();
-                    if (SeqType.instances != null) {
-                        aClass26_563 = SeqType.instances[anInt562];
+                    if (SeqType.cache != null) {
+                        aClass26_563 = SeqType.cache[anInt562];
                     }
                 } else if (i == 4) {
                     anInt566 = class44_sub3_sub2.readUnsignedShort();
@@ -92,7 +92,7 @@ public class SpotAnimType {
     }
 
     public Model method271() {
-        Model class44_sub3_sub4_sub4 = (Model) SpotAnimType.aClass39_571.method339(anInt560);
+        Model class44_sub3_sub4_sub4 = (Model) SpotAnimType.modelCache.method339(anInt560);
         if (class44_sub3_sub4_sub4 != null) {
             return class44_sub3_sub4_sub4;
         }
@@ -105,7 +105,7 @@ public class SpotAnimType {
                 class44_sub3_sub4_sub4.recolor(anIntArray564[i], anIntArray565[i]);
             }
         }
-        SpotAnimType.aClass39_571.method340(anInt560, (byte) 76, class44_sub3_sub4_sub4);
+        SpotAnimType.modelCache.method340(anInt560, (byte) 76, class44_sub3_sub4_sub4);
         return class44_sub3_sub4_sub4;
     }
 
